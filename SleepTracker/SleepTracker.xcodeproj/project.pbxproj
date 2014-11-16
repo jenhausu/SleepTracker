@@ -13,6 +13,7 @@
 		1D78F3891A186C2F0026AFF1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D78F3881A186C2F0026AFF1 /* Images.xcassets */; };
 		1D78F38C1A186C2F0026AFF1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D78F38A1A186C2F0026AFF1 /* LaunchScreen.xib */; };
 		1D78F3981A186C2F0026AFF1 /* SleepTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D78F3971A186C2F0026AFF1 /* SleepTrackerTests.m */; };
+		1D78F3A41A186CF50026AFF1 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D78F3A31A186CF50026AFF1 /* HistoryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,8 @@
 		1D78F3911A186C2F0026AFF1 /* SleepTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D78F3961A186C2F0026AFF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D78F3971A186C2F0026AFF1 /* SleepTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SleepTrackerTests.m; sourceTree = "<group>"; };
+		1D78F3A21A186CF50026AFF1 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		1D78F3A31A186CF50026AFF1 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,8 @@
 			children = (
 				1D78F37C1A186C2F0026AFF1 /* AppDelegate.h */,
 				1D78F37D1A186C2F0026AFF1 /* AppDelegate.m */,
+				1D78F3A21A186CF50026AFF1 /* HistoryViewController.h */,
+				1D78F3A31A186CF50026AFF1 /* HistoryViewController.m */,
 				1D78F3851A186C2F0026AFF1 /* Main.storyboard */,
 				1D78F3A11A186C4B0026AFF1 /* Images */,
 				1D78F3781A186C2F0026AFF1 /* Supporting Files */,
@@ -224,6 +229,7 @@
 			files = (
 				1D78F37E1A186C2F0026AFF1 /* AppDelegate.m in Sources */,
 				1D78F37B1A186C2F0026AFF1 /* main.m in Sources */,
+				1D78F3A41A186CF50026AFF1 /* HistoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
