@@ -13,7 +13,13 @@
 		1D78F3891A186C2F0026AFF1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D78F3881A186C2F0026AFF1 /* Images.xcassets */; };
 		1D78F38C1A186C2F0026AFF1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D78F38A1A186C2F0026AFF1 /* LaunchScreen.xib */; };
 		1D78F3981A186C2F0026AFF1 /* SleepTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D78F3971A186C2F0026AFF1 /* SleepTrackerTests.m */; };
-		1D78F3A41A186CF50026AFF1 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D78F3A31A186CF50026AFF1 /* HistoryViewController.m */; };
+		1D926BBC1A4878C100EFEAC8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D926BBA1A4878C100EFEAC8 /* Model.xcdatamodeld */; };
+		1D926BBF1A489B1400EFEAC8 /* SleepData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D926BBE1A489B1400EFEAC8 /* SleepData.m */; };
+		1D926BC31A489BE400EFEAC8 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D926BC21A489BE400EFEAC8 /* AlarmViewController.m */; };
+		1D926BC61A489BFA00EFEAC8 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D926BC51A489BFA00EFEAC8 /* SettingTableViewController.m */; };
+		1D926BC91A489C1000EFEAC8 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D926BC81A489C1000EFEAC8 /* HistoryTableViewController.m */; };
+		1D926BCC1A489C2E00EFEAC8 /* StatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D926BCB1A489C2E00EFEAC8 /* StatisticViewController.m */; };
+		1DC6C2591A49EA3D002AC7F6 /* WakeUpTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC6C2581A49EA3D002AC7F6 /* WakeUpTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +44,19 @@
 		1D78F3911A186C2F0026AFF1 /* SleepTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D78F3961A186C2F0026AFF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D78F3971A186C2F0026AFF1 /* SleepTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SleepTrackerTests.m; sourceTree = "<group>"; };
-		1D78F3A21A186CF50026AFF1 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
-		1D78F3A31A186CF50026AFF1 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		1D926BBB1A4878C100EFEAC8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		1D926BBD1A489B1400EFEAC8 /* SleepData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepData.h; sourceTree = "<group>"; };
+		1D926BBE1A489B1400EFEAC8 /* SleepData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepData.m; sourceTree = "<group>"; };
+		1D926BC11A489BE400EFEAC8 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
+		1D926BC21A489BE400EFEAC8 /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
+		1D926BC41A489BFA00EFEAC8 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
+		1D926BC51A489BFA00EFEAC8 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
+		1D926BC71A489C1000EFEAC8 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
+		1D926BC81A489C1000EFEAC8 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
+		1D926BCA1A489C2E00EFEAC8 /* StatisticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticViewController.h; sourceTree = "<group>"; };
+		1D926BCB1A489C2E00EFEAC8 /* StatisticViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticViewController.m; sourceTree = "<group>"; };
+		1DC6C2571A49EA3D002AC7F6 /* WakeUpTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WakeUpTableViewController.h; sourceTree = "<group>"; };
+		1DC6C2581A49EA3D002AC7F6 /* WakeUpTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WakeUpTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +77,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D717A6D1A2A4B97001C6392 /* Histroy */ = {
+			isa = PBXGroup;
+			children = (
+				1D926BC71A489C1000EFEAC8 /* HistoryTableViewController.h */,
+				1D926BC81A489C1000EFEAC8 /* HistoryTableViewController.m */,
+			);
+			name = Histroy;
+			sourceTree = "<group>";
+		};
+		1D717A7A1A2A6FC2001C6392 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				1D926BC11A489BE400EFEAC8 /* AlarmViewController.h */,
+				1D926BC21A489BE400EFEAC8 /* AlarmViewController.m */,
+				1DC6C2571A49EA3D002AC7F6 /* WakeUpTableViewController.h */,
+				1DC6C2581A49EA3D002AC7F6 /* WakeUpTableViewController.m */,
+			);
+			name = Alarm;
+			sourceTree = "<group>";
+		};
+		1D717A7B1A2A6FD5001C6392 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				1D926BC41A489BFA00EFEAC8 /* SettingTableViewController.h */,
+				1D926BC51A489BFA00EFEAC8 /* SettingTableViewController.m */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		1D717A7C1A2A6FDE001C6392 /* Statistic */ = {
+			isa = PBXGroup;
+			children = (
+				1D926BCA1A489C2E00EFEAC8 /* StatisticViewController.h */,
+				1D926BCB1A489C2E00EFEAC8 /* StatisticViewController.m */,
+			);
+			name = Statistic;
+			sourceTree = "<group>";
+		};
 		1D78F36C1A186C2E0026AFF1 = {
 			isa = PBXGroup;
 			children = (
@@ -81,11 +136,14 @@
 		1D78F3771A186C2F0026AFF1 /* SleepTracker */ = {
 			isa = PBXGroup;
 			children = (
+				1D717A7C1A2A6FDE001C6392 /* Statistic */,
+				1D717A7B1A2A6FD5001C6392 /* Setting */,
+				1D717A7A1A2A6FC2001C6392 /* Alarm */,
 				1D78F37C1A186C2F0026AFF1 /* AppDelegate.h */,
 				1D78F37D1A186C2F0026AFF1 /* AppDelegate.m */,
-				1D78F3A21A186CF50026AFF1 /* HistoryViewController.h */,
-				1D78F3A31A186CF50026AFF1 /* HistoryViewController.m */,
+				1D717A6D1A2A4B97001C6392 /* Histroy */,
 				1D78F3851A186C2F0026AFF1 /* Main.storyboard */,
+				1D926BC01A489B1A00EFEAC8 /* Core Data */,
 				1D78F3A11A186C4B0026AFF1 /* Images */,
 				1D78F3781A186C2F0026AFF1 /* Supporting Files */,
 			);
@@ -125,6 +183,16 @@
 				1D78F38A1A186C2F0026AFF1 /* LaunchScreen.xib */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		1D926BC01A489B1A00EFEAC8 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				1D926BBA1A4878C100EFEAC8 /* Model.xcdatamodeld */,
+				1D926BBD1A489B1400EFEAC8 /* SleepData.h */,
+				1D926BBE1A489B1400EFEAC8 /* SleepData.m */,
+			);
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,9 +295,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DC6C2591A49EA3D002AC7F6 /* WakeUpTableViewController.m in Sources */,
 				1D78F37E1A186C2F0026AFF1 /* AppDelegate.m in Sources */,
+				1D926BC31A489BE400EFEAC8 /* AlarmViewController.m in Sources */,
+				1D926BC91A489C1000EFEAC8 /* HistoryTableViewController.m in Sources */,
+				1D926BCC1A489C2E00EFEAC8 /* StatisticViewController.m in Sources */,
+				1D926BBF1A489B1400EFEAC8 /* SleepData.m in Sources */,
 				1D78F37B1A186C2F0026AFF1 /* main.m in Sources */,
-				1D78F3A41A186CF50026AFF1 /* HistoryViewController.m in Sources */,
+				1D926BC61A489BFA00EFEAC8 /* SettingTableViewController.m in Sources */,
+				1D926BBC1A4878C100EFEAC8 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +494,7 @@
 				1D78F39D1A186C2F0026AFF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1D78F39E1A186C2F0026AFF1 /* Build configuration list for PBXNativeTarget "SleepTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -428,8 +503,22 @@
 				1D78F3A01A186C2F0026AFF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1D926BBA1A4878C100EFEAC8 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1D926BBB1A4878C100EFEAC8 /* Model.xcdatamodel */,
+			);
+			currentVersion = 1D926BBB1A4878C100EFEAC8 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1D78F36D1A186C2E0026AFF1 /* Project object */;
 }

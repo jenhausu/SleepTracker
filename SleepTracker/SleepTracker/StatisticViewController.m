@@ -1,18 +1,18 @@
 //
-//  HistoryViewController.m
+//  StatisticViewController.m
 //  SleepTracker
 //
-//  Created by 蘇健豪1 on 2014/11/16.
+//  Created by 蘇健豪1 on 2014/12/23.
 //  Copyright (c) 2014年 蘇健豪. All rights reserved.
 //
 
-#import "HistoryViewController.h"
+#import "StatisticViewController.h"
 
-@interface HistoryViewController ()
+@interface StatisticViewController ()
 
 @end
 
-@implementation HistoryViewController
+@implementation StatisticViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
