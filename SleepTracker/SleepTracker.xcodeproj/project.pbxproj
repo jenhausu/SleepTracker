@@ -22,6 +22,8 @@
 		1D8902041A4B5199001A69A3 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901FC1A4B5199001A69A3 /* SettingTableViewController.m */; };
 		1D8902051A4B5199001A69A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8901FD1A4B5199001A69A3 /* Main.storyboard */; };
 		1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902071A4B52C8001A69A3 /* SleepData.m */; };
+		1D8902121A4B5E46001A69A3 /* SetIntelligentNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902111A4B5E46001A69A3 /* SetIntelligentNotification.m */; };
+		1D8902151A4B5E56001A69A3 /* SetAlarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902141A4B5E56001A69A3 /* SetAlarm.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,10 @@
 		1D8901FD1A4B5199001A69A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1D8902061A4B52C8001A69A3 /* SleepData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepData.h; sourceTree = "<group>"; };
 		1D8902071A4B52C8001A69A3 /* SleepData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepData.m; sourceTree = "<group>"; };
+		1D8902101A4B5E46001A69A3 /* SetIntelligentNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetIntelligentNotification.h; sourceTree = "<group>"; };
+		1D8902111A4B5E46001A69A3 /* SetIntelligentNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetIntelligentNotification.m; sourceTree = "<group>"; };
+		1D8902131A4B5E56001A69A3 /* SetAlarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetAlarm.h; sourceTree = "<group>"; };
+		1D8902141A4B5E56001A69A3 /* SetAlarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetAlarm.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,13 +113,12 @@
 				1D8901CA1A4B5119001A69A3 /* AppDelegate.h */,
 				1D8901CB1A4B5119001A69A3 /* AppDelegate.m */,
 				1D89020A1A4B52DB001A69A3 /* Model */,
-				1D89020B1A4B52E2001A69A3 /* 紀錄 */,
-				1D89020C1A4B52EE001A69A3 /* 過去紀錄 */,
-				1D89020E1A4B5302001A69A3 /* New Group */,
-				1D89020D1A4B52FA001A69A3 /* 設定 */,
+				1D89020B1A4B52E2001A69A3 /* Alarm */,
+				1D89020C1A4B52EE001A69A3 /* History */,
+				1D89020E1A4B5302001A69A3 /* Statistic */,
+				1D89020D1A4B52FA001A69A3 /* Setting */,
 				1D8901FD1A4B5199001A69A3 /* Main.storyboard */,
-				1D8901D61A4B5119001A69A3 /* Images.xcassets */,
-				1D8901D81A4B5119001A69A3 /* LaunchScreen.xib */,
+				1D89020F1A4B5C84001A69A3 /* Images */,
 				1D8902091A4B52D0001A69A3 /* CoreData */,
 				1D8901C61A4B5119001A69A3 /* Supporting Files */,
 			);
@@ -163,11 +168,15 @@
 				1D8901F01A4B5199001A69A3 /* SleepDataModel.m */,
 				1D8901F11A4B5199001A69A3 /* SetLocalNotification.h */,
 				1D8901F21A4B5199001A69A3 /* SetLocalNotification.m */,
+				1D8902101A4B5E46001A69A3 /* SetIntelligentNotification.h */,
+				1D8902111A4B5E46001A69A3 /* SetIntelligentNotification.m */,
+				1D8902131A4B5E56001A69A3 /* SetAlarm.h */,
+				1D8902141A4B5E56001A69A3 /* SetAlarm.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
 		};
-		1D89020B1A4B52E2001A69A3 /* 紀錄 */ = {
+		1D89020B1A4B52E2001A69A3 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
 				1D8901F31A4B5199001A69A3 /* AlarmViewController.h */,
@@ -175,34 +184,43 @@
 				1D8901F51A4B5199001A69A3 /* WakeUpTableViewController.h */,
 				1D8901F61A4B5199001A69A3 /* WakeUpTableViewController.m */,
 			);
-			name = "紀錄";
+			name = Alarm;
 			sourceTree = "<group>";
 		};
-		1D89020C1A4B52EE001A69A3 /* 過去紀錄 */ = {
+		1D89020C1A4B52EE001A69A3 /* History */ = {
 			isa = PBXGroup;
 			children = (
 				1D8901F71A4B5199001A69A3 /* HistoryTableViewController.h */,
 				1D8901F81A4B5199001A69A3 /* HistoryTableViewController.m */,
 			);
-			name = "過去紀錄";
+			name = History;
 			sourceTree = "<group>";
 		};
-		1D89020D1A4B52FA001A69A3 /* 設定 */ = {
+		1D89020D1A4B52FA001A69A3 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
 				1D8901FB1A4B5199001A69A3 /* SettingTableViewController.h */,
 				1D8901FC1A4B5199001A69A3 /* SettingTableViewController.m */,
 			);
-			name = "設定";
+			name = Setting;
 			sourceTree = "<group>";
 		};
-		1D89020E1A4B5302001A69A3 /* New Group */ = {
+		1D89020E1A4B5302001A69A3 /* Statistic */ = {
 			isa = PBXGroup;
 			children = (
 				1D8901F91A4B5199001A69A3 /* StatisticViewController.h */,
 				1D8901FA1A4B5199001A69A3 /* StatisticViewController.m */,
 			);
-			name = "New Group";
+			name = Statistic;
+			sourceTree = "<group>";
+		};
+		1D89020F1A4B5C84001A69A3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1D8901D61A4B5119001A69A3 /* Images.xcassets */,
+				1D8901D81A4B5119001A69A3 /* LaunchScreen.xib */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,12 +324,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D8902021A4B5199001A69A3 /* HistoryTableViewController.m in Sources */,
+				1D8902121A4B5E46001A69A3 /* SetIntelligentNotification.m in Sources */,
 				1D8901CC1A4B5119001A69A3 /* AppDelegate.m in Sources */,
 				1D8901CF1A4B5119001A69A3 /* SleepTracker.xcdatamodeld in Sources */,
 				1D8902011A4B5199001A69A3 /* WakeUpTableViewController.m in Sources */,
 				1D8901FE1A4B5199001A69A3 /* SleepDataModel.m in Sources */,
 				1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */,
 				1D8902041A4B5199001A69A3 /* SettingTableViewController.m in Sources */,
+				1D8902151A4B5E56001A69A3 /* SetAlarm.m in Sources */,
 				1D8902031A4B5199001A69A3 /* StatisticViewController.m in Sources */,
 				1D8901FF1A4B5199001A69A3 /* SetLocalNotification.m in Sources */,
 				1D8902001A4B5199001A69A3 /* AlarmViewController.m in Sources */,
