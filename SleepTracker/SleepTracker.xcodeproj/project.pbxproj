@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D26812A1A4C070300D510F8 /* History2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2681291A4C070300D510F8 /* History2TableViewController.m */; };
 		1D8901C91A4B5119001A69A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901C81A4B5119001A69A3 /* main.m */; };
 		1D8901CC1A4B5119001A69A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901CB1A4B5119001A69A3 /* AppDelegate.m */; };
 		1D8901CF1A4B5119001A69A3 /* SleepTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901CD1A4B5119001A69A3 /* SleepTracker.xcdatamodeld */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D2681281A4C070300D510F8 /* History2TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History2TableViewController.h; sourceTree = "<group>"; };
+		1D2681291A4C070300D510F8 /* History2TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History2TableViewController.m; sourceTree = "<group>"; };
 		1D8901C31A4B5119001A69A3 /* SleepTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D8901C71A4B5119001A69A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D8901C81A4B5119001A69A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -192,6 +195,8 @@
 			children = (
 				1D8901F71A4B5199001A69A3 /* HistoryTableViewController.h */,
 				1D8901F81A4B5199001A69A3 /* HistoryTableViewController.m */,
+				1D2681281A4C070300D510F8 /* History2TableViewController.h */,
+				1D2681291A4C070300D510F8 /* History2TableViewController.m */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 				1D8901CC1A4B5119001A69A3 /* AppDelegate.m in Sources */,
 				1D8901CF1A4B5119001A69A3 /* SleepTracker.xcdatamodeld in Sources */,
 				1D8902011A4B5199001A69A3 /* WakeUpTableViewController.m in Sources */,
+				1D26812A1A4C070300D510F8 /* History2TableViewController.m in Sources */,
 				1D8901FE1A4B5199001A69A3 /* SleepDataModel.m in Sources */,
 				1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */,
 				1D8902041A4B5199001A69A3 /* SettingTableViewController.m in Sources */,
@@ -518,6 +524,7 @@
 				1D8901EB1A4B511A001A69A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1D8901EC1A4B511A001A69A3 /* Build configuration list for PBXNativeTarget "SleepTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +533,7 @@
 				1D8901EE1A4B511A001A69A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
