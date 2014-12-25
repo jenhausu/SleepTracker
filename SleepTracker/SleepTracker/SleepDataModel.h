@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AppDelegate.h"
 
 @interface SleepDataModel : NSObject
+
+- (void)addNewGoToBedTime:(NSDate *)goToBedTime;
+- (void)addNewWakeUpTime:(NSDate *)wakeUpTime;
+- (void)addNewSleepTime:(NSNumber *)sleepTime;
+
+- (NSArray *)fetchSleepDataSortWithAscending:(BOOL)ascending;
+- (void)deleteSleepData:(NSManagedObject *)dataArray;
 
 @end
