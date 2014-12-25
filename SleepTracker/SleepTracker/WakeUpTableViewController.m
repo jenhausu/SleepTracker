@@ -12,25 +12,22 @@
 
 @property (weak) id<save> delegate;
 
+@property (nonatomic, strong) NSArray *section1;
+@property (nonatomic, strong) NSArray *section2;
+@property (nonatomic, strong) NSArray *textLabelArray;
+
 @end
 
 @implementation WakeUpTableViewController
 
-@synthesize delegate;
+@synthesize delegate, section1, section2;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    section1 = @[@"上床時間", @"起床時間"];
+    section2 = @[@"一般", @"小睡"];
+    self.textLabelArray = @[section1, section2];
 }
 
 #pragma mark - Table view data source
@@ -40,14 +37,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return [self.textLabelArray[section] count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    cell.textLabel.text = self.textLabelArray[indexPath.section][indexPath.row];
     
     return cell;
 }
