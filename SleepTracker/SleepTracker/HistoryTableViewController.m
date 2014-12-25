@@ -8,20 +8,34 @@
 
 #import "HistoryTableViewController.h"
 
+#import "SleepDataModel.h"
+#import "SleepData.h"
+
 @interface HistoryTableViewController ()
+
+@property (nonatomic, strong) SleepDataModel *sleepDataModel;
+@property (nonatomic, strong) NSArray *fetchDataArray;
+@property (nonatomic, strong) SleepData *sleepData;
 
 @end
 
 @implementation HistoryTableViewController
 
+@synthesize fetchDataArray;
+
+- (SleepDataModel *)sleepDataModel
+{
+    if (!_sleepDataModel) {
+        _sleepDataModel = [[SleepDataModel alloc] init];
+    }
+    
+    return _sleepDataModel;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,22 +46,40 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [fetchDataArray count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    self.sleepData = fetchDataArray[indexPath.row];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy/M/d ah:mm";
+    
+    NSDateFormatter *dateFormatter2 = [[NSDateFormatter alloc] init];
+    [dateFormatter2 setDateFormat:@"yyyy/M/d EEE ah:mm"];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ ~ %@",[dateFormatter stringFromDate:self.sleepData.goToBedTime], [dateFormatter2 stringFromDate:self.sleepData.wakeUpTime]];
+    
+    NSDateFormatter *dateFormatter5 = [[NSDateFormatter alloc] init];
+    [dateFormatter5 setDateFormat:@"DDD"];
+    NSInteger day = [[dateFormatter5 stringFromDate:self.sleepData.wakeUpTime] integerValue];
+    if (day % 2 == 0) {
+        cell.textLabel.textColor = [UIColor colorWithRed:0.267 green:0.486 blue:0.843 alpha:1] /*#447cd7*/;
+    } else {
+        cell.textLabel.textColor = [UIColor blackColor];
+    }
+    
+    /*self.showData = [[SLShowData alloc] init];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", self.sleepData.sleepType,[self.showData stringFromTimeInterval:[self.sleepData.sleepTime floatValue] withDigit:2]];//*/
+
     
     return cell;
 }
@@ -71,21 +103,6 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation
