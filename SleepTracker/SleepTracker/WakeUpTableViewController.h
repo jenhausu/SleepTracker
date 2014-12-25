@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol save <NSObject>
+
+- (void)wakeUp;
+
+@end
+
 @interface WakeUpTableViewController : UITableViewController
 
 @end

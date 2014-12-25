@@ -10,9 +10,13 @@
 
 @interface WakeUpTableViewController ()
 
+@property (weak) id<save> delegate;
+
 @end
 
 @implementation WakeUpTableViewController
+
+@synthesize delegate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,6 +50,11 @@
     // Configure the cell...
     
     return cell;
+}
+
+- (IBAction)save:(id)sender {
+    [delegate wakeUp];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*
