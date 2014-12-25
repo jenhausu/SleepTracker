@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D26812A1A4C070300D510F8 /* History2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2681291A4C070300D510F8 /* History2TableViewController.m */; };
 		1D7C39041A4C811800A02793 /* History3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C39031A4C811800A02793 /* History3ViewController.m */; };
+		1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C39071A4C909D00A02793 /* StatisticViewController.m */; };
 		1D8901C91A4B5119001A69A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901C81A4B5119001A69A3 /* main.m */; };
 		1D8901CC1A4B5119001A69A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901CB1A4B5119001A69A3 /* AppDelegate.m */; };
 		1D8901CF1A4B5119001A69A3 /* SleepTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901CD1A4B5119001A69A3 /* SleepTracker.xcdatamodeld */; };
@@ -20,7 +21,6 @@
 		1D8902001A4B5199001A69A3 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901F41A4B5199001A69A3 /* AlarmViewController.m */; };
 		1D8902011A4B5199001A69A3 /* WakeUpTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901F61A4B5199001A69A3 /* WakeUpTableViewController.m */; };
 		1D8902021A4B5199001A69A3 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901F81A4B5199001A69A3 /* HistoryTableViewController.m */; };
-		1D8902041A4B5199001A69A3 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901FC1A4B5199001A69A3 /* SettingTableViewController.m */; };
 		1D8902051A4B5199001A69A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8901FD1A4B5199001A69A3 /* Main.storyboard */; };
 		1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902071A4B52C8001A69A3 /* SleepData.m */; };
 		1D8902121A4B5E46001A69A3 /* SetIntelligentNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902111A4B5E46001A69A3 /* SetIntelligentNotification.m */; };
@@ -41,6 +41,8 @@
 		1D2681291A4C070300D510F8 /* History2TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History2TableViewController.m; sourceTree = "<group>"; };
 		1D7C39021A4C811800A02793 /* History3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History3ViewController.h; sourceTree = "<group>"; };
 		1D7C39031A4C811800A02793 /* History3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History3ViewController.m; sourceTree = "<group>"; };
+		1D7C39061A4C909D00A02793 /* StatisticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticViewController.h; sourceTree = "<group>"; };
+		1D7C39071A4C909D00A02793 /* StatisticViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticViewController.m; sourceTree = "<group>"; };
 		1D8901C31A4B5119001A69A3 /* SleepTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D8901C71A4B5119001A69A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D8901C81A4B5119001A69A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -62,8 +64,6 @@
 		1D8901F61A4B5199001A69A3 /* WakeUpTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WakeUpTableViewController.m; sourceTree = "<group>"; };
 		1D8901F71A4B5199001A69A3 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
 		1D8901F81A4B5199001A69A3 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
-		1D8901FB1A4B5199001A69A3 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
-		1D8901FC1A4B5199001A69A3 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		1D8901FD1A4B5199001A69A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1D8902061A4B52C8001A69A3 /* SleepData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepData.h; sourceTree = "<group>"; };
 		1D8902071A4B52C8001A69A3 /* SleepData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepData.m; sourceTree = "<group>"; };
@@ -201,8 +201,6 @@
 		1D89020D1A4B52FA001A69A3 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				1D8901FB1A4B5199001A69A3 /* SettingTableViewController.h */,
-				1D8901FC1A4B5199001A69A3 /* SettingTableViewController.m */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -210,6 +208,8 @@
 		1D89020E1A4B5302001A69A3 /* Statistic */ = {
 			isa = PBXGroup;
 			children = (
+				1D7C39061A4C909D00A02793 /* StatisticViewController.h */,
+				1D7C39071A4C909D00A02793 /* StatisticViewController.m */,
 			);
 			name = Statistic;
 			sourceTree = "<group>";
@@ -332,10 +332,10 @@
 				1D26812A1A4C070300D510F8 /* History2TableViewController.m in Sources */,
 				1D8901FE1A4B5199001A69A3 /* SleepDataModel.m in Sources */,
 				1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */,
-				1D8902041A4B5199001A69A3 /* SettingTableViewController.m in Sources */,
 				1D8901FF1A4B5199001A69A3 /* SetLocalNotification.m in Sources */,
 				1D8902001A4B5199001A69A3 /* AlarmViewController.m in Sources */,
 				1D8901C91A4B5119001A69A3 /* main.m in Sources */,
+				1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
