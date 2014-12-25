@@ -47,6 +47,26 @@
     self.datePicker.date = [NSDate dateWithTimeIntervalSinceNow: 8 * 60 * 60];   //預設鬧鐘是八個小時之後
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
+    if ([fetchDataArray count]) {  //避免一開始完全沒有任何資
+        self.sleepData = fetchDataArray[0];
+        if (self.sleepData.wakeUpTime)  //awake state
+        {
+            [self startCountingAwakeTime];
+            [self.button setTitle:@"上床" forState:UIControlStateNormal];
+        }
+        else  //sleep state
+        {
+            [self startCountingSleepTime];
+            [self.button setTitle:@"起床" forState:UIControlStateNormal];
+        }
+    } else {
+        [self.button setTitle:@"上床" forState:UIControlStateNormal];
+    }
+}
+
 - (IBAction)buttonPress:(UIButton *)sender {
     if ([sender.titleLabel.text isEqualToString:@"上床"])
     {
