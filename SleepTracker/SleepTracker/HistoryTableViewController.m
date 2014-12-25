@@ -38,11 +38,6 @@
     fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -53,7 +48,6 @@
 {
     return [fetchDataArray count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
@@ -102,14 +96,26 @@
     }   
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    UITableViewController *page2 = segue.destinationViewController;
+    
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    self.sleepData = fetchDataArray[selectedIndexPath.row];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy/M/d EEE ah:mm"];
+    
+    page2.title = [dateFormatter stringFromDate:self.sleepData.wakeUpTime];
+    
+    
+    NSString *selectedRow = [@(selectedIndexPath.row) stringValue]; //[NSString stringWithFormat:@"%d", selectedIndexPath.row];
+    [page2 setValue:selectedRow forKey:@"selectedRow"];
 }
-*/
+
 
 @end
