@@ -24,7 +24,6 @@
 		1D8902051A4B5199001A69A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8901FD1A4B5199001A69A3 /* Main.storyboard */; };
 		1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902071A4B52C8001A69A3 /* SleepData.m */; };
 		1D8902121A4B5E46001A69A3 /* SetIntelligentNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902111A4B5E46001A69A3 /* SetIntelligentNotification.m */; };
-		1D8902151A4B5E56001A69A3 /* SetAlarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902141A4B5E56001A69A3 /* SetAlarm.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +39,7 @@
 /* Begin PBXFileReference section */
 		1D2681281A4C070300D510F8 /* History2TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History2TableViewController.h; sourceTree = "<group>"; };
 		1D2681291A4C070300D510F8 /* History2TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History2TableViewController.m; sourceTree = "<group>"; };
+		1D7C38FE1A4C774B00A02793 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1D8901C31A4B5119001A69A3 /* SleepTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D8901C71A4B5119001A69A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D8901C81A4B5119001A69A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -70,8 +70,6 @@
 		1D8902071A4B52C8001A69A3 /* SleepData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepData.m; sourceTree = "<group>"; };
 		1D8902101A4B5E46001A69A3 /* SetIntelligentNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetIntelligentNotification.h; sourceTree = "<group>"; };
 		1D8902111A4B5E46001A69A3 /* SetIntelligentNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetIntelligentNotification.m; sourceTree = "<group>"; };
-		1D8902131A4B5E56001A69A3 /* SetAlarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetAlarm.h; sourceTree = "<group>"; };
-		1D8902141A4B5E56001A69A3 /* SetAlarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetAlarm.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +93,7 @@
 		1D8901BA1A4B5119001A69A3 = {
 			isa = PBXGroup;
 			children = (
+				1D7C38FE1A4C774B00A02793 /* AVFoundation.framework */,
 				1D8901C51A4B5119001A69A3 /* SleepTracker */,
 				1D8901E21A4B511A001A69A3 /* SleepTrackerTests */,
 				1D8901C41A4B5119001A69A3 /* Products */,
@@ -173,8 +172,6 @@
 				1D8901F21A4B5199001A69A3 /* SetLocalNotification.m */,
 				1D8902101A4B5E46001A69A3 /* SetIntelligentNotification.h */,
 				1D8902111A4B5E46001A69A3 /* SetIntelligentNotification.m */,
-				1D8902131A4B5E56001A69A3 /* SetAlarm.h */,
-				1D8902141A4B5E56001A69A3 /* SetAlarm.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -337,7 +334,6 @@
 				1D8901FE1A4B5199001A69A3 /* SleepDataModel.m in Sources */,
 				1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */,
 				1D8902041A4B5199001A69A3 /* SettingTableViewController.m in Sources */,
-				1D8902151A4B5E56001A69A3 /* SetAlarm.m in Sources */,
 				1D8902031A4B5199001A69A3 /* StatisticViewController.m in Sources */,
 				1D8901FF1A4B5199001A69A3 /* SetLocalNotification.m in Sources */,
 				1D8902001A4B5199001A69A3 /* AlarmViewController.m in Sources */,
