@@ -202,7 +202,7 @@
             </objects>
             <point key="canvasLocation" x="762" y="-852"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Wake Up Table View Controller-->
         <scene sceneID="iF0-Ni-sKu">
             <objects>
                 <tableViewController id="oRX-0D-Pze" customClass="WakeUpTableViewController" sceneMemberID="viewController">
@@ -223,9 +223,13 @@
                             <outlet property="delegate" destination="oRX-0D-Pze" id="Eze-zO-J98"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="BcT-0T-xRn">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="O0q-ZI-dbn"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="HXr-hj-Fah">
+                    <navigationItem key="navigationItem" id="BcT-0T-xRn">
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="O0q-ZI-dbn">
+                            <connections>
+                                <action selector="cancel:" destination="oRX-0D-Pze" id="dpM-gz-atb"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="儲存" id="HXr-hj-Fah">
                             <connections>
                                 <action selector="save:" destination="oRX-0D-Pze" id="afe-XU-xEV"/>
                             </connections>
@@ -557,7 +561,7 @@
         <!--統計圖表-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="StatisticViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -566,7 +570,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="p2N-If-JDR">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="p2N-If-JDR">
                                 <rect key="frame" x="16" y="28" width="568" height="29"/>
                                 <segments>
                                     <segment title="週"/>
@@ -687,14 +691,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="R9j-QG-aBR" style="IBUITableViewCellStyleDefault" id="Dpb-Ng-VIg">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="R9j-QG-aBR" style="IBUITableViewCellStyleDefault" id="Dpb-Ng-VIg">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dpb-Ng-VIg" id="WhJ-ko-Lxw">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R9j-QG-aBR">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="heightClass=regular">

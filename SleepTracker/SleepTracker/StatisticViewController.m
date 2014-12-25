@@ -10,6 +10,21 @@
 
 @interface StatisticViewController ()
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segment;
+
+@property (weak, nonatomic) IBOutlet UILabel *goToBedTimeMinLabel;
+@property (weak, nonatomic) IBOutlet UILabel *goToBedTimeAvgLabel;
+@property (weak, nonatomic) IBOutlet UILabel *goToBedTimeMaxLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *wakeUpTimeMinLabel;
+@property (weak, nonatomic) IBOutlet UILabel *wakeUpTimeAvgLabel;
+@property (weak, nonatomic) IBOutlet UILabel *wakeUpTimeMaxLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *sleepTimeMinLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sleepTimeAvgLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sleepTimeMaxLabel;
+
+
 @end
 
 @implementation StatisticViewController
