@@ -32,10 +32,10 @@
     return _sleepDataModel;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
+- (void)viewWillAppear:(BOOL)animated
+{
     fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
