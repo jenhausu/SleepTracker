@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
+@property (strong, nonatomic) NSDate *passOverDate;
+
 @end
 
 @implementation WakeUp2ViewController
@@ -20,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    self.datePicker.date = self.passOverDate;
 }
 
 - (IBAction)valueChange:(id)sender {

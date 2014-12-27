@@ -257,7 +257,7 @@
         <!--Title-->
         <scene sceneID="aKa-7E-V1q">
             <objects>
-                <viewController id="fOd-NH-39C" customClass="WakeUp2ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="wakeUp2" id="fOd-NH-39C" customClass="WakeUp2ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sWu-R0-9nB"/>
                         <viewControllerLayoutGuide type="bottom" id="XXh-PR-Q4R"/>
@@ -266,8 +266,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="HjK-2f-ok0">
-                                <rect key="frame" x="0.0" y="211" width="600" height="162"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="HjK-2f-ok0">
+                                <rect key="frame" x="140" y="192" width="320" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="438990345.09648001">
                                     <!--2014-11-29 21:45:45 +0000-->
                                 </date>
@@ -275,14 +275,21 @@
                                     <action selector="valueChange:" destination="fOd-NH-39C" eventType="valueChanged" id="jK3-Ua-LPh"/>
                                 </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftN-Zu-W4k">
-                                <rect key="frame" x="279" y="142" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftN-Zu-W4k">
+                                <rect key="frame" x="279" y="72" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="HjK-2f-ok0" secondAttribute="centerX" id="4wj-df-uEK"/>
+                            <constraint firstItem="HjK-2f-ok0" firstAttribute="top" secondItem="ftN-Zu-W4k" secondAttribute="bottom" constant="8" symbolic="YES" id="SIn-1d-39W"/>
+                            <constraint firstAttribute="centerX" secondItem="ftN-Zu-W4k" secondAttribute="centerX" id="cY0-QS-ndf"/>
+                            <constraint firstAttribute="centerY" secondItem="HjK-2f-ok0" secondAttribute="centerY" id="gIB-sC-HWX"/>
+                            <constraint firstItem="ftN-Zu-W4k" firstAttribute="top" secondItem="sWu-R0-9nB" secondAttribute="bottom" constant="8" symbolic="YES" id="kiP-US-EnF"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="wEd-yf-6WC"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>

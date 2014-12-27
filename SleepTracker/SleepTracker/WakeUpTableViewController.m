@@ -84,6 +84,22 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"wakeUp2"];
+        
+        if (indexPath.row == 0)
+            [page2 setValue:self.sleepData.goToBedTime forKey:@"passOverDate"];
+        else
+            [page2 setValue:self.sleepData.wakeUpTime forKey:@"passOverDate"];
+        
+        [self.navigationController pushViewController:page2 animated:YES];
+    }
+}
+
+#pragma mark -
+
 - (IBAction)save:(id)sender {
     [self.sleepDataModel addNewWakeUpTime:[NSDate date]];
     [self.sleepDataModel addNewSleepTime:[NSNumber numberWithDouble:[self.sleepData.wakeUpTime timeIntervalSinceDate:self.sleepData.goToBedTime]]];
@@ -97,15 +113,5 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
