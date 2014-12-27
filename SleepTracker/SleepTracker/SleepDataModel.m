@@ -28,7 +28,7 @@
 - (void)decideWhichDataToProccess
 {
     fetchDataArray = [self fetchSleepDataSortWithAscending:NO];
-    self.sleepData = fetchDataArray[[fetchDataArray count] - 1];
+    self.sleepData = fetchDataArray[0];
 }
 
 - (void)addNewGoToBedTime:(NSDate *)goToBedTime
