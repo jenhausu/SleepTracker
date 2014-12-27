@@ -71,8 +71,7 @@
         cell.textLabel.textColor = [UIColor blackColor];
     }
     
-    /*self.showData = [[SLShowData alloc] init];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", self.sleepData.sleepType,[self.showData stringFromTimeInterval:[self.sleepData.sleepTime floatValue] withDigit:2]];//*/
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", self.sleepData.sleepType,[self stringFromTimeInterval:[self.sleepData.sleepTime floatValue]]];
 
     
     return cell;
@@ -80,7 +79,6 @@
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
     return YES;
 }
 
@@ -96,10 +94,22 @@
     }   
 }
 
+#pragma mark -
+
+- (NSString *)stringFromTimeInterval:(NSTimeInterval)interval
+{
+    NSInteger time = (NSInteger)interval;
+    NSInteger minutes = abs((time / 60) % 60);
+    NSInteger hours = abs((int)(time / 3600));  //取整數
+    
+    if (time >= 0)
+        return [NSString stringWithFormat:@"%02li:%02li", (long)hours, (long)minutes];
+    else
+        return [NSString stringWithFormat:@"-%02li:%02li", (long)hours, (long)minutes];
+}
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     UITableViewController *page2 = segue.destinationViewController;
