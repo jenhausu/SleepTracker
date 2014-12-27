@@ -104,8 +104,6 @@
 
     [self stopTimer];
     [self startCountingAwakeTime];
-    
-    [self.sleepDataModel addNewSleepTime:[NSNumber numberWithDouble:[self.sleepData.wakeUpTime timeIntervalSinceDate:self.sleepData.goToBedTime]]];
 
     /*[self.customNotification setCustomNotification];
     [self.alarm cancelAlarm];*/

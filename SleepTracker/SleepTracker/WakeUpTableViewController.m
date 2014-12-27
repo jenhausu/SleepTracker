@@ -85,11 +85,16 @@
 }
 
 - (IBAction)save:(id)sender {
+    [self.sleepDataModel addNewWakeUpTime:[NSDate date]];
+    [self.sleepDataModel addNewSleepTime:[NSNumber numberWithDouble:[self.sleepData.wakeUpTime timeIntervalSinceDate:self.sleepData.goToBedTime]]];
+    
     [delegate wakeUp];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)cancel:(id)sender {
+    
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
