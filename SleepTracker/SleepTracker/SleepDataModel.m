@@ -54,6 +54,14 @@
     [self.managedObjectContext save:nil];
 }
 
+- (void)addNewSleepType:(NSString *)sleepType
+{
+    [self decideWhichDataToProccess];
+    
+    self.sleepData.sleepType = sleepType;
+    [self.managedObjectContext save:nil];
+}
+
 - (NSArray *)fetchSleepDataSortWithAscending:(BOOL)ascending
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];

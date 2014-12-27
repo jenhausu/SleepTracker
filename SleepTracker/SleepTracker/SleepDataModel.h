@@ -14,6 +14,7 @@
 - (void)addNewGoToBedTime:(NSDate *)goToBedTime;
 - (void)addNewWakeUpTime:(NSDate *)wakeUpTime;
 - (void)addNewSleepTime:(NSNumber *)sleepTime;
+- (void)addNewSleepType:(NSString *)sleepType;
 
 - (NSArray *)fetchSleepDataSortWithAscending:(BOOL)ascending;
 - (void)deleteSleepData:(NSManagedObject *)dataArray;
