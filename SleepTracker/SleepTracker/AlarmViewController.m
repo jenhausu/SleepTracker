@@ -94,7 +94,7 @@
     }
 }
 
-- (void)wakeUp
+- (void)saveButtonPress
 {
     [self.button setTitle:@"上床" forState:UIControlStateNormal];
     self.alreadySleptLabel.text = @"00:00:00";

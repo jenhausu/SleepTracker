@@ -10,7 +10,7 @@
 
 @protocol save <NSObject>
 
-- (void)wakeUp;
+- (void)saveButtonPress;
 
 @end
 
