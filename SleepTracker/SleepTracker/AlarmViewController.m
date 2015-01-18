@@ -85,9 +85,6 @@
         [self.customNotification cancelCustomNotification];
         [self.alarm setAlarm:self.datePicker.date];*/
     }else {
-        [self.sleepDataModel addNewWakeUpTime:[NSDate date]];
-
-        
         UINavigationController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"wakeUpPage"];
         [self presentViewController:page2 animated:YES completion:nil];
         
