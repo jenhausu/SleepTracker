@@ -18,6 +18,8 @@
 @property (nonatomic, strong) NSArray *section1;
 @property (nonatomic, strong) NSArray *section2;
 @property (nonatomic, strong) NSArray *textLabelArray;
+@property (assign, nonatomic) NSUInteger selectedSleepType;
+@property (strong, nonatomic) NSString *sleepType;
 
 @property (nonatomic, strong) SleepDataModel *sleepDataModel;
 @property (nonatomic, weak) NSArray *fetchDataArray;
@@ -73,11 +75,10 @@
             cell.detailTextLabel.text = [dateFormatter stringFromDate:self.sleepData.wakeUpTime];
         }
     } else if (indexPath.section == 1) {
+        cell.detailTextLabel.text = @"";
         
-        if (indexPath.row == 0) {
-            
-        } else if (indexPath.row == 1) {
-            
+        if (indexPath.row == selectedSleepType) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }
     }
     
@@ -95,10 +96,19 @@
             [page2 setValue:self.sleepData.wakeUpTime forKey:@"passOverDate"];
         
         [self.navigationController pushViewController:page2 animated:YES];
+    } else if (indexPath.section == 1) {
+        if (indexPath.row != selectedSleepType) {
+            NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:selectedSleepType inSection:1];
+            UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:oldIndexPath];
+            oldCell.accessoryType = UITableViewCellAccessoryNone;
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            selectedSleepType = indexPath.row;
+        }
     }
 }
 
-#pragma mark -
+#pragma mark - navigation button
 
 - (IBAction)save:(id)sender {
     [self.sleepDataModel addNewWakeUpTime:[NSDate date]];

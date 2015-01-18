@@ -205,7 +205,7 @@
         <!--Wake Up Table View Controller-->
         <scene sceneID="iF0-Ni-sKu">
             <objects>
-                <tableViewController id="oRX-0D-Pze" customClass="WakeUpTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="wakeUp1" id="oRX-0D-Pze" customClass="WakeUpTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="rhv-05-VSD">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -275,8 +275,11 @@
                                     <action selector="valueChange:" destination="fOd-NH-39C" eventType="valueChanged" id="jK3-Ua-LPh"/>
                                 </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftN-Zu-W4k">
-                                <rect key="frame" x="279" y="72" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftN-Zu-W4k">
+                                <rect key="frame" x="16" y="107" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="8IG-aM-kQv"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -285,10 +288,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="HjK-2f-ok0" secondAttribute="centerX" id="4wj-df-uEK"/>
-                            <constraint firstItem="HjK-2f-ok0" firstAttribute="top" secondItem="ftN-Zu-W4k" secondAttribute="bottom" constant="8" symbolic="YES" id="SIn-1d-39W"/>
+                            <constraint firstItem="ftN-Zu-W4k" firstAttribute="leading" secondItem="DZd-tJ-twF" secondAttribute="leadingMargin" id="Frv-KS-l4y"/>
+                            <constraint firstItem="HjK-2f-ok0" firstAttribute="top" secondItem="ftN-Zu-W4k" secondAttribute="bottom" constant="64" id="SIn-1d-39W"/>
+                            <constraint firstItem="ftN-Zu-W4k" firstAttribute="trailing" secondItem="DZd-tJ-twF" secondAttribute="trailingMargin" id="Yc9-5h-7HO"/>
                             <constraint firstAttribute="centerX" secondItem="ftN-Zu-W4k" secondAttribute="centerX" id="cY0-QS-ndf"/>
                             <constraint firstAttribute="centerY" secondItem="HjK-2f-ok0" secondAttribute="centerY" id="gIB-sC-HWX"/>
-                            <constraint firstItem="ftN-Zu-W4k" firstAttribute="top" secondItem="sWu-R0-9nB" secondAttribute="bottom" constant="8" symbolic="YES" id="kiP-US-EnF"/>
+                            <constraint firstItem="ftN-Zu-W4k" firstAttribute="top" secondItem="sWu-R0-9nB" secondAttribute="bottom" constant="43" id="kiP-US-EnF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="wEd-yf-6WC"/>
@@ -719,19 +724,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="R9j-QG-aBR" style="IBUITableViewCellStyleDefault" id="Dpb-Ng-VIg">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="R9j-QG-aBR" detailTextLabel="hSt-Wm-uxl" style="IBUITableViewCellStyleSubtitle" id="Dpb-Ng-VIg">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dpb-Ng-VIg" id="WhJ-ko-Lxw">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R9j-QG-aBR">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="heightClass=regular">
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             </variation>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hSt-Wm-uxl">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
