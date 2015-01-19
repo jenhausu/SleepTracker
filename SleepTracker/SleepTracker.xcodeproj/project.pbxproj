@@ -183,12 +183,12 @@
 		1D89020B1A4B52E2001A69A3 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				1D2DB7EC1A6DA4B300A72EFA /* SleepRecordViewController.h */,
+				1D2DB7ED1A6DA4B300A72EFA /* SleepRecordViewController.m */,
 				1D8901F51A4B5199001A69A3 /* WakeUpTableViewController.h */,
 				1D8901F61A4B5199001A69A3 /* WakeUpTableViewController.m */,
 				1D7C39091A4C962500A02793 /* WakeUp2ViewController.h */,
 				1D7C390A1A4C962500A02793 /* WakeUp2ViewController.m */,
-				1D2DB7EC1A6DA4B300A72EFA /* SleepRecordViewController.h */,
-				1D2DB7ED1A6DA4B300A72EFA /* SleepRecordViewController.m */,
 			);
 			name = Alarm;
 			sourceTree = "<group>";
