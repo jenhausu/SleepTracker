@@ -24,10 +24,10 @@
 
 @synthesize fetchDataArray;
 
-- (void)decideWhichDataToProccess
+- (void)decideWhichDataToProccess:(NSInteger)row
 {
     fetchDataArray = [self fetchSleepDataSortWithAscending:NO];
-    self.sleepData = fetchDataArray[0];
+    self.sleepData = fetchDataArray[row];
 }
 
 - (void)addNewGoToBedTime:(NSDate *)goToBedTime
