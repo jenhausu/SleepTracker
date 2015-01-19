@@ -95,6 +95,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D2DB7EB1A6D6CBC00A72EFA /* Sleep Notification */ = {
+			isa = PBXGroup;
+			children = (
+				1D8901F11A4B5199001A69A3 /* SetLocalNotification.h */,
+				1D8901F21A4B5199001A69A3 /* SetLocalNotification.m */,
+				1D8902101A4B5E46001A69A3 /* SetIntelligentNotification.h */,
+				1D8902111A4B5E46001A69A3 /* SetIntelligentNotification.m */,
+			);
+			name = "Sleep Notification";
+			sourceTree = "<group>";
+		};
 		1D8901BA1A4B5119001A69A3 = {
 			isa = PBXGroup;
 			children = (
@@ -172,12 +183,9 @@
 			children = (
 				1D8901EF1A4B5199001A69A3 /* SleepDataModel.h */,
 				1D8901F01A4B5199001A69A3 /* SleepDataModel.m */,
-				1D8901F11A4B5199001A69A3 /* SetLocalNotification.h */,
-				1D8901F21A4B5199001A69A3 /* SetLocalNotification.m */,
-				1D8902101A4B5E46001A69A3 /* SetIntelligentNotification.h */,
-				1D8902111A4B5E46001A69A3 /* SetIntelligentNotification.m */,
 				1D2DB7E81A6D677000A72EFA /* Statistic.h */,
 				1D2DB7E91A6D677000A72EFA /* Statistic.m */,
+				1D2DB7EB1A6D6CBC00A72EFA /* Sleep Notification */,
 			);
 			name = Model;
 			sourceTree = "<group>";

@@ -10,4 +10,10 @@
 
 @interface Statistic : NSObject
 
+- (NSArray *)showSleepTimeDataInTheRecent:(NSInteger)recent;
+- (NSArray *)showGoToBedTimeDataInTheRecent:(NSInteger)recent;
+- (NSArray *)showWakeUpTimeDataInTheRecent:(NSInteger)recent;
+
+- (NSString *)stringFromTimeInterval:(NSTimeInterval)interval;
+
 @end
