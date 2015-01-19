@@ -11,10 +11,7 @@
 
 @interface SleepDataModel : NSObject
 
-- (void)addNewGoToBedTime:(NSDate *)goToBedTime;
-- (void)addNewWakeUpTime:(NSDate *)wakeUpTime;
-- (void)addNewSleepTime:(NSNumber *)sleepTime;
-- (void)addNewSleepType:(NSString *)sleepType;
+- (void)updateAllSleepDataInRow:(NSInteger)row goToBedTime:(NSDate *)goToBedTime wakeUpTime:(NSDate *)wakeUpTime sleepTiem:(NSNumber *)sleepTime sleepType:(NSString *)sleepType;
 
 - (NSArray *)fetchSleepDataSortWithAscending:(BOOL)ascending;
 - (void)deleteSleepData:(NSManagedObject *)dataArray;

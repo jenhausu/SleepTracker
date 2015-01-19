@@ -20,7 +20,6 @@
 
 @end
 
-
 @implementation SleepDataModel
 
 @synthesize fetchDataArray;
@@ -38,27 +37,15 @@
     [self.managedObjectContext save:nil];
 }
 
-- (void)addNewWakeUpTime:(NSDate *)wakeUpTime
+- (void)updateAllSleepDataInRow:(NSInteger)row goToBedTime:(NSDate *)goToBedTime wakeUpTime:(NSDate *)wakeUpTime sleepTiem:(NSNumber *)sleepTime sleepType:(NSString *)sleepType
 {
-    [self decideWhichDataToProccess];
+    [self decideWhichDataToProccess:row];
     
+    self.sleepData.goToBedTime = goToBedTime;
     self.sleepData.wakeUpTime = wakeUpTime;
-    [self.managedObjectContext save:nil];
-}
-
-- (void)addNewSleepTime:(NSNumber *)sleepTime
-{
-    [self decideWhichDataToProccess];
-
     self.sleepData.sleepTime = sleepTime;
-    [self.managedObjectContext save:nil];
-}
-
-- (void)addNewSleepType:(NSString *)sleepType
-{
-    [self decideWhichDataToProccess];
-    
     self.sleepData.sleepType = sleepType;
+
     [self.managedObjectContext save:nil];
 }
 
