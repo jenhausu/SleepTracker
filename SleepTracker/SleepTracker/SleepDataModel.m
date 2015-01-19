@@ -30,10 +30,9 @@
     self.sleepData = fetchDataArray[row];
 }
 
-- (void)addNewGoToBedTime:(NSDate *)goToBedTime
+- (void)addNewData
 {
-    SleepData *newSleepData = [NSEntityDescription insertNewObjectForEntityForName:@"SleepData" inManagedObjectContext:self.managedObjectContext];
-    newSleepData.goToBedTime = goToBedTime;
+    [NSEntityDescription insertNewObjectForEntityForName:@"SleepData" inManagedObjectContext:self.managedObjectContext];
     [self.managedObjectContext save:nil];
 }
 
