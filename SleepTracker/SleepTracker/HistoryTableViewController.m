@@ -118,7 +118,7 @@
     self.sleepData = fetchDataArray[selectedIndexPath.row];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy/M/d EEE ah:mm"];
+    [dateFormatter setDateFormat:@"yyyy/M/d EEE"];
     
     page2.title = [dateFormatter stringFromDate:self.sleepData.wakeUpTime];
     
