@@ -21,6 +21,9 @@
 @property (assign, nonatomic) NSUInteger selectedSleepType;
 @property (strong, nonatomic) NSString *sleepType;
 
+@property (strong, nonatomic) NSDate *goToBedTime;
+@property (strong, nonatomic) NSDate *wakeUpTime;
+
 @property (nonatomic, strong) SleepDataModel *sleepDataModel;
 @property (nonatomic, weak) NSArray *fetchDataArray;
 @property (nonatomic, weak) SleepData *sleepData;
@@ -29,7 +32,7 @@
 
 @implementation WakeUpTableViewController
 
-@synthesize delegate, section1, section2, fetchDataArray;
+@synthesize delegate, section1, section2, fetchDataArray, selectedSleepType, sleepType, goToBedTime, wakeUpTime;
 
 - (SleepDataModel *)sleepDataModel
 {
@@ -40,6 +43,8 @@
     return _sleepDataModel;
 }
 
+#pragma mark - view
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -49,6 +54,15 @@
     
     fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
     self.sleepData = fetchDataArray[0];
+    
+    goToBedTime = self.sleepData.goToBedTime;
+    wakeUpTime = [NSDate date];
+    selectedSleepType = 0;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -70,9 +84,9 @@
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy/M/d EEE ah:mm"];
         if (indexPath.row == 0) {
-            cell.detailTextLabel.text = [dateFormatter stringFromDate:self.sleepData.goToBedTime];
+            cell.detailTextLabel.text = [dateFormatter stringFromDate:goToBedTime];
         } else if (indexPath.row == 1) {
-            cell.detailTextLabel.text = [dateFormatter stringFromDate:self.sleepData.wakeUpTime];
+            cell.detailTextLabel.text = [dateFormatter stringFromDate:wakeUpTime];
         }
     } else if (indexPath.section == 1) {
         cell.detailTextLabel.text = @"";
@@ -93,9 +107,12 @@
         UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"wakeUp2"];
         
         if (indexPath.row == 0)
-            [page2 setValue:self.sleepData.goToBedTime forKey:@"passOverDate"];
-        else
-            [page2 setValue:self.sleepData.wakeUpTime forKey:@"passOverDate"];
+            [page2 setValue:goToBedTime forKey:@"passOverDate"];
+        else if (indexPath.row == 1)
+            [page2 setValue:wakeUpTime forKey:@"passOverDate"];
+        
+        [page2 setValue:self forKey:@"wakeUpViewController"];
+        page2.title = self.textLabelArray[indexPath.section][indexPath.row];
         
         [self.navigationController pushViewController:page2 animated:YES];
     } else if (indexPath.section == 1) {
