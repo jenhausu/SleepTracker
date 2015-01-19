@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D26812A1A4C070300D510F8 /* History2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2681291A4C070300D510F8 /* History2TableViewController.m */; };
+		1D2DB7F41A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB7F31A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m */; };
 		1D7C39041A4C811800A02793 /* History3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C39031A4C811800A02793 /* History3ViewController.m */; };
 		1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C39071A4C909D00A02793 /* StatisticViewController.m */; };
 		1D7C390B1A4C962500A02793 /* WakeUp2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C390A1A4C962500A02793 /* WakeUp2ViewController.m */; };
@@ -40,6 +41,8 @@
 /* Begin PBXFileReference section */
 		1D2681281A4C070300D510F8 /* History2TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History2TableViewController.h; sourceTree = "<group>"; };
 		1D2681291A4C070300D510F8 /* History2TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History2TableViewController.m; sourceTree = "<group>"; };
+		1D2DB7F21A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntelligentNotificationTableViewController.h; sourceTree = "<group>"; };
+		1D2DB7F31A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntelligentNotificationTableViewController.m; sourceTree = "<group>"; };
 		1D7C39021A4C811800A02793 /* History3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History3ViewController.h; sourceTree = "<group>"; };
 		1D7C39031A4C811800A02793 /* History3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History3ViewController.m; sourceTree = "<group>"; };
 		1D7C39061A4C909D00A02793 /* StatisticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticViewController.h; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 		1D89020D1A4B52FA001A69A3 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				1D2DB7F21A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.h */,
+				1D2DB7F31A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 				1D8902001A4B5199001A69A3 /* AlarmViewController.m in Sources */,
 				1D8901C91A4B5119001A69A3 /* main.m in Sources */,
 				1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */,
+				1D2DB7F41A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
