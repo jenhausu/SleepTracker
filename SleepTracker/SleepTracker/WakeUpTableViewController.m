@@ -130,10 +130,22 @@
 #pragma mark - navigation button
 
 - (IBAction)save:(id)sender {
-    [self.sleepDataModel addNewWakeUpTime:[NSDate date]];
-    [self.sleepDataModel addNewSleepTime:[NSNumber numberWithDouble:[self.sleepData.wakeUpTime timeIntervalSinceDate:self.sleepData.goToBedTime]]];
+    NSInteger const LATEST_DATA = 0;
+    switch (selectedSleepType) {
+        case 0:
+            sleepType = @"一般";
+            break;
+        case 1:
+            sleepType = @"小睡";
+            break;
+    }
+    [self.sleepDataModel updateAllSleepDataInRow:LATEST_DATA
+                                     goToBedTime:goToBedTime
+                                      wakeUpTime:wakeUpTime
+                                       sleepTiem:[NSNumber numberWithDouble:[wakeUpTime timeIntervalSinceDate:goToBedTime]]
+                                       sleepType:sleepType];
     
-    [delegate wakeUp];
+    [delegate saveButtonPress];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
