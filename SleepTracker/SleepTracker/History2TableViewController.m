@@ -114,4 +114,14 @@
     }
 }
 
+#pragma mark -
+
+- (IBAction)update:(id)sender {
+    [self.sleepDataModel updateAllSleepDataInRow:[selectedRow integerValue]
+                                     goToBedTime:goToBedTime
+                                      wakeUpTime:wakeUpTime
+                                       sleepTiem:[NSNumber numberWithDouble:[wakeUpTime timeIntervalSinceDate:goToBedTime]]
+                                       sleepType:sleepType];
+}
+
 @end
