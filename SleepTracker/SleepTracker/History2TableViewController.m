@@ -53,6 +53,10 @@
     self.sleepData = fetchDataArray[[selectedRow integerValue]];
     goToBedTime = self.sleepData.goToBedTime;
     wakeUpTime = self.sleepData.wakeUpTime;
+    
+    if (!wakeUpTime) {  //如果沒有起床時間的話
+        wakeUpTime = [NSDate date];
+    }
 }
 
 #pragma mark - Table view data source
