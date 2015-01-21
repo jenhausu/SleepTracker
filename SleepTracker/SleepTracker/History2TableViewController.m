@@ -17,16 +17,20 @@
 @property (nonatomic, strong) NSArray *section2;
 @property (nonatomic, strong) NSArray *textLabelArray;
 
+@property (weak) NSString *selectedRow;
+
+@property (strong, nonatomic) NSDate *goToBedTime;
+@property (strong, nonatomic) NSDate *wakeUpTime;
+
 @property (nonatomic, strong) SleepDataModel *sleepDataModel;
 @property (nonatomic, weak) NSArray *fetchDataArray;
 @property (nonatomic, weak) SleepData *sleepData;
-@property (weak) NSString *selectedRow;
 
 @end
 
 @implementation History2TableViewController
 
-@synthesize section1, section2, fetchDataArray, selectedRow;
+@synthesize section1, section2, textLabelArray, fetchDataArray, selectedRow, goToBedTime, wakeUpTime;
 
 - (SleepDataModel *)sleepDataModel
 {
@@ -46,11 +50,9 @@
     self.textLabelArray = @[section1, section2];
     
     fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.sleepData = fetchDataArray[[selectedRow integerValue]];
+    goToBedTime = self.sleepData.goToBedTime;
+    wakeUpTime = self.sleepData.wakeUpTime;
 }
 
 #pragma mark - Table view data source
@@ -71,14 +73,14 @@
     
     
     if (indexPath.section == 0) {
-        self.sleepData = fetchDataArray[[selectedRow integerValue]];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy/M/d EEE ah:mm"];
         if (indexPath.row == 0) {
-            cell.detailTextLabel.text = [dateFormatter stringFromDate:self.sleepData.goToBedTime];
+            cell.detailTextLabel.text = [dateFormatter stringFromDate:goToBedTime];
         } else if (indexPath.row == 1) {
-            cell.detailTextLabel.text = [dateFormatter stringFromDate:self.sleepData.wakeUpTime];
+            cell.detailTextLabel.text = [dateFormatter stringFromDate:wakeUpTime];
         }
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     } else if (indexPath.section == 1) {
         
         if (indexPath.row == 0) {
@@ -91,14 +93,25 @@
     return cell;
 }
 
-/*
-#pragma mark - Navigation
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 0) {
+        UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"History3"];
+        
+        if (indexPath.row == 0)
+            [page2 setValue:goToBedTime forKey:@"passOverDate"];
+        else if (indexPath.row == 1)
+            [page2 setValue:wakeUpTime forKey:@"passOverDate"];
+        
+        page2.title = self.textLabelArray[indexPath.section][indexPath.row];
+        
+        [self.navigationController pushViewController:page2 animated:YES];
+    }
+    else if (indexPath.section == 1) {
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    }
 }
-*/
 
 @end

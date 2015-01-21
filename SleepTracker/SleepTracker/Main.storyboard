@@ -760,7 +760,7 @@
             </objects>
             <point key="canvasLocation" x="1582" y="10"/>
         </scene>
-        <!--History2 Table View Controller-->
+        <!--Title-->
         <scene sceneID="v4k-wQ-MmK">
             <objects>
                 <tableViewController id="Aje-LQ-Xef" customClass="History2TableViewController" sceneMemberID="viewController">
@@ -795,6 +795,13 @@
                             <outlet property="delegate" destination="Aje-LQ-Xef" id="D0e-Kg-wrR"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="KxM-tf-XDH">
+                        <barButtonItem key="rightBarButtonItem" title="儲存" id="obo-Ck-Xza">
+                            <connections>
+                                <action selector="update:" destination="Aje-LQ-Xef" id="BxF-r9-8AP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CHv-gq-dTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -803,7 +810,7 @@
         <!--History3 View Controller-->
         <scene sceneID="BTQ-xB-ag2">
             <objects>
-                <viewController id="qB1-EJ-hMM" customClass="History3ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="History3" id="qB1-EJ-hMM" customClass="History3ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="akr-aL-UnC"/>
                         <viewControllerLayoutGuide type="bottom" id="smd-ei-1nd"/>
@@ -811,8 +818,24 @@
                     <view key="view" contentMode="scaleToFill" id="r8R-gz-JyN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lFw-25-I6h">
+                                <rect key="frame" x="140" y="219" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="443469718.317725">
+                                    <!--2015-01-20 18:01:58 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="lFw-25-I6h" secondAttribute="centerX" id="8i2-rb-PH0"/>
+                            <constraint firstAttribute="centerY" secondItem="lFw-25-I6h" secondAttribute="centerY" id="B28-XU-qVE"/>
+                        </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="datePicker" destination="lFw-25-I6h" id="AMT-pk-WSP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T0Q-X1-2Yi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
