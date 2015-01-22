@@ -56,18 +56,35 @@
     [components setHour:23];
     [components setMinute:0];
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
-    NSDate *shouldGoToBedTime = [calendar dateFromComponents:components];
+    shouldGoToBedTime = [calendar dateFromComponents:components];
 
     
     return shouldGoToBedTime;
 }
 
-- (NSArray *)decideFireTime
+- (NSArray *)decideFireDate
 {
+    notification = @[@"吃東西", @"看任何電子螢幕", @"洗澡", @"平均上床時間", @"醒來超過十六小時"];
     
-    NSArray *array;
-
-    return array;
+    message = @[@"如果你想要在%@時去睡覺，建議你就不要再吃東西了。",
+                @"建議你不要再看任何電子螢幕了，好讓眼睛開始休息。",
+                @"如果你想要在十一點時上床睡覺，建議你可以現在去沖個澡，這樣兩個小時後體溫開始下降，正好適合睡覺。",
+                @"已經過了你平均上床的時間了，建議妳趕快上床休息吧。",
+                @"從你今天起床醒來到現在已經超過十六個小時了，建議你盡快去上床休息吧。"];
+    
+    fetchArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
+    NSInteger const LATEST_DATA = 0;
+    self.sleepData = fetchArray[LATEST_DATA];
+    
+    [self decideShouldGoToBedTime];
+    fireTime = [[NSArray alloc] initWithObjects:
+                [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:shouldGoToBedTime],
+                [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:shouldGoToBedTime],
+                [NSDate dateWithTimeInterval:-(60 * 60 * 2) sinceDate:shouldGoToBedTime],
+                [NSDate dateWithTimeIntervalSinceNow:10],
+                [NSDate dateWithTimeInterval:(60 * 60 * 16) sinceDate:self.sleepData.wakeUpTime], nil];
+#warning 平均起床時間還沒計算
+    return fireTime;
 }
 
 - (void)rescheduleIntelligentNotification
