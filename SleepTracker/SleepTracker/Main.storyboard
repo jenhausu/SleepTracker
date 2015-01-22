@@ -479,16 +479,55 @@
                                 </date>
                             </datePicker>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sx7-7C-Qfw">
-                                <rect key="frame" x="276" y="299" width="51" height="31"/>
+                                <rect key="frame" x="309" y="342" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="yf9-EC-Wp0"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="yf9-EC-Wp0"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="setAlarm:" destination="dIO-pK-do8" eventType="valueChanged" id="ecY-P6-Pyc"/>
+                                </connections>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jX0-i1-XHr">
+                                <rect key="frame" x="237" y="343" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="qvj-aT-Vjt"/>
+                                </constraints>
+                                <state key="normal" title="設定鬧鐘">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="qvj-aT-Vjt"/>
+                                    </mask>
+                                </variation>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="Sx7-7C-Qfw" secondAttribute="centerX" id="UdC-rS-pCk"/>
+                            <constraint firstAttribute="centerX" secondItem="jX0-i1-XHr" secondAttribute="centerX" id="8dN-bh-SXQ"/>
+                            <constraint firstItem="Sx7-7C-Qfw" firstAttribute="top" secondItem="PfR-HL-bBk" secondAttribute="bottom" constant="92" id="AQV-fo-c24"/>
+                            <constraint firstAttribute="centerX" secondItem="Sx7-7C-Qfw" secondAttribute="centerX" id="DMm-F3-akx"/>
+                            <constraint firstItem="jX0-i1-XHr" firstAttribute="top" secondItem="PfR-HL-bBk" secondAttribute="bottom" constant="84" id="QfN-IY-J3M"/>
+                            <constraint firstAttribute="centerX" secondItem="Sx7-7C-Qfw" secondAttribute="centerX" constant="-33" id="RcW-d6-nIc"/>
+                            <constraint firstItem="Sx7-7C-Qfw" firstAttribute="leading" secondItem="jX0-i1-XHr" secondAttribute="trailing" constant="66" id="VzL-iW-5Vf"/>
                             <constraint firstAttribute="centerX" secondItem="PfR-HL-bBk" secondAttribute="centerX" id="X9Y-Nj-OBY"/>
                             <constraint firstItem="PfR-HL-bBk" firstAttribute="top" secondItem="zEd-8Y-rmh" secondAttribute="bottom" constant="33" id="ZGD-tR-vtd"/>
-                            <constraint firstItem="Sx7-7C-Qfw" firstAttribute="top" secondItem="PfR-HL-bBk" secondAttribute="bottom" constant="40" id="uw3-GM-qi9"/>
+                            <constraint firstItem="jX0-i1-XHr" firstAttribute="centerY" secondItem="Sx7-7C-Qfw" secondAttribute="centerY" id="o05-8B-fim"/>
+                            <constraint firstAttribute="centerX" secondItem="jX0-i1-XHr" secondAttribute="centerX" constant="33" id="oC0-TU-8sH"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8dN-bh-SXQ"/>
+                                <exclude reference="AQV-fo-c24"/>
+                                <exclude reference="DMm-F3-akx"/>
+                                <exclude reference="VzL-iW-5Vf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="PfR-HL-bBk" id="mH6-eh-Vzj"/>
