@@ -239,6 +239,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="BcT-0T-xRn">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="lhd-Z3-UOu"/>
                         <barButtonItem key="leftBarButtonItem" title="取消" id="O0q-ZI-dbn">
                             <connections>
                                 <action selector="cancel:" destination="oRX-0D-Pze" id="dpM-gz-atb"/>
@@ -796,7 +797,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="KxM-tf-XDH">
-                        <barButtonItem key="rightBarButtonItem" title="儲存" id="obo-Ck-Xza">
+                        <barButtonItem key="rightBarButtonItem" title="更新" id="obo-Ck-Xza">
                             <connections>
                                 <action selector="update:" destination="Aje-LQ-Xef" id="BxF-r9-8AP"/>
                             </connections>

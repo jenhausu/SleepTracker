@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSArray *section2;
 @property (nonatomic, strong) NSArray *textLabelArray;
 
-@property (weak) NSString *selectedRow;
+@property (strong, nonatomic) NSNumber *selectedRow;
 
 @property (strong, nonatomic) NSDate *goToBedTime;
 @property (strong, nonatomic) NSDate *wakeUpTime;
@@ -57,6 +57,11 @@
     if (!wakeUpTime) {  //如果沒有起床時間的話
         wakeUpTime = [NSDate date];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -110,6 +115,7 @@
             [page2 setValue:wakeUpTime forKey:@"passOverDate"];
         
         page2.title = self.textLabelArray[indexPath.section][indexPath.row];
+        [page2 setValue:self forKey:@"History2ViewController"];
         
         [self.navigationController pushViewController:page2 animated:YES];
     }

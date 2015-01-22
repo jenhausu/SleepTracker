@@ -8,10 +8,14 @@
 
 #import "History3ViewController.h"
 
+#import "History2TableViewController.h"
+
 @interface History3ViewController ()
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+
 @property (strong, nonatomic) NSDate *passOverDate;
+@property (strong, nonatomic) History2TableViewController *History2ViewController;
 
 @end
 
@@ -23,6 +27,18 @@
     [super viewDidLoad];
     
     self.datePicker.date = passOverDate;
+}
+
+- (void)willMoveToParentViewController:(UIViewController *)parent
+{
+    if (!parent) {
+        if ([self.title isEqualToString:@"上床時間"]) {
+            [self.History2ViewController setValue:self.datePicker.date forKey:@"goToBedTime"];
+        }
+        else if ([self.title isEqualToString:@"起床時間"]) {
+            [self.History2ViewController setValue:self.datePicker.date forKey:@"wakeUpTime"];
+        }
+    }
 }
 
 @end
