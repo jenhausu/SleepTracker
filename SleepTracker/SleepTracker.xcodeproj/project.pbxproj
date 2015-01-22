@@ -175,12 +175,12 @@
 			children = (
 				1D8901EF1A4B5199001A69A3 /* SleepDataModel.h */,
 				1D8901F01A4B5199001A69A3 /* SleepDataModel.m */,
-				1DBC7C011A70FD81007B35B8 /* IntelligentNotification.h */,
-				1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */,
 				1DBC7C0A1A70FF72007B35B8 /* setLocalNotification.h */,
 				1DBC7C0B1A70FF72007B35B8 /* setLocalNotification.m */,
 				1DBC7C0D1A70FFBB007B35B8 /* LocalNotification.h */,
 				1DBC7C0E1A70FFBB007B35B8 /* LocalNotification.m */,
+				1DBC7C011A70FD81007B35B8 /* IntelligentNotification.h */,
+				1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
