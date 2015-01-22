@@ -35,9 +35,11 @@
     
 }
 
+#pragma mark - Delete
+
 - (void)deleteAllIntelligentNotification
 {
-    
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
 @end
