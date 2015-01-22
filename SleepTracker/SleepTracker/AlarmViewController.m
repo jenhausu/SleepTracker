@@ -23,4 +23,8 @@
     self.datePicker.date = [NSDate date];   //預設鬧鐘是八個小時之後
 }
 
+- (IBAction)setAlarm:(id)sender {
+    
+}
+
 @end
