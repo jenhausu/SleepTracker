@@ -8,6 +8,8 @@
 
 #import "IntelligentNotificationTableViewController.h"
 
+#import "IntelligentNotification.h"
+
 @interface IntelligentNotificationTableViewController ()
 
 @property (strong, nonatomic) NSArray *array;
@@ -15,11 +17,25 @@
 @property (strong, nonatomic) NSArray *section2;
 @property (strong, nonatomic) NSArray *section3;
 
+@property (strong, nonatomic) IntelligentNotification *intelligentNotification;
+
 @end
 
 @implementation IntelligentNotificationTableViewController
 
-@synthesize array, section1, section2, section3;
+@synthesize array, section1, section2, section3, fireTime;
+
+#pragma mark - Lazy initialization
+
+- (IntelligentNotification *)intelligentNotification
+{
+    if (!_intelligentNotification) {
+        _intelligentNotification = [[IntelligentNotification alloc] init];
+    }
+    return _intelligentNotification;
+}
+
+#pragma mark - view
 
 - (void)viewDidLoad {
     [super viewDidLoad];
