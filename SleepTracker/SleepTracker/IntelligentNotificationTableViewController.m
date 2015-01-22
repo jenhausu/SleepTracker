@@ -108,6 +108,7 @@
     UISwitch *switchControl = sender;
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     [userPreferences setBool:switchControl.on forKey:section1[0]];
+    [self.intelligentNotification rescheduleIntelligentNotification];
 }
 
 - (void)switchChanged2:(id)sender
@@ -115,6 +116,7 @@
     UISwitch *switchControl = sender;
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     [userPreferences setBool:switchControl.on forKey:section1[1]];
+    [self.intelligentNotification rescheduleIntelligentNotification];
 }
 
 - (void)switchChanged3:(id)sender
@@ -122,6 +124,7 @@
     UISwitch *switchControl = sender;
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     [userPreferences setBool:switchControl.on forKey:section1[2]];
+    [self.intelligentNotification rescheduleIntelligentNotification];
 }
 
 - (void)switchChanged4:(id)sender
@@ -129,6 +132,7 @@
     UISwitch *switchControl = sender;
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     [userPreferences setBool:switchControl.on forKey:section2[0]];
+    [self.intelligentNotification rescheduleIntelligentNotification];
 }
 
 - (void)switchChanged5:(id)sender
@@ -136,6 +140,7 @@
     UISwitch *switchControl = sender;
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     [userPreferences setBool:switchControl.on forKey:section3[0]];
+    [self.intelligentNotification rescheduleIntelligentNotification];
 }
 
 @end
