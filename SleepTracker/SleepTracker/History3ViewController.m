@@ -13,6 +13,8 @@
 @interface History3ViewController ()
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
 @property (strong, nonatomic) NSDate *passOverDate;
 @property (strong, nonatomic) History2TableViewController *History2ViewController;
@@ -21,12 +23,16 @@
 
 @implementation History3ViewController
 
-@synthesize passOverDate;
+@synthesize passOverDate, dateFormatter;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.datePicker.date = passOverDate;
+    
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"u/MM/dd EEE ahh:mm"];
+    self.dateLabel.text = [dateFormatter stringFromDate:passOverDate];
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent
@@ -39,6 +45,11 @@
             [self.History2ViewController setValue:self.datePicker.date forKey:@"wakeUpTime"];
         }
     }
+}
+
+- (IBAction)valueChanged:(id)sender
+{
+    self.dateLabel.text = [dateFormatter stringFromDate:self.datePicker.date];
 }
 
 @end
