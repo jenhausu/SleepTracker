@@ -183,8 +183,8 @@
 		1D89020B1A4B52E2001A69A3 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
-				1D8901F31A4B5199001A69A3 /* AlarmViewController.h */,
-				1D8901F41A4B5199001A69A3 /* AlarmViewController.m */,
+				1D2DB7EC1A6DA4B300A72EFA /* SleepRecordViewController.h */,
+				1D2DB7ED1A6DA4B300A72EFA /* SleepRecordViewController.m */,
 				1D8901F51A4B5199001A69A3 /* WakeUpTableViewController.h */,
 				1D8901F61A4B5199001A69A3 /* WakeUpTableViewController.m */,
 				1D7C39091A4C962500A02793 /* WakeUp2ViewController.h */,
@@ -338,6 +338,7 @@
 				1D8902021A4B5199001A69A3 /* HistoryTableViewController.m in Sources */,
 				1D8901CC1A4B5119001A69A3 /* AppDelegate.m in Sources */,
 				1D7C39041A4C811800A02793 /* History3ViewController.m in Sources */,
+				1D2DB7EE1A6DA4B300A72EFA /* SleepRecordViewController.m in Sources */,
 				1D8901CF1A4B5119001A69A3 /* SleepTracker.xcdatamodeld in Sources */,
 				1D8902011A4B5199001A69A3 /* WakeUpTableViewController.m in Sources */,
 				1D26812A1A4C070300D510F8 /* History2TableViewController.m in Sources */,
