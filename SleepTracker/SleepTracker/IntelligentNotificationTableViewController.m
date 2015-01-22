@@ -8,8 +8,6 @@
 
 #import "IntelligentNotificationTableViewController.h"
 
-#import "IntelligentNotification.h"
-
 @interface IntelligentNotificationTableViewController ()
 
 @property (strong, nonatomic) NSArray *array;
@@ -47,8 +45,76 @@
     
     cell.textLabel.text = array[indexPath.section][indexPath.row];
 
+    UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(1.0, 1.0, 20.0, 30.0)];
+    cell.accessoryView = switchControl;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    [formatter setDateFormat:@"HH:mm"];
+    if (indexPath.section == 0)
+    {
+        switchControl.on = [userPreferences boolForKey:section1[indexPath.row]];
+        
+        if (indexPath.row == 0) {
+            [switchControl addTarget:self action:@selector(switchChanged1:) forControlEvents:UIControlEventValueChanged];
+        }
+        else if (indexPath.row == 1) {
+            [switchControl addTarget:self action:@selector(switchChanged2:) forControlEvents:UIControlEventValueChanged];
+        }
+        else if (indexPath.row == 2) {
+            [switchControl addTarget:self action:@selector(switchChanged3:) forControlEvents:UIControlEventValueChanged];
+        }
+    }
+    else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            switchControl.on = [userPreferences boolForKey:section2[indexPath.row]];
+            [switchControl addTarget:self action:@selector(switchChanged4:) forControlEvents:UIControlEventValueChanged];
+        }
+    }
+    else if (indexPath.section == 2) {
+        switchControl.on = [userPreferences boolForKey:section3[indexPath.row]];
+        [switchControl addTarget:self action:@selector(switchChanged5:) forControlEvents:UIControlEventValueChanged];
+    }
+    
     return cell;
 }
 
+#pragma mark - switchChinaged
+
+- (void)switchChanged1:(id)sender
+{
+    UISwitch *switchControl = sender;
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    [userPreferences setBool:switchControl.on forKey:section1[0]];
+}
+
+- (void)switchChanged2:(id)sender
+{
+    UISwitch *switchControl = sender;
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    [userPreferences setBool:switchControl.on forKey:section1[1]];
+}
+
+- (void)switchChanged3:(id)sender
+{
+    UISwitch *switchControl = sender;
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    [userPreferences setBool:switchControl.on forKey:section1[2]];
+}
+
+- (void)switchChanged4:(id)sender
+{
+    UISwitch *switchControl = sender;
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    [userPreferences setBool:switchControl.on forKey:section2[0]];
+}
+
+- (void)switchChanged5:(id)sender
+{
+    UISwitch *switchControl = sender;
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    [userPreferences setBool:switchControl.on forKey:section3[0]];
+}
 
 @end
