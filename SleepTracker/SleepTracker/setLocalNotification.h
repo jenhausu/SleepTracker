@@ -1,5 +1,5 @@
 //
-//  setIntelligentNotification.h
+//  setLocalNotification.h
 //  SleepTracker
 //
 //  Created by 蘇健豪1 on 2015/1/22.
@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface setIntelligentNotification : NSObject
+@interface setLocalNotification : NSObject
 
 @end
