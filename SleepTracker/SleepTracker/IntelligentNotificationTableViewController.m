@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSArray *section3;
 
 @property (strong, nonatomic) IntelligentNotification *intelligentNotification;
+@property (strong, nonatomic) NSArray *fireTime;
 
 @end
 
@@ -44,6 +45,8 @@
     section2 = @[@"Average Go To Bed Time"];
     section3 = @[@"awake for more than 16 hrs"];
     array = @[section1, section2, section3];
+    
+    fireTime = [self.intelligentNotification decideFireTime];
 }
 
 #pragma mark - Table view data source
@@ -59,15 +62,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH:mm"];
+    
     cell.textLabel.text = array[indexPath.section][indexPath.row];
+    cell.detailTextLabel.text = [formatter stringFromDate:fireTime[indexPath.row]];
 
     UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(1.0, 1.0, 20.0, 30.0)];
     cell.accessoryView = switchControl;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    [formatter setDateFormat:@"HH:mm"];
     if (indexPath.section == 0)
     {
         switchControl.on = [userPreferences boolForKey:section1[indexPath.row]];
