@@ -24,8 +24,8 @@
 		1D8902021A4B5199001A69A3 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901F81A4B5199001A69A3 /* HistoryTableViewController.m */; };
 		1D8902051A4B5199001A69A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8901FD1A4B5199001A69A3 /* Main.storyboard */; };
 		1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902071A4B52C8001A69A3 /* SleepData.m */; };
-		1DBC7C001A70FD64007B35B8 /* setIntelligentNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC7BFF1A70FD64007B35B8 /* setIntelligentNotification.m */; };
 		1DBC7C031A70FD81007B35B8 /* IntelligentNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */; };
+		1DBC7C091A70FED3007B35B8 /* setIntelligentNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC7C071A70FED3007B35B8 /* setIntelligentNotification.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,10 +71,10 @@
 		1D8901FD1A4B5199001A69A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1D8902061A4B52C8001A69A3 /* SleepData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepData.h; sourceTree = "<group>"; };
 		1D8902071A4B52C8001A69A3 /* SleepData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepData.m; sourceTree = "<group>"; };
-		1DBC7BFE1A70FD64007B35B8 /* setIntelligentNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setIntelligentNotification.h; sourceTree = "<group>"; };
-		1DBC7BFF1A70FD64007B35B8 /* setIntelligentNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setIntelligentNotification.m; sourceTree = "<group>"; };
 		1DBC7C011A70FD81007B35B8 /* IntelligentNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntelligentNotification.h; sourceTree = "<group>"; };
 		1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntelligentNotification.m; sourceTree = "<group>"; };
+		1DBC7C071A70FED3007B35B8 /* setIntelligentNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setIntelligentNotification.m; sourceTree = "<group>"; };
+		1DBC7C081A70FED3007B35B8 /* setIntelligentNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setIntelligentNotification.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,8 +172,8 @@
 			children = (
 				1D8901EF1A4B5199001A69A3 /* SleepDataModel.h */,
 				1D8901F01A4B5199001A69A3 /* SleepDataModel.m */,
-				1DBC7BFE1A70FD64007B35B8 /* setIntelligentNotification.h */,
-				1DBC7BFF1A70FD64007B35B8 /* setIntelligentNotification.m */,
+				1DBC7C071A70FED3007B35B8 /* setIntelligentNotification.m */,
+				1DBC7C081A70FED3007B35B8 /* setIntelligentNotification.h */,
 				1DBC7C011A70FD81007B35B8 /* IntelligentNotification.h */,
 				1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */,
 			);
@@ -334,10 +334,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DBC7C031A70FD81007B35B8 /* IntelligentNotification.m in Sources */,
+				1DBC7C091A70FED3007B35B8 /* setIntelligentNotification.m in Sources */,
 				1D8902021A4B5199001A69A3 /* HistoryTableViewController.m in Sources */,
 				1D8901CC1A4B5119001A69A3 /* AppDelegate.m in Sources */,
 				1D7C39041A4C811800A02793 /* History3ViewController.m in Sources */,
-				1DBC7C001A70FD64007B35B8 /* setIntelligentNotification.m in Sources */,
 				1D8901CF1A4B5119001A69A3 /* SleepTracker.xcdatamodeld in Sources */,
 				1D8902011A4B5199001A69A3 /* WakeUpTableViewController.m in Sources */,
 				1D26812A1A4C070300D510F8 /* History2TableViewController.m in Sources */,
