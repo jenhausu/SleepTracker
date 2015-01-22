@@ -41,9 +41,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    section1 = @[@"Eat Food", @"Watch Electronic Screen", @"Take A Bath"];
-    section2 = @[@"Average Go To Bed Time"];
-    section3 = @[@"awake for more than 16 hrs"];
+    section1 = @[@"吃東西", @"看任何電子螢幕", @"洗澡"];
+    section2 = @[@"平均上床時間"];
+    section3 = @[@"醒著超過十六小時"];
     array = @[section1, section2, section3];
     
     fireTime = [self.intelligentNotification decideFireTime];
