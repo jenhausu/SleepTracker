@@ -8,6 +8,26 @@
 
 #import "LocalNotification.h"
 
+#import <UIKit/UIKit.h>
+
 @implementation LocalNotification
+
+- (void)setLocalNotificationWithMessage:(NSString *)message fireDate:(NSDate *)fireDate repeatOrNot:(BOOL)repeat Sound:(NSString *)sound key:(NSString *)key forValue:(id)value
+{
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = fireDate;
+    localNotification.alertBody = message;
+    
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.soundName = sound;
+    
+    if (repeat) localNotification.repeatInterval = NSCalendarUnitDay;  //每天循環
+    if (key) {
+        NSDictionary *dic = [NSDictionary dictionaryWithObject:value forKey:key];
+        localNotification.userInfo = dic;
+    }
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+}
 
 @end
