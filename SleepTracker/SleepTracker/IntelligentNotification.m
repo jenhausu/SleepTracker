@@ -62,16 +62,26 @@
     return shouldGoToBedTime;
 }
 
-- (NSArray *)decideFireDate
+- (NSArray *)decideNotificationTitle
 {
     notification = @[@"吃東西", @"看任何電子螢幕", @"洗澡", @"平均上床時間", @"醒來超過十六小時"];
     
+    return notification;
+}
+
+- (NSArray *)decideMessage
+{
     message = @[@"如果你想要在%@時去睡覺，建議你就不要再吃東西了。",
                 @"建議你不要再看任何電子螢幕了，好讓眼睛開始休息。",
                 @"如果你想要在十一點時上床睡覺，建議你可以現在去沖個澡，這樣兩個小時後體溫開始下降，正好適合睡覺。",
                 @"已經過了你平均上床的時間了，建議妳趕快上床休息吧。",
                 @"從你今天起床醒來到現在已經超過十六個小時了，建議你盡快去上床休息吧。"];
     
+    return message;
+}
+
+- (NSArray *)decideFireDate
+{
     fetchArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
     NSInteger const LATEST_DATA = 0;
     self.sleepData = fetchArray[LATEST_DATA];
@@ -87,10 +97,13 @@
     return fireTime;
 }
 
+#pragma mark - Reschedule
+
 - (void)rescheduleIntelligentNotification
 {
     [self deleteAllIntelligentNotification];
     
+    [self decideNotificationTitle];
     [self decideMessage];
     [self decideFireDate];
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
