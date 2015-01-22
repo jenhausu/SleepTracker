@@ -35,7 +35,7 @@
     
 }
 
-- (void)deleteIntelligentNotification
+- (void)deleteAllIntelligentNotification
 {
     
 }
