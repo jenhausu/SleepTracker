@@ -14,9 +14,6 @@
 
 @interface IntelligentNotification ()
 
-@property (strong, nonatomic) NSArray *notification;
-@property (strong, nonatomic) NSArray *message;
-@property (strong, nonatomic) NSArray *fireTime;
 @property (strong, nonatomic) NSDate *shouldGoToBedTime;
 
 @property (strong, nonatomic) LocalNotification *localNotification;
@@ -28,7 +25,7 @@
 
 @implementation IntelligentNotification
 
-@synthesize notification, message, fireTime, shouldGoToBedTime, fetchArray;
+@synthesize shouldGoToBedTime, fetchArray;
 
 #pragma mark - Lazy initialization
 
@@ -64,18 +61,18 @@
 
 - (NSArray *)decideNotificationTitle
 {
-    notification = @[@"吃東西", @"看任何電子螢幕", @"洗澡", @"平均上床時間", @"醒來超過十六小時"];
+    NSArray *notification = @[@"吃東西", @"看任何電子螢幕", @"洗澡", @"平均上床時間", @"醒來超過十六小時"];
     
     return notification;
 }
 
 - (NSArray *)decideMessage
 {
-    message = @[@"如果你想要在%@時去睡覺，建議你就不要再吃東西了。",
-                @"建議你不要再看任何電子螢幕了，好讓眼睛開始休息。",
-                @"如果你想要在十一點時上床睡覺，建議你可以現在去沖個澡，這樣兩個小時後體溫開始下降，正好適合睡覺。",
-                @"已經過了你平均上床的時間了，建議妳趕快上床休息吧。",
-                @"從你今天起床醒來到現在已經超過十六個小時了，建議你盡快去上床休息吧。"];
+    NSArray *message = @[@"如果你想要在%@時去睡覺，建議你就不要再吃東西了。",
+                         @"建議你不要再看任何電子螢幕了，好讓眼睛開始休息。",
+                         @"如果你想要在十一點時上床睡覺，建議你可以現在去沖個澡，這樣兩個小時後體溫開始下降，正好適合睡覺。",
+                         @"已經過了你平均上床的時間了，建議妳趕快上床休息吧。",
+                         @"從你今天起床醒來到現在已經超過十六個小時了，建議你盡快去上床休息吧。"];
     
     return message;
 }
@@ -87,12 +84,12 @@
     self.sleepData = fetchArray[LATEST_DATA];
     
     [self decideShouldGoToBedTime];
-    fireTime = [[NSArray alloc] initWithObjects:
-                [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:shouldGoToBedTime],
-                [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:shouldGoToBedTime],
-                [NSDate dateWithTimeInterval:-(60 * 60 * 2) sinceDate:shouldGoToBedTime],
-                [NSDate dateWithTimeIntervalSinceNow:10],
-                [NSDate dateWithTimeInterval:(60 * 60 * 16) sinceDate:self.sleepData.wakeUpTime], nil];
+    NSArray *fireDate = [[NSArray alloc] initWithObjects:
+                         [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:shouldGoToBedTime],
+                         [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:shouldGoToBedTime],
+                         [NSDate dateWithTimeInterval:-(60 * 60 * 2) sinceDate:shouldGoToBedTime],
+                         [NSDate dateWithTimeIntervalSinceNow:10],
+                         [NSDate dateWithTimeInterval:(60 * 60 * 16) sinceDate:self.sleepData.wakeUpTime], nil];
 #warning 平均起床時間還沒計算
 #warning 希望幾點上床睡覺的通知還沒設定
     return fireDate;
@@ -104,15 +101,15 @@
 {
     [self deleteAllIntelligentNotification];
     
-    [self decideNotificationTitle];
-    [self decideMessage];
-    [self decideFireDate];
+    NSArray *notification = [self decideNotificationTitle];
+    NSArray *Message = [self decideMessage];
+    NSArray *fireDate = [self decideFireDate];
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     
     for (NSInteger i = 0 ; i < [notification count] ; i++ ) {
         if ([userPreferences boolForKey:notification[i]]) {
-            [self.localNotification setLocalNotificationWithMessage:message[i]
-                                                           fireDate:fireTime[i]
+            [self.localNotification setLocalNotificationWithMessage:Message[i]
+                                                           fireDate:fireDate[i]
                                                         repeatOrNot:YES
                                                               Sound:@"UILocalNotificationDefaultSoundName"
                                                                 key:nil forValue:nil];
