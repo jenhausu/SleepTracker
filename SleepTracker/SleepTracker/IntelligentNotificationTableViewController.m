@@ -26,7 +26,7 @@
     
     section1 = @[@"Eat Food", @"Watch Electronic Screen", @"Take A Bath"];
     section2 = @[@"Average Go To Bed Time"];
-    section3 = @[@"Awake for more than 16 hrs"];
+    section3 = @[@"awake for more than 16 hrs"];
     array = @[section1, section2, section3];
 }
 
