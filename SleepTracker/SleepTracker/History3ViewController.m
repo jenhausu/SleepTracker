@@ -8,30 +8,37 @@
 
 #import "History3ViewController.h"
 
+#import "History2TableViewController.h"
+
 @interface History3ViewController ()
+
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+
+@property (strong, nonatomic) NSDate *passOverDate;
+@property (strong, nonatomic) History2TableViewController *History2ViewController;
 
 @end
 
 @implementation History3ViewController
 
+@synthesize passOverDate;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.datePicker.date = passOverDate;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)willMoveToParentViewController:(UIViewController *)parent
+{
+    if (!parent) {
+        if ([self.title isEqualToString:@"上床時間"]) {
+            [self.History2ViewController setValue:self.datePicker.date forKey:@"goToBedTime"];
+        }
+        else if ([self.title isEqualToString:@"起床時間"]) {
+            [self.History2ViewController setValue:self.datePicker.date forKey:@"wakeUpTime"];
+        }
+    }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
