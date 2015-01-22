@@ -123,7 +123,7 @@
     page2.title = [dateFormatter stringFromDate:self.sleepData.wakeUpTime];
     
     
-    NSNumber *selectedRow = [NSNumber numberWithInteger:selectedIndexPath.row];   //[NSString stringWithFormat:@"%d", selectedIndexPath.row];
+    NSNumber *selectedRow = [NSNumber numberWithInteger:selectedIndexPath.row];
     [page2 setValue:selectedRow forKey:@"selectedRow"];
 }
 
