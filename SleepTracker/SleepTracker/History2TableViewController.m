@@ -22,6 +22,9 @@
 @property (strong, nonatomic) NSDate *goToBedTime;
 @property (strong, nonatomic) NSDate *wakeUpTime;
 
+@property (strong, nonatomic) NSString *sleepType;
+@property (assign, nonatomic) NSUInteger selectedSleepType;
+
 @property (nonatomic, strong) SleepDataModel *sleepDataModel;
 @property (nonatomic, weak) NSArray *fetchDataArray;
 @property (nonatomic, weak) SleepData *sleepData;
@@ -30,7 +33,7 @@
 
 @implementation History2TableViewController
 
-@synthesize section1, section2, textLabelArray, fetchDataArray, selectedRow, goToBedTime, wakeUpTime;
+@synthesize section1, section2, textLabelArray, fetchDataArray, selectedRow, goToBedTime, wakeUpTime, sleepType, selectedSleepType;
 
 - (SleepDataModel *)sleepDataModel
 {
@@ -56,6 +59,12 @@
     
     if (!wakeUpTime) {  //如果沒有起床時間的話
         wakeUpTime = [NSDate date];
+    }
+    
+    if ([self.sleepData.sleepType isEqualToString:@"一般"]) {
+        selectedSleepType = 0;
+    } else if ([self.sleepData.sleepType isEqualToString:@"小睡"]) {
+        selectedSleepType = 1;
     }
 }
 
@@ -91,11 +100,10 @@
         }
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     } else if (indexPath.section == 1) {
+        cell.detailTextLabel.text = @"";
         
-        if (indexPath.row == 0) {
-            
-        } else if (indexPath.row == 1) {
-            
+        if (indexPath.row == selectedSleepType) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }
     }
     
@@ -120,13 +128,29 @@
         [self.navigationController pushViewController:page2 animated:YES];
     }
     else if (indexPath.section == 1) {
-
+        if (indexPath.row != selectedSleepType) {
+            NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:selectedSleepType inSection:1];
+            UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:oldIndexPath];
+            oldCell.accessoryType = UITableViewCellAccessoryNone;
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            selectedSleepType = indexPath.row;
+        }
     }
 }
 
 #pragma mark -
 
 - (IBAction)update:(id)sender {
+    switch (selectedSleepType) {
+        case 0:
+            sleepType = @"一般";
+            break;
+        case 1:
+            sleepType = @"小睡";
+            break;
+    }
+    
     [self.sleepDataModel updateAllSleepDataInRow:[selectedRow integerValue]
                                      goToBedTime:goToBedTime
                                       wakeUpTime:wakeUpTime
