@@ -239,6 +239,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="BcT-0T-xRn">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="lhd-Z3-UOu"/>
                         <barButtonItem key="leftBarButtonItem" title="取消" id="O0q-ZI-dbn">
                             <connections>
                                 <action selector="cancel:" destination="oRX-0D-Pze" id="dpM-gz-atb"/>
@@ -332,7 +333,7 @@
                         <sections>
                             <tableViewSection id="3FF-uA-c7k">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="ctH-9o-h0e" style="IBUITableViewCellStyleDefault" id="koa-ZD-cRP">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="ctH-9o-h0e" style="IBUITableViewCellStyleDefault" id="koa-ZD-cRP">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="koa-ZD-cRP" id="Aiz-Qo-y1D">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -349,7 +350,7 @@
                                             <segue destination="UpI-OH-aVL" kind="show" id="vN3-nQ-fhX"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="ecf-mr-cvw" style="IBUITableViewCellStyleDefault" id="E4B-M3-fhx">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="ecf-mr-cvw" style="IBUITableViewCellStyleDefault" id="E4B-M3-fhx">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E4B-M3-fhx" id="MFF-kl-dTn">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -370,7 +371,7 @@
                             </tableViewSection>
                             <tableViewSection id="k2a-oC-2hP">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="VHY-Aq-iaR" style="IBUITableViewCellStyleDefault" id="zA1-rb-ffd">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="VHY-Aq-iaR" style="IBUITableViewCellStyleDefault" id="zA1-rb-ffd">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zA1-rb-ffd" id="BTr-bf-Ppo">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -391,7 +392,7 @@
                             </tableViewSection>
                             <tableViewSection id="18e-MA-ky6">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="Gcc-Xc-sTX" style="IBUITableViewCellStyleDefault" id="KDi-GF-yGK">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Gcc-Xc-sTX" style="IBUITableViewCellStyleDefault" id="KDi-GF-yGK">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KDi-GF-yGK" id="QdC-hm-Oxw">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -512,7 +513,7 @@
                         <sections>
                             <tableViewSection headerTitle="Section-1" id="sOC-av-Trf">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="qNI-mW-lA5" style="IBUITableViewCellStyleDefault" id="4SE-Vq-iHD">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="qNI-mW-lA5" style="IBUITableViewCellStyleDefault" id="4SE-Vq-iHD">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4SE-Vq-iHD" id="iuZ-de-iqX">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -525,31 +526,16 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="BLi-WK-h2y" kind="show" id="OzL-Fo-jhU"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="sgp-Wg-AP4" style="IBUITableViewCellStyleDefault" id="m3l-h4-5M4">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="sgp-Wg-AP4" style="IBUITableViewCellStyleDefault" id="m3l-h4-5M4">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m3l-h4-5M4" id="wK4-Ye-pJA">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="自訂提醒" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sgp-Wg-AP4">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Section-2" id="g9G-mu-cAy">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="Jqj-ED-06z" style="IBUITableViewCellStyleDefault" id="Amj-0L-ini">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Amj-0L-ini" id="zND-fS-F66">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="自訂提醒" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jqj-ED-06z">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -571,6 +557,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7by-jK-upe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2541" y="2298"/>
+        </scene>
+        <!--Intelligent Notification Table View Controller-->
+        <scene sceneID="ep1-gv-gQB">
+            <objects>
+                <tableViewController id="BLi-WK-h2y" customClass="IntelligentNotificationTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="UNm-Af-l8B">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Hse-mt-lKS" detailTextLabel="fDY-7P-pmR" style="IBUITableViewCellStyleSubtitle" id="5Lh-wq-ahn">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Lh-wq-ahn" id="JEW-ac-hue">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hse-mt-lKS">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fDY-7P-pmR">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="BLi-WK-h2y" id="D7P-Bs-029"/>
+                            <outlet property="delegate" destination="BLi-WK-h2y" id="JwS-9d-526"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hqT-oB-UeY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3382" y="1958"/>
         </scene>
         <!--設定-->
         <scene sceneID="du2-s9-udy">
@@ -760,7 +786,7 @@
             </objects>
             <point key="canvasLocation" x="1582" y="10"/>
         </scene>
-        <!--History2 Table View Controller-->
+        <!--Title-->
         <scene sceneID="v4k-wQ-MmK">
             <objects>
                 <tableViewController id="Aje-LQ-Xef" customClass="History2TableViewController" sceneMemberID="viewController">
@@ -795,6 +821,13 @@
                             <outlet property="delegate" destination="Aje-LQ-Xef" id="D0e-Kg-wrR"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="KxM-tf-XDH">
+                        <barButtonItem key="rightBarButtonItem" title="更新" id="obo-Ck-Xza">
+                            <connections>
+                                <action selector="update:" destination="Aje-LQ-Xef" id="BxF-r9-8AP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CHv-gq-dTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -803,7 +836,7 @@
         <!--History3 View Controller-->
         <scene sceneID="BTQ-xB-ag2">
             <objects>
-                <viewController id="qB1-EJ-hMM" customClass="History3ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="History3" id="qB1-EJ-hMM" customClass="History3ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="akr-aL-UnC"/>
                         <viewControllerLayoutGuide type="bottom" id="smd-ei-1nd"/>
@@ -811,8 +844,24 @@
                     <view key="view" contentMode="scaleToFill" id="r8R-gz-JyN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lFw-25-I6h">
+                                <rect key="frame" x="140" y="219" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="443469718.317725">
+                                    <!--2015-01-20 18:01:58 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="lFw-25-I6h" secondAttribute="centerX" id="8i2-rb-PH0"/>
+                            <constraint firstAttribute="centerY" secondItem="lFw-25-I6h" secondAttribute="centerY" id="B28-XU-qVE"/>
+                        </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="datePicker" destination="lFw-25-I6h" id="AMT-pk-WSP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T0Q-X1-2Yi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

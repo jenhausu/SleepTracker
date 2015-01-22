@@ -17,16 +17,23 @@
 @property (nonatomic, strong) NSArray *section2;
 @property (nonatomic, strong) NSArray *textLabelArray;
 
+@property (strong, nonatomic) NSNumber *selectedRow;
+
+@property (strong, nonatomic) NSDate *goToBedTime;
+@property (strong, nonatomic) NSDate *wakeUpTime;
+
+@property (strong, nonatomic) NSString *sleepType;
+@property (assign, nonatomic) NSUInteger selectedSleepType;
+
 @property (nonatomic, strong) SleepDataModel *sleepDataModel;
 @property (nonatomic, weak) NSArray *fetchDataArray;
 @property (nonatomic, weak) SleepData *sleepData;
-@property (weak) NSString *selectedRow;
 
 @end
 
 @implementation History2TableViewController
 
-@synthesize section1, section2, fetchDataArray, selectedRow;
+@synthesize section1, section2, textLabelArray, fetchDataArray, selectedRow, goToBedTime, wakeUpTime, sleepType, selectedSleepType;
 
 - (SleepDataModel *)sleepDataModel
 {
@@ -46,11 +53,24 @@
     self.textLabelArray = @[section1, section2];
     
     fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
+    self.sleepData = fetchDataArray[[selectedRow integerValue]];
+    goToBedTime = self.sleepData.goToBedTime;
+    wakeUpTime = self.sleepData.wakeUpTime;
+    
+    if (!wakeUpTime) {  //如果沒有起床時間的話
+        wakeUpTime = [NSDate date];
+    }
+    
+    if ([self.sleepData.sleepType isEqualToString:@"一般"]) {
+        selectedSleepType = 0;
+    } else if ([self.sleepData.sleepType isEqualToString:@"小睡"]) {
+        selectedSleepType = 1;
+    }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -71,34 +91,79 @@
     
     
     if (indexPath.section == 0) {
-        self.sleepData = fetchDataArray[[selectedRow integerValue]];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy/M/d EEE ah:mm"];
         if (indexPath.row == 0) {
-            cell.detailTextLabel.text = [dateFormatter stringFromDate:self.sleepData.goToBedTime];
+            cell.detailTextLabel.text = [dateFormatter stringFromDate:goToBedTime];
         } else if (indexPath.row == 1) {
-            cell.detailTextLabel.text = [dateFormatter stringFromDate:self.sleepData.wakeUpTime];
+            cell.detailTextLabel.text = [dateFormatter stringFromDate:wakeUpTime];
         }
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     } else if (indexPath.section == 1) {
+        cell.detailTextLabel.text = @"";
         
-        if (indexPath.row == 0) {
-            
-        } else if (indexPath.row == 1) {
-            
+        if (indexPath.row == selectedSleepType) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }
     }
     
     return cell;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 0) {
+        UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"History3"];
+        
+        if (indexPath.row == 0)
+            [page2 setValue:goToBedTime forKey:@"passOverDate"];
+        else if (indexPath.row == 1)
+            [page2 setValue:wakeUpTime forKey:@"passOverDate"];
+        
+        page2.title = self.textLabelArray[indexPath.section][indexPath.row];
+        [page2 setValue:self forKey:@"History2ViewController"];
+        
+        [self.navigationController pushViewController:page2 animated:YES];
+    }
+    else if (indexPath.section == 1) {
+        if (indexPath.row != selectedSleepType) {
+            NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:selectedSleepType inSection:1];
+            UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:oldIndexPath];
+            oldCell.accessoryType = UITableViewCellAccessoryNone;
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            selectedSleepType = indexPath.row;
+        }
+    }
 }
-*/
+
+#pragma mark -
+
+- (IBAction)update:(id)sender {
+    switch (selectedSleepType) {
+        case 0:
+            sleepType = @"一般";
+            break;
+        case 1:
+            sleepType = @"小睡";
+            break;
+    }
+    
+    [self.sleepDataModel updateAllSleepDataInRow:[selectedRow integerValue]
+                                     goToBedTime:goToBedTime
+                                      wakeUpTime:wakeUpTime
+                                       sleepTiem:[NSNumber numberWithDouble:[wakeUpTime timeIntervalSinceDate:goToBedTime]]
+                                       sleepType:sleepType];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"修改資料"
+                                                    message:@"成功！"
+                                                   delegate:self
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:@"確定", nil];
+
+    [alert show];
+}
 
 @end

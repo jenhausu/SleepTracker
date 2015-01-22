@@ -19,13 +19,13 @@
 		1D8901DA1A4B5119001A69A3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D8901D81A4B5119001A69A3 /* LaunchScreen.xib */; };
 		1D8901E61A4B511A001A69A3 /* SleepTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901E51A4B511A001A69A3 /* SleepTrackerTests.m */; };
 		1D8901FE1A4B5199001A69A3 /* SleepDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901F01A4B5199001A69A3 /* SleepDataModel.m */; };
-		1D8901FF1A4B5199001A69A3 /* SetLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901F21A4B5199001A69A3 /* SetLocalNotification.m */; };
 		1D8902001A4B5199001A69A3 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901F41A4B5199001A69A3 /* AlarmViewController.m */; };
 		1D8902011A4B5199001A69A3 /* WakeUpTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901F61A4B5199001A69A3 /* WakeUpTableViewController.m */; };
 		1D8902021A4B5199001A69A3 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901F81A4B5199001A69A3 /* HistoryTableViewController.m */; };
 		1D8902051A4B5199001A69A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8901FD1A4B5199001A69A3 /* Main.storyboard */; };
 		1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902071A4B52C8001A69A3 /* SleepData.m */; };
-		1D8902121A4B5E46001A69A3 /* SetIntelligentNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902111A4B5E46001A69A3 /* SetIntelligentNotification.m */; };
+		1DBC7C031A70FD81007B35B8 /* IntelligentNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */; };
+		1DBC7C0F1A70FFBB007B35B8 /* LocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC7C0E1A70FFBB007B35B8 /* LocalNotification.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +62,6 @@
 		1D8901E51A4B511A001A69A3 /* SleepTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SleepTrackerTests.m; sourceTree = "<group>"; };
 		1D8901EF1A4B5199001A69A3 /* SleepDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepDataModel.h; sourceTree = "<group>"; };
 		1D8901F01A4B5199001A69A3 /* SleepDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepDataModel.m; sourceTree = "<group>"; };
-		1D8901F11A4B5199001A69A3 /* SetLocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetLocalNotification.h; sourceTree = "<group>"; };
-		1D8901F21A4B5199001A69A3 /* SetLocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetLocalNotification.m; sourceTree = "<group>"; };
 		1D8901F31A4B5199001A69A3 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
 		1D8901F41A4B5199001A69A3 /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
 		1D8901F51A4B5199001A69A3 /* WakeUpTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WakeUpTableViewController.h; sourceTree = "<group>"; };
@@ -73,8 +71,10 @@
 		1D8901FD1A4B5199001A69A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1D8902061A4B52C8001A69A3 /* SleepData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepData.h; sourceTree = "<group>"; };
 		1D8902071A4B52C8001A69A3 /* SleepData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepData.m; sourceTree = "<group>"; };
-		1D8902101A4B5E46001A69A3 /* SetIntelligentNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetIntelligentNotification.h; sourceTree = "<group>"; };
-		1D8902111A4B5E46001A69A3 /* SetIntelligentNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetIntelligentNotification.m; sourceTree = "<group>"; };
+		1DBC7C011A70FD81007B35B8 /* IntelligentNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntelligentNotification.h; sourceTree = "<group>"; };
+		1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntelligentNotification.m; sourceTree = "<group>"; };
+		1DBC7C0D1A70FFBB007B35B8 /* LocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotification.h; sourceTree = "<group>"; };
+		1DBC7C0E1A70FFBB007B35B8 /* LocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotification.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +219,8 @@
 		1D89020D1A4B52FA001A69A3 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				1D2DB7F21A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.h */,
+				1D2DB7F31A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -341,8 +343,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DBC7C0F1A70FFBB007B35B8 /* LocalNotification.m in Sources */,
+				1DBC7C031A70FD81007B35B8 /* IntelligentNotification.m in Sources */,
 				1D8902021A4B5199001A69A3 /* HistoryTableViewController.m in Sources */,
-				1D8902121A4B5E46001A69A3 /* SetIntelligentNotification.m in Sources */,
 				1D8901CC1A4B5119001A69A3 /* AppDelegate.m in Sources */,
 				1D7C39041A4C811800A02793 /* History3ViewController.m in Sources */,
 				1D8901CF1A4B5119001A69A3 /* SleepTracker.xcdatamodeld in Sources */,
@@ -352,10 +355,10 @@
 				1D8901FE1A4B5199001A69A3 /* SleepDataModel.m in Sources */,
 				1D7C390B1A4C962500A02793 /* WakeUp2ViewController.m in Sources */,
 				1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */,
-				1D8901FF1A4B5199001A69A3 /* SetLocalNotification.m in Sources */,
 				1D8902001A4B5199001A69A3 /* AlarmViewController.m in Sources */,
 				1D8901C91A4B5119001A69A3 /* main.m in Sources */,
 				1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */,
+				1D2DB7F41A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
