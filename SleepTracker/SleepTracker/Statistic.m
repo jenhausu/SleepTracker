@@ -83,8 +83,7 @@
     [self Initailize];
 
     
-    NSArray *array = @[MIN, MAX, AVG];
-    return array;
+    return @[MIN, MAX, AVG];
 }
 
 - (NSArray *)showWakeUpTimeDataInTheRecent:(NSInteger)recent
@@ -92,8 +91,7 @@
     [self Initailize];
     
     
-    NSArray *array = @[MIN, MAX, AVG];
-    return array;
+    return @[MIN, MAX, AVG];
 }
 
 #pragma mark -
