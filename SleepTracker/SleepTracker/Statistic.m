@@ -47,7 +47,33 @@
 - (NSArray *)showSleepTimeDataInTheRecent:(NSInteger)recent
 {
     [self Initailize];
+    if (fetchArray.count > 0 ) {
+        self.sleepData = fetchArray[0];
+        if (fetchArray.count >= 2 || (fetchArray.count == 1 && self.sleepData.wakeUpTime > 0) )
+        {
+            self.sleepData = fetchArray[([self.sleepData.sleepTime floatValue] == 0) ? 1 : 0 ];  //如果現在是睡覺狀態，那就跳過第一筆資料，因為第一筆資料還沒有sleepTime的資料
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"DDD"];  // 1~366 一年的第幾天
+            NSInteger today = [[formatter stringFromDate:[NSDate date]] integerValue];
+            NSInteger dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+            NSInteger lastDataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue] + 1 ;
 
+            while ( dataDate > (today - recent) ) {
+                if ([self.sleepData.sleepType isEqualToString:@"一般"]) {
+                    if (dataDate != lastDataDate) {
+                        
+                    } else if (dataDate == lastDataDate) {
+                        
+                    }
+                }
+            }
+        }
+    } else {
+        MIN = 0;
+        MAX = 0;
+        AVG = 0;
+    }
     
     return @[MIN, MAX, AVG];
 }
