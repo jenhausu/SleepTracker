@@ -11,11 +11,9 @@
 #import "SleepDataModel.h"
 #import "SleepData.h"
 
-@interface Statistic ()
-
-@property (strong, nonatomic) NSNumber *MIN;
-@property (strong, nonatomic) NSNumber *MAX;
-@property (strong, nonatomic) NSNumber *AVG;
+@interface Statistic () {
+    NSInteger MIN, MAX, AVG;
+}
 
 @property (strong, nonatomic) SleepDataModel *sleepDataModel;
 @property (strong, nonatomic) NSArray *fetchArray;
@@ -25,7 +23,7 @@
 
 @implementation Statistic
 
-@synthesize MIN, MAX, AVG, fetchArray;
+@synthesize fetchArray;
 
 - (SleepDataModel *)sleepDataModel
 {
@@ -35,10 +33,11 @@
     return _sleepDataModel;
 }
 
-- (void)Initailize {
-    MIN = [NSNumber numberWithFloat:99999999];
-    MAX = [NSNumber numberWithFloat:0];
-    AVG = [NSNumber numberWithFloat:0];
+- (void)Initailize
+{
+    MAX = 0;
+    MIN = 99999999;
+    AVG = 0;
     
     fetchArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
     
@@ -47,10 +46,6 @@
 - (NSArray *)showSleepTimeDataInTheRecent:(NSInteger)recent
 {
     [self Initailize];
-    
-    NSInteger Max = 0;
-    NSInteger Min = 99999999;
-    NSInteger Avg = 0;
     
     if (fetchArray.count > 0 ) {
         self.sleepData = fetchArray[0];
@@ -85,12 +80,12 @@
                     if (dataDate != lastDataDate) {
                         sleepTimeSumTem = 0;  //歸零
                         
-                        if (sleepTime > Max) {
-                            Max = sleepTime;
+                        if (sleepTime > MAX) {
+                            MAX = sleepTime;
                         }
                         
-                        if (sleepTime < Min) {
-                            Min = sleepTime;
+                        if (sleepTime < MIN) {
+                            MIN = sleepTime;
                             
                             lastMinDate = dataDate;
                             [lastMinStack addObject:[NSNumber numberWithFloat:sleepTime]];  //加入堆疊中
@@ -98,26 +93,26 @@
                     } else if (dataDate == lastDataDate) {  //兩筆資料是同一天
                         sleepTimeSumTem += sleepTime + lastDataSleepTime;
                         
-                        if (sleepTimeSumTem > Max) {  //處理最大值
-                            Max = sleepTimeSumTem;
+                        if (sleepTimeSumTem > MAX) {  //處理最大值
+                            MAX = sleepTimeSumTem;
                         }
                         
                         if (lastMinDate == dataDate) {  //處理最小值
                             if (lastMinStack.count >= 2) {   //堆疊數量超過一個
                                 if (sleepTimeSumTem < [lastMinStack[lastMinStack.count -2] integerValue]) {
-                                    Min = sleepTimeSumTem;
+                                    MIN = sleepTimeSumTem;
                                     lastMinDate = dataDate;
                                     
                                     [lastMinStack removeLastObject];
                                     [lastMinStack addObject:[NSNumber numberWithInteger:sleepTimeSumTem]];
                                 } else {
-                                    Min = [lastMinStack[lastMinStack.count - 2] integerValue];
+                                    MIN = [lastMinStack[lastMinStack.count - 2] integerValue];
                                     lastMinDate = dataDate;
                                     
                                     [lastMinStack removeLastObject];
                                 }
                             } else {
-                                Min = sleepTimeSumTem;
+                                MIN = sleepTimeSumTem;
                                 lastMinDate = dataDate;
                                 
                                 [lastMinStack removeLastObject];
@@ -140,34 +135,32 @@
                     break;  //如果總資料比數少於所需要計算的天數，直接跳出
                 }
             }
-            Avg = sleepTimeSum / (today - lastDataDate + 1 - Correction);
+            AVG = sleepTimeSum / (today - lastDataDate + 1 - Correction);
         }
     } else {
-        Min = 0;
-        Max = 0;
-        Avg = 0;
+        MIN = 0;
+        MAX = 0;
+        AVG = 0;
     }
-    if (Min == 99999999) {
-        Min = 0;
+    if (MIN == 99999999) {
+        MIN = 0;
     }
     
-    return @[[NSNumber numberWithFloat:Min], [NSNumber numberWithFloat:Max], [NSNumber numberWithFloat:Avg]];
+    return @[[NSNumber numberWithFloat:MIN], [NSNumber numberWithFloat:MAX], [NSNumber numberWithFloat:AVG]];
 }
 
 - (NSArray *)showGoToBedTimeDataInTheRecent:(NSInteger)recent
 {
     [self Initailize];
-
     
-    return @[MIN, MAX, AVG];
+    return @[[NSNumber numberWithFloat:MIN], [NSNumber numberWithFloat:MAX], [NSNumber numberWithFloat:AVG]];
 }
 
 - (NSArray *)showWakeUpTimeDataInTheRecent:(NSInteger)recent
 {
     [self Initailize];
     
-    
-    return @[MIN, MAX, AVG];
+    return @[[NSNumber numberWithFloat:MIN], [NSNumber numberWithFloat:MAX], [NSNumber numberWithFloat:AVG]];
 }
 
 #pragma mark -
