@@ -72,6 +72,10 @@
     }   
 }
 */
+- (IBAction)add:(id)sender {
+    UINavigationController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"setCustomNotification"];
+    [self presentViewController:page2 animated:YES completion:nil];
+}
 
 /*
 // Override to support rearranging the table view.

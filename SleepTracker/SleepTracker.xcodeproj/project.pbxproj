@@ -104,10 +104,10 @@
 		1D2DB7FE1A70F31800A72EFA /* Custom Notification */ = {
 			isa = PBXGroup;
 			children = (
-				1D2DB7FB1A70F30E00A72EFA /* CustomNotificationTwoViewController.h */,
-				1D2DB7FC1A70F30E00A72EFA /* CustomNotificationTwoViewController.m */,
 				1D2DB7F81A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.h */,
 				1D2DB7F91A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.m */,
+				1D2DB7FB1A70F30E00A72EFA /* CustomNotificationTwoViewController.h */,
+				1D2DB7FC1A70F30E00A72EFA /* CustomNotificationTwoViewController.m */,
 			);
 			name = "Custom Notification";
 			sourceTree = "<group>";
