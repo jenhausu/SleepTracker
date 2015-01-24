@@ -85,6 +85,12 @@
                         
                     }
                 }
+                if (++row < fetchArray.count) {
+                    self.sleepData = fetchArray[row];
+                    dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+                } else {
+                    break;  //如果總資料比數少於所需要計算的天數，直接跳出
+                }
             }
         }
     } else {
