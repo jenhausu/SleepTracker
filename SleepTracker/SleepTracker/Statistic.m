@@ -49,8 +49,7 @@
     [self Initailize];
 
     
-    NSArray *array = @[MIN, MAX, AVG];
-    return array;
+    return @[MIN, MAX, AVG];
 }
 
 - (NSArray *)showGoToBedTimeDataInTheRecent:(NSInteger)recent
