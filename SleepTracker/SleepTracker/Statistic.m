@@ -56,19 +56,32 @@
         self.sleepData = fetchArray[0];
         if (fetchArray.count >= 2 || (fetchArray.count == 1 && self.sleepData.wakeUpTime > 0) )
         {
-            self.sleepData = fetchArray[([self.sleepData.sleepTime floatValue] == 0) ? 1 : 0 ];  //如果現在是睡覺狀態，那就跳過第一筆資料，因為第一筆資料還沒有sleepTime的資料
+            NSInteger row = ([self.sleepData.sleepTime floatValue] == 0) ? 1 : 0 ;  //如果現在是睡覺狀態，那就跳過第一筆資料，因為第一筆資料還沒有sleepTime的資料
+            self.sleepData = fetchArray[row];  //如果現在是睡覺狀態，那就跳過第一筆資料，因為第一筆資料還沒有sleepTime的資料
+            NSInteger sleepTime;
             
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             [formatter setDateFormat:@"DDD"];  // 1~366 一年的第幾天
+            
             NSInteger today = [[formatter stringFromDate:[NSDate date]] integerValue];
             NSInteger dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
-            NSInteger lastDataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue] + 1 ;
+            NSInteger lastDataDate = dataDate + 1 ;
 
+            NSInteger lastMinDate = dataDate + 1;
+            NSMutableArray *lastMinStack = [[NSMutableArray alloc] init];
+
+            NSInteger sleepTimeSum = 0;
+            NSInteger sleepTimeSumTem = 0;
+            NSInteger lastDataSleepTime = 0;
+            
+            NSInteger Correction = (today != dataDate) ? (today - dataDate) : 0 ;
+            
             while ( dataDate > (today - recent) ) {
-                if ([self.sleepData.sleepType isEqualToString:@"一般"]) {
+                if ([self.sleepData.sleepType isEqualToString:@"一般"])
+                {
                     if (dataDate != lastDataDate) {
                         
-                    } else if (dataDate == lastDataDate) {
+                    } else if (dataDate == lastDataDate) {  //兩筆資料是同一天
                         
                     }
                 }
