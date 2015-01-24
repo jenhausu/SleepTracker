@@ -79,10 +79,16 @@
             while ( dataDate > (today - recent) ) {
                 if ([self.sleepData.sleepType isEqualToString:@"一般"])
                 {
+                    sleepTime = [self.sleepData.sleepTime integerValue];
+                    sleepTimeSum += sleepTime;
+                    
+                    lastDataSleepTime = sleepTime;
+                    lastDataDate = dataDate;
+                    
                     if (dataDate != lastDataDate) {
-                        
+                        sleepTimeSumTem = 0;  //歸零
                     } else if (dataDate == lastDataDate) {  //兩筆資料是同一天
-                        
+                        sleepTimeSumTem += sleepTime + lastDataSleepTime;
                     }
                 }
                 if (++row < fetchArray.count) {
@@ -92,6 +98,7 @@
                     break;  //如果總資料比數少於所需要計算的天數，直接跳出
                 }
             }
+            Avg = sleepTimeSum / (today - lastDataDate + 1 - Correction);
         }
     } else {
         Min = 0;
