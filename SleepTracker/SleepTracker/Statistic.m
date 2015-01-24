@@ -84,8 +84,16 @@
                     
                     if (dataDate != lastDataDate) {
                         sleepTimeSumTem = 0;  //歸零
+                        
+                        if (sleepTime > Max) {
+                            Max = sleepTime;
+                        }
                     } else if (dataDate == lastDataDate) {  //兩筆資料是同一天
                         sleepTimeSumTem += sleepTime + lastDataSleepTime;
+                        
+                        if (sleepTimeSumTem > Max) {  //處理最大值
+                            Max = sleepTimeSumTem;
+                        }
                     }
                     
                     lastDataSleepTime = sleepTime;
