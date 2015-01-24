@@ -82,13 +82,17 @@
                     sleepTime = [self.sleepData.sleepTime integerValue];
                     sleepTimeSum += sleepTime;
                     
-                    lastDataSleepTime = sleepTime;
-                    lastDataDate = dataDate;
-                    
                     if (dataDate != lastDataDate) {
                         sleepTimeSumTem = 0;  //歸零
                     } else if (dataDate == lastDataDate) {  //兩筆資料是同一天
                         sleepTimeSumTem += sleepTime + lastDataSleepTime;
+                    }
+                    
+                    lastDataSleepTime = sleepTime;
+                    lastDataDate = dataDate;
+                    
+                    if (lastDataDate - dataDate > 1) {  //如果中間有一天是沒有輸入資料的話進行校正，中間這幾天不納入計算
+                        Correction += (lastDataDate - dataDate) - 1;
                     }
                 }
                 if (++row < fetchArray.count) {
