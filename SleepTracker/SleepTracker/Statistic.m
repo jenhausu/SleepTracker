@@ -88,11 +88,41 @@
                         if (sleepTime > Max) {
                             Max = sleepTime;
                         }
+                        
+                        if (sleepTime < Min) {
+                            Min = sleepTime;
+                            
+                            lastMinDate = dataDate;
+                            [lastMinStack addObject:[NSNumber numberWithFloat:sleepTime]];  //加入堆疊中
+                        }
                     } else if (dataDate == lastDataDate) {  //兩筆資料是同一天
                         sleepTimeSumTem += sleepTime + lastDataSleepTime;
                         
                         if (sleepTimeSumTem > Max) {  //處理最大值
                             Max = sleepTimeSumTem;
+                        }
+                        
+                        if (lastMinDate == dataDate) {  //處理最小值
+                            if (lastMinStack.count >= 2) {   //堆疊數量超過一個
+                                if (sleepTimeSumTem < [lastMinStack[lastMinStack.count -2] integerValue]) {
+                                    Min = sleepTimeSumTem;
+                                    lastMinDate = dataDate;
+                                    
+                                    [lastMinStack removeLastObject];
+                                    [lastMinStack addObject:[NSNumber numberWithInteger:sleepTimeSumTem]];
+                                } else {
+                                    Min = [lastMinStack[lastMinStack.count - 2] integerValue];
+                                    lastMinDate = dataDate;
+                                    
+                                    [lastMinStack removeLastObject];
+                                }
+                            } else {
+                                Min = sleepTimeSumTem;
+                                lastMinDate = dataDate;
+                                
+                                [lastMinStack removeLastObject];
+                                [lastMinStack addObject:[NSNumber numberWithInteger:sleepTimeSumTem]];
+                            }
                         }
                     }
                     
