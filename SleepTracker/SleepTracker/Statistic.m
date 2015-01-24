@@ -47,6 +47,11 @@
 - (NSArray *)showSleepTimeDataInTheRecent:(NSInteger)recent
 {
     [self Initailize];
+    
+    NSInteger Max = 0;
+    NSInteger Min = 99999999;
+    NSInteger Avg = 0;
+    
     if (fetchArray.count > 0 ) {
         self.sleepData = fetchArray[0];
         if (fetchArray.count >= 2 || (fetchArray.count == 1 && self.sleepData.wakeUpTime > 0) )
@@ -70,12 +75,15 @@
             }
         }
     } else {
-        MIN = 0;
-        MAX = 0;
-        AVG = 0;
+        Min = 0;
+        Max = 0;
+        Avg = 0;
+    }
+    if (Min == 99999999) {
+        Min = 0;
     }
     
-    return @[MIN, MAX, AVG];
+    return @[[NSNumber numberWithFloat:Min], [NSNumber numberWithFloat:Max], [NSNumber numberWithFloat:Avg]];
 }
 
 - (NSArray *)showGoToBedTimeDataInTheRecent:(NSInteger)recent
