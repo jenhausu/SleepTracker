@@ -142,7 +142,7 @@
     [self.sleepDataModel updateAllSleepDataInRow:LATEST_DATA
                                      goToBedTime:goToBedTime
                                       wakeUpTime:wakeUpTime
-                                       sleepTiem:[NSNumber numberWithDouble:[wakeUpTime timeIntervalSinceDate:goToBedTime]]
+                                       sleepTiem:[NSNumber numberWithFloat:[wakeUpTime timeIntervalSinceDate:goToBedTime]]
                                        sleepType:sleepType];
     
     [delegate saveButtonPress];
