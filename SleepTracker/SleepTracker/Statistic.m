@@ -258,10 +258,57 @@
         }
         
 
+        //計算平均值
+        NSInteger sumTem = 0;  //計算平均值
+        [maxStack removeAllObjects];
         
+        self.sleepData = fetchArray[0];
+        row = ([self.sleepData.sleepTime floatValue] == 0) ? 1 : 0 ;  //如果現在是睡覺狀態，那就跳過第一筆資料，因為第一筆資料還沒有sleepTime的資料
+        self.sleepData = fetchArray[row];
         
+        dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+        NSInteger lastValidDataDate = dataDate + 1;
         
-    } else {
+        while ( dataDate > (today - recent) )
+        {
+            if ([self.sleepData.sleepType isEqualToString:@"一般"])
+            {
+                goToBedTime = self.sleepData.goToBedTime;
+                dateComponents = [greCalendar components: NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond fromDate:goToBedTime];
+                
+                if (dataDate == [[formatter stringFromDate:goToBedTime] integerValue]) {  //判斷有沒有跨天
+                    goToBedTimeInSecond = (dateComponents.second + dateComponents.minute*60 + dateComponents.hour*3600) - MIN ;
+                    sumTem += goToBedTimeInSecond;
+                } else {
+                    goToBedTimeInSecond = ((dateComponents.second + dateComponents.minute*60 + dateComponents.hour*3600) - 86400) - MIN;
+                    sumTem += goToBedTimeInSecond;
+                }
+                
+                if (dataDate != lastValidDataDate) {
+                    [maxStack addObject:[NSNumber numberWithFloat:goToBedTimeInSecond]];
+                } else {
+                    sumTem -= [[maxStack lastObject] floatValue];
+                    [maxStack removeLastObject];
+                    [maxStack addObject:[NSNumber numberWithFloat:goToBedTimeInSecond]];
+                }
+                
+                lastValidDataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+            }
+            
+            if (++row == fetchArray.count)  //為了避免資料數比所需要的天數還要少
+                break;
+            else {
+                self.sleepData = fetchArray[row];
+                dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+            }
+        }
+        sumTem /= (today - lastValidDataDate + 1);
+        if (sumTem + MIN > 86400) sumTem -= 86400;
+        if ((sumTem + MIN) < 0) MIN += 86400;
+        AVG = sumTem + MIN;
+    }
+    else
+    {
         MIN = 0;
         MAX = 0;
         AVG = 0;
