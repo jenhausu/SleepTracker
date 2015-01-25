@@ -8,93 +8,149 @@
 
 #import "IntelligentNotificationTableViewController.h"
 
+#import "IntelligentNotification.h"
+
 @interface IntelligentNotificationTableViewController ()
+
+@property (strong, nonatomic) NSArray *array;
+
+@property (strong, nonatomic) IntelligentNotification *intelligentNotification;
+@property (strong, nonatomic) NSArray *fireDate;
 
 @end
 
 @implementation IntelligentNotificationTableViewController
 
+@synthesize array, fireDate;
+
+#pragma mark - Lazy initialization
+
+- (IntelligentNotification *)intelligentNotification
+{
+    if (!_intelligentNotification) {
+        _intelligentNotification = [[IntelligentNotification alloc] init];
+    }
+    return _intelligentNotification;
+}
+
+#pragma mark - view
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    fireDate = [self.intelligentNotification decideFireDate];
+    array = [self.intelligentNotification decideNotificationTitle];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    if (section == 0) {
+        return 3;
+    } else if (section == 1) {
+        return 1;
+    } else {
+        return 1;
+    }
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH:mm"];
+    
+    if (indexPath.section == 0) {
+        cell.textLabel.text = array[indexPath.row];
+    } else if (indexPath.section == 1) {
+        cell.textLabel.text = array[3];
+    } else {
+        cell.textLabel.text = array[4];
+    }
+    cell.detailTextLabel.text = [formatter stringFromDate:fireDate[indexPath.row]];
+
+    UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(1.0, 1.0, 20.0, 30.0)];
+    cell.accessoryView = switchControl;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    if (indexPath.section == 0)
+    {
+        switchControl.on = [userPreferences boolForKey:array[indexPath.row]];
+        cell.detailTextLabel.text = [formatter stringFromDate:fireDate[indexPath.row]];
+
+        if (indexPath.row == 0) {
+            [switchControl addTarget:self action:@selector(switchChanged1:) forControlEvents:UIControlEventValueChanged];
+        }
+        else if (indexPath.row == 1) {
+            [switchControl addTarget:self action:@selector(switchChanged2:) forControlEvents:UIControlEventValueChanged];
+        }
+        else if (indexPath.row == 2) {
+            [switchControl addTarget:self action:@selector(switchChanged3:) forControlEvents:UIControlEventValueChanged];
+        }
+    }
+    else if (indexPath.section == 1) {
+        cell.detailTextLabel.text = [formatter stringFromDate:fireDate[3]];
+
+        if (indexPath.row == 0) {
+            switchControl.on = [userPreferences boolForKey:array[3]];
+            [switchControl addTarget:self action:@selector(switchChanged4:) forControlEvents:UIControlEventValueChanged];
+        }
+    }
+    else if (indexPath.section == 2) {
+        cell.detailTextLabel.text = [formatter stringFromDate:fireDate[4]];
+
+        switchControl.on = [userPreferences boolForKey:array[4]];
+        [switchControl addTarget:self action:@selector(switchChanged5:) forControlEvents:UIControlEventValueChanged];
+    }
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+#pragma mark - switchChinaged
+
+- (void)switchChanged1:(id)sender
+{
+    UISwitch *switchControl = sender;
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    [userPreferences setBool:switchControl.on forKey:array[0]];
+    [self.intelligentNotification rescheduleIntelligentNotification];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (void)switchChanged2:(id)sender
+{
+    UISwitch *switchControl = sender;
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    [userPreferences setBool:switchControl.on forKey:array[1]];
+    [self.intelligentNotification rescheduleIntelligentNotification];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+- (void)switchChanged3:(id)sender
+{
+    UISwitch *switchControl = sender;
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    [userPreferences setBool:switchControl.on forKey:array[2]];
+    [self.intelligentNotification rescheduleIntelligentNotification];
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+- (void)switchChanged4:(id)sender
+{
+    UISwitch *switchControl = sender;
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    [userPreferences setBool:switchControl.on forKey:array[3]];
+    [self.intelligentNotification rescheduleIntelligentNotification];
 }
-*/
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)switchChanged5:(id)sender
+{
+    UISwitch *switchControl = sender;
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    [userPreferences setBool:switchControl.on forKey:array[4]];
+    [self.intelligentNotification rescheduleIntelligentNotification];
 }
-*/
 
 @end

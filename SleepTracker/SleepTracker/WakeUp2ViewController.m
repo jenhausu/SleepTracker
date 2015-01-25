@@ -44,13 +44,17 @@
         // back button was pressed.  We know this is true because self is no longer in the navigation stack.
         
         if ([self.title isEqualToString:@"上床時間"]) {    //更新資料
-            [self.wakeUpViewController setValue:self.datePicker.date forKey:@"goToBedTime"];  //[delegate2 passDate:self.datePicker.date backToWhichSleepTime:@"goToBedTime"];
+            [self.wakeUpViewController setValue:self.datePicker.date forKey:@"goToBedTime"];
         }
         else if ([self.title isEqualToString:@"起床時間"]) {
-            [self.wakeUpViewController setValue:self.datePicker.date forKey:@"wakeUpTime"];  //[delegate2 passDate:self.datePicker.date backToWhichSleepTime:@"wakeUpTime"];
+            [self.wakeUpViewController setValue:self.datePicker.date forKey:@"wakeUpTime"];
         }
     }
     [super viewWillDisappear:animated];
+}
+
+- (IBAction)valueChanged:(id)sender {
+    self.dateLabel.text = [formatter stringFromDate:self.datePicker.date];
 }
 
 @end
