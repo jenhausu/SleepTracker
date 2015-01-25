@@ -50,21 +50,6 @@
     lastDataDate = dataDate + 1;
 }
 
-- (void)generateStatistic:(NSInteger)resentDay
-{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"DDD"];  // 1~366 一年的第幾天
-    
-    today = [[formatter stringFromDate:[NSDate date]] integerValue];
-    
-    fetchArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
-
-    
-    [self showSleepTimeDataInTheRecent:resentDay];
-    [self showGoToBedTimeDataInTheRecent:resentDay];
-    [self showWakeUpTimeDataInTheRecent:resentDay];
-}
-
 - (NSArray *)showSleepTimeDataInTheRecent:(NSInteger)recent
 {
     [self Initailize];
