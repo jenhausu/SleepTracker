@@ -173,6 +173,9 @@
         NSDate *goToBedTime;
         NSInteger goToBedTimeInSecond;
         
+        NSMutableArray *maxStack = [[NSMutableArray alloc] init];
+        NSInteger lastMaxDate = dataDate + 1;
+        
         NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
         NSDateComponents *dateComponents;
         
@@ -191,11 +194,57 @@
                 
                 if ( goToBedTimeInSecond < MIN) MIN = goToBedTimeInSecond;
                 
-                
-                
-                
-                
-                
+                if (dataDate != lastDataDate) {
+                    if (goToBedTimeInSecond > MAX) {
+                        MAX = goToBedTimeInSecond;
+                        
+                        [maxStack addObject:[NSNumber numberWithInteger:goToBedTimeInSecond]];
+                        lastMaxDate = dataDate;
+                    }
+                } else if (dataDate == lastDataDate) {
+                    if ( goToBedTimeInSecond < MIN) MIN = goToBedTimeInSecond;
+                    
+                    if ([maxStack count] >= 2)
+                    {
+                        if (dataDate == lastMaxDate) {
+                            if (goToBedTimeInSecond > [maxStack[maxStack.count - 2] floatValue]) {
+                                MAX = goToBedTimeInSecond;
+                                [maxStack removeLastObject];
+                                [maxStack addObject:[NSNumber numberWithFloat:goToBedTimeInSecond]];
+                                lastMaxDate = dataDate;
+                            } else {
+                                MAX = [maxStack[maxStack.count - 2] floatValue];  //儲存回上上筆的資料
+                                [maxStack removeLastObject];
+                                lastMaxDate = dataDate;
+                            }
+                        } else if (dataDate != lastMaxDate) {
+                            if (goToBedTimeInSecond > [maxStack[maxStack.count - 1] floatValue]) {
+                                MAX = goToBedTimeInSecond;
+                                [maxStack addObject:[NSNumber numberWithFloat:goToBedTimeInSecond]];
+                                lastMaxDate = dataDate;
+                            } else {
+                                //do nothing
+                            }
+                        }
+                    }
+                    else if (maxStack.count == 1)  //不會有零筆資料，因為這裡要一天中超過一筆資料程式才會跑到這裡來
+                    {
+                        if (dataDate == lastMaxDate) {
+                            MAX = goToBedTimeInSecond;
+                            [maxStack removeLastObject];
+                            [maxStack addObject:[NSNumber numberWithFloat:goToBedTimeInSecond]];
+                            lastMaxDate = dataDate;
+                        } else if (dataDate != lastMaxDate) {
+                            if (goToBedTimeInSecond > MAX) {
+                                MAX = goToBedTimeInSecond;
+                                [maxStack addObject:[NSNumber numberWithFloat:goToBedTimeInSecond]];
+                                lastMaxDate = dataDate;
+                            } else {
+                                //do nothing
+                            }
+                        }
+                    }
+                }
                 
                 lastDataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
             }
