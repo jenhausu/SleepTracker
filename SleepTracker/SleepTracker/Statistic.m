@@ -268,6 +268,8 @@
         
         dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
         NSInteger lastValidDataDate = dataDate + 1;
+
+        Correction = (today != dataDate) ? (today - dataDate) : 0 ;
         
         while ( dataDate > (today - recent) )
         {
@@ -292,6 +294,7 @@
                     [maxStack addObject:[NSNumber numberWithFloat:goToBedTimeInSecond]];
                 }
                 
+                if (dataDate - lastValidDataDate > 1)  Correction += (dataDate - lastValidDataDate) - 1 ;  //如果中間有一天是沒有輸入資料的話進行校正，中間這幾天不納入計算
                 lastValidDataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
             }
             
@@ -302,7 +305,7 @@
                 dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
             }
         }
-        sumTem /= (today - lastValidDataDate + 1);
+        sumTem /= ((today - lastValidDataDate + 1) - Correction);
         if (sumTem + MIN > 86400) sumTem -= 86400;
         if ((sumTem + MIN) < 0) MIN += 86400;
         AVG = sumTem + MIN;
