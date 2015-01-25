@@ -13,7 +13,7 @@
 
 @interface Statistic () {
     NSInteger MIN, MAX, AVG;
-    NSInteger today, dataDate, lastDataDate;
+    NSInteger today, dataDate, lastDataDate, row, Correction;
 }
 
 @property (strong, nonatomic) SleepDataModel *sleepDataModel;
@@ -52,7 +52,7 @@
     
     if (fetchArray.count >= 2 || (fetchArray.count == 1 && self.sleepData.wakeUpTime > 0) )
     {
-        NSInteger row = ([self.sleepData.sleepTime floatValue] == 0) ? 1 : 0 ;  //如果現在是睡覺狀態，那就跳過第一筆資料，因為第一筆資料還沒有sleepTime的資料
+        row = ([self.sleepData.sleepTime floatValue] == 0) ? 1 : 0 ;  //如果現在是睡覺狀態，那就跳過第一筆資料，因為第一筆資料還沒有sleepTime的資料
         self.sleepData = fetchArray[row];
         NSInteger sleepTime;
         
@@ -70,7 +70,7 @@
         NSInteger sleepTimeSumTem = 0;
         NSInteger lastDataSleepTime = 0;
         
-        NSInteger Correction = (today != dataDate) ? (today - dataDate) : 0 ;
+        Correction = (today != dataDate) ? (today - dataDate) : 0 ;
         
         while ( dataDate > (today - recent) ) {
             if ([self.sleepData.sleepType isEqualToString:@"一般"])
@@ -168,11 +168,12 @@
         MAX = 0;
         AVG = 0;
     }
+    
     if (MIN == 99999999) {
         MIN = 0;
     }
 
-    return @[[NSNumber numberWithFloat:MIN], [NSNumber numberWithFloat:MAX], [NSNumber numberWithFloat:AVG]];
+    return @[[NSNumber numberWithInteger:MIN], [NSNumber numberWithInteger:MAX], [NSNumber numberWithInteger:AVG]];
 }
 
 #pragma mark -
