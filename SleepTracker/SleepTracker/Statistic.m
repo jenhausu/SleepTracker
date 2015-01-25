@@ -52,7 +52,7 @@
     if (fetchArray.count >= 2 || (fetchArray.count == 1 && self.sleepData.wakeUpTime > 0) )
     {
         NSInteger row = ([self.sleepData.sleepTime floatValue] == 0) ? 1 : 0 ;  //如果現在是睡覺狀態，那就跳過第一筆資料，因為第一筆資料還沒有sleepTime的資料
-        self.sleepData = fetchArray[row];  //如果現在是睡覺狀態，那就跳過第一筆資料，因為第一筆資料還沒有sleepTime的資料
+        self.sleepData = fetchArray[row];
         NSInteger sleepTime;
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
