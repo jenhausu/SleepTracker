@@ -274,6 +274,9 @@
         MIN = 0;
     }
     
+    if (MAX < 0) MAX += 86400;
+
+    
     return @[[NSNumber numberWithFloat:MIN], [NSNumber numberWithFloat:MAX], [NSNumber numberWithFloat:AVG]];
 }
 
