@@ -273,6 +273,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="438990345.09648001">
                                     <!--2014-11-29 21:45:45 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="valueChanged:" destination="fOd-NH-39C" eventType="valueChanged" id="Ehx-RJ-RMf"/>
+                                </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftN-Zu-W4k">
                                 <rect key="frame" x="16" y="107" width="568" height="21"/>

@@ -53,4 +53,8 @@
     [super viewWillDisappear:animated];
 }
 
+- (IBAction)valueChanged:(id)sender {
+    self.dateLabel.text = [formatter stringFromDate:self.datePicker.date];
+}
+
 @end
