@@ -189,6 +189,7 @@
                     goToBedTimeInSecond = (dateComponents.second + dateComponents.minute*60 + dateComponents.hour*3600) - 86400;
                 }
                 
+                if ( goToBedTimeInSecond < MIN) MIN = goToBedTimeInSecond;
                 
                 
                 
@@ -217,7 +218,10 @@
         AVG = 0;
     }
     
-    if (MIN == 99999999) {
+    
+    if (MIN < 0) {
+        MIN += 86400;
+    } else if (MIN == 99999999) {
         MIN = 0;
     }
     
