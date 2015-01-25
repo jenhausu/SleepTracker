@@ -13,6 +13,7 @@
 
 @interface Statistic () {
     NSInteger MIN, MAX, AVG;
+    NSInteger today, dataDate, lastDataDate;
 }
 
 @property (strong, nonatomic) SleepDataModel *sleepDataModel;
@@ -58,9 +59,9 @@
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"DDD"];  // 1~366 一年的第幾天
         
-        NSInteger today = [[formatter stringFromDate:[NSDate date]] integerValue];
-        NSInteger dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
-        NSInteger lastDataDate = dataDate + 1 ;
+        today = [[formatter stringFromDate:[NSDate date]] integerValue];
+        dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+        lastDataDate = dataDate + 1 ;
         
         NSInteger lastMinDate = dataDate + 1;
         NSMutableArray *lastMinStack = [[NSMutableArray alloc] init];
