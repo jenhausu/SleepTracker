@@ -11,31 +11,56 @@
 @interface CustomeNotificationOneTableViewController ()
 
 @property (strong, nonatomic) NSArray *arrayOfAllLocalNotification;
+@property (strong, nonatomic) NSMutableArray *CustomNotification;
+@property (strong, nonatomic) UILocalNotification *localNotification;
 
 @end
 
 @implementation CustomeNotificationOneTableViewController
 
-@synthesize arrayOfAllLocalNotification;
+@synthesize arrayOfAllLocalNotification, CustomNotification, localNotification;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    CustomNotification = [[NSMutableArray alloc] init];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     UIApplication *application = [UIApplication sharedApplication];
     arrayOfAllLocalNotification = [application scheduledLocalNotifications];
+    
+    localNotification = arrayOfAllLocalNotification[0];
+    NSDictionary *userInfo;
+    NSString *value;
+    [CustomNotification removeAllObjects];
+    
+    for (NSInteger i = 0 ; i < arrayOfAllLocalNotification.count ; i++ ) {
+        localNotification = arrayOfAllLocalNotification[i];
+        userInfo = localNotification.userInfo;
+        value = [userInfo objectForKey:@"NotificationType"];
+        
+        if ([value isEqualToString:@"CustomNotification"]) {
+            [CustomNotification addObject:localNotification];
+        }
+    }
+
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return arrayOfAllLocalNotification.count;
+    return CustomNotification.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    UILocalNotification *localNotification = arrayOfAllLocalNotification[indexPath.row];
+    localNotification = CustomNotification[indexPath.row];
     cell.textLabel.text = localNotification.alertBody;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", localNotification.fireDate];
     
     return cell;
 }
