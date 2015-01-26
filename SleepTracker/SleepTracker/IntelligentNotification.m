@@ -112,7 +112,7 @@
                                                            fireDate:fireDate[i]
                                                         repeatOrNot:YES
                                                               Sound:@"UILocalNotificationDefaultSoundName"
-                                                                key:nil forValue:nil];
+                                                           setValue:@"IntelligentNotification" forKey:@"NotificationType"];
         }
     }
 }
