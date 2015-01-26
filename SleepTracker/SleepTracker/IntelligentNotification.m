@@ -121,7 +121,25 @@
 
 - (void)deleteAllIntelligentNotification
 {
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    UIApplication *application = [UIApplication sharedApplication];
+    NSArray *arrayOfAllLocalNotification = [application scheduledLocalNotifications];
+    UILocalNotification *localNotification;
+    NSDictionary *userInfo;
+    NSString *value;
+    
+    for (NSInteger row = 0 ; row < arrayOfAllLocalNotification.count ; row++ )
+    {
+        localNotification = arrayOfAllLocalNotification[row];
+        
+        userInfo = localNotification.userInfo;
+        value = [userInfo objectForKey:@"NotificationType"];
+        
+        if ([value isEqualToString:@"IntelligentNotification"])
+        {
+            [application cancelLocalNotification:localNotification];
+            break;
+        }
+    }
 }
 
 @end
