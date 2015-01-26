@@ -10,29 +10,29 @@
 
 @interface CustomNotificationTwoViewController ()
 
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (strong, nonatomic) NSDateFormatter *formatter;
+@property (weak, nonatomic) IBOutlet UILabel *label;
+
 @end
 
 @implementation CustomNotificationTwoViewController
 
-- (void)viewDidLoad {
+@synthesize formatter;
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"u/MM/dd EEE ahh:mm"];
+    self.label.text = [formatter stringFromDate:self.datePicker.date];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)valueChanged:(id)sender {
+    self.label.text = [formatter stringFromDate:self.datePicker.date];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 - (IBAction)save:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
