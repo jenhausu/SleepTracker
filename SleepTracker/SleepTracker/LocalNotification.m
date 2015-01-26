@@ -12,7 +12,8 @@
 
 @implementation LocalNotification
 
-- (void)setLocalNotificationWithMessage:(NSString *)message fireDate:(NSDate *)fireDate repeatOrNot:(BOOL)repeat Sound:(NSString *)sound key:(NSString *)key forValue:(id)value
+- (void)setLocalNotificationWithMessage:(NSString *)message fireDate:(NSDate *)fireDate repeatOrNot:(BOOL)repeat Sound:(NSString *)sound
+                               setValue:(id)value forKey:(NSString *)key
 {
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = fireDate;

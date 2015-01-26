@@ -10,6 +10,6 @@
 
 @interface LocalNotification : NSObject
 
-- (void)setLocalNotificationWithMessage:(NSString *)message fireDate:(NSDate *)fireDate repeatOrNot:(BOOL)repeat Sound:(NSString *)sound key:(NSString *)key forValue:(id)value;
-
+- (void)setLocalNotificationWithMessage:(NSString *)message fireDate:(NSDate *)fireDate repeatOrNot:(BOOL)repeat Sound:(NSString *)sound
+                               setValue:(id)value forKey:(NSString *)key;
 @end
