@@ -75,9 +75,11 @@
         self.alreadyAwakeLabel.text = @"00:00:00";
         
         [self.sleepDataModel addNewData];
-        fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
         [self.sleepDataModel updateAllSleepDataInRow:fetchDataArray.count - 1
                                          goToBedTime:[NSDate date] wakeUpTime:nil sleepTiem:nil sleepType:nil];
+        
+        fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
+
         NSInteger const LATEST_DATA = 0;
         self.sleepData = fetchDataArray[LATEST_DATA];
         
