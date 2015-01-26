@@ -8,11 +8,17 @@
 
 #import "CustomNotificationTwoViewController.h"
 
+#import "LocalNotification.h"
+
 @interface CustomNotificationTwoViewController ()
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (strong, nonatomic) NSDateFormatter *formatter;
 @property (weak, nonatomic) IBOutlet UILabel *label;
+
+@property (strong, nonatomic) LocalNotification *localNotification;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UISwitch *switchControl;
 
 @end
 
@@ -34,6 +40,13 @@
 }
 
 - (IBAction)save:(id)sender {
+    self.localNotification = [[LocalNotification alloc] init];
+    [self.localNotification setLocalNotificationWithMessage:self.textField.text
+                                                   fireDate:self.datePicker.date
+                                                repeatOrNot:self.switchControl.on
+                                                      Sound:@"UILocalNotificationDefaultSoundName"
+                                                   setValue:@"CustomNotification" forKey:@"NotificationType"];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
