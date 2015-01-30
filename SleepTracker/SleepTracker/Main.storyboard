@@ -190,7 +190,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="紀錄" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="紀錄" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="alreadyAwakeLabel" destination="ocf-9R-tfj" id="ZSK-5u-VOO"/>
                         <outlet property="alreadySleptLabel" destination="MHo-HO-9Qg" id="X5u-7z-J49"/>
@@ -909,7 +909,7 @@
                             <constraint firstItem="p2N-If-JDR" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="JbW-Xy-1Pc"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="統計圖表" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="統計圖表" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="goToBedTimeAvgLabel" destination="7Fa-iN-Jh0" id="imd-3p-9oc"/>
                         <outlet property="goToBedTimeMaxLabel" destination="kJf-5f-avt" id="k1t-3w-EHC"/>
@@ -968,7 +968,13 @@
                             <outlet property="delegate" destination="8qK-hw-1m1" id="dK1-Oo-XfN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="睡眠足跡" id="7SU-kK-vkY"/>
+                    <navigationItem key="navigationItem" title="睡眠足跡" id="7SU-kK-vkY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pGZ-EM-r9B">
+                            <connections>
+                                <action selector="addNewSleepdata:" destination="8qK-hw-1m1" id="xes-pF-RiH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZgS-GL-wHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1019,7 +1025,75 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CHv-gq-dTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2332" y="10"/>
+            <point key="canvasLocation" x="2402" y="10"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="q59-Tl-0yb">
+            <objects>
+                <tableViewController id="Ibk-lg-SoY" customClass="AddNewSleepdataTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Pks-dp-REH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="f8R-1s-pqg" detailTextLabel="59j-qL-erN" style="IBUITableViewCellStyleValue1" id="gRa-iG-VQZ">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gRa-iG-VQZ" id="XNG-Hy-ZdP">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f8R-1s-pqg">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="59j-qL-erN">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ibk-lg-SoY" id="ajg-2L-HTE"/>
+                            <outlet property="delegate" destination="Ibk-lg-SoY" id="0wr-fk-sWK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="BlC-zF-8Vl">
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="iBO-dP-EAO">
+                            <connections>
+                                <action selector="cancel:" destination="Ibk-lg-SoY" id="pif-8l-3cX"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="儲存" style="done" id="RuP-aV-HUs">
+                            <connections>
+                                <action selector="save:" destination="Ibk-lg-SoY" id="Yj0-Al-ofx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dpj-QP-104" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2402" y="703"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kS0-re-V88">
+            <objects>
+                <navigationController storyboardIdentifier="AddNewSleepData" id="0wz-c4-F1h" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="o5p-gO-FsI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Ibk-lg-SoY" kind="relationship" relationship="rootViewController" id="WaM-ug-ACW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tbl-fM-snQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1582" y="703"/>
         </scene>
         <!--History3 View Controller-->
         <scene sceneID="BTQ-xB-ag2">
@@ -1065,7 +1139,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T0Q-X1-2Yi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3032" y="10"/>
+            <point key="canvasLocation" x="3107" y="10"/>
+        </scene>
+        <!--Add New Sleepdata Two View Controller-->
+        <scene sceneID="NlM-hv-xjY">
+            <objects>
+                <viewController storyboardIdentifier="AddNewSleepdataTwo" id="ecT-gv-EVA" customClass="AddNewSleepdataTwoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y8h-gy-kXY"/>
+                        <viewControllerLayoutGuide type="bottom" id="kMl-Pc-HzJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gPL-eH-p1r">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wsq-9I-37r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3107" y="703"/>
         </scene>
         <!--睡眠足跡-->
         <scene sceneID="xJu-Ph-s68">
@@ -1106,8 +1199,4 @@
             <point key="canvasLocation" x="-60" y="0.0"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
-    </resources>
 </document>
