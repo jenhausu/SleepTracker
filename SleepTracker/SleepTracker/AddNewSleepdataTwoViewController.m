@@ -15,18 +15,22 @@
 
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
+@property (strong, nonatomic) NSDate *receiveDate;
+
 @end
 
 @implementation AddNewSleepdataTwoViewController
 
-@synthesize dateFormatter;
+@synthesize dateFormatter, receiveDate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"u/MM/dd EEE ahh:mm"];
-    self.label.text = [dateFormatter stringFromDate:self.datePicker.date];
+    self.label.text = [dateFormatter stringFromDate:receiveDate];
+    
+    self.datePicker.date = receiveDate;
 }
 
 - (IBAction)valueChanged:(id)sender {

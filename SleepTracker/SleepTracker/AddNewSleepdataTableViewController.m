@@ -91,7 +91,16 @@
     
     if (indexPath.section == 0)
     {
+        UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"AddNewSleepdataTwo"];
         
+        if (indexPath.row == 0)
+            [page2 setValue:goToBedTime forKey:@"receiveDate"];
+        else if (indexPath.row == 1)
+            [page2 setValue:wakeUpTime forKey:@"receiveDate"];
+        
+        page2.title = self.textLabel[indexPath.section][indexPath.row];
+        
+        [self.navigationController pushViewController:page2 animated:YES];
     }
     else if (indexPath.section == 1) {
         if (indexPath.row != selectedSleepType)
