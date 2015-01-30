@@ -24,19 +24,23 @@
 
 @synthesize fetchDataArray;
 
+#pragma mark - decide Which Data To Proccess
+
 - (void)decideWhichDataToProccess:(NSInteger)row
 {
     fetchDataArray = [self fetchSleepDataSortWithAscending:NO];
     self.sleepData = fetchDataArray[row];
 }
 
-- (void)addNewData
+#pragma mark - add new data
+
+- (void)addNewEmptySleepdata
 {
     [NSEntityDescription insertNewObjectForEntityForName:@"SleepData" inManagedObjectContext:self.managedObjectContext];
     [self.managedObjectContext save:nil];
 }
 
-- (void)updateAllSleepDataInRow:(NSInteger)row goToBedTime:(NSDate *)goToBedTime wakeUpTime:(NSDate *)wakeUpTime sleepTiem:(NSNumber *)sleepTime sleepType:(NSString *)sleepType
+- (void)updateAllSleepdataInRow:(NSInteger)row goToBedTime:(NSDate *)goToBedTime wakeUpTime:(NSDate *)wakeUpTime sleepTime:(NSNumber *)sleepTime sleepType:(NSString *)sleepType
 {
     [self decideWhichDataToProccess:row];
     
@@ -47,6 +51,20 @@
 
     [self.managedObjectContext save:nil];
 }
+
+- (void)addNewSleepdataAndAddGoToBedTime:(NSDate *)goToBedTime wakeUpTime:(NSDate *)wakeUpTime sleepTiem:(NSNumber *)sleepTime sleepType:(NSString *)sleepType
+{
+    SleepData *newSleepData = [NSEntityDescription insertNewObjectForEntityForName:@"SleepData" inManagedObjectContext:self.managedObjectContext];
+    
+    newSleepData.goToBedTime = goToBedTime;
+    newSleepData.wakeUpTime = wakeUpTime;
+    newSleepData.sleepTime = sleepTime;
+    newSleepData.sleepType = sleepType;
+    
+    [self.managedObjectContext save:nil];
+}
+
+#pragma mark - fetch data
 
 - (NSArray *)fetchSleepDataSortWithAscending:(BOOL)ascending
 {
@@ -64,11 +82,15 @@
     return fetchDataArray;
 }
 
+#pragma mark - delete
+
 - (void)deleteSleepData:(NSManagedObject *)dataArray
 {
     [self.managedObjectContext deleteObject:dataArray];
     [self.managedObjectContext save:nil];
 }
+
+#pragma mark -
 
 - (NSManagedObjectContext *)managedObjectContext {
     return [(AppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext];

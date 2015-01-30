@@ -74,10 +74,8 @@
         [self.button setTitle:@"起床" forState:UIControlStateNormal];
         self.alreadyAwakeLabel.text = @"00:00:00";
         
-        [self.sleepDataModel addNewData];
-        fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
-        [self.sleepDataModel updateAllSleepDataInRow:fetchDataArray.count - 1
-                                         goToBedTime:[NSDate date] wakeUpTime:nil sleepTiem:nil sleepType:nil];
+        NSDate *now = [NSDate date];
+        [self.sleepDataModel addNewSleepdataAndAddGoToBedTime:now wakeUpTime:nil sleepTiem:nil sleepType:nil];
         
         fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
 

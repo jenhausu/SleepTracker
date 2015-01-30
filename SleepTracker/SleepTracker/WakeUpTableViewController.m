@@ -129,8 +129,8 @@
 
 #pragma mark - navigation button
 
-- (IBAction)save:(id)sender {
-    NSInteger const LATEST_DATA = 0;
+- (IBAction)save:(id)sender
+{
     switch (selectedSleepType) {
         case 0:
             sleepType = @"一般";
@@ -139,10 +139,13 @@
             sleepType = @"小睡";
             break;
     }
-    [self.sleepDataModel updateAllSleepDataInRow:LATEST_DATA
+    
+    NSInteger const LATEST_DATA = 0;
+    NSNumber *sleepTime = [NSNumber numberWithFloat:[wakeUpTime timeIntervalSinceDate:goToBedTime]];
+    [self.sleepDataModel updateAllSleepdataInRow:LATEST_DATA
                                      goToBedTime:goToBedTime
                                       wakeUpTime:wakeUpTime
-                                       sleepTiem:[NSNumber numberWithFloat:[wakeUpTime timeIntervalSinceDate:goToBedTime]]
+                                       sleepTime:sleepTime
                                        sleepType:sleepType];
     
     [delegate saveButtonPress];
