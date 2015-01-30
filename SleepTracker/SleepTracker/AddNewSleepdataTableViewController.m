@@ -51,6 +51,21 @@
 
 - (IBAction)save:(id)sender
 {
+    switch (selectedSleepType) {
+        case 0:
+            sleepType = @"一般";
+            break;
+        case 1:
+            sleepType = @"小睡";
+            break;
+    }
+    NSNumber *sleepTime = [NSNumber numberWithDouble:[wakeUpTime timeIntervalSinceDate:goToBedTime]];
+    
+    self.sleepDataModel = [[SleepDataModel alloc] init];
+    [self.sleepDataModel addNewSleepdataAndAddGoToBedTime:goToBedTime
+                                               wakeUpTime:wakeUpTime
+                                                sleepTime:sleepTime
+                                                sleepType:sleepType];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
