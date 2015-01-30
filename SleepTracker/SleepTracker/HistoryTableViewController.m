@@ -120,16 +120,18 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    UITableViewController *page2 = segue.destinationViewController;
-    
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
     self.sleepData = fetchDataArray[selectedIndexPath.row];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy/M/d EEE"];
     
-    page2.title = [dateFormatter stringFromDate:self.sleepData.wakeUpTime];
-    
+    UITableViewController *page2 = segue.destinationViewController;
+    if (self.sleepData.wakeUpTime) {
+        page2.title = [dateFormatter stringFromDate:self.sleepData.wakeUpTime];
+    } else {
+        page2.title = [dateFormatter stringFromDate:self.sleepData.goToBedTime];
+    }
     
     NSNumber *selectedRow = [NSNumber numberWithInteger:selectedIndexPath.row];
     [page2 setValue:selectedRow forKey:@"selectedRow"];
