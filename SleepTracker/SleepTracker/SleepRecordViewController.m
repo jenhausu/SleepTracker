@@ -41,15 +41,12 @@
     return _sleepDataModel;
 }
 
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    self.datePicker.date = [NSDate dateWithTimeIntervalSinceNow: 8 * 60 * 60];   //預設鬧鐘是八個小時之後
-}
+#pragma mark - view
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.datePicker.date = [NSDate dateWithTimeIntervalSinceNow: 8 * 60 * 60];   //預設鬧鐘是八個小時之後
+    
     fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
     if ([fetchDataArray count]) {  //避免一開始完全沒有任何資
         self.sleepData = fetchDataArray[0];
