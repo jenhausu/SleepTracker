@@ -94,7 +94,15 @@
     }   
 }
 
-#pragma mark -
+#pragma mark - add 
+
+- (IBAction)addNewSleepdata:(id)sender
+{
+    UINavigationController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"AddNewSleepData"];
+    [self presentViewController:page2 animated:YES completion:nil];
+}
+
+#pragma mark - Custom Method
 
 - (NSString *)stringFromTimeInterval:(NSTimeInterval)interval
 {
