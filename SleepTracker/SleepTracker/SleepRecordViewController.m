@@ -29,8 +29,9 @@
 
 @implementation SleepRecordViewController
 
-
 @synthesize timer, fetchDataArray;
+
+#pragma mark - Lazy Initialization
 
 - (SleepDataModel *)sleepDataModel
 {
@@ -96,6 +97,8 @@
     }
 }
 
+#pragma matk - delecate method
+
 - (void)saveButtonPress
 {
     [self.button setTitle:@"上床" forState:UIControlStateNormal];
@@ -107,6 +110,8 @@
     /*[self.customNotification setCustomNotification];
      [self.alarm cancelAlarm];*/
 }
+
+#pragma mark - timer
 
 - (void)startCountingSleepTime
 {
@@ -140,6 +145,8 @@
     [timer invalidate];
     timer = nil;
 }
+
+#pragma mark -
 
 - (NSString *)stringFromTimeInterval:(NSTimeInterval)interval
 {
