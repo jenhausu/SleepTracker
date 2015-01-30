@@ -52,7 +52,7 @@
     [self.managedObjectContext save:nil];
 }
 
-- (void)addNewSleepdataAndAddGoToBedTime:(NSDate *)goToBedTime wakeUpTime:(NSDate *)wakeUpTime sleepTiem:(NSNumber *)sleepTime sleepType:(NSString *)sleepType
+- (void)addNewSleepdataAndAddGoToBedTime:(NSDate *)goToBedTime wakeUpTime:(NSDate *)wakeUpTime sleepTime:(NSNumber *)sleepTime sleepType:(NSString *)sleepType
 {
     SleepData *newSleepData = [NSEntityDescription insertNewObjectForEntityForName:@"SleepData" inManagedObjectContext:self.managedObjectContext];
     
