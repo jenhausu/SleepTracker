@@ -30,27 +30,33 @@
                                 <rect key="frame" x="328" y="324" width="67" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="321" y="240" width="67" height="21"/>
+                                </variation>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="今天醒了多久：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDO-Pq-6Ld">
                                 <rect key="frame" x="168" y="354" width="119" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="161" y="269" width="119" height="21"/>
+                                </variation>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="YIQ-ah-yCy">
-                                <rect key="frame" x="140" y="28" width="320" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="440966063.82437903">
-                                    <!--2014-12-22 18:34:23 +0000-->
-                                </date>
-                            </datePicker>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="已經睡了多久：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7v-RI-Q5m">
                                 <rect key="frame" x="168" y="325" width="119" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="161" y="240" width="119" height="21"/>
+                                </variation>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="00:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocf-9R-tfj">
                                 <rect key="frame" x="328" y="353" width="67" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="321" y="269" width="67" height="21"/>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -62,7 +68,6 @@
                             <constraint firstItem="MHo-HO-9Qg" firstAttribute="leading" secondItem="m7v-RI-Q5m" secondAttribute="trailing" constant="41" id="5Fs-sr-5X3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MHo-HO-9Qg" secondAttribute="trailing" constant="155" id="665-Xi-ohl"/>
                             <constraint firstAttribute="centerX" secondItem="MHo-HO-9Qg" secondAttribute="centerX" id="9FR-FN-cEq"/>
-                            <constraint firstItem="MHo-HO-9Qg" firstAttribute="leading" secondItem="YIQ-ah-yCy" secondAttribute="trailing" constant="-134" id="Aby-nr-2qh"/>
                             <constraint firstAttribute="centerX" secondItem="ocf-9R-tfj" secondAttribute="centerX" id="BF0-YH-wR6"/>
                             <constraint firstAttribute="centerX" secondItem="EDO-Pq-6Ld" secondAttribute="centerX" constant="100" id="EFg-rf-Sjf">
                                 <variation key="heightClass=regular" constant="70"/>
@@ -72,8 +77,6 @@
                                 <variation key="heightClass=regular" constant="80"/>
                             </constraint>
                             <constraint firstItem="ocf-9R-tfj" firstAttribute="leading" secondItem="EDO-Pq-6Ld" secondAttribute="trailing" constant="41" id="G6x-1o-qtf"/>
-                            <constraint firstItem="YIQ-ah-yCy" firstAttribute="leading" secondItem="m7v-RI-Q5m" secondAttribute="trailing" constant="-147" id="I4I-Bx-iJj"/>
-                            <constraint firstAttribute="centerX" secondItem="YIQ-ah-yCy" secondAttribute="centerX" id="ITe-vc-dhQ"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="hZq-AG-ckl" secondAttribute="bottom" constant="67" id="IiW-BZ-KSK">
                                 <variation key="heightClass=regular" constant="50"/>
                             </constraint>
@@ -83,15 +86,7 @@
                             </constraint>
                             <constraint firstAttribute="centerX" secondItem="m7v-RI-Q5m" secondAttribute="centerX" constant="50" id="Jz7-Fu-paq"/>
                             <constraint firstAttribute="centerX" secondItem="m7v-RI-Q5m" secondAttribute="centerX" id="Ln0-ZA-3gY"/>
-                            <constraint firstItem="MHo-HO-9Qg" firstAttribute="top" secondItem="YIQ-ah-yCy" secondAttribute="bottom" constant="331" id="M6h-14-nLY">
-                                <variation key="heightClass=regular" constant="50"/>
-                            </constraint>
-                            <constraint firstItem="m7v-RI-Q5m" firstAttribute="top" secondItem="YIQ-ah-yCy" secondAttribute="bottom" constant="50" id="QfM-cy-R4T"/>
                             <constraint firstItem="ocf-9R-tfj" firstAttribute="top" secondItem="MHo-HO-9Qg" secondAttribute="bottom" constant="8" id="S41-gv-yWf"/>
-                            <constraint firstItem="YIQ-ah-yCy" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" id="UCY-F0-rxT"/>
-                            <constraint firstItem="m7v-RI-Q5m" firstAttribute="top" secondItem="YIQ-ah-yCy" secondAttribute="bottom" constant="331" id="Uer-y2-H7H">
-                                <variation key="heightClass=regular" constant="50"/>
-                            </constraint>
                             <constraint firstItem="MHo-HO-9Qg" firstAttribute="leading" secondItem="m7v-RI-Q5m" secondAttribute="trailing" constant="41" id="Umv-g0-z7F"/>
                             <constraint firstItem="m7v-RI-Q5m" firstAttribute="centerX" secondItem="EDO-Pq-6Ld" secondAttribute="centerX" id="WFF-cD-nHV"/>
                             <constraint firstAttribute="centerX" secondItem="ocf-9R-tfj" secondAttribute="centerX" constant="-54" id="WvS-dl-E7k"/>
@@ -117,12 +112,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="I4I-Bx-iJj"/>
                                 <exclude reference="0Gf-EH-Suw"/>
                                 <exclude reference="Jz7-Fu-paq"/>
                                 <exclude reference="Ln0-ZA-3gY"/>
-                                <exclude reference="QfM-cy-R4T"/>
-                                <exclude reference="Uer-y2-H7H"/>
                                 <exclude reference="WFF-cD-nHV"/>
                                 <exclude reference="onk-Ne-hLY"/>
                                 <exclude reference="pFX-6b-nsz"/>
@@ -138,8 +130,6 @@
                                 <exclude reference="5Fs-sr-5X3"/>
                                 <exclude reference="665-Xi-ohl"/>
                                 <exclude reference="9FR-FN-cEq"/>
-                                <exclude reference="Aby-nr-2qh"/>
-                                <exclude reference="M6h-14-nLY"/>
                                 <exclude reference="Umv-g0-z7F"/>
                                 <exclude reference="czp-Av-5Lo"/>
                                 <exclude reference="ldr-GW-gwB"/>
@@ -160,11 +150,8 @@
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="constraints">
-                                <exclude reference="I4I-Bx-iJj"/>
                                 <include reference="0Gf-EH-Suw"/>
                                 <exclude reference="Jz7-Fu-paq"/>
-                                <include reference="QfM-cy-R4T"/>
-                                <exclude reference="Uer-y2-H7H"/>
                                 <exclude reference="WFF-cD-nHV"/>
                                 <exclude reference="x69-GJ-g14"/>
                                 <exclude reference="EFg-rf-Sjf"/>
@@ -172,8 +159,6 @@
                                 <include reference="gOe-N8-8C7"/>
                                 <include reference="4d8-wq-N1b"/>
                                 <exclude reference="665-Xi-ohl"/>
-                                <exclude reference="Aby-nr-2qh"/>
-                                <exclude reference="M6h-14-nLY"/>
                                 <exclude reference="Umv-g0-z7F"/>
                                 <exclude reference="czp-Av-5Lo"/>
                                 <exclude reference="ldr-GW-gwB"/>
@@ -195,7 +180,6 @@
                         <outlet property="alreadyAwakeLabel" destination="ocf-9R-tfj" id="ZSK-5u-VOO"/>
                         <outlet property="alreadySleptLabel" destination="MHo-HO-9Qg" id="X5u-7z-J49"/>
                         <outlet property="button" destination="hZq-AG-ckl" id="AZ3-1V-19M"/>
-                        <outlet property="datePicker" destination="YIQ-ah-yCy" id="eMC-qd-oNN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>

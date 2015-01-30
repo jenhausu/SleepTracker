@@ -13,7 +13,6 @@
 
 @interface SleepRecordViewController ()
 
-@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UILabel *alreadySleptLabel;
 @property (weak, nonatomic) IBOutlet UILabel *alreadyAwakeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *button;
@@ -45,7 +44,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.datePicker.date = [NSDate dateWithTimeIntervalSinceNow: 8 * 60 * 60];   //預設鬧鐘是八個小時之後
 }
 
 - (void)viewWillAppear:(BOOL)animated
