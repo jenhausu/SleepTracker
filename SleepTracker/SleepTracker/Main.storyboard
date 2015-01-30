@@ -955,6 +955,9 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular">
+                                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                            </variation>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -1152,9 +1155,36 @@
                     <view key="view" contentMode="scaleToFill" id="gPL-eH-p1r">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="zWr-I4-2IF">
+                                <rect key="frame" x="140" y="219" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="444319770.50504303">
+                                    <!--2015-01-30 14:09:30 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="valueChanged:" destination="ecT-gv-EVA" eventType="valueChanged" id="JuQ-Gd-bpd"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viQ-WJ-Ac7">
+                                <rect key="frame" x="279" y="131" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="zWr-I4-2IF" secondAttribute="centerX" id="gwt-bZ-HtH"/>
+                            <constraint firstItem="zWr-I4-2IF" firstAttribute="top" secondItem="viQ-WJ-Ac7" secondAttribute="bottom" constant="67" id="n9N-VI-ajV"/>
+                            <constraint firstAttribute="centerX" secondItem="viQ-WJ-Ac7" secondAttribute="centerX" id="t0C-hK-oxD"/>
+                            <constraint firstAttribute="centerY" secondItem="zWr-I4-2IF" secondAttribute="centerY" id="ye0-R8-uIC"/>
+                        </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="datePicker" destination="zWr-I4-2IF" id="9UA-6G-SZ3"/>
+                        <outlet property="label" destination="viQ-WJ-Ac7" id="l8h-tH-qXn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wsq-9I-37r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
