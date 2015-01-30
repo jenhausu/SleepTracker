@@ -27,7 +27,7 @@
     section2 = @[@"一般", @"小睡"];
     textLabel = @[section1, section2];
     
-    //[self setTitle:@"新增資料"];
+    [self setTitle:@"新增資料"];
 }
 
 #pragma mark - Table view data source
