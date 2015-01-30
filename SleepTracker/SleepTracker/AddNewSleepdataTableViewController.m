@@ -8,17 +8,30 @@
 
 #import "AddNewSleepdataTableViewController.h"
 
+#import "SleepDataModel.h"
+#import "SleepData.h"
+
 @interface AddNewSleepdataTableViewController ()
 
 @property (nonatomic, strong) NSArray *section1;
 @property (nonatomic, strong) NSArray *section2;
 @property (nonatomic, strong) NSArray *textLabel;
 
+@property (nonatomic, strong) SleepDataModel *sleepDataModel;
+@property (nonatomic, weak) NSArray *fetchDataArray;
+@property (nonatomic, weak) SleepData *sleepData;
+@property (nonatomic, strong) NSDate *goToBedTime;
+@property (nonatomic, strong) NSDate *wakeUpTime;
+@property (strong, nonatomic) NSString *sleepType;
+@property (assign, nonatomic) NSUInteger selectedSleepType;
+
 @end
 
 @implementation AddNewSleepdataTableViewController
 
-@synthesize section1, section2, textLabel;
+@synthesize section1, section2, textLabel, goToBedTime, wakeUpTime, sleepType, selectedSleepType, fetchDataArray;
+
+#pragma mark - view
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,6 +41,10 @@
     textLabel = @[section1, section2];
     
     [self setTitle:@"新增資料"];
+    
+    goToBedTime = [NSDate date];
+    wakeUpTime = [NSDate date];
+    selectedSleepType = 0;
 }
 
 #pragma mark - Table view data source
@@ -45,6 +62,19 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     cell.textLabel.text = textLabel[indexPath.section][indexPath.row];
+    
+    if (indexPath.section == 0) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy/M/d EEE ah:mm"];
+        if (indexPath.row == 0) {
+            cell.detailTextLabel.text = [dateFormatter stringFromDate:goToBedTime];
+        } else if (indexPath.row == 1) {
+            cell.detailTextLabel.text = [dateFormatter stringFromDate:wakeUpTime];
+        }
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    } else if (indexPath.section == 1) {
+        
+    }
     
     return cell;
 }
