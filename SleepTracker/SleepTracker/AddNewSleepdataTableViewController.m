@@ -99,6 +99,7 @@
             [page2 setValue:wakeUpTime forKey:@"receiveDate"];
         
         page2.title = self.textLabel[indexPath.section][indexPath.row];
+        [page2 setValue:self forKey:@"addNewSleepdataTwoViewController"];
         
         [self.navigationController pushViewController:page2 animated:YES];
     }

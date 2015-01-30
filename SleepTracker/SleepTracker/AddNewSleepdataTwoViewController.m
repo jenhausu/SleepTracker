@@ -8,6 +8,8 @@
 
 #import "AddNewSleepdataTwoViewController.h"
 
+#import "AddNewSleepdataTwoViewController.h"
+
 @interface AddNewSleepdataTwoViewController ()
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
@@ -16,6 +18,7 @@
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
 @property (strong, nonatomic) NSDate *receiveDate;
+@property (strong, nonatomic) AddNewSleepdataTwoViewController *addNewSleepdataTwoViewController;
 
 @end
 
@@ -35,6 +38,18 @@
 
 - (IBAction)valueChanged:(id)sender {
     self.label.text = [dateFormatter stringFromDate:self.datePicker.date];
+}
+
+- (void)willMoveToParentViewController:(UIViewController *)parent
+{
+    if (!parent) {
+        if ([self.title isEqualToString:@"上床時間"]) {
+            [self.addNewSleepdataTwoViewController setValue:self.datePicker.date forKey:@"goToBedTime"];
+        }
+        else if ([self.title isEqualToString:@"起床時間"]) {
+            [self.addNewSleepdataTwoViewController setValue:self.datePicker.date forKey:@"wakeUpTime"];
+        }
+    }
 }
 
 @end
