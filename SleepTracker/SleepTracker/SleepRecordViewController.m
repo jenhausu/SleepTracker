@@ -28,8 +28,9 @@
 
 @implementation SleepRecordViewController
 
-
 @synthesize timer, fetchDataArray;
+
+#pragma mark - Lazy Initialization
 
 - (SleepDataModel *)sleepDataModel
 {
@@ -48,6 +49,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.datePicker.date = [NSDate dateWithTimeIntervalSinceNow: 8 * 60 * 60];   //預設鬧鐘是八個小時之後
+    
     fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
     if ([fetchDataArray count]) {  //避免一開始完全沒有任何資
         self.sleepData = fetchDataArray[0];
@@ -72,10 +75,8 @@
         [self.button setTitle:@"起床" forState:UIControlStateNormal];
         self.alreadyAwakeLabel.text = @"00:00:00";
         
-        [self.sleepDataModel addNewData];
-        fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
-        [self.sleepDataModel updateAllSleepDataInRow:fetchDataArray.count - 1
-                                         goToBedTime:[NSDate date] wakeUpTime:nil sleepTiem:nil sleepType:nil];
+        NSDate *now = [NSDate date];
+        [self.sleepDataModel addNewSleepdataAndAddGoToBedTime:now wakeUpTime:nil sleepTime:nil sleepType:nil];
         
         fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
 
@@ -99,6 +100,8 @@
     }
 }
 
+#pragma matk - delecate method
+
 - (void)saveButtonPress
 {
     [self.button setTitle:@"上床" forState:UIControlStateNormal];
@@ -110,6 +113,8 @@
     /*[self.customNotification setCustomNotification];
      [self.alarm cancelAlarm];*/
 }
+
+#pragma mark - timer
 
 - (void)startCountingSleepTime
 {
@@ -143,6 +148,8 @@
     [timer invalidate];
     timer = nil;
 }
+
+#pragma mark -
 
 - (NSString *)stringFromTimeInterval:(NSTimeInterval)interval
 {

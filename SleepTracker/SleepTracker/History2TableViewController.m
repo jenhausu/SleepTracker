@@ -151,10 +151,11 @@
             break;
     }
     
-    [self.sleepDataModel updateAllSleepDataInRow:[selectedRow integerValue]
+    NSNumber *sleepTime = [NSNumber numberWithDouble:[wakeUpTime timeIntervalSinceDate:goToBedTime]];
+    [self.sleepDataModel updateAllSleepdataInRow:[selectedRow integerValue]
                                      goToBedTime:goToBedTime
                                       wakeUpTime:wakeUpTime
-                                       sleepTiem:[NSNumber numberWithDouble:[wakeUpTime timeIntervalSinceDate:goToBedTime]]
+                                       sleepTime:sleepTime
                                        sleepType:sleepType];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"修改資料"

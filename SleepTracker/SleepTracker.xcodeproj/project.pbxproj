@@ -29,6 +29,8 @@
 		1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902071A4B52C8001A69A3 /* SleepData.m */; };
 		1DBC7C031A70FD81007B35B8 /* IntelligentNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */; };
 		1DBC7C0F1A70FFBB007B35B8 /* LocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC7C0E1A70FFBB007B35B8 /* LocalNotification.m */; };
+		1DBCE5B31A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCE5B21A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m */; };
+		1DBCE5B71A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCE5B61A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,10 @@
 		1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntelligentNotification.m; sourceTree = "<group>"; };
 		1DBC7C0D1A70FFBB007B35B8 /* LocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotification.h; sourceTree = "<group>"; };
 		1DBC7C0E1A70FFBB007B35B8 /* LocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotification.m; sourceTree = "<group>"; };
+		1DBCE5B11A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewSleepdataTableViewController.h; sourceTree = "<group>"; };
+		1DBCE5B21A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewSleepdataTableViewController.m; sourceTree = "<group>"; };
+		1DBCE5B51A7BA319009DDCDC /* AddNewSleepdataTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewSleepdataTwoViewController.h; sourceTree = "<group>"; };
+		1DBCE5B61A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewSleepdataTwoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,10 +226,8 @@
 			children = (
 				1D8901F71A4B5199001A69A3 /* HistoryTableViewController.h */,
 				1D8901F81A4B5199001A69A3 /* HistoryTableViewController.m */,
-				1D2681281A4C070300D510F8 /* History2TableViewController.h */,
-				1D2681291A4C070300D510F8 /* History2TableViewController.m */,
-				1D7C39021A4C811800A02793 /* History3ViewController.h */,
-				1D7C39031A4C811800A02793 /* History3ViewController.m */,
+				1DBCE5B01A7BA2C0009DDCDC /* Sleepdata Details */,
+				1DBCE5B41A7BA2F6009DDCDC /* Add New Sleepdata */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -254,6 +258,28 @@
 				1D8901D81A4B5119001A69A3 /* LaunchScreen.xib */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		1DBCE5B01A7BA2C0009DDCDC /* Sleepdata Details */ = {
+			isa = PBXGroup;
+			children = (
+				1D2681281A4C070300D510F8 /* History2TableViewController.h */,
+				1D2681291A4C070300D510F8 /* History2TableViewController.m */,
+				1D7C39021A4C811800A02793 /* History3ViewController.h */,
+				1D7C39031A4C811800A02793 /* History3ViewController.m */,
+			);
+			name = "Sleepdata Details";
+			sourceTree = "<group>";
+		};
+		1DBCE5B41A7BA2F6009DDCDC /* Add New Sleepdata */ = {
+			isa = PBXGroup;
+			children = (
+				1DBCE5B11A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.h */,
+				1DBCE5B21A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m */,
+				1DBCE5B51A7BA319009DDCDC /* AddNewSleepdataTwoViewController.h */,
+				1DBCE5B61A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m */,
+			);
+			name = "Add New Sleepdata";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,6 +397,8 @@
 				1D7C390B1A4C962500A02793 /* WakeUp2ViewController.m in Sources */,
 				1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */,
 				1D2DB7FD1A70F30E00A72EFA /* CustomNotificationTwoViewController.m in Sources */,
+				1DBCE5B71A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m in Sources */,
+				1DBCE5B31A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m in Sources */,
 				1D8901C91A4B5119001A69A3 /* main.m in Sources */,
 				1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */,
 				1D2DB7F41A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m in Sources */,

@@ -1,47 +1,35 @@
 //
-//  WakeUpTableViewController.m
+//  AddNewSleepdataTableViewController.m
 //  SleepTracker
 //
-//  Created by 蘇健豪1 on 2014/12/24.
-//  Copyright (c) 2014年 蘇健豪. All rights reserved.
+//  Created by 蘇健豪1 on 2015/1/30.
+//  Copyright (c) 2015年 蘇健豪. All rights reserved.
 //
 
-#import "WakeUpTableViewController.h"
+#import "AddNewSleepdataTableViewController.h"
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
 
-@interface WakeUpTableViewController ()
-
-@property (weak) id<save> delegate;
+@interface AddNewSleepdataTableViewController ()
 
 @property (nonatomic, strong) NSArray *section1;
 @property (nonatomic, strong) NSArray *section2;
-@property (nonatomic, strong) NSArray *textLabelArray;
-@property (assign, nonatomic) NSUInteger selectedSleepType;
-@property (strong, nonatomic) NSString *sleepType;
-
-@property (strong, nonatomic) NSDate *goToBedTime;
-@property (strong, nonatomic) NSDate *wakeUpTime;
+@property (nonatomic, strong) NSArray *textLabel;
 
 @property (nonatomic, strong) SleepDataModel *sleepDataModel;
 @property (nonatomic, weak) NSArray *fetchDataArray;
 @property (nonatomic, weak) SleepData *sleepData;
+@property (nonatomic, strong) NSDate *goToBedTime;
+@property (nonatomic, strong) NSDate *wakeUpTime;
+@property (strong, nonatomic) NSString *sleepType;
+@property (assign, nonatomic) NSUInteger selectedSleepType;
 
 @end
 
-@implementation WakeUpTableViewController
+@implementation AddNewSleepdataTableViewController
 
-@synthesize delegate, section1, section2, fetchDataArray, selectedSleepType, sleepType, goToBedTime, wakeUpTime;
-
-- (SleepDataModel *)sleepDataModel
-{
-    if (!_sleepDataModel) {
-        _sleepDataModel = [[SleepDataModel alloc] init];
-    }
-    
-    return _sleepDataModel;
-}
+@synthesize section1, section2, textLabel, goToBedTime, wakeUpTime, sleepType, selectedSleepType, fetchDataArray;
 
 #pragma mark - view
 
@@ -50,12 +38,11 @@
     
     section1 = @[@"上床時間", @"起床時間"];
     section2 = @[@"一般", @"小睡"];
-    self.textLabelArray = @[section1, section2];
+    textLabel = @[section1, section2];
     
-    fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
-    self.sleepData = fetchDataArray[0];
+    [self setTitle:@"新增資料"];
     
-    goToBedTime = self.sleepData.goToBedTime;
+    goToBedTime = [NSDate date];
     wakeUpTime = [NSDate date];
     selectedSleepType = 0;
 }
@@ -68,17 +55,17 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.textLabelArray.count;
+    return textLabel.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.textLabelArray[section] count];
+    return [textLabel[section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    cell.textLabel.text = self.textLabelArray[indexPath.section][indexPath.row];
+    cell.textLabel.text = textLabel[indexPath.section][indexPath.row];
     
     if (indexPath.section == 0) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -88,6 +75,7 @@
         } else if (indexPath.row == 1) {
             cell.detailTextLabel.text = [dateFormatter stringFromDate:wakeUpTime];
         }
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     } else if (indexPath.section == 1) {
         cell.detailTextLabel.text = @"";
         
@@ -99,24 +87,29 @@
     return cell;
 }
 
+#pragma mark -
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.section == 0) {
-        UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"wakeUp2"];
+    if (indexPath.section == 0)
+    {
+        UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"AddNewSleepdataTwo"];
         
         if (indexPath.row == 0)
-            [page2 setValue:goToBedTime forKey:@"passOverDate"];
+            [page2 setValue:goToBedTime forKey:@"receiveDate"];
         else if (indexPath.row == 1)
-            [page2 setValue:wakeUpTime forKey:@"passOverDate"];
+            [page2 setValue:wakeUpTime forKey:@"receiveDate"];
         
-        [page2 setValue:self forKey:@"wakeUpViewController"];
-        page2.title = self.textLabelArray[indexPath.section][indexPath.row];
+        page2.title = self.textLabel[indexPath.section][indexPath.row];
+        [page2 setValue:self forKey:@"addNewSleepdataTwoViewController"];
         
         [self.navigationController pushViewController:page2 animated:YES];
-    } else if (indexPath.section == 1) {
-        if (indexPath.row != selectedSleepType) {
+    }
+    else if (indexPath.section == 1) {
+        if (indexPath.row != selectedSleepType)
+        {
             NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:selectedSleepType inSection:1];
             UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:oldIndexPath];
             oldCell.accessoryType = UITableViewCellAccessoryNone;
@@ -127,7 +120,7 @@
     }
 }
 
-#pragma mark - navigation button
+#pragma mark - button
 
 - (IBAction)save:(id)sender
 {
@@ -139,20 +132,19 @@
             sleepType = @"小睡";
             break;
     }
+    NSNumber *sleepTime = [NSNumber numberWithDouble:[wakeUpTime timeIntervalSinceDate:goToBedTime]];
     
-    NSInteger const LATEST_DATA = 0;
-    NSNumber *sleepTime = [NSNumber numberWithFloat:[wakeUpTime timeIntervalSinceDate:goToBedTime]];
-    [self.sleepDataModel updateAllSleepdataInRow:LATEST_DATA
-                                     goToBedTime:goToBedTime
-                                      wakeUpTime:wakeUpTime
-                                       sleepTime:sleepTime
-                                       sleepType:sleepType];
+    self.sleepDataModel = [[SleepDataModel alloc] init];
+    [self.sleepDataModel addNewSleepdataAndAddGoToBedTime:goToBedTime
+                                               wakeUpTime:wakeUpTime
+                                                sleepTime:sleepTime
+                                                sleepType:sleepType];
     
-    [delegate saveButtonPress];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)cancel:(id)sender {
+- (IBAction)cancel:(id)sender
+{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
