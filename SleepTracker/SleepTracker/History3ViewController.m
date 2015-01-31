@@ -10,38 +10,77 @@
 
 #import "History2TableViewController.h"
 
+#import "SleepDataModel.h"
+#import "SleepData.h"
+
 @interface History3ViewController ()
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
-@property (strong, nonatomic) NSDate *passOverDate;
+@property (strong, nonatomic) NSString *DateType;
+@property (strong, nonatomic) NSDate *goToBedTime;
+@property (strong, nonatomic) NSDate *wakeUpTime;
+@property (strong, nonatomic) NSNumber *selectedRow;
 @property (strong, nonatomic) History2TableViewController *History2ViewController;
+
+@property (strong, nonatomic) SleepDataModel *sleepDataModel;
+@property (strong, nonatomic) SleepData *sleepData;
+@property (strong, nonatomic) NSArray *fetchDataArray;
 
 @end
 
 @implementation History3ViewController
 
-@synthesize passOverDate, dateFormatter;
+@synthesize dateFormatter, DateType, goToBedTime, wakeUpTime, fetchDataArray, selectedRow;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.datePicker.date = passOverDate;
-    
     dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"u/MM/dd EEE ahh:mm"];
-    self.dateLabel.text = [dateFormatter stringFromDate:passOverDate];
+    
+    NSInteger selecetedRow = [selectedRow integerValue];
+
+    self.sleepDataModel = [[SleepDataModel alloc] init];
+    fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
+    if ([DateType isEqualToString:@"goToBedTime"])
+    {
+        self.datePicker.date = goToBedTime;
+        
+        if (selecetedRow != fetchDataArray.count - 1) {
+            self.sleepData = fetchDataArray[[selectedRow integerValue] + 1];
+            self.datePicker.minimumDate = self.sleepData.wakeUpTime;  //上床時間可設定的最小值限制為上一筆資料的起床時間
+        }
+        self.datePicker.maximumDate = wakeUpTime;  //上床時間可設定的最大值限制為起床時間
+        
+        self.dateLabel.text = [dateFormatter stringFromDate:goToBedTime];
+    }
+    else if ([DateType isEqualToString:@"wakeUpTime"])
+    {
+        self.datePicker.date = wakeUpTime;
+        
+        self.datePicker.minimumDate = goToBedTime;  //起床時間可設定的最小值限制為上床時間
+        if (selecetedRow != 0) {
+            self.sleepData = fetchDataArray[selecetedRow - 1];
+            self.datePicker.maximumDate = self.sleepData.goToBedTime;  //最大值為現在時間，起床時間不可以設為未來的時間，要不計算清醒時間會錯亂
+        } else if (selecetedRow == 0) {
+            self.datePicker.maximumDate = [NSDate date];  //最大值為現在時間，起床時間不可以設為未來的時間，要不計算清醒時間會錯亂
+        }
+        
+        self.dateLabel.text = [dateFormatter stringFromDate:wakeUpTime];
+    }
+
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent
 {
     if (!parent) {
-        if ([self.title isEqualToString:@"上床時間"]) {
+        if ([DateType isEqualToString:@"goToBedTime"]) {
             [self.History2ViewController setValue:self.datePicker.date forKey:@"goToBedTime"];
         }
-        else if ([self.title isEqualToString:@"起床時間"]) {
+        else if ([DateType isEqualToString:@"wakeUpTime"]) {
             [self.History2ViewController setValue:self.datePicker.date forKey:@"wakeUpTime"];
         }
     }
