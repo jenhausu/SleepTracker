@@ -736,7 +736,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="heightClass=regular">
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11.5"/>
                                             </variation>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hSt-Wm-uxl">
@@ -819,7 +819,7 @@
             </objects>
             <point key="canvasLocation" x="2402" y="10"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Add New Sleepdata Table View Controller-->
         <scene sceneID="q59-Tl-0yb">
             <objects>
                 <tableViewController id="Ibk-lg-SoY" customClass="AddNewSleepdataTableViewController" sceneMemberID="viewController">
@@ -854,7 +854,7 @@
                             <outlet property="delegate" destination="Ibk-lg-SoY" id="0wr-fk-sWK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="BlC-zF-8Vl">
+                    <navigationItem key="navigationItem" id="BlC-zF-8Vl">
                         <barButtonItem key="leftBarButtonItem" title="取消" id="iBO-dP-EAO">
                             <connections>
                                 <action selector="cancel:" destination="Ibk-lg-SoY" id="pif-8l-3cX"/>
