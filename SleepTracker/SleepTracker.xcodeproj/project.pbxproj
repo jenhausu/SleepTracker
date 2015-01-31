@@ -145,7 +145,7 @@
 				1D8901CA1A4B5119001A69A3 /* AppDelegate.h */,
 				1D8901CB1A4B5119001A69A3 /* AppDelegate.m */,
 				1D89020A1A4B52DB001A69A3 /* Model */,
-				1D89020B1A4B52E2001A69A3 /* Alarm */,
+				1D89020B1A4B52E2001A69A3 /* Record */,
 				1D89020C1A4B52EE001A69A3 /* History */,
 				1D89020E1A4B5302001A69A3 /* Statistic */,
 				1D89020D1A4B52FA001A69A3 /* Setting */,
@@ -208,7 +208,7 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		1D89020B1A4B52E2001A69A3 /* Alarm */ = {
+		1D89020B1A4B52E2001A69A3 /* Record */ = {
 			isa = PBXGroup;
 			children = (
 				1D2DB7EC1A6DA4B300A72EFA /* SleepRecordViewController.h */,
@@ -218,7 +218,7 @@
 				1D7C39091A4C962500A02793 /* WakeUp2ViewController.h */,
 				1D7C390A1A4C962500A02793 /* WakeUp2ViewController.m */,
 			);
-			name = Alarm;
+			name = Record;
 			sourceTree = "<group>";
 		};
 		1D89020C1A4B52EE001A69A3 /* History */ = {
