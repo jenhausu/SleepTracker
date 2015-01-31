@@ -110,7 +110,6 @@
         
         if (indexPath.row == 0)  [page2 setValue:@"goToBedTime" forKey:@"DateType"];
         else if (indexPath.row == 1)  [page2 setValue:@"wakeUpTime" forKey:@"DateType"];
-            
         [page2 setValue:goToBedTime forKey:@"goToBedTime"];
         [page2 setValue:wakeUpTime forKey:@"wakeUpTime"];
         
