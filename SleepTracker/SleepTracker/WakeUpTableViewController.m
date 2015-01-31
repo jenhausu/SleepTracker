@@ -81,6 +81,8 @@
     cell.textLabel.text = self.textLabelArray[indexPath.section][indexPath.row];
     
     if (indexPath.section == 0) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy/M/d EEE ah:mm"];
         if (indexPath.row == 0) {
