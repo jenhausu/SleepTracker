@@ -248,7 +248,7 @@
         <!--Title-->
         <scene sceneID="l8k-Hr-Asv">
             <objects>
-                <viewController storyboardIdentifier="HopeToGoToBedPage" id="UpI-OH-aVL" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HopeToGoToBedPage" id="UpI-OH-aVL" customClass="HopeToGoToSleepViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HKB-Kn-XhW"/>
                         <viewControllerLayoutGuide type="bottom" id="NKU-KH-wCI"/>

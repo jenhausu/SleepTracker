@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    section1 = @[@"希望床時間", @"睡前通知"];
+    section1 = @[@"希望上床時間", @"睡前通知"];
     section2 = @[@"意見回饋"];
     textLabelOfTableViewCell = @[section1, section2];
 }
