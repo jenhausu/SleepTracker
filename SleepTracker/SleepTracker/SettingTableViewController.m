@@ -14,22 +14,20 @@
 
 @property (strong, nonatomic) NSArray *section1;
 @property (strong, nonatomic) NSArray *section2;
-@property (strong, nonatomic) NSArray *section3;
 @property (strong, nonatomic) NSArray *textLabelOfTableViewCell;
 
 @end
 
 @implementation SettingTableViewController
 
-@synthesize section1, section2, section3, textLabelOfTableViewCell;
+@synthesize section1, section2, textLabelOfTableViewCell;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     section1 = @[@"希望床時間", @"睡前通知"];
     section2 = @[@"意見回饋"];
-    section3 = @[@"使用說明"];
-    textLabelOfTableViewCell = @[section1, section2, section3];
+    textLabelOfTableViewCell = @[section1, section2];
 }
 
 #pragma mark - Table view data source
@@ -92,10 +90,6 @@
                 [alert show];
             }
 
-            
-        }
-    } else if (indexPath.section == 2) {
-        if (indexPath.row == 0) {
             
         }
     }
