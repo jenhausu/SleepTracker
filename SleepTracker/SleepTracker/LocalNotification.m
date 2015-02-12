@@ -20,7 +20,7 @@
     localNotification.alertBody = message;
     
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.soundName = sound;
+    localNotification.soundName = sound;  //@"UILocalNotificationDefaultSoundName"
     
     if (repeat) localNotification.repeatInterval = NSCalendarUnitDay;  //每天循環
     if (key) {
