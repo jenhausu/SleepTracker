@@ -65,19 +65,19 @@
 {
     switch (self.segment.selectedSegmentIndex) {
         case 0:
-            sleepTimeData = [self.statistic showSleepTimeDataInTheRecent:7];
             goToBedTimeData = [self.statistic showGoToBedTimeDataInTheRecent:7];
             wakeUpTimeData = [self.statistic showWakeUpTimeDataInTheRecent:7];
+            sleepTimeData = [self.statistic showSleepTimeDataInTheRecent:7];
             break;
         case 1:
-            sleepTimeData = [self.statistic showSleepTimeDataInTheRecent:30];
             goToBedTimeData = [self.statistic showGoToBedTimeDataInTheRecent:30];
             wakeUpTimeData = [self.statistic showWakeUpTimeDataInTheRecent:30];
+            sleepTimeData = [self.statistic showSleepTimeDataInTheRecent:30];
             break;
         case 2:
-            sleepTimeData = [self.statistic showSleepTimeDataInTheRecent:183];
             goToBedTimeData = [self.statistic showGoToBedTimeDataInTheRecent:183];
             wakeUpTimeData = [self.statistic showWakeUpTimeDataInTheRecent:183];
+            sleepTimeData = [self.statistic showSleepTimeDataInTheRecent:183];
             break;
     }
     
@@ -86,15 +86,15 @@
 
 - (void)showStatistic
 {
-    self.sleepTimeMinLabel.text = [self.statistic stringFromTimeInterval:[sleepTimeData[0] floatValue]];
-    self.sleepTimeMaxLabel.text = [self.statistic stringFromTimeInterval:[sleepTimeData[1] floatValue]];
-    self.sleepTimeAvgLabel.text = [self.statistic stringFromTimeInterval:[sleepTimeData[2] floatValue]];
     self.goToBedTimeMinLabel.text = [self.statistic stringFromTimeInterval:[goToBedTimeData[0] floatValue]];
     self.goToBedTimeMaxLabel.text = [self.statistic stringFromTimeInterval:[goToBedTimeData[1] floatValue]];
     self.goToBedTimeAvgLabel.text = [self.statistic stringFromTimeInterval:[goToBedTimeData[2] floatValue]];
     self.wakeUpTimeMinLabel.text = [self.statistic stringFromTimeInterval:[wakeUpTimeData[0] floatValue]];
     self.wakeUpTimeMaxLabel.text = [self.statistic stringFromTimeInterval:[wakeUpTimeData[1] floatValue]];
     self.wakeUpTimeAvgLabel.text = [self.statistic stringFromTimeInterval:[wakeUpTimeData[2] floatValue]];
+    self.sleepTimeMinLabel.text = [self.statistic stringFromTimeInterval:[sleepTimeData[0] floatValue]];
+    self.sleepTimeMaxLabel.text = [self.statistic stringFromTimeInterval:[sleepTimeData[1] floatValue]];
+    self.sleepTimeAvgLabel.text = [self.statistic stringFromTimeInterval:[sleepTimeData[2] floatValue]];
 }
 
 @end
