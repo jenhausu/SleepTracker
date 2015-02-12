@@ -11,6 +11,7 @@
 #import "LocalNotification.h"
 #import "SleepDataModel.h"
 #import "SleepData.h"
+#import "Statistic.h"
 
 @interface IntelligentNotification ()
 
@@ -20,6 +21,8 @@
 @property (strong, nonatomic) SleepDataModel *sleepDataModel;
 @property (strong, nonatomic) NSArray *fetchArray;
 @property (strong, nonatomic) SleepData *sleepData;
+
+@property (strong, nonatomic) Statistic *statistic;
 
 @end
 
@@ -84,13 +87,23 @@
     self.sleepData = fetchArray[LATEST_DATA];
     
     [self decideShouldGoToBedTime];
+    
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
+    
+    self.statistic = [[Statistic alloc] init];
+    NSInteger averageGoToSleepTimeInSecond = [[[self.statistic showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+    [components setHour:averageGoToSleepTimeInSecond / 3600];
+    [components setMinute:((averageGoToSleepTimeInSecond / 60) % 60)];
+    NSDate *averageGoToSleepTime = [calendar dateFromComponents:components];
+    
+    
     NSArray *fireDate = [[NSArray alloc] initWithObjects:
                          [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:shouldGoToBedTime],
                          [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:shouldGoToBedTime],
                          [NSDate dateWithTimeInterval:-(60 * 60 * 2) sinceDate:shouldGoToBedTime],
-                         [NSDate dateWithTimeIntervalSinceNow:10],
+                         averageGoToSleepTime,
                          [NSDate dateWithTimeInterval:(60 * 60 * 16) sinceDate:self.sleepData.wakeUpTime], nil];
-#warning 平均起床時間還沒計算
     return fireDate;
 }
 
