@@ -138,7 +138,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0U-wt-4Gx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2169" y="-852"/>
+            <point key="canvasLocation" x="2279" y="-852"/>
         </scene>
         <!--Title-->
         <scene sceneID="aKa-7E-V1q">
@@ -191,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wN4-Qg-Zgr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2968" y="-852"/>
+            <point key="canvasLocation" x="2974" y="-852"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fws-yd-wDd">
@@ -207,7 +207,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30d-CH-MpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1432" y="-852"/>
+            <point key="canvasLocation" x="1542" y="-852"/>
         </scene>
         <!--設定-->
         <scene sceneID="9S0-Jj-ac1">
@@ -324,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jY-Xy-DXB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2541" y="1617"/>
+            <point key="canvasLocation" x="2331" y="1621"/>
         </scene>
         <!--睡前通知-->
         <scene sceneID="d1n-4X-Nne">
@@ -383,7 +383,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7by-jK-upe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2541" y="2298"/>
+            <point key="canvasLocation" x="2331" y="2298"/>
         </scene>
         <!--Intelligent Notification Table View Controller-->
         <scene sceneID="ep1-gv-gQB">
@@ -423,7 +423,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqT-oB-UeY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3382" y="1958"/>
+            <point key="canvasLocation" x="3172" y="1962"/>
         </scene>
         <!--自訂睡前通知-->
         <scene sceneID="Mw0-UU-4IW">
@@ -473,7 +473,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gD-TD-XMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3382" y="2659"/>
+            <point key="canvasLocation" x="3172" y="2663"/>
         </scene>
         <!--Custom Notification Two View Controller-->
         <scene sceneID="TId-uF-stx">
@@ -553,7 +553,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUL-9s-Fyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4754" y="2659"/>
+            <point key="canvasLocation" x="4544" y="2663"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y0s-GO-CHk">
@@ -569,7 +569,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dnm-Vd-LXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4041" y="2659"/>
+            <point key="canvasLocation" x="3831" y="2663"/>
         </scene>
         <!--設定-->
         <scene sceneID="du2-s9-udy">
@@ -799,7 +799,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZgS-GL-wHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1582" y="10"/>
+            <point key="canvasLocation" x="1542" y="10"/>
         </scene>
         <!--Title-->
         <scene sceneID="v4k-wQ-MmK">
@@ -846,7 +846,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CHv-gq-dTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2402" y="10"/>
+            <point key="canvasLocation" x="2279" y="10"/>
         </scene>
         <!--Add New Sleepdata Table View Controller-->
         <scene sceneID="q59-Tl-0yb">
@@ -898,7 +898,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpj-QP-104" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2402" y="703"/>
+            <point key="canvasLocation" x="2279" y="788"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kS0-re-V88">
@@ -914,7 +914,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbl-fM-snQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1582" y="703"/>
+            <point key="canvasLocation" x="1542" y="788"/>
         </scene>
         <!--History3 View Controller-->
         <scene sceneID="BTQ-xB-ag2">
@@ -960,7 +960,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T0Q-X1-2Yi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3107" y="10"/>
+            <point key="canvasLocation" x="2974" y="10"/>
         </scene>
         <!--Add New Sleepdata Two View Controller-->
         <scene sceneID="NlM-hv-xjY">
@@ -1006,7 +1006,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wsq-9I-37r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3107" y="703"/>
+            <point key="canvasLocation" x="2974" y="788"/>
         </scene>
         <!--睡眠足跡-->
         <scene sceneID="xJu-Ph-s68">
