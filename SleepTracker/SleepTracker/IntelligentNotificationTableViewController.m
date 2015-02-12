@@ -12,16 +12,15 @@
 
 @interface IntelligentNotificationTableViewController ()
 
-@property (strong, nonatomic) NSArray *array;
-
 @property (strong, nonatomic) IntelligentNotification *intelligentNotification;
 @property (strong, nonatomic) NSArray *fireDate;
+@property (strong, nonatomic) NSArray *notificationName;
 
 @end
 
 @implementation IntelligentNotificationTableViewController
 
-@synthesize array, fireDate;
+@synthesize notificationName, fireDate;
 
 #pragma mark - Lazy initialization
 
@@ -39,7 +38,7 @@
     [super viewDidLoad];
     
     fireDate = [self.intelligentNotification decideFireDate];
-    array = [self.intelligentNotification decideNotificationTitle];
+    notificationName = [self.intelligentNotification decideNotificationTitle];
 }
 
 #pragma mark - Table view data source
@@ -65,11 +64,11 @@
     [formatter setDateFormat:@"HH:mm"];
     
     if (indexPath.section == 0) {
-        cell.textLabel.text = array[indexPath.row];
+        cell.textLabel.text = notificationName[indexPath.row];
     } else if (indexPath.section == 1) {
-        cell.textLabel.text = array[3];
+        cell.textLabel.text = notificationName[3];
     } else {
-        cell.textLabel.text = array[4];
+        cell.textLabel.text = notificationName[4];
     }
     cell.detailTextLabel.text = [formatter stringFromDate:fireDate[indexPath.row]];
 
@@ -80,7 +79,7 @@
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     if (indexPath.section == 0)
     {
-        switchControl.on = [userPreferences boolForKey:array[indexPath.row]];
+        switchControl.on = [userPreferences boolForKey:notificationName[indexPath.row]];
         cell.detailTextLabel.text = [formatter stringFromDate:fireDate[indexPath.row]];
 
         if (indexPath.row == 0) {
@@ -97,14 +96,14 @@
         cell.detailTextLabel.text = [formatter stringFromDate:fireDate[3]];
 
         if (indexPath.row == 0) {
-            switchControl.on = [userPreferences boolForKey:array[3]];
+            switchControl.on = [userPreferences boolForKey:notificationName[3]];
             [switchControl addTarget:self action:@selector(switchChanged4:) forControlEvents:UIControlEventValueChanged];
         }
     }
     else if (indexPath.section == 2) {
         cell.detailTextLabel.text = [formatter stringFromDate:fireDate[4]];
 
-        switchControl.on = [userPreferences boolForKey:array[4]];
+        switchControl.on = [userPreferences boolForKey:notificationName[4]];
         [switchControl addTarget:self action:@selector(switchChanged5:) forControlEvents:UIControlEventValueChanged];
     }
     
@@ -117,7 +116,7 @@
 {
     UISwitch *switchControl = sender;
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    [userPreferences setBool:switchControl.on forKey:array[0]];
+    [userPreferences setBool:switchControl.on forKey:notificationName[0]];
     [self.intelligentNotification rescheduleIntelligentNotification];
 }
 
@@ -125,7 +124,7 @@
 {
     UISwitch *switchControl = sender;
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    [userPreferences setBool:switchControl.on forKey:array[1]];
+    [userPreferences setBool:switchControl.on forKey:notificationName[1]];
     [self.intelligentNotification rescheduleIntelligentNotification];
 }
 
@@ -133,7 +132,7 @@
 {
     UISwitch *switchControl = sender;
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    [userPreferences setBool:switchControl.on forKey:array[2]];
+    [userPreferences setBool:switchControl.on forKey:notificationName[2]];
     [self.intelligentNotification rescheduleIntelligentNotification];
 }
 
@@ -141,7 +140,7 @@
 {
     UISwitch *switchControl = sender;
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    [userPreferences setBool:switchControl.on forKey:array[3]];
+    [userPreferences setBool:switchControl.on forKey:notificationName[3]];
     [self.intelligentNotification rescheduleIntelligentNotification];
 }
 
@@ -149,7 +148,7 @@
 {
     UISwitch *switchControl = sender;
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    [userPreferences setBool:switchControl.on forKey:array[4]];
+    [userPreferences setBool:switchControl.on forKey:notificationName[4]];
     [self.intelligentNotification rescheduleIntelligentNotification];
 }
 
