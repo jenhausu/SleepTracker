@@ -250,6 +250,9 @@
 				1D2DB7F31A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m */,
 				1DF063F41A8C59F600F21359 /* SettingTableViewController.h */,
 				1DF063F51A8C59F600F21359 /* SettingTableViewController.m */,
+				1DF063F91A8C75E800F21359 /* Sleep Notificaiton */,
+				1D995DFF1A7D4D37002F069C /* HopeToGoToSleepViewController.h */,
+				1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				1D2DB7FD1A70F30E00A72EFA /* CustomNotificationTwoViewController.m in Sources */,
 				1DBCE5B71A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m in Sources */,
 				1DF063F61A8C59F600F21359 /* SettingTableViewController.m in Sources */,
+				1D995E011A7D4D37002F069C /* HopeToGoToSleepViewController.m in Sources */,
 				1DBCE5B31A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m in Sources */,
 				1D8901C91A4B5119001A69A3 /* main.m in Sources */,
 				1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */,
