@@ -32,6 +32,7 @@
 		1DBCE5B31A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCE5B21A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m */; };
 		1DBCE5B71A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCE5B61A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m */; };
 		1DF063F61A8C59F600F21359 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF063F51A8C59F600F21359 /* SettingTableViewController.m */; };
+		1DF063F81A8C626700F21359 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF063F71A8C626700F21359 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		1DBCE5B61A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewSleepdataTwoViewController.m; sourceTree = "<group>"; };
 		1DF063F41A8C59F600F21359 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		1DF063F51A8C59F600F21359 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
+		1DF063F71A8C626700F21359 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DF063F81A8C626700F21359 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +130,7 @@
 		1D8901BA1A4B5119001A69A3 = {
 			isa = PBXGroup;
 			children = (
+				1DF063F71A8C626700F21359 /* MessageUI.framework */,
 				1D8901C51A4B5119001A69A3 /* SleepTracker */,
 				1D8901E21A4B511A001A69A3 /* SleepTrackerTests */,
 				1D8901C41A4B5119001A69A3 /* Products */,
