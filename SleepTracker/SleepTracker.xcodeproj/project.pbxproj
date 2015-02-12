@@ -27,6 +27,7 @@
 		1D8902021A4B5199001A69A3 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901F81A4B5199001A69A3 /* HistoryTableViewController.m */; };
 		1D8902051A4B5199001A69A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8901FD1A4B5199001A69A3 /* Main.storyboard */; };
 		1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902071A4B52C8001A69A3 /* SleepData.m */; };
+		1D995E011A7D4D37002F069C /* HopeToGoToSleepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */; };
 		1DBC7C031A70FD81007B35B8 /* IntelligentNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */; };
 		1DBC7C0F1A70FFBB007B35B8 /* LocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC7C0E1A70FFBB007B35B8 /* LocalNotification.m */; };
 		1DBCE5B31A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCE5B21A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m */; };
@@ -84,6 +85,8 @@
 		1D8901FD1A4B5199001A69A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1D8902061A4B52C8001A69A3 /* SleepData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepData.h; sourceTree = "<group>"; };
 		1D8902071A4B52C8001A69A3 /* SleepData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepData.m; sourceTree = "<group>"; };
+		1D995DFF1A7D4D37002F069C /* HopeToGoToSleepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopeToGoToSleepViewController.h; sourceTree = "<group>"; };
+		1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopeToGoToSleepViewController.m; sourceTree = "<group>"; };
 		1DBC7C011A70FD81007B35B8 /* IntelligentNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntelligentNotification.h; sourceTree = "<group>"; };
 		1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntelligentNotification.m; sourceTree = "<group>"; };
 		1DBC7C0D1A70FFBB007B35B8 /* LocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotification.h; sourceTree = "<group>"; };
@@ -289,6 +292,16 @@
 				1DBCE5B61A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m */,
 			);
 			name = "Add New Sleepdata";
+			sourceTree = "<group>";
+		};
+		1DF063F91A8C75E800F21359 /* Sleep Notificaiton */ = {
+			isa = PBXGroup;
+			children = (
+				1D2DB7F21A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.h */,
+				1D2DB7F31A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m */,
+				1D2DB7FE1A70F31800A72EFA /* Custom Notification */,
+			);
+			name = "Sleep Notificaiton";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
