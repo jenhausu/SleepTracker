@@ -91,7 +91,6 @@
                          [NSDate dateWithTimeIntervalSinceNow:10],
                          [NSDate dateWithTimeInterval:(60 * 60 * 16) sinceDate:self.sleepData.wakeUpTime], nil];
 #warning 平均起床時間還沒計算
-#warning 希望幾點上床睡覺的通知還沒設定
     return fireDate;
 }
 
