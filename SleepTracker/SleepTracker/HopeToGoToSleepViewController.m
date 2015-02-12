@@ -16,7 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.title = @"希望上床時間";
 }
 
 @end

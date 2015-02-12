@@ -238,9 +238,9 @@
 		1D89020D1A4B52FA001A69A3 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				1D2DB7FE1A70F31800A72EFA /* Custom Notification */,
-				1D2DB7F21A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.h */,
-				1D2DB7F31A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m */,
+				1DF063F91A8C75E800F21359 /* Sleep Notificaiton */,
+				1D995DFF1A7D4D37002F069C /* HopeToGoToSleepViewController.h */,
+				1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -250,8 +250,6 @@
 			children = (
 				1D7C39061A4C909D00A02793 /* StatisticViewController.h */,
 				1D7C39071A4C909D00A02793 /* StatisticViewController.m */,
-				1D995DFF1A7D4D37002F069C /* HopeToGoToSleepViewController.h */,
-				1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */,
 			);
 			name = Statistic;
 			sourceTree = "<group>";
@@ -285,6 +283,16 @@
 				1DBCE5B61A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m */,
 			);
 			name = "Add New Sleepdata";
+			sourceTree = "<group>";
+		};
+		1DF063F91A8C75E800F21359 /* Sleep Notificaiton */ = {
+			isa = PBXGroup;
+			children = (
+				1D2DB7FE1A70F31800A72EFA /* Custom Notification */,
+				1D2DB7F21A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.h */,
+				1D2DB7F31A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m */,
+			);
+			name = "Sleep Notificaiton";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
