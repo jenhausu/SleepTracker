@@ -10,6 +10,7 @@
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
+#import "IntelligentNotification.h"
 
 @interface AddNewSleepdataTableViewController ()
 
@@ -25,11 +26,24 @@
 @property (strong, nonatomic) NSString *sleepType;
 @property (assign, nonatomic) NSUInteger selectedSleepType;
 
+@property (strong, nonatomic) IntelligentNotification *intelligentNotification;
+
 @end
 
 @implementation AddNewSleepdataTableViewController
 
 @synthesize section1, section2, textLabel, goToBedTime, wakeUpTime, sleepType, selectedSleepType, fetchDataArray;
+
+#pragma mark - lazy initialization
+
+- (IntelligentNotification *)intelligentNotification
+{
+    if (!_intelligentNotification) {
+        _intelligentNotification = [[IntelligentNotification alloc] init];
+    }
+    
+    return _intelligentNotification;
+}
 
 #pragma mark - view
 
@@ -97,13 +111,17 @@
     {
         UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"AddNewSleepdataTwo"];
         
-        if (indexPath.row == 0)  [page2 setValue:@"goToBedTime" forKey:@"DateType"];
-        else if (indexPath.row == 1)  [page2 setValue:@"wakeUpTime" forKey:@"DateType"];
+        if (indexPath.row == 0)  {
+            [page2 setValue:@"goToBedTime" forKey:@"DateType"];
+        }
+        else if (indexPath.row == 1)  {
+            [page2 setValue:@"wakeUpTime" forKey:@"DateType"];
+        }
         [page2 setValue:goToBedTime forKey:@"goToBedTime"];
         [page2 setValue:wakeUpTime forKey:@"wakeUpTime"];
         
         page2.title = self.textLabel[indexPath.section][indexPath.row];
-        [page2 setValue:self forKey:@"addNewSleepdataTwoViewController"];
+        [page2 setValue:self forKey:@"addNewSleepdataOne"];
         
         [self.navigationController pushViewController:page2 animated:YES];
     }
@@ -139,6 +157,8 @@
                                                wakeUpTime:wakeUpTime
                                                 sleepTime:sleepTime
                                                 sleepType:sleepType];
+    
+    [self.intelligentNotification rescheduleIntelligentNotification];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

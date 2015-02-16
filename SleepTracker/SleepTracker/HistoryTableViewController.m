@@ -10,6 +10,7 @@
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
+#import "IntelligentNotification.h"
 
 @interface HistoryTableViewController ()
 
@@ -17,11 +18,15 @@
 @property (nonatomic, strong) NSArray *fetchDataArray;
 @property (nonatomic, strong) SleepData *sleepData;
 
+@property (nonatomic, strong) IntelligentNotification *intelligentNotification;
+
 @end
 
 @implementation HistoryTableViewController
 
 @synthesize fetchDataArray;
+
+#pragma mark - lazy initialization
 
 - (SleepDataModel *)sleepDataModel
 {
@@ -31,6 +36,17 @@
     
     return _sleepDataModel;
 }
+
+- (IntelligentNotification *)intelligentNotification
+{
+    if (!_intelligentNotification) {
+        _intelligentNotification = [[IntelligentNotification alloc] init];
+    }
+    
+    return _intelligentNotification;
+}
+
+#pragma mark - view
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -88,6 +104,8 @@
         [self.sleepDataModel deleteSleepData:fetchDataArray[indexPath.row]];
         fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [self.intelligentNotification rescheduleIntelligentNotification];  //有資料被刪除的話，要重新排成睡前通知
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

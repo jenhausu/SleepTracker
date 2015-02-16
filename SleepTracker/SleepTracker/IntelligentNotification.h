@@ -13,5 +13,6 @@
 - (NSArray *)decideFireDate;
 - (NSArray *)decideNotificationTitle;
 - (void)rescheduleIntelligentNotification;
+- (void)deleteAllIntelligentNotification;
 
 @end
