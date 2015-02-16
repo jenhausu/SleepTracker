@@ -8,7 +8,7 @@
 
 #import "AddNewSleepdataTwoViewController.h"
 
-#import "AddNewSleepdataTwoViewController.h"
+#import "AddNewSleepdataTableViewController.h"
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
@@ -23,7 +23,7 @@
 @property (strong, nonatomic) NSString *DateType;
 @property (strong, nonatomic) NSDate *goToBedTime;
 @property (strong, nonatomic) NSDate *wakeUpTime;
-@property (strong, nonatomic) AddNewSleepdataTwoViewController *addNewSleepdataTwoViewController;
+@property (strong, nonatomic) AddNewSleepdataTableViewController *addNewSleepdataOne;
 
 @property (strong, nonatomic) SleepDataModel *sleepDataModel;
 @property (strong, nonatomic) SleepData *sleepData;
@@ -63,10 +63,10 @@
 {
     if (!parent) {
         if ([DateType isEqualToString:@"goToBedTime"]) {
-            [self.addNewSleepdataTwoViewController setValue:self.datePicker.date forKey:@"goToBedTime"];
+            [self.addNewSleepdataOne setValue:self.datePicker.date forKey:@"goToBedTime"];
         }
         else if ([DateType isEqualToString:@"wakeUpTime"]) {
-            [self.addNewSleepdataTwoViewController setValue:self.datePicker.date forKey:@"wakeUpTime"];
+            [self.addNewSleepdataOne setValue:self.datePicker.date forKey:@"wakeUpTime"];
         }
     }
 }

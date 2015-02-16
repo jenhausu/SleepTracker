@@ -1000,8 +1000,8 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="dateLabel" destination="viQ-WJ-Ac7" id="Ddf-xE-POK"/>
                         <outlet property="datePicker" destination="zWr-I4-2IF" id="9UA-6G-SZ3"/>
-                        <outlet property="label" destination="viQ-WJ-Ac7" id="l8h-tH-qXn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wsq-9I-37r" userLabel="First Responder" sceneMemberID="firstResponder"/>

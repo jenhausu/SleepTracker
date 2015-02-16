@@ -111,13 +111,17 @@
     {
         UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"AddNewSleepdataTwo"];
         
-        if (indexPath.row == 0)  [page2 setValue:@"goToBedTime" forKey:@"DateType"];
-        else if (indexPath.row == 1)  [page2 setValue:@"wakeUpTime" forKey:@"DateType"];
+        if (indexPath.row == 0)  {
+            [page2 setValue:@"goToBedTime" forKey:@"DateType"];
+        }
+        else if (indexPath.row == 1)  {
+            [page2 setValue:@"wakeUpTime" forKey:@"DateType"];
+        }
         [page2 setValue:goToBedTime forKey:@"goToBedTime"];
         [page2 setValue:wakeUpTime forKey:@"wakeUpTime"];
         
         page2.title = self.textLabel[indexPath.section][indexPath.row];
-        [page2 setValue:self forKey:@"addNewSleepdataTwoViewController"];
+        [page2 setValue:self forKey:@"addNewSleepdataOne"];
         
         [self.navigationController pushViewController:page2 animated:YES];
     }
