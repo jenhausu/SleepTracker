@@ -10,6 +10,7 @@
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
+#import "IntelligentNotification.h"
 
 @interface AddNewSleepdataTableViewController ()
 
@@ -25,11 +26,24 @@
 @property (strong, nonatomic) NSString *sleepType;
 @property (assign, nonatomic) NSUInteger selectedSleepType;
 
+@property (strong, nonatomic) IntelligentNotification *intelligentNotification;
+
 @end
 
 @implementation AddNewSleepdataTableViewController
 
 @synthesize section1, section2, textLabel, goToBedTime, wakeUpTime, sleepType, selectedSleepType, fetchDataArray;
+
+#pragma mark - lazy initialization
+
+- (IntelligentNotification *)intelligentNotification
+{
+    if (!_intelligentNotification) {
+        _intelligentNotification = [[IntelligentNotification alloc] init];
+    }
+    
+    return _intelligentNotification;
+}
 
 #pragma mark - view
 
@@ -139,6 +153,8 @@
                                                wakeUpTime:wakeUpTime
                                                 sleepTime:sleepTime
                                                 sleepType:sleepType];
+    
+    [self.intelligentNotification rescheduleIntelligentNotification];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

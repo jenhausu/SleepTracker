@@ -149,7 +149,6 @@
         if ([value isEqualToString:@"IntelligentNotification"])
         {
             [application cancelLocalNotification:localNotification];
-            break;
         }
     }
 }

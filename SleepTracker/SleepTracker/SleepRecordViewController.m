@@ -10,6 +10,7 @@
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
+#import "IntelligentNotification.h"
 
 @interface SleepRecordViewController ()
 
@@ -23,6 +24,8 @@
 
 @property (nonatomic, strong) SleepData *sleepData;
 @property (nonatomic, strong) NSArray *fetchDataArray;
+
+@property (nonatomic, strong) IntelligentNotification *intelligentNotification;
 
 @end
 
@@ -39,6 +42,15 @@
     }
     
     return _sleepDataModel;
+}
+
+- (IntelligentNotification *)intelligentNotification
+{
+    if (!_intelligentNotification) {
+        _intelligentNotification = [[IntelligentNotification alloc] init];
+    }
+    
+    return _intelligentNotification;
 }
 
 #pragma mark - view
@@ -81,9 +93,8 @@
         [self startCountingSleepTime];
         
         
-        /*[self.intelligentNotification deleteIntelligentNotification];
-         [self.customNotification cancelCustomNotification];
-         [self.alarm setAlarm:self.datePicker.date];*/
+        [self.intelligentNotification deleteAllIntelligentNotification];
+        //[self.customNotification cancelCustomNotification];
     }else {
         UINavigationController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"wakeUpPage"];
         [self presentViewController:page2 animated:YES completion:nil];
@@ -104,8 +115,8 @@
     [self stopTimer];
     [self startCountingAwakeTime];
     
-    /*[self.customNotification setCustomNotification];
-     [self.alarm cancelAlarm];*/
+    [self.intelligentNotification rescheduleIntelligentNotification];
+    //[self.customNotification setCustomNotification];
 }
 
 #pragma mark - timer
