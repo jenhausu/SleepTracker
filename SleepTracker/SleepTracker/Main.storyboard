@@ -334,7 +334,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="" id="sOC-av-Trf">
+                            <tableViewSection headerTitle="" footerTitle="App 根據你所輸入的資料在適合的時間發出通知，提醒您該上床睡覺了。" id="sOC-av-Trf">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="qNI-mW-lA5" style="IBUITableViewCellStyleDefault" id="4SE-Vq-iHD">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -355,7 +355,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="" id="Nzb-wn-bFB">
+                            <tableViewSection headerTitle="" footerTitle="自訂睡前通知" id="Nzb-wn-bFB">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="97v-S2-9gt" style="IBUITableViewCellStyleDefault" id="Ku4-6g-Jg4">
                                         <autoresizingMask key="autoresizingMask"/>
