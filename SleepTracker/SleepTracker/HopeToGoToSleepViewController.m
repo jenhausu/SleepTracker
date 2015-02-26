@@ -53,11 +53,11 @@
         if ([value isEqualToString:@"HopeToGoToBed"])
         {
             self.datePicker.date = localNotification.fireDate;
-            self.dateLabel.text = [dateFormatter stringFromDate:self.datePicker.date];
-
             break;
         }
     }
+    
+    self.dateLabel.text = [dateFormatter stringFromDate:self.datePicker.date];
 }
 
 - (IBAction)switchBeTouched:(id)sender {
