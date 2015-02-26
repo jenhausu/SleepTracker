@@ -20,7 +20,6 @@
 		1D8901CC1A4B5119001A69A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901CB1A4B5119001A69A3 /* AppDelegate.m */; };
 		1D8901CF1A4B5119001A69A3 /* SleepTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901CD1A4B5119001A69A3 /* SleepTracker.xcdatamodeld */; };
 		1D8901D71A4B5119001A69A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D8901D61A4B5119001A69A3 /* Images.xcassets */; };
-		1D8901DA1A4B5119001A69A3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D8901D81A4B5119001A69A3 /* LaunchScreen.xib */; };
 		1D8901E61A4B511A001A69A3 /* SleepTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901E51A4B511A001A69A3 /* SleepTrackerTests.m */; };
 		1D8901FE1A4B5199001A69A3 /* SleepDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901F01A4B5199001A69A3 /* SleepDataModel.m */; };
 		1D8902011A4B5199001A69A3 /* WakeUpTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901F61A4B5199001A69A3 /* WakeUpTableViewController.m */; };
@@ -72,7 +71,6 @@
 		1D8901CB1A4B5119001A69A3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D8901CE1A4B5119001A69A3 /* SleepTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SleepTracker.xcdatamodel; sourceTree = "<group>"; };
 		1D8901D61A4B5119001A69A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1D8901D91A4B5119001A69A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1D8901DF1A4B511A001A69A3 /* SleepTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D8901E41A4B511A001A69A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D8901E51A4B511A001A69A3 /* SleepTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SleepTrackerTests.m; sourceTree = "<group>"; };
@@ -267,7 +265,6 @@
 			isa = PBXGroup;
 			children = (
 				1D8901D61A4B5119001A69A3 /* Images.xcassets */,
-				1D8901D81A4B5119001A69A3 /* LaunchScreen.xib */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -386,7 +383,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D8902051A4B5199001A69A3 /* Main.storyboard in Resources */,
-				1D8901DA1A4B5119001A69A3 /* LaunchScreen.xib in Resources */,
 				1D8901D71A4B5119001A69A3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,17 +443,6 @@
 			targetProxy = 1D8901E01A4B511A001A69A3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		1D8901D81A4B5119001A69A3 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1D8901D91A4B5119001A69A3 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D8901E71A4B511A001A69A3 /* Debug */ = {
