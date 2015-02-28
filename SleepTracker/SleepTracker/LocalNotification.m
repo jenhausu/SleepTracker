@@ -23,6 +23,7 @@
     localNotification.soundName = sound;  //@"UILocalNotificationDefaultSoundName"
     
     if (repeat) localNotification.repeatInterval = NSCalendarUnitDay;  //每天循環
+    
     if (key) {
         NSDictionary *dic = [NSDictionary dictionaryWithObject:value forKey:key];
         localNotification.userInfo = dic;
