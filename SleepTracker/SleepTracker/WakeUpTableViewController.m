@@ -62,6 +62,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:NO];
+    
     [self.tableView reloadData];
 }
 

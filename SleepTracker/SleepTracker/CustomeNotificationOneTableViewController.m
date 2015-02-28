@@ -28,24 +28,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    UIApplication *application = [UIApplication sharedApplication];
-    arrayOfAllLocalNotification = [application scheduledLocalNotifications];
+    [super viewWillAppear:NO];
     
-    localNotification = arrayOfAllLocalNotification[0];
-    NSDictionary *userInfo;
-    NSString *value;
-    [CustomNotification removeAllObjects];
-    
-    for (NSInteger i = 0 ; i < arrayOfAllLocalNotification.count ; i++ ) {
-        localNotification = arrayOfAllLocalNotification[i];
-        userInfo = localNotification.userInfo;
-        value = [userInfo objectForKey:@"NotificationType"];
-        
-        if ([value isEqualToString:@"CustomNotification"]) {
-            [CustomNotification addObject:localNotification];
-        }
-    }
-
     [self.tableView reloadData];
 }
 

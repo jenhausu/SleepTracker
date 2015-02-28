@@ -53,6 +53,8 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:NO];
+    
     [self judgeWhichSegmentSelected];
 }
 

@@ -50,6 +50,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:NO];
+    
     fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
     [self.tableView reloadData];
 }
