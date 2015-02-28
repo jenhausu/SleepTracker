@@ -566,10 +566,10 @@
             </objects>
             <point key="canvasLocation" x="4746" y="2655"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="TIA-qr-Fe1">
             <objects>
-                <viewController id="AZ7-Bi-G3Z" sceneMemberID="viewController">
+                <viewController id="AZ7-Bi-G3Z" customClass="CNDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rJj-xV-nVn"/>
                         <viewControllerLayoutGuide type="bottom" id="KBd-PC-ZDR"/>
@@ -577,9 +577,55 @@
                     <view key="view" contentMode="scaleToFill" id="dU2-oR-5OG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hd-3z-m0x">
+                                <rect key="frame" x="279" y="219" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ywj-fp-d4Z">
+                                <rect key="frame" x="140" y="256" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="443609691.76644999">
+                                    <!--2015-01-22 08:54:51 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="valueChanged:" destination="MQ7-VU-fuK" eventType="valueChanged" id="hdC-iC-5BU"/>
+                                </connections>
+                            </datePicker>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vG5-4U-vtW">
+                                <rect key="frame" x="326" y="434" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="每天重複：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNu-82-lL2">
+                                <rect key="frame" x="205" y="439" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="message" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="glW-7l-xM3">
+                                <rect key="frame" x="193" y="134" width="215" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="215" id="KQZ-lj-HtN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gNu-82-lL2" firstAttribute="centerY" secondItem="vG5-4U-vtW" secondAttribute="centerY" id="4Me-RZ-TPf"/>
+                            <constraint firstItem="vG5-4U-vtW" firstAttribute="leading" secondItem="gNu-82-lL2" secondAttribute="trailing" constant="36" id="J90-0i-c75"/>
+                            <constraint firstItem="ywj-fp-d4Z" firstAttribute="top" secondItem="9hd-3z-m0x" secondAttribute="bottom" constant="16" id="Jeb-Gl-fnH"/>
+                            <constraint firstItem="vG5-4U-vtW" firstAttribute="top" secondItem="ywj-fp-d4Z" secondAttribute="bottom" constant="16" id="rtW-Au-n26"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZTH-SK-wcv"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="9hd-3z-m0x" id="hSA-wY-SSY"/>
+                        <outlet property="datePicker" destination="ywj-fp-d4Z" id="TNd-La-7Mf"/>
+                        <outlet property="switchControl" destination="vG5-4U-vtW" id="xgo-uj-r1f"/>
+                        <outlet property="textField" destination="glW-7l-xM3" id="nIp-fk-Bzl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NJc-zE-jYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
