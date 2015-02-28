@@ -10,4 +10,10 @@
 
 @interface CustomNotification_Model : NSObject
 
+- (void)addNewCustomNotification:(NSString *)message fireDate:(NSDate *)fireDate repeat:(BOOL)repeat sound:(NSString *)sound;
+- (void)deleteSpecificCustomNotification:(NSDate *)fireDate;
+- (void)deleteAllCustomNotification;
+- (NSArray *)fetchAllCustomNotificationData;
+- (void)setCustomNotificatioin;
+
 @end

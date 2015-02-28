@@ -8,7 +8,7 @@
 
 #import "CustomNotificationTwoViewController.h"
 
-#import "LocalNotification.h"
+#import "CustomNotification-Model.h"
 
 @interface CustomNotificationTwoViewController ()
 
@@ -16,9 +16,10 @@
 @property (strong, nonatomic) NSDateFormatter *formatter;
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
-@property (strong, nonatomic) LocalNotification *localNotification;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UISwitch *switchControl;
+
+@property (strong, nonatomic) CustomNotification_Model *customNotification;
 
 @end
 
@@ -26,12 +27,21 @@
 
 @synthesize formatter;
 
+- (CustomNotification_Model *)customNotification
+{
+    if (!_customNotification) {
+        _customNotification = [[CustomNotification_Model alloc] init];
+    }
+
+    return _customNotification;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"u/MM/dd EEE ahh:mm"];
+    [formatter setDateFormat:@"h:mm a"];
     self.label.text = [formatter stringFromDate:self.datePicker.date];
 }
 
@@ -39,13 +49,12 @@
     self.label.text = [formatter stringFromDate:self.datePicker.date];
 }
 
-- (IBAction)save:(id)sender {
-    self.localNotification = [[LocalNotification alloc] init];
-    [self.localNotification setLocalNotificationWithMessage:self.textField.text
-                                                   fireDate:self.datePicker.date
-                                                repeatOrNot:self.switchControl.on
-                                                      Sound:@"UILocalNotificationDefaultSoundName"
-                                                   setValue:@"CustomNotification" forKey:@"NotificationType"];
+- (IBAction)save:(id)sender
+{
+    [self.customNotification addNewCustomNotification:self.textField.text
+                                             fireDate:self.datePicker.date
+                                               repeat:self.switchControl.on
+                                                sound:@"UILocalNotificationDefaultSoundName"];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

@@ -383,6 +383,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="睡前通知" id="Awo-0o-68j"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7by-jK-upe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -432,12 +433,12 @@
         <scene sceneID="Mw0-UU-4IW">
             <objects>
                 <tableViewController id="CcM-2x-iQg" customClass="CustomeNotificationOneTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="03C-TX-vX1">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="03C-TX-vX1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="WO8-Jz-sf2" detailTextLabel="uzF-BS-TTh" style="IBUITableViewCellStyleValue1" id="cNW-0e-osJ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="WO8-Jz-sf2" detailTextLabel="uzF-BS-TTh" style="IBUITableViewCellStyleSubtitle" id="cNW-0e-osJ">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cNW-0e-osJ" id="1qz-l2-Crv">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -448,14 +449,17 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uzF-BS-TTh">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uzF-BS-TTh">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="AZ7-Bi-G3Z" kind="show" id="OSL-6P-14r"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -463,22 +467,22 @@
                             <outlet property="delegate" destination="CcM-2x-iQg" id="62D-Na-w6n"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="afN-QH-tNa"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="自訂睡前通知" id="Hij-z6-6f2">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="r2H-2C-lYq">
                             <connections>
-                                <action selector="add:" destination="CcM-2x-iQg" id="eHx-Pn-P5K"/>
+                                <segue destination="uio-oD-G79" kind="showDetail" id="WBX-TZ-8Xy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gD-TD-XMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3172" y="2663"/>
+            <point key="canvasLocation" x="3172" y="2978"/>
         </scene>
-        <!--Custom Notification Two View Controller-->
+        <!--新增自訂睡前通知-->
         <scene sceneID="TId-uF-stx">
             <objects>
                 <viewController id="MQ7-VU-fuK" customClass="CustomNotificationTwoViewController" sceneMemberID="viewController">
@@ -496,7 +500,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="EWY-gR-w7G">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="EWY-gR-w7G">
                                 <rect key="frame" x="140" y="219" width="320" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="443609691.76644999">
                                     <!--2015-01-22 08:54:51 +0000-->
@@ -505,19 +509,19 @@
                                     <action selector="valueChanged:" destination="MQ7-VU-fuK" eventType="valueChanged" id="cV0-Ul-fRE"/>
                                 </connections>
                             </datePicker>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b7U-wB-IHU">
-                                <rect key="frame" x="179" y="428" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b7U-wB-IHU">
+                                <rect key="frame" x="326" y="397" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="每天重複：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dd5-if-hT0">
-                                <rect key="frame" x="57" y="433" width="86" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天重複：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dd5-if-hT0">
+                                <rect key="frame" x="205" y="402" width="85" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o6g-UW-wRw">
-                                <rect key="frame" x="196" y="97" width="209" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="message" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o6g-UW-wRw">
+                                <rect key="frame" x="193" y="97" width="215" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="209" id="lOC-kW-5U4"/>
+                                    <constraint firstAttribute="width" constant="215" id="lOC-kW-5U4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -526,15 +530,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="EWY-gR-w7G" firstAttribute="top" secondItem="igx-S6-eL6" secondAttribute="bottom" constant="16" id="528-7h-rH9"/>
+                            <constraint firstItem="b7U-wB-IHU" firstAttribute="top" secondItem="EWY-gR-w7G" secondAttribute="bottom" constant="16" id="HHw-0U-fRs"/>
+                            <constraint firstAttribute="centerX" secondItem="b7U-wB-IHU" secondAttribute="centerX" constant="-50" id="LtJ-Hm-BVk"/>
                             <constraint firstAttribute="centerX" secondItem="EWY-gR-w7G" secondAttribute="centerX" id="Ndy-S0-GUu"/>
+                            <constraint firstItem="b7U-wB-IHU" firstAttribute="leading" secondItem="Dd5-if-hT0" secondAttribute="trailing" constant="36" id="Sry-Tq-VgR"/>
                             <constraint firstAttribute="centerX" secondItem="o6g-UW-wRw" secondAttribute="centerX" id="ZHh-cx-a2j"/>
+                            <constraint firstItem="Dd5-if-hT0" firstAttribute="centerY" secondItem="b7U-wB-IHU" secondAttribute="centerY" id="ojt-Ug-Ske"/>
                             <constraint firstItem="o6g-UW-wRw" firstAttribute="top" secondItem="7Yb-gp-9bQ" secondAttribute="bottom" constant="33" id="pCT-bl-Hyd"/>
                             <constraint firstAttribute="centerX" secondItem="igx-S6-eL6" secondAttribute="centerX" id="vpA-Dw-ceL"/>
                             <constraint firstAttribute="centerY" secondItem="EWY-gR-w7G" secondAttribute="centerY" id="y6O-88-nrF"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="3Hb-IE-hiH">
+                    <navigationItem key="navigationItem" title="新增自訂睡前通知" id="3Hb-IE-hiH">
                         <barButtonItem key="leftBarButtonItem" title="取消" id="F78-Wb-yB4">
                             <connections>
                                 <action selector="cancel:" destination="MQ7-VU-fuK" id="Az5-vj-YkB"/>
@@ -556,7 +564,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUL-9s-Fyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4544" y="2663"/>
+            <point key="canvasLocation" x="4746" y="2655"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TIA-qr-Fe1">
+            <objects>
+                <viewController id="AZ7-Bi-G3Z" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rJj-xV-nVn"/>
+                        <viewControllerLayoutGuide type="bottom" id="KBd-PC-ZDR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dU2-oR-5OG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZTH-SK-wcv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NJc-zE-jYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4033" y="3371"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y0s-GO-CHk">
@@ -572,7 +599,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dnm-Vd-LXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3831" y="2663"/>
+            <point key="canvasLocation" x="4033" y="2655"/>
         </scene>
         <!--設定-->
         <scene sceneID="du2-s9-udy">

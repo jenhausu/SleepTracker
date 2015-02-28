@@ -11,6 +11,7 @@
 #import "SleepDataModel.h"
 #import "SleepData.h"
 #import "IntelligentNotification.h"
+#import "CustomNotification-Model.h"
 
 @interface HistoryTableViewController ()
 
@@ -19,6 +20,8 @@
 @property (nonatomic, strong) SleepData *sleepData;
 
 @property (nonatomic, strong) IntelligentNotification *intelligentNotification;
+
+@property (nonatomic, strong) CustomNotification_Model *customNotification;
 
 @end
 
@@ -44,6 +47,15 @@
     }
     
     return _intelligentNotification;
+}
+
+- (CustomNotification_Model *)customNotification
+{
+    if (!_customNotification) {
+        _customNotification = [[CustomNotification_Model alloc] init];
+    }
+    
+    return _customNotification;
 }
 
 #pragma mark - view
@@ -103,11 +115,18 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
+        self.sleepData = fetchDataArray[indexPath.row];
+        if (!self.sleepData.wakeUpTime) {  //如果刪除的這筆資料是入睡狀態，刪掉後就是處於醒來的狀態，那就要重新設定通知
+            [self.customNotification setCustomNotificatioin];
+        }
+        
         [self.sleepDataModel deleteSleepData:fetchDataArray[indexPath.row]];
         fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
         [self.intelligentNotification rescheduleIntelligentNotification];  //有資料被刪除的話，要重新排成睡前通知
+        
+        
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
