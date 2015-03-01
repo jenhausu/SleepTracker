@@ -19,16 +19,13 @@
 
 @property (strong, nonatomic) LocalNotification *localNotification;
 @property (strong, nonatomic) SleepDataModel *sleepDataModel;
-@property (strong, nonatomic) NSArray *fetchArray;
 @property (strong, nonatomic) SleepData *sleepData;
-
-@property (strong, nonatomic) Statistic *statistic;
 
 @end
 
 @implementation IntelligentNotification
 
-@synthesize shouldGoToBedTime, fetchArray;
+@synthesize shouldGoToBedTime;
 
 #pragma mark - Lazy initialization
 
@@ -82,28 +79,47 @@
 
 - (NSArray *)decideFireDate
 {
-    fetchArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
+    NSArray *fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
     NSInteger const LATEST_DATA = 0;
-    self.sleepData = fetchArray[LATEST_DATA];
+    NSArray *fireDate;
     
     [self decideShouldGoToBedTime];
     
     NSDateComponents *components = [[NSDateComponents alloc] init];
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
     
-    self.statistic = [[Statistic alloc] init];
-    NSInteger averageGoToSleepTimeInSecond = [[[self.statistic showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
-    [components setHour:averageGoToSleepTimeInSecond / 3600];
-    [components setMinute:((averageGoToSleepTimeInSecond / 60) % 60)];
-    NSDate *averageGoToSleepTime = [calendar dateFromComponents:components];
+    if (fetchDataArray.count)
+    {
+        self.sleepData = fetchDataArray[LATEST_DATA];
+        
+        Statistic *statistic = [[Statistic alloc] init];
+        NSInteger averageGoToSleepTimeInSecond = [[[statistic showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+        [components setHour:averageGoToSleepTimeInSecond / 3600];
+        [components setMinute:((averageGoToSleepTimeInSecond / 60) % 60)];
+        NSDate *averageGoToSleepTime = [calendar dateFromComponents:components];
+        
+        
+        fireDate = [[NSArray alloc] initWithObjects:
+                    [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:shouldGoToBedTime],
+                    [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:shouldGoToBedTime],
+                    [NSDate dateWithTimeInterval:-(60 * 60 * 2) sinceDate:shouldGoToBedTime],
+                    averageGoToSleepTime,
+                    [NSDate dateWithTimeInterval:(60 * 60 * 16) sinceDate:self.sleepData.wakeUpTime], nil];
+    }
+    else
+    {
+        [components setHour:0];
+        [components setMinute:0];
+        NSDate *NULLDate = [calendar dateFromComponents:components];
+        
+        fireDate = [[NSArray alloc] initWithObjects:
+                    [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:shouldGoToBedTime],
+                    [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:shouldGoToBedTime],
+                    [NSDate dateWithTimeInterval:-(60 * 60 * 2) sinceDate:shouldGoToBedTime],
+                    NULLDate,
+                    NULLDate, nil];
+    }
     
-    
-    NSArray *fireDate = [[NSArray alloc] initWithObjects:
-                         [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:shouldGoToBedTime],
-                         [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:shouldGoToBedTime],
-                         [NSDate dateWithTimeInterval:-(60 * 60 * 2) sinceDate:shouldGoToBedTime],
-                         averageGoToSleepTime,
-                         [NSDate dateWithTimeInterval:(60 * 60 * 16) sinceDate:self.sleepData.wakeUpTime], nil];
     return fireDate;
 }
 
