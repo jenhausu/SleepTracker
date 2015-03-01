@@ -37,13 +37,41 @@
 - (NSDate *)decideShouldGoToBedTime
 {
     NSDateComponents *components = [[NSDateComponents alloc] init];
-    [components setHour:23];
-    [components setMinute:0];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
-    shouldGoToBedTime = [calendar dateFromComponents:components];
-
+    NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
     
-    return shouldGoToBedTime;
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"hopeToGoToBed"])
+    {
+        UIApplication *application = [UIApplication sharedApplication];
+        NSArray *arrayOfAllLocalNotification = [application scheduledLocalNotifications];
+        UILocalNotification *localNotification;
+        NSDictionary *userInfo;
+        NSString *value;
+        
+        for (NSInteger row = 0 ; row < arrayOfAllLocalNotification.count ; row++ )
+        {
+            localNotification = arrayOfAllLocalNotification[row];
+            
+            userInfo = localNotification.userInfo;
+            value = [userInfo objectForKey:@"NotificationType"];
+            
+            if ([value isEqualToString:@"HopeToGoToBed"])
+            {
+                NSDate *hopeToGoToSleepTime = localNotification.fireDate;
+                NSDateComponents *dateComponents = [greCalendar components: NSCalendarUnitHour | NSCalendarUnitMinute fromDate:hopeToGoToSleepTime];
+                
+                [components setHour:dateComponents.hour];
+                [components setMinute:dateComponents.second];
+                
+                break;
+            }
+        }
+    } else {
+        NSInteger averageGoToSleepTimeInSecond = [[[self.statistic showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+        [components setHour:averageGoToSleepTimeInSecond / 3600];
+        [components setMinute:((averageGoToSleepTimeInSecond / 60) % 60)];
+    }
+    
+    return [greCalendar dateFromComponents:components];
 }
 
 - (NSArray *)decideNotificationTitle
