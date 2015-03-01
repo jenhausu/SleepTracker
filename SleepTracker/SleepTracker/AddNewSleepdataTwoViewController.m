@@ -47,11 +47,15 @@
     {
         self.datePicker.date = goToBedTime;
         self.dateLabel.text = [dateFormatter stringFromDate:goToBedTime];
+        
+        self.datePicker.maximumDate = wakeUpTime;
     }
     else if ([DateType isEqualToString:@"wakeUpTime"])
     {
         self.datePicker.date = wakeUpTime;
         self.dateLabel.text = [dateFormatter stringFromDate:wakeUpTime];
+        
+        self.datePicker.minimumDate = goToBedTime;  //起床時間可設定的最小值限制為上床時間
     }
 }
 
