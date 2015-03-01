@@ -11,6 +11,8 @@
 #import "CustomNotification-Model.h"
 #import "CustomNotification.h"
 
+#import "CustomNotificationTableViewCell.h"
+
 @interface CustomeNotificationOneTableViewController ()
 
 @property (strong, nonatomic) NSArray *fetchDataArray;
@@ -56,15 +58,22 @@
     return fetchDataArray.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CustomNotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"h:mm a";
-
+    
     self.customNotification = fetchDataArray[indexPath.row];
-    cell.textLabel.text = self.customNotification.message;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate: self.customNotification.fireDate]];
+    
+    cell.messageLabel.text = self.customNotification.message;
+    cell.fireDateLabel.text = [dateFormatter stringFromDate:self.customNotification.fireDate];
+    if ([self.customNotification.repeat boolValue]) {
+        cell.repeatLabel.text = @"重複";
+    } else {
+        cell.repeatLabel.text = @"單次";
+    }
     
     return cell;
 }
@@ -114,6 +123,19 @@
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"detail"]) {
+        UIViewController *page2 = segue.destinationViewController;
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        self.customNotification = fetchDataArray[indexPath.row];
+        
+        [page2 setValue:self.customNotification forKey:@"selectedNotification"];
+        [page2 setValue:[NSNumber numberWithInteger:indexPath.row] forKey:@"selectedRow"];
+    }
 }
 
 @end

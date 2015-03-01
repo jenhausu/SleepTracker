@@ -44,20 +44,6 @@
     [self setCustomNotificatioin];
 }
 
-- (NSArray *)fetchAllCustomNotificationData
-{
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CustomNotification" inManagedObjectContext:self.managedObjectContext];
-    fetchRequest.entity = entity;
-    
-    NSSortDescriptor *sortByDate = [[NSSortDescriptor alloc] initWithKey:@"fireDate" ascending:YES];
-    NSArray *sortArray = [[NSArray alloc] initWithObjects:sortByDate, nil];
-    fetchRequest.sortDescriptors = sortArray;
-        
-    return [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-}
-
 - (void)setCustomNotificatioin
 {
     NSArray *fetchDataArray = [self fetchAllCustomNotificationData];
@@ -70,6 +56,20 @@
                                                           Sound:self.customNotification.sound
                                                        setValue:@"CustomNotification" forKey:@"NotificationType"];
     }
+}
+
+- (NSArray *)fetchAllCustomNotificationData
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CustomNotification" inManagedObjectContext:self.managedObjectContext];
+    fetchRequest.entity = entity;
+    
+    NSSortDescriptor *sortByDate = [[NSSortDescriptor alloc] initWithKey:@"fireDate" ascending:YES];
+    NSArray *sortArray = [[NSArray alloc] initWithObjects:sortByDate, nil];
+    fetchRequest.sortDescriptors = sortArray;
+    
+    return [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
 }
 
 - (void)deleteSpecificCustomNotification:(NSManagedObject *)dataArray
@@ -96,6 +96,18 @@
             [application cancelLocalNotification:localNotification];
         }
     }
+}
+
+- (void)updateRow:(NSInteger)row message:(NSString *)message fireDate:(NSDate *)fireDate repeat:(BOOL)repeat
+{
+    NSArray *fetchDataArray = [self fetchAllCustomNotificationData];
+    
+    self.customNotification = fetchDataArray[row];
+    self.customNotification.message = message;
+    self.customNotification.fireDate = fireDate;
+    self.customNotification.repeat = [NSNumber numberWithBool:repeat];
+    
+    [self.managedObjectContext save:nil];
 }
 
 #pragma mark - Core Data

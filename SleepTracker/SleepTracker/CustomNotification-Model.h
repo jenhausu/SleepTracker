@@ -15,5 +15,6 @@
 - (void)deleteAllCustomNotification;
 - (NSArray *)fetchAllCustomNotificationData;
 - (void)setCustomNotificatioin;
+- (void)updateRow:(NSInteger)row message:(NSString *)message fireDate:(NSDate *)fireDate repeat:(BOOL)repeat;
 
 @end
