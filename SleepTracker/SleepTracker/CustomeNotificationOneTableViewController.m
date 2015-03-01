@@ -89,29 +89,7 @@
         {
             if (row == indexPath.row)
             {
-                self.customNotification = fetchDataArray[indexPath.row];
-                
-                UIApplication *application = [UIApplication sharedApplication];
-                NSArray *arrayOfAllLocalNotification = [application scheduledLocalNotifications];
-                
-                NSDictionary *userInfo;
-                NSString *value;
-                UILocalNotification *localNotification;
-                
-                for (NSInteger i = 0 ; i < arrayOfAllLocalNotification.count ; i++ )
-                {
-                    localNotification = arrayOfAllLocalNotification[i];
-                    userInfo = localNotification.userInfo;
-                    value = [userInfo objectForKey:@"NotificationType"];
-                    
-                    if ([value isEqualToString:@"CustomNotification"]) {
-                        if ([self.customNotification.fireDate isEqualToDate:localNotification.fireDate]) {
-                            [[UIApplication sharedApplication] cancelLocalNotification:localNotification];
-                        }
-                    }
-                }
-                
-                [self.customNotificationModel deleteSpecificCustomNotification:fetchDataArray[indexPath.row]];
+                [self.customNotificationModel deleteSpecificCustomNotification:fetchDataArray[indexPath.row] row:indexPath.row];
                 fetchDataArray = [self.customNotificationModel fetchAllCustomNotificationData];
 
                 break;
