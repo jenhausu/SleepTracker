@@ -40,7 +40,7 @@
     
     self.textField.text = self.selectedNotification.message;
     self.datePicker.date = self.selectedNotification.fireDate;
-    self.switchControl.on = [self.selectedNotification.repeat boolValue];
+    self.switchControl.on = [self.selectedNotification.on boolValue];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"h:mm a"];
@@ -52,7 +52,8 @@
     [self.customNotificationModel updateRow:[self.selectedRow integerValue]
                                     message:self.textField.text
                                    fireDate:self.datePicker.date
-                                     repeat:self.switchControl.on];
+                                         on:self.switchControl.on];
+    [self.customNotificationModel resetCustomNotification];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"修改資料"
                                                     message:@"成功！"

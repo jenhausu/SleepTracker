@@ -108,7 +108,7 @@
         
         
         [self.intelligentNotification deleteAllIntelligentNotification];
-        [self.customNotification deleteAllCustomNotification];
+        [self.customNotification cancelAllCustomNotification];
     }else {
         UINavigationController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"wakeUpPage"];
         [self presentViewController:page2 animated:YES completion:nil];

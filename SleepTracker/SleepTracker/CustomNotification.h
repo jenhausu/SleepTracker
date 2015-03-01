@@ -2,7 +2,7 @@
 //  CustomNotification.h
 //  SleepTracker
 //
-//  Created by 蘇健豪1 on 2015/2/27.
+//  Created by 蘇健豪1 on 2015/3/1.
 //  Copyright (c) 2015年 蘇健豪. All rights reserved.
 //
 
@@ -14,7 +14,7 @@
 
 @property (nonatomic, retain) NSDate * fireDate;
 @property (nonatomic, retain) NSString * message;
-@property (nonatomic, retain) NSNumber * repeat;
+@property (nonatomic, retain) NSNumber * on;
 @property (nonatomic, retain) NSString * sound;
 
 @end

@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
-@property (weak, nonatomic) IBOutlet UISwitch *switchControl;
 
 @property (strong, nonatomic) CustomNotification_Model *customNotification;
 
@@ -53,7 +52,6 @@
 {
     [self.customNotification addNewCustomNotification:self.textField.text
                                              fireDate:self.datePicker.date
-                                               repeat:self.switchControl.on
                                                 sound:@"UILocalNotificationDefaultSoundName"];
     
     [self dismissViewControllerAnimated:YES completion:nil];

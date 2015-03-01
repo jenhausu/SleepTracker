@@ -69,10 +69,10 @@
     
     cell.messageLabel.text = self.customNotification.message;
     cell.fireDateLabel.text = [dateFormatter stringFromDate:self.customNotification.fireDate];
-    if ([self.customNotification.repeat boolValue]) {
-        cell.repeatLabel.text = @"重複";
+    if ([self.customNotification.on boolValue]) {
+        cell.onLabel.text = @"開啟";
     } else {
-        cell.repeatLabel.text = @"單次";
+        cell.onLabel.text = @"關閉";
     }
     
     return cell;

@@ -433,10 +433,10 @@
         <scene sceneID="Mw0-UU-4IW">
             <objects>
                 <tableViewController id="CcM-2x-iQg" customClass="CustomeNotificationOneTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="03C-TX-vX1">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="03C-TX-vX1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="9en-l7-QSi" customClass="CustomNotificationTableViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -444,20 +444,20 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9en-l7-QSi" id="iL9-Dj-y7x">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vN0-nA-Fae">
-                                            <rect key="frame" x="15" y="8" width="31" height="20"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vN0-nA-Fae">
+                                            <rect key="frame" x="15" y="8" width="66" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zps-t1-tc3">
-                                            <rect key="frame" x="529" y="15" width="30" height="14"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="On Or Off" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zps-t1-tc3">
+                                            <rect key="frame" x="509" y="15" width="50" height="14"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8V-Zf-aUf">
-                                            <rect key="frame" x="15" y="25" width="30" height="14"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="fireDate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8V-Zf-aUf">
+                                            <rect key="frame" x="15" y="25" width="40" height="14"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -475,7 +475,7 @@
                                 <connections>
                                     <outlet property="fireDateLabel" destination="V8V-Zf-aUf" id="rfq-Le-fk2"/>
                                     <outlet property="messageLabel" destination="vN0-nA-Fae" id="yLr-Qw-eQl"/>
-                                    <outlet property="repeatLabel" destination="Zps-t1-tc3" id="nVS-Ku-xH3"/>
+                                    <outlet property="onLabel" destination="Zps-t1-tc3" id="GSF-qB-2s9"/>
                                     <segue destination="AZ7-Bi-G3Z" kind="show" identifier="detail" id="vVk-KU-q1d"/>
                                 </connections>
                             </tableViewCell>
@@ -527,15 +527,6 @@
                                     <action selector="valueChanged:" destination="MQ7-VU-fuK" eventType="valueChanged" id="cV0-Ul-fRE"/>
                                 </connections>
                             </datePicker>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b7U-wB-IHU">
-                                <rect key="frame" x="326" y="397" width="51" height="31"/>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天重複：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dd5-if-hT0">
-                                <rect key="frame" x="205" y="402" width="85" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="message" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o6g-UW-wRw">
                                 <rect key="frame" x="193" y="97" width="215" height="30"/>
                                 <constraints>
@@ -548,12 +539,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="EWY-gR-w7G" firstAttribute="top" secondItem="igx-S6-eL6" secondAttribute="bottom" constant="16" id="528-7h-rH9"/>
-                            <constraint firstItem="b7U-wB-IHU" firstAttribute="top" secondItem="EWY-gR-w7G" secondAttribute="bottom" constant="16" id="HHw-0U-fRs"/>
-                            <constraint firstAttribute="centerX" secondItem="b7U-wB-IHU" secondAttribute="centerX" constant="-50" id="LtJ-Hm-BVk"/>
                             <constraint firstAttribute="centerX" secondItem="EWY-gR-w7G" secondAttribute="centerX" id="Ndy-S0-GUu"/>
-                            <constraint firstItem="b7U-wB-IHU" firstAttribute="leading" secondItem="Dd5-if-hT0" secondAttribute="trailing" constant="36" id="Sry-Tq-VgR"/>
                             <constraint firstAttribute="centerX" secondItem="o6g-UW-wRw" secondAttribute="centerX" id="ZHh-cx-a2j"/>
-                            <constraint firstItem="Dd5-if-hT0" firstAttribute="centerY" secondItem="b7U-wB-IHU" secondAttribute="centerY" id="ojt-Ug-Ske"/>
                             <constraint firstItem="o6g-UW-wRw" firstAttribute="top" secondItem="7Yb-gp-9bQ" secondAttribute="bottom" constant="33" id="pCT-bl-Hyd"/>
                             <constraint firstAttribute="centerX" secondItem="igx-S6-eL6" secondAttribute="centerX" id="vpA-Dw-ceL"/>
                             <constraint firstAttribute="centerY" secondItem="EWY-gR-w7G" secondAttribute="centerY" id="y6O-88-nrF"/>
@@ -576,7 +563,6 @@
                     <connections>
                         <outlet property="datePicker" destination="EWY-gR-w7G" id="rJv-vb-DPd"/>
                         <outlet property="label" destination="igx-S6-eL6" id="xAB-oz-ZAf"/>
-                        <outlet property="switchControl" destination="b7U-wB-IHU" id="VhE-Me-TXq"/>
                         <outlet property="textField" destination="o6g-UW-wRw" id="KWA-7L-Cuh"/>
                     </connections>
                 </viewController>
@@ -615,8 +601,8 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vG5-4U-vtW">
                                 <rect key="frame" x="326" y="397" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天重複：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNu-82-lL2">
-                                <rect key="frame" x="205" y="402" width="85" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開啟" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNu-82-lL2">
+                                <rect key="frame" x="256" y="402" width="34" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>

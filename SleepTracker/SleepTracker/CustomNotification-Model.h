@@ -8,13 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+#import "AppDelegate.h"
+
 @interface CustomNotification_Model : NSObject
 
-- (void)addNewCustomNotification:(NSString *)message fireDate:(NSDate *)fireDate repeat:(BOOL)repeat sound:(NSString *)sound;
-- (void)deleteSpecificCustomNotification:(NSDate *)fireDate;
-- (void)deleteAllCustomNotification;
+- (void)addNewCustomNotification:(NSString *)message fireDate:(NSDate *)fireDate sound:(NSString *)sound;
+- (void)deleteSpecificCustomNotification:(NSManagedObject *)dataArray row:(NSInteger)row;
+- (void)cancelAllCustomNotification;
 - (NSArray *)fetchAllCustomNotificationData;
 - (void)setCustomNotificatioin;
-- (void)updateRow:(NSInteger)row message:(NSString *)message fireDate:(NSDate *)fireDate repeat:(BOOL)repeat;
+- (void)resetCustomNotification;
+- (void)updateRow:(NSInteger)row message:(NSString *)message fireDate:(NSDate *)fireDate on:(BOOL)on;
 
 @end

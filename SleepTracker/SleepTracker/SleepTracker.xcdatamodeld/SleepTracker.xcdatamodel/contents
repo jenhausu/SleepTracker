@@ -3,7 +3,7 @@
     <entity name="CustomNotification" representedClassName="CustomNotification" syncable="YES">
         <attribute name="fireDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="repeat" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="on" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="sound" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="SleepData" representedClassName="SleepData" syncable="YES">
@@ -13,7 +13,7 @@
         <attribute name="wakeUpTime" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <elements>
+        <element name="CustomNotification" positionX="-63" positionY="9" width="128" height="105"/>
         <element name="SleepData" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="CustomNotification" positionX="-63" positionY="9" width="128" height="103"/>
     </elements>
 </model>

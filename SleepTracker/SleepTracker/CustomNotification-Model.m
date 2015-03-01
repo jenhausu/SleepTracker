@@ -8,7 +8,6 @@
 
 #import "CustomNotification-Model.h"
 
-#import "AppDelegate.h"
 #import "LocalNotification.h"
 #import "CustomNotification.h"
 
@@ -22,6 +21,8 @@
 
 @implementation CustomNotification_Model
 
+#pragma mark - Lazy Intialization
+
 - (LocalNotification *)localNotification
 {
     if (!_localNotification) {
@@ -31,18 +32,22 @@
     return _localNotification;
 }
 
-- (void)addNewCustomNotification:(NSString *)message fireDate:(NSDate *)fireDate repeat:(BOOL)repeat sound:(NSString *)sound
+#pragma mark - Add
+
+- (void)addNewCustomNotification:(NSString *)message fireDate:(NSDate *)fireDate sound:(NSString *)sound
 {
     CustomNotification *newCustomNotification = [NSEntityDescription insertNewObjectForEntityForName:@"CustomNotification"
                                                                               inManagedObjectContext:self.managedObjectContext];
     newCustomNotification.message = message;
     newCustomNotification.fireDate = fireDate;
-    newCustomNotification.repeat = [NSNumber numberWithBool:repeat];
+    newCustomNotification.on = [NSNumber numberWithBool:YES];
     newCustomNotification.sound = sound;
     [self.managedObjectContext save:nil];
     
     [self setCustomNotificatioin];
 }
+
+#pragma mark - Set
 
 - (void)setCustomNotificatioin
 {
@@ -50,13 +55,23 @@
     
     for (NSInteger i = 0 ; i < fetchDataArray.count ; i++ ) {
         self.customNotification = fetchDataArray[i];
-        [self.localNotification setLocalNotificationWithMessage:self.customNotification.message
-                                                       fireDate:self.customNotification.fireDate
-                                                    repeatOrNot:[self.customNotification.repeat boolValue]
-                                                          Sound:self.customNotification.sound
-                                                       setValue:@"CustomNotification" forKey:@"NotificationType"];
+        if ([self.customNotification.on boolValue]) {
+            [self.localNotification setLocalNotificationWithMessage:self.customNotification.message
+                                                           fireDate:self.customNotification.fireDate
+                                                        repeatOrNot:YES
+                                                              Sound:self.customNotification.sound
+                                                           setValue:@"CustomNotification" forKey:@"NotificationType"];
+        }
     }
 }
+
+- (void)resetCustomNotification
+{
+    [self cancelAllCustomNotification];
+    [self setCustomNotificatioin];
+}
+
+#pragma mark - Fetch Data
 
 - (NSArray *)fetchAllCustomNotificationData
 {
@@ -72,13 +87,17 @@
     return [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
 }
 
-- (void)deleteSpecificCustomNotification:(NSManagedObject *)dataArray
+#pragma mark - Delete
+
+- (void)deleteSpecificCustomNotification:(NSManagedObject *)dataArray row:(NSInteger)row
 {
     [self.managedObjectContext deleteObject:dataArray];
     [self.managedObjectContext save:nil];
 }
 
-- (void)deleteAllCustomNotification
+#pragma mark - Cancel
+
+- (void)cancelAllCustomNotification
 {
     UIApplication *application = [UIApplication sharedApplication];
     NSArray *arrayOfAllLocalNotification = [application scheduledLocalNotifications];
@@ -92,20 +111,23 @@
         
         userInfo = localNotification.userInfo;
         value = [userInfo objectForKey:@"NotificationType"];
+        
         if ([value isEqualToString:@"CustomNotification"]) {
             [application cancelLocalNotification:localNotification];
         }
     }
 }
 
-- (void)updateRow:(NSInteger)row message:(NSString *)message fireDate:(NSDate *)fireDate repeat:(BOOL)repeat
+#pragma mark - Update
+
+- (void)updateRow:(NSInteger)row message:(NSString *)message fireDate:(NSDate *)fireDate on:(BOOL)on
 {
     NSArray *fetchDataArray = [self fetchAllCustomNotificationData];
     
     self.customNotification = fetchDataArray[row];
     self.customNotification.message = message;
     self.customNotification.fireDate = fireDate;
-    self.customNotification.repeat = [NSNumber numberWithBool:repeat];
+    self.customNotification.on = [NSNumber numberWithBool:on];
     
     [self.managedObjectContext save:nil];
 }

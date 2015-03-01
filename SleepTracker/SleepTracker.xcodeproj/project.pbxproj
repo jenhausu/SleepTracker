@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1D26812A1A4C070300D510F8 /* History2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2681291A4C070300D510F8 /* History2TableViewController.m */; };
-		1D2C07671AA02A2B00434EF2 /* CustomNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2C07661AA02A2B00434EF2 /* CustomNotification.m */; };
 		1D2C076A1AA057A500434EF2 /* CustomNotification-Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2C07691AA057A500434EF2 /* CustomNotification-Model.m */; };
 		1D2DB7EA1A6D677000A72EFA /* Statistic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB7E91A6D677000A72EFA /* Statistic.m */; };
 		1D2DB7EE1A6DA4B300A72EFA /* SleepRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB7ED1A6DA4B300A72EFA /* SleepRecordViewController.m */; };
@@ -35,6 +34,7 @@
 		1DBCE5B31A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCE5B21A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m */; };
 		1DBCE5B71A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCE5B61A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m */; };
 		1DCDD3E31AA1E59200609D2F /* CustomNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDD3E21AA1E59200609D2F /* CustomNotificationTableViewCell.m */; };
+		1DCDD3E61AA2CE5E00609D2F /* CustomNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDD3E51AA2CE5E00609D2F /* CustomNotification.m */; };
 		1DF063F61A8C59F600F21359 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF063F51A8C59F600F21359 /* SettingTableViewController.m */; };
 		1DF063F81A8C626700F21359 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF063F71A8C626700F21359 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
@@ -52,8 +52,6 @@
 /* Begin PBXFileReference section */
 		1D2681281A4C070300D510F8 /* History2TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History2TableViewController.h; sourceTree = "<group>"; };
 		1D2681291A4C070300D510F8 /* History2TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History2TableViewController.m; sourceTree = "<group>"; };
-		1D2C07651AA02A2B00434EF2 /* CustomNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNotification.h; sourceTree = "<group>"; };
-		1D2C07661AA02A2B00434EF2 /* CustomNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNotification.m; sourceTree = "<group>"; };
 		1D2C07681AA057A500434EF2 /* CustomNotification-Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CustomNotification-Model.h"; sourceTree = "<group>"; };
 		1D2C07691AA057A500434EF2 /* CustomNotification-Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CustomNotification-Model.m"; sourceTree = "<group>"; };
 		1D2DB7E81A6D677000A72EFA /* Statistic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Statistic.h; sourceTree = "<group>"; };
@@ -105,6 +103,8 @@
 		1DBCE5B61A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewSleepdataTwoViewController.m; sourceTree = "<group>"; };
 		1DCDD3E11AA1E59200609D2F /* CustomNotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNotificationTableViewCell.h; sourceTree = "<group>"; };
 		1DCDD3E21AA1E59200609D2F /* CustomNotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNotificationTableViewCell.m; sourceTree = "<group>"; };
+		1DCDD3E41AA2CE5E00609D2F /* CustomNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNotification.h; sourceTree = "<group>"; };
+		1DCDD3E51AA2CE5E00609D2F /* CustomNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNotification.m; sourceTree = "<group>"; };
 		1DF063F41A8C59F600F21359 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		1DF063F51A8C59F600F21359 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		1DF063F71A8C626700F21359 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -212,8 +212,8 @@
 				1D8901CD1A4B5119001A69A3 /* SleepTracker.xcdatamodeld */,
 				1D8902061A4B52C8001A69A3 /* SleepData.h */,
 				1D8902071A4B52C8001A69A3 /* SleepData.m */,
-				1D2C07651AA02A2B00434EF2 /* CustomNotification.h */,
-				1D2C07661AA02A2B00434EF2 /* CustomNotification.m */,
+				1DCDD3E41AA2CE5E00609D2F /* CustomNotification.h */,
+				1DCDD3E51AA2CE5E00609D2F /* CustomNotification.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -437,7 +437,6 @@
 				1D7C390B1A4C962500A02793 /* WakeUp2ViewController.m in Sources */,
 				1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */,
 				1D2DB7FD1A70F30E00A72EFA /* CustomNotificationTwoViewController.m in Sources */,
-				1D2C07671AA02A2B00434EF2 /* CustomNotification.m in Sources */,
 				1DBCE5B71A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m in Sources */,
 				1DF063F61A8C59F600F21359 /* SettingTableViewController.m in Sources */,
 				1D995E011A7D4D37002F069C /* HopeToGoToSleepViewController.m in Sources */,
@@ -445,6 +444,7 @@
 				1DBCE5B31A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m in Sources */,
 				1D8901C91A4B5119001A69A3 /* main.m in Sources */,
 				1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */,
+				1DCDD3E61AA2CE5E00609D2F /* CustomNotification.m in Sources */,
 				1D2DB7F41A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m in Sources */,
 				1DCDD3E31AA1E59200609D2F /* CustomNotificationTableViewCell.m in Sources */,
 			);
