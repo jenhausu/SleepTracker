@@ -110,12 +110,14 @@
         {
             [application cancelLocalNotification:localNotification];
             
-            self.localNotification = [[LocalNotification alloc] init];
-            [self.localNotification setLocalNotificationWithMessage:self.TextField.text
-                                                           fireDate:self.datePicker.date
-                                                        repeatOrNot:YES
-                                                              Sound:@"UILocalNotificationDefaultSoundName"
-                                                           setValue:@"HopeToGoToBed" forKey:@"NotificationType"];
+            if ([userPreferces boolForKey:@"hopeToGoToBed"]) {
+                self.localNotification = [[LocalNotification alloc] init];
+                [self.localNotification setLocalNotificationWithMessage:self.TextField.text
+                                                               fireDate:self.datePicker.date
+                                                            repeatOrNot:YES
+                                                                  Sound:@"UILocalNotificationDefaultSoundName"
+                                                               setValue:@"HopeToGoToBed" forKey:@"NotificationType"];
+            }
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"更新希望上床時間"
                                                             message:@"成功！"
