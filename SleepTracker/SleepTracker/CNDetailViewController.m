@@ -58,9 +58,14 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"修改資料"
                                                     message:@"成功！"
                                                    delegate:self
-                                          cancelButtonTitle:nil
-                                          otherButtonTitles:@"確定", nil];
+                                          cancelButtonTitle:@"確定"
+                                          otherButtonTitles:nil, nil];
     [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)valueChanged:(id)sender {

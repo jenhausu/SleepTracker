@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CNDetailViewController : UIViewController
+@interface CNDetailViewController : UIViewController <UIAlertViewDelegate>
 
 @end
