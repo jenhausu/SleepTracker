@@ -15,34 +15,21 @@
 
 @interface IntelligentNotification ()
 
-@property (strong, nonatomic) NSDate *shouldGoToBedTime;
-
-@property (strong, nonatomic) LocalNotification *localNotification;
-@property (strong, nonatomic) SleepDataModel *sleepDataModel;
-@property (strong, nonatomic) SleepData *sleepData;
+@property (nonatomic) Statistic *statistic;
 
 @end
 
 @implementation IntelligentNotification
 
-@synthesize shouldGoToBedTime;
-
 #pragma mark - Lazy initialization
 
-- (LocalNotification *)localNotification
+- (Statistic *)statistic
 {
-    if (!_localNotification) {
-        _localNotification = [[LocalNotification alloc] init];
+    if (!_statistic) {
+        _statistic = [[Statistic alloc] init];
     }
-    return _localNotification;
-}
-
-- (SleepDataModel *)sleepDataModel
-{
-    if (!_sleepDataModel) {
-        _sleepDataModel = [[SleepDataModel alloc] init];
-    }
-    return _sleepDataModel;
+    
+    return _statistic;
 }
 
 #pragma mark - Decide
@@ -79,32 +66,31 @@
 
 - (NSArray *)decideFireDate
 {
-    NSArray *fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
+    NSArray *fetchDataArray = [[[SleepDataModel alloc] init] fetchSleepDataSortWithAscending:NO];
     NSInteger const LATEST_DATA = 0;
     NSArray *fireDate;
     
-    [self decideShouldGoToBedTime];
+    NSDate *shouldGoToBedTime = [self decideShouldGoToBedTime];
     
     NSDateComponents *components = [[NSDateComponents alloc] init];
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
     
+    
     if (fetchDataArray.count)
     {
-        self.sleepData = fetchDataArray[LATEST_DATA];
+        SleepData *sleepData = fetchDataArray[LATEST_DATA];
         
-        Statistic *statistic = [[Statistic alloc] init];
-        NSInteger averageGoToSleepTimeInSecond = [[[statistic showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+        NSInteger averageGoToSleepTimeInSecond = [[[self.statistic showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
         [components setHour:averageGoToSleepTimeInSecond / 3600];
         [components setMinute:((averageGoToSleepTimeInSecond / 60) % 60)];
         NSDate *averageGoToSleepTime = [calendar dateFromComponents:components];
-        
         
         fireDate = [[NSArray alloc] initWithObjects:
                     [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:shouldGoToBedTime],
                     [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:shouldGoToBedTime],
                     [NSDate dateWithTimeInterval:-(60 * 60 * 2) sinceDate:shouldGoToBedTime],
                     averageGoToSleepTime,
-                    [NSDate dateWithTimeInterval:(60 * 60 * 16) sinceDate:self.sleepData.wakeUpTime], nil];
+                    [NSDate dateWithTimeInterval:(60 * 60 * 16) sinceDate:sleepData.wakeUpTime], nil];
     }
     else
     {
@@ -133,14 +119,15 @@
     NSArray *Message = [self decideMessage];
     NSArray *fireDate = [self decideFireDate];
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    LocalNotification *localNotification = [[LocalNotification alloc] init];
     
     for (NSInteger i = 0 ; i < [notification count] ; i++ ) {
         if ([userPreferences boolForKey:notification[i]]) {
-            [self.localNotification setLocalNotificationWithMessage:Message[i]
-                                                           fireDate:fireDate[i]
-                                                        repeatOrNot:YES
-                                                              Sound:@"UILocalNotificationDefaultSoundName"
-                                                           setValue:@"IntelligentNotification" forKey:@"NotificationType"];
+            [localNotification setLocalNotificationWithMessage:Message[i]
+                                                      fireDate:fireDate[i]
+                                                   repeatOrNot:YES
+                                                         Sound:@"UILocalNotificationDefaultSoundName"
+                                                      setValue:@"IntelligentNotification" forKey:@"NotificationType"];
         }
     }
 }
