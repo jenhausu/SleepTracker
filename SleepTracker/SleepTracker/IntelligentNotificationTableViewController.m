@@ -34,11 +34,14 @@
 
 #pragma mark - view
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:NO];
     
     fireDate = [self.intelligentNotification decideFireDate];
     notificationName = [self.intelligentNotification decideNotificationTitle];
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
