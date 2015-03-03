@@ -17,19 +17,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *goToBedTimeMinLabel;
 @property (weak, nonatomic) IBOutlet UILabel *goToBedTimeAvgLabel;
 @property (weak, nonatomic) IBOutlet UILabel *goToBedTimeMaxLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *wakeUpTimeMinLabel;
 @property (weak, nonatomic) IBOutlet UILabel *wakeUpTimeAvgLabel;
 @property (weak, nonatomic) IBOutlet UILabel *wakeUpTimeMaxLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *sleepTimeMinLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sleepTimeAvgLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sleepTimeMaxLabel;
 
 @property (strong, nonatomic) Statistic *statistic;
-@property (strong, nonatomic) NSArray *goToBedTimeData;
-@property (strong, nonatomic) NSArray *wakeUpTimeData;
-@property (strong, nonatomic) NSArray *sleepTimeData;
 
 @property (weak, nonatomic) IBOutlet UILabel *goToBedTimeTooLate;
 @property (weak, nonatomic) IBOutlet UILabel *getUpTooLate;
@@ -39,8 +34,6 @@
 @end
 
 @implementation StatisticViewController
-
-@synthesize goToBedTimeData, wakeUpTimeData, sleepTimeData;
 
 - (Statistic *)statistic
 {
@@ -71,41 +64,44 @@
 {
     switch (self.segment.selectedSegmentIndex) {
         case 0:
-            self.goToBedTimeTooLateTem =  [NSString stringWithFormat:@"%0.01f", [self.statistic calculateGetUpTooLatePercentage:7]];
-            goToBedTimeData = [self.statistic showGoToBedTimeDataInTheRecent:7];
-            wakeUpTimeData = [self.statistic showWakeUpTimeDataInTheRecent:7];
-            sleepTimeData = [self.statistic showSleepTimeDataInTheRecent:7];
+            [self showStatistic:7];
             break;
         case 1:
-            self.goToBedTimeTooLateTem =  [NSString stringWithFormat:@"%0.01f", [self.statistic calculateGetUpTooLatePercentage:30]];
-            goToBedTimeData = [self.statistic showGoToBedTimeDataInTheRecent:30];
-            wakeUpTimeData = [self.statistic showWakeUpTimeDataInTheRecent:30];
-            sleepTimeData = [self.statistic showSleepTimeDataInTheRecent:30];
+            [self showStatistic:30];
             break;
         case 2:
-            self.goToBedTimeTooLateTem =  [NSString stringWithFormat:@"%0.01f", [self.statistic calculateGetUpTooLatePercentage:183]];
-            goToBedTimeData = [self.statistic showGoToBedTimeDataInTheRecent:183];
-            wakeUpTimeData = [self.statistic showWakeUpTimeDataInTheRecent:183];
-            sleepTimeData = [self.statistic showSleepTimeDataInTheRecent:183];
+            [self showStatistic:183];
             break;
     }
-    
-    [self showStatistic];
 }
 
-- (void)showStatistic
+- (void)showStatistic:(NSInteger)recent
 {
-    self.goToBedTimeMinLabel.text = [self.statistic stringFromTimeInterval:[goToBedTimeData[0] floatValue]];
-    self.goToBedTimeMaxLabel.text = [self.statistic stringFromTimeInterval:[goToBedTimeData[1] floatValue]];
-    self.goToBedTimeAvgLabel.text = [self.statistic stringFromTimeInterval:[goToBedTimeData[2] floatValue]];
-    self.wakeUpTimeMinLabel.text = [self.statistic stringFromTimeInterval:[wakeUpTimeData[0] floatValue]];
-    self.wakeUpTimeMaxLabel.text = [self.statistic stringFromTimeInterval:[wakeUpTimeData[1] floatValue]];
-    self.wakeUpTimeAvgLabel.text = [self.statistic stringFromTimeInterval:[wakeUpTimeData[2] floatValue]];
-    self.sleepTimeMinLabel.text = [self.statistic stringFromTimeInterval:[sleepTimeData[0] floatValue]];
-    self.sleepTimeMaxLabel.text = [self.statistic stringFromTimeInterval:[sleepTimeData[1] floatValue]];
-    self.sleepTimeAvgLabel.text = [self.statistic stringFromTimeInterval:[sleepTimeData[2] floatValue]];
+    NSArray *goToBedTimeData, *wakeUpTimeData, *sleepTimeData;
+
+    goToBedTimeData = [self.statistic showGoToBedTimeDataInTheRecent:recent];
+    wakeUpTimeData = [self.statistic showWakeUpTimeDataInTheRecent:recent];
+    sleepTimeData = [self.statistic showSleepTimeDataInTheRecent:recent];
     
-    self.goToBedTimeTooLate.text = self.goToBedTimeTooLateTem;
+    self.goToBedTimeMinLabel.text = [self stringFromTimeInterval:[goToBedTimeData[0] floatValue]];
+    self.goToBedTimeMaxLabel.text = [self stringFromTimeInterval:[goToBedTimeData[1] floatValue]];
+    self.goToBedTimeAvgLabel.text = [self stringFromTimeInterval:[goToBedTimeData[2] floatValue]];
+    self.wakeUpTimeMinLabel.text = [self stringFromTimeInterval:[wakeUpTimeData[0] floatValue]];
+    self.wakeUpTimeMaxLabel.text = [self stringFromTimeInterval:[wakeUpTimeData[1] floatValue]];
+    self.wakeUpTimeAvgLabel.text = [self stringFromTimeInterval:[wakeUpTimeData[2] floatValue]];
+    self.sleepTimeMinLabel.text = [self stringFromTimeInterval:[sleepTimeData[0] floatValue]];
+    self.sleepTimeMaxLabel.text = [self stringFromTimeInterval:[sleepTimeData[1] floatValue]];
+    self.sleepTimeAvgLabel.text = [self stringFromTimeInterval:[sleepTimeData[2] floatValue]];
+    
+    self.goToBedTimeTooLate.text = [NSString stringWithFormat:@"%0.01f", [self.statistic calculateGetUpTooLatePercentage:recent]];;
+}
+
+- (NSString *)stringFromTimeInterval:(NSInteger)timeInterval
+{
+    NSInteger minutes = abs((timeInterval / 60) % 60);
+    NSInteger hours = abs((int)(timeInterval / 3600));  //取整數
+    
+    return [NSString stringWithFormat:@"%02li:%02li", (long)hours, (long)minutes];
 }
 
 @end
