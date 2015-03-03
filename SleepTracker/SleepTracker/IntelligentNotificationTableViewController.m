@@ -37,6 +37,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"智能提醒";
+    
     fireDate = [self.intelligentNotification decideFireDate];
     notificationName = [self.intelligentNotification decideNotificationTitle];
 }
