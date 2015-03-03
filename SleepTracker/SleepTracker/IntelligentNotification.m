@@ -60,7 +60,7 @@
                 NSDateComponents *dateComponents = [greCalendar components: NSCalendarUnitHour | NSCalendarUnitMinute fromDate:hopeToGoToSleepTime];
                 
                 [components setHour:dateComponents.hour];
-                [components setMinute:dateComponents.second];
+                [components setMinute:dateComponents.minute];
                 
                 break;
             }
