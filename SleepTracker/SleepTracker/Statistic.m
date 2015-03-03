@@ -425,6 +425,64 @@
     return @[[NSNumber numberWithInteger:MIN], [NSNumber numberWithInteger:MAX], [NSNumber numberWithInteger:AVG]];
 }
 
+#pragma mark - 
+
+- (float)calculateGetUpTooLatePercentage:(NSInteger)recent
+{
+    [self Initailize];
+    float sleepLate = 0;
+    float sleepEarly = 0;
+    
+    if (fetchArray.count >= 2 || (fetchArray.count == 1 && self.sleepData.wakeUpTime > 0) )
+    {
+        row = ([self.sleepData.sleepTime floatValue] == 0) ? 1 : 0 ;  //如果現在是睡覺狀態，那就跳過第一筆資料，因為第一筆資料還沒有sleepTime的資料
+        self.sleepData = fetchArray[row];
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"DDD"];  // 1~366 一年的第幾天
+        
+        today = [[formatter stringFromDate:[NSDate date]] integerValue];
+        dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+        lastDataDate = dataDate + 1;
+        
+        NSDate *wakeUpTime;
+        NSInteger wakeUpTimeInSecond;
+        
+        NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        NSDateComponents *dateComponents;
+        
+        while ( dataDate > (today - recent) )   //dataDate > (today - recent) 看天數
+        {
+            if ([self.sleepData.sleepType isEqualToString:@"一般"])
+            {
+                wakeUpTime = self.sleepData.wakeUpTime;
+                dateComponents = [greCalendar components: NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond  fromDate:wakeUpTime];
+                
+                wakeUpTimeInSecond = dateComponents.second + dateComponents.minute*60 + dateComponents.hour*3600 ;
+                
+                if (lastDataDate != dataDate) {
+                    if (dateComponents.hour > 8) {
+                        sleepLate++;
+                    } else {
+                        sleepEarly++;
+                    }
+                }
+                
+                lastDataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+            }
+            
+            if (++row < [fetchArray count]) {
+                self.sleepData = fetchArray[row];
+                dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+            } else {
+                break;  //如果總資料比數少於所需要計算的天數，直接跳出
+            }
+        }
+    }
+    
+    return ( sleepLate / ( sleepLate + sleepEarly )) * 100 ;
+}
+
 #pragma mark -
 
 - (NSString *)stringFromTimeInterval:(NSTimeInterval)interval

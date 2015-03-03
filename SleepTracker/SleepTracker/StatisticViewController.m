@@ -31,6 +31,10 @@
 @property (strong, nonatomic) NSArray *wakeUpTimeData;
 @property (strong, nonatomic) NSArray *sleepTimeData;
 
+@property (weak, nonatomic) IBOutlet UILabel *goToBedTimeTooLate;
+@property (weak, nonatomic) IBOutlet UILabel *getUpTooLate;
+@property (nonatomic) NSString *goToBedTimeTooLateTem;
+@property (nonatomic) NSString *getUpTooLateTem;
 
 @end
 
@@ -67,16 +71,19 @@
 {
     switch (self.segment.selectedSegmentIndex) {
         case 0:
+            self.goToBedTimeTooLateTem =  [NSString stringWithFormat:@"%0.01f", [self.statistic calculateGetUpTooLatePercentage:7]];
             goToBedTimeData = [self.statistic showGoToBedTimeDataInTheRecent:7];
             wakeUpTimeData = [self.statistic showWakeUpTimeDataInTheRecent:7];
             sleepTimeData = [self.statistic showSleepTimeDataInTheRecent:7];
             break;
         case 1:
+            self.goToBedTimeTooLateTem =  [NSString stringWithFormat:@"%0.01f", [self.statistic calculateGetUpTooLatePercentage:30]];
             goToBedTimeData = [self.statistic showGoToBedTimeDataInTheRecent:30];
             wakeUpTimeData = [self.statistic showWakeUpTimeDataInTheRecent:30];
             sleepTimeData = [self.statistic showSleepTimeDataInTheRecent:30];
             break;
         case 2:
+            self.goToBedTimeTooLateTem =  [NSString stringWithFormat:@"%0.01f", [self.statistic calculateGetUpTooLatePercentage:183]];
             goToBedTimeData = [self.statistic showGoToBedTimeDataInTheRecent:183];
             wakeUpTimeData = [self.statistic showWakeUpTimeDataInTheRecent:183];
             sleepTimeData = [self.statistic showSleepTimeDataInTheRecent:183];
@@ -97,6 +104,8 @@
     self.sleepTimeMinLabel.text = [self.statistic stringFromTimeInterval:[sleepTimeData[0] floatValue]];
     self.sleepTimeMaxLabel.text = [self.statistic stringFromTimeInterval:[sleepTimeData[1] floatValue]];
     self.sleepTimeAvgLabel.text = [self.statistic stringFromTimeInterval:[sleepTimeData[2] floatValue]];
+    
+    self.goToBedTimeTooLate.text = self.goToBedTimeTooLateTem;
 }
 
 @end
