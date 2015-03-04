@@ -10,40 +10,73 @@
 
 @interface ShouldGoToSleepTimeTableViewController ()
 
+@property (strong, nonatomic) NSArray *section1;
+@property (strong, nonatomic) NSArray *section2;
+@property (strong, nonatomic) NSArray *textLabelOfTableViewCell;
+
 @end
 
 @implementation ShouldGoToSleepTimeTableViewController
 
+@synthesize section1, section2, textLabelOfTableViewCell;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    section1 = @[@"平均上床時間", @"平均起床時間"];
+    section2 = @[@"自訂希望上床時間"];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    textLabelOfTableViewCell = @[section1, section2];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return [textLabelOfTableViewCell count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [textLabelOfTableViewCell[section] count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    cell.textLabel.text = textLabelOfTableViewCell[indexPath.section][indexPath.row];
     
-    // Configure the cell...
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            cell.detailTextLabel.text = @"適合想要早點睡的人";
+        } else if (indexPath.row == 1) {
+            cell.detailTextLabel.text = @"適合想要早點起床的人";
+        }
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
+    }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"HopeToGoToBedPage"];
+            page2.title = @"希望上床時間";
+            
+            [self.navigationController pushViewController:page2 animated:YES];
+        }
+    }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section
+{
+    
 }
 
 /*

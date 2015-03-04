@@ -59,10 +59,12 @@
     
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"HopeToGoToBedPage"];
+            page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"ShouldGoToSleepTime"];
         } else if (indexPath.row == 1) {
             page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"SleepNotificationPage"];
         }
+        
+        page2.title = section1[indexPath.row];
         
         [self.navigationController pushViewController:page2 animated:YES];
     } else if (indexPath.section == 1) {
