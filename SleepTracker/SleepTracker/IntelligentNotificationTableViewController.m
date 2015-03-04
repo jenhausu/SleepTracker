@@ -38,6 +38,8 @@
 {
     [super viewWillAppear:NO];
     
+    self.title = @"智能提醒";
+    
     fireDate = [self.intelligentNotification decideFireDate];
     notificationName = [self.intelligentNotification decideNotificationTitle];
     
