@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D1CB5BF1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1CB5BE1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m */; };
 		1D26812A1A4C070300D510F8 /* History2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2681291A4C070300D510F8 /* History2TableViewController.m */; };
 		1D2C076A1AA057A500434EF2 /* CustomNotification-Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2C07691AA057A500434EF2 /* CustomNotification-Model.m */; };
 		1D2DB7EA1A6D677000A72EFA /* Statistic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB7E91A6D677000A72EFA /* Statistic.m */; };
@@ -50,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D1CB5BD1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShouldGoToSleepTimeTableViewController.h; sourceTree = "<group>"; };
+		1D1CB5BE1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShouldGoToSleepTimeTableViewController.m; sourceTree = "<group>"; };
 		1D2681281A4C070300D510F8 /* History2TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History2TableViewController.h; sourceTree = "<group>"; };
 		1D2681291A4C070300D510F8 /* History2TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History2TableViewController.m; sourceTree = "<group>"; };
 		1D2C07681AA057A500434EF2 /* CustomNotification-Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CustomNotification-Model.h"; sourceTree = "<group>"; };
@@ -129,6 +132,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D1CB5BC1AA6FF54002186E1 /* shouldGoToSleepTime */ = {
+			isa = PBXGroup;
+			children = (
+				1D1CB5BD1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.h */,
+				1D1CB5BE1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m */,
+				1D995DFF1A7D4D37002F069C /* HopeToGoToSleepViewController.h */,
+				1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */,
+			);
+			name = shouldGoToSleepTime;
+			sourceTree = "<group>";
+		};
 		1D2DB7FE1A70F31800A72EFA /* Custom Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,8 +280,7 @@
 				1DF063F41A8C59F600F21359 /* SettingTableViewController.h */,
 				1DF063F51A8C59F600F21359 /* SettingTableViewController.m */,
 				1DF063F91A8C75E800F21359 /* Sleep Notificaiton */,
-				1D995DFF1A7D4D37002F069C /* HopeToGoToSleepViewController.h */,
-				1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */,
+				1D1CB5BC1AA6FF54002186E1 /* shouldGoToSleepTime */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -443,6 +456,7 @@
 				1D3BB38A1AA1BE2500349F5A /* CNDetailViewController.m in Sources */,
 				1DBCE5B31A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m in Sources */,
 				1D8901C91A4B5119001A69A3 /* main.m in Sources */,
+				1D1CB5BF1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m in Sources */,
 				1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */,
 				1DCDD3E61AA2CE5E00609D2F /* CustomNotification.m in Sources */,
 				1D2DB7F41A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m in Sources */,
