@@ -54,7 +54,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 3;
+        return 4;
     } else if (section == 1) {
         return 1;
     } else {
@@ -71,9 +71,9 @@
     if (indexPath.section == 0) {
         cell.textLabel.text = notificationName[indexPath.row];
     } else if (indexPath.section == 1) {
-        cell.textLabel.text = notificationName[3];
-    } else {
         cell.textLabel.text = notificationName[4];
+    } else {
+        cell.textLabel.text = notificationName[5];
     }
     cell.detailTextLabel.text = [formatter stringFromDate:fireDate[indexPath.row]];
 
@@ -96,19 +96,22 @@
         else if (indexPath.row == 2) {
             [switchControl addTarget:self action:@selector(switchChanged3:) forControlEvents:UIControlEventValueChanged];
         }
+        else if (indexPath.row == 3) {
+            [switchControl addTarget:self action:@selector(switchChanged6:) forControlEvents:UIControlEventValueChanged];
+        }
     }
     else if (indexPath.section == 1) {
-        cell.detailTextLabel.text = [formatter stringFromDate:fireDate[3]];
+        cell.detailTextLabel.text = [formatter stringFromDate:fireDate[4]];
 
         if (indexPath.row == 0) {
-            switchControl.on = [userPreferences boolForKey:notificationName[3]];
+            switchControl.on = [userPreferences boolForKey:notificationName[4]];
             [switchControl addTarget:self action:@selector(switchChanged4:) forControlEvents:UIControlEventValueChanged];
         }
     }
     else if (indexPath.section == 2) {
-        cell.detailTextLabel.text = [formatter stringFromDate:fireDate[4]];
+        cell.detailTextLabel.text = [formatter stringFromDate:fireDate[5]];
 
-        switchControl.on = [userPreferences boolForKey:notificationName[4]];
+        switchControl.on = [userPreferences boolForKey:notificationName[5]];
         [switchControl addTarget:self action:@selector(switchChanged5:) forControlEvents:UIControlEventValueChanged];
     }
     
@@ -145,7 +148,7 @@
 {
     UISwitch *switchControl = sender;
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    [userPreferences setBool:switchControl.on forKey:notificationName[3]];
+    [userPreferences setBool:switchControl.on forKey:notificationName[4]];
     [self.intelligentNotification rescheduleIntelligentNotification];
 }
 
@@ -153,7 +156,15 @@
 {
     UISwitch *switchControl = sender;
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    [userPreferences setBool:switchControl.on forKey:notificationName[4]];
+    [userPreferences setBool:switchControl.on forKey:notificationName[5]];
+    [self.intelligentNotification rescheduleIntelligentNotification];
+}
+
+- (void)switchChanged6:(id)sender
+{
+    UISwitch *switchControl = sender;
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    [userPreferences setBool:switchControl.on forKey:notificationName[3]];
     [self.intelligentNotification rescheduleIntelligentNotification];
 }
 
