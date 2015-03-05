@@ -127,7 +127,6 @@
     }
     else
     {
-
         fireDate = [[NSArray alloc] initWithObjects:
                     [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:shouldGoToBedTime],
                     [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:shouldGoToBedTime],
