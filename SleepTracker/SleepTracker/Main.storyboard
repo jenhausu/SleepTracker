@@ -85,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="762" y="-852"/>
+            <point key="canvasLocation" x="762" y="-1424"/>
         </scene>
         <!--Wake Up Table View Controller-->
         <scene sceneID="iF0-Ni-sKu">
@@ -138,7 +138,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0U-wt-4Gx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2279" y="-852"/>
+            <point key="canvasLocation" x="2279" y="-1424"/>
         </scene>
         <!--Title-->
         <scene sceneID="aKa-7E-V1q">
@@ -190,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wN4-Qg-Zgr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2974" y="-852"/>
+            <point key="canvasLocation" x="2974" y="-1424"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fws-yd-wDd">
@@ -206,7 +206,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30d-CH-MpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1542" y="-852"/>
+            <point key="canvasLocation" x="1542" y="-1424"/>
         </scene>
         <!--Should Go To Sleep Time Table View Controller-->
         <scene sceneID="gNd-37-XCv">
@@ -247,7 +247,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzn-n6-IUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1617" y="1621"/>
+            <point key="canvasLocation" x="2331" y="1883"/>
         </scene>
         <!--設定-->
         <scene sceneID="9S0-Jj-ac1">
@@ -305,12 +305,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DGj-jA-Ekp">
-                                <rect key="frame" x="351" y="169" width="51" height="31"/>
-                                <connections>
-                                    <action selector="switchBeTouched:" destination="UpI-OH-aVL" eventType="valueChanged" id="Tg7-9x-kXf"/>
-                                </connections>
-                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcc-Pe-ZLJ">
                                 <rect key="frame" x="279" y="272" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -326,45 +320,28 @@
                                     <action selector="dateValueChanged:" destination="UpI-OH-aVL" eventType="valueChanged" id="Eb4-2c-bgI"/>
                                 </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="啟動" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Yz-PB-XVV">
-                                <rect key="frame" x="208" y="174" width="34" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zp9-kC-O0f" firstAttribute="top" secondItem="Vcc-Pe-ZLJ" secondAttribute="bottom" constant="16" id="9eZ-0E-NC5"/>
-                            <constraint firstAttribute="centerX" secondItem="DGj-jA-Ekp" secondAttribute="centerX" constant="-75" id="Da1-Rq-hWC"/>
-                            <constraint firstItem="pMI-gN-mpM" firstAttribute="top" secondItem="DGj-jA-Ekp" secondAttribute="bottom" constant="17" id="FwI-Si-Rcc"/>
-                            <constraint firstItem="pMI-gN-mpM" firstAttribute="top" secondItem="5Yz-PB-XVV" secondAttribute="bottom" constant="22" id="MbA-0M-Z2Y"/>
                             <constraint firstAttribute="centerY" secondItem="zp9-kC-O0f" secondAttribute="centerY" constant="-90" id="NAc-VE-N8b"/>
                             <constraint firstAttribute="centerX" secondItem="pMI-gN-mpM" secondAttribute="centerX" id="R5H-oR-lgg"/>
                             <constraint firstItem="Vcc-Pe-ZLJ" firstAttribute="top" secondItem="pMI-gN-mpM" secondAttribute="bottom" constant="25" id="WGe-jA-6xz"/>
-                            <constraint firstAttribute="centerX" secondItem="5Yz-PB-XVV" secondAttribute="centerX" constant="75" id="Zkk-ms-o3f"/>
                             <constraint firstAttribute="centerX" secondItem="zp9-kC-O0f" secondAttribute="centerX" id="htT-JY-qim"/>
                             <constraint firstAttribute="centerX" secondItem="Vcc-Pe-ZLJ" secondAttribute="centerX" id="yS7-x4-CwL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="希望上床睡覺時間" id="rcY-Uq-R3b">
-                        <barButtonItem key="rightBarButtonItem" title="更新" id="JVJ-I6-pZ1">
-                            <connections>
-                                <action selector="update:" destination="UpI-OH-aVL" id="ISq-6l-nWr"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="希望上床睡覺時間" id="rcY-Uq-R3b"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="TextField" destination="pMI-gN-mpM" id="WJK-3K-0um"/>
                         <outlet property="dateLabel" destination="Vcc-Pe-ZLJ" id="eqT-36-EFl"/>
                         <outlet property="datePicker" destination="zp9-kC-O0f" id="bMh-mF-v4C"/>
-                        <outlet property="switchController" destination="DGj-jA-Ekp" id="O7Z-qX-LPg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jY-Xy-DXB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2331" y="1621"/>
+            <point key="canvasLocation" x="3076" y="1883"/>
         </scene>
         <!--睡前通知-->
         <scene sceneID="d1n-4X-Nne">
@@ -428,7 +405,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7by-jK-upe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2331" y="2298"/>
+            <point key="canvasLocation" x="2331" y="2670"/>
         </scene>
         <!--Intelligent Notification Table View Controller-->
         <scene sceneID="ep1-gv-gQB">
@@ -468,7 +445,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqT-oB-UeY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3172" y="1962"/>
+            <point key="canvasLocation" x="3076" y="2670"/>
         </scene>
         <!--自訂睡前通知-->
         <scene sceneID="Mw0-UU-4IW">
@@ -539,7 +516,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gD-TD-XMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3172" y="2976"/>
+            <point key="canvasLocation" x="2692" y="3706"/>
         </scene>
         <!--新增自訂睡前通知-->
         <scene sceneID="TId-uF-stx">
@@ -609,7 +586,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUL-9s-Fyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4746" y="2655"/>
+            <point key="canvasLocation" x="4266" y="3385"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="TIA-qr-Fe1">
@@ -688,7 +665,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NJc-zE-jYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4033" y="3371"/>
+            <point key="canvasLocation" x="3553" y="4101"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y0s-GO-CHk">
@@ -704,7 +681,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dnm-Vd-LXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4033" y="2655"/>
+            <point key="canvasLocation" x="3553" y="3385"/>
         </scene>
         <!--設定-->
         <scene sceneID="du2-s9-udy">
@@ -987,7 +964,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZgS-GL-wHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1542" y="10"/>
+            <point key="canvasLocation" x="1542" y="-554"/>
         </scene>
         <!--Title-->
         <scene sceneID="v4k-wQ-MmK">
@@ -1034,7 +1011,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CHv-gq-dTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2279" y="10"/>
+            <point key="canvasLocation" x="2279" y="-554"/>
         </scene>
         <!--Add New Sleepdata Table View Controller-->
         <scene sceneID="q59-Tl-0yb">
@@ -1086,7 +1063,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpj-QP-104" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2279" y="788"/>
+            <point key="canvasLocation" x="2279" y="224"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kS0-re-V88">
@@ -1102,7 +1079,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbl-fM-snQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1542" y="788"/>
+            <point key="canvasLocation" x="1542" y="224"/>
         </scene>
         <!--History3 View Controller-->
         <scene sceneID="BTQ-xB-ag2">
@@ -1148,7 +1125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T0Q-X1-2Yi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2974" y="10"/>
+            <point key="canvasLocation" x="2974" y="-554"/>
         </scene>
         <!--Add New Sleepdata Two View Controller-->
         <scene sceneID="NlM-hv-xjY">
@@ -1194,7 +1171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wsq-9I-37r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2974" y="788"/>
+            <point key="canvasLocation" x="2974" y="224"/>
         </scene>
         <!--睡眠足跡-->
         <scene sceneID="xJu-Ph-s68">
@@ -1211,7 +1188,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="boX-A3-CLR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="762" y="10"/>
+            <point key="canvasLocation" x="762" y="-258"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

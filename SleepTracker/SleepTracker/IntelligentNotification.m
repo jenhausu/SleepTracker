@@ -39,36 +39,54 @@
     NSDateComponents *components = [[NSDateComponents alloc] init];
     NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"hopeToGoToBed"])
-    {
-        UIApplication *application = [UIApplication sharedApplication];
-        NSArray *arrayOfAllLocalNotification = [application scheduledLocalNotifications];
-        UILocalNotification *localNotification;
-        NSDictionary *userInfo;
-        NSString *value;
-        
-        for (NSInteger row = 0 ; row < arrayOfAllLocalNotification.count ; row++ )
-        {
-            localNotification = arrayOfAllLocalNotification[row];
-            
-            userInfo = localNotification.userInfo;
-            value = [userInfo objectForKey:@"NotificationType"];
-            
-            if ([value isEqualToString:@"HopeToGoToBed"])
-            {
-                NSDate *hopeToGoToSleepTime = localNotification.fireDate;
-                NSDateComponents *dateComponents = [greCalendar components: NSCalendarUnitHour | NSCalendarUnitMinute fromDate:hopeToGoToSleepTime];
-                
-                [components setHour:dateComponents.hour];
-                [components setMinute:dateComponents.minute];
-                
-                break;
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    NSInteger shouldGoToSleepTime = [userPreferences integerForKey:@"ShouldGoToSleepTime"];
+    
+    switch (shouldGoToSleepTime) {
+        case 0: {  //平均上床時間
+            NSInteger averageGoToSleepTimeInSecond = [[[self.statistic showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+            [components setHour:averageGoToSleepTimeInSecond / 3600];
+            [components setMinute:((averageGoToSleepTimeInSecond / 60) % 60)];
+        }
+            break;
+        case 1: {  //平均起床時間
+            NSInteger averageWakeUpTimeInSecond = [[[self.statistic showWakeUpTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+            if (((averageWakeUpTimeInSecond / 3600) - 8) > 0) {
+                [components setHour:averageWakeUpTimeInSecond / 3600 - 8];
+                [components setMinute:((averageWakeUpTimeInSecond / 60) % 60)];
+            } else {
+                [components setHour:(averageWakeUpTimeInSecond / 3600) - 8 + 24];
+                [components setMinute:60 - ((averageWakeUpTimeInSecond / 60) % 60)];
             }
         }
-    } else {
-        NSInteger averageGoToSleepTimeInSecond = [[[self.statistic showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
-        [components setHour:averageGoToSleepTimeInSecond / 3600];
-        [components setMinute:((averageGoToSleepTimeInSecond / 60) % 60)];
+            break;
+        case 2: {  //自訂
+            UIApplication *application = [UIApplication sharedApplication];
+            NSArray *arrayOfAllLocalNotification = [application scheduledLocalNotifications];
+            UILocalNotification *localNotification;
+            NSDictionary *userInfo;
+            NSString *value;
+            
+            for (NSInteger row = 0 ; row < arrayOfAllLocalNotification.count ; row++ )
+            {
+                localNotification = arrayOfAllLocalNotification[row];
+                
+                userInfo = localNotification.userInfo;
+                value = [userInfo objectForKey:@"NotificationType"];
+                
+                if ([value isEqualToString:@"HopeToGoToBed"])
+                {
+                    NSDate *hopeToGoToSleepTime = localNotification.fireDate;
+                    NSDateComponents *dateComponents = [greCalendar components: NSCalendarUnitHour | NSCalendarUnitMinute fromDate:hopeToGoToSleepTime];
+                    
+                    [components setHour:dateComponents.hour];
+                    [components setMinute:dateComponents.minute];
+                    
+                    break;
+                }
+            }
+        }
+            break;
     }
     
     return [greCalendar dateFromComponents:components];
@@ -95,19 +113,20 @@
 - (NSArray *)decideFireDate
 {
     NSArray *fetchDataArray = [[[SleepDataModel alloc] init] fetchSleepDataSortWithAscending:NO];
-    NSInteger const LATEST_DATA = 0;
-    NSArray *fireDate;
     
+    NSArray *fireDate;
     NSDate *shouldGoToBedTime = [self decideShouldGoToBedTime];
     
     NSDateComponents *components = [[NSDateComponents alloc] init];
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
     
+    SleepData *sleepData;
+    if (fetchDataArray.count > 0) {
+        NSInteger const LATEST_DATA = 0;
+        sleepData = fetchDataArray[LATEST_DATA];
+    }
     
-    if (fetchDataArray.count)
-    {
-        SleepData *sleepData = fetchDataArray[LATEST_DATA];
-        
+    if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && sleepData.wakeUpTime > 0) ) {
         NSInteger averageGoToSleepTimeInSecond = [[[self.statistic showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
         [components setHour:averageGoToSleepTimeInSecond / 3600];
         [components setMinute:((averageGoToSleepTimeInSecond / 60) % 60)];
@@ -119,17 +138,15 @@
                     [NSDate dateWithTimeInterval:-(60 * 60 * 2) sinceDate:shouldGoToBedTime],
                     averageGoToSleepTime,
                     [NSDate dateWithTimeInterval:(60 * 60 * 16) sinceDate:sleepData.wakeUpTime], nil];
-    }
-    else
-    {
+    } else {
         [components setHour:0];
         [components setMinute:0];
         NSDate *NULLDate = [calendar dateFromComponents:components];
         
         fireDate = [[NSArray alloc] initWithObjects:
-                    [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:shouldGoToBedTime],
-                    [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:shouldGoToBedTime],
-                    [NSDate dateWithTimeInterval:-(60 * 60 * 2) sinceDate:shouldGoToBedTime],
+                    [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:NULLDate],
+                    [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:NULLDate],
+                    [NSDate dateWithTimeInterval:-(60 * 60 * 2) sinceDate:NULLDate],
                     NULLDate,
                     NULLDate, nil];
     }
