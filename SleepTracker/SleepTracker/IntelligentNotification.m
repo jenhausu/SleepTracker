@@ -120,10 +120,15 @@
     
     NSDateComponents *components = [[NSDateComponents alloc] init];
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
-    
     [components setHour:0];
     [components setMinute:0];
     NSDate *NULLDate = [calendar dateFromComponents:components];
+    
+    SleepData *sleepData;
+    if (fetchDataArray.count > 0) {
+        NSInteger const LATEST_DATA = 0;
+        sleepData = fetchDataArray[LATEST_DATA];
+    }
     
     if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && sleepData.wakeUpTime > 0) ) {
         NSInteger averageGoToSleepTimeInSecond = [[[self.statistic showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
@@ -138,10 +143,7 @@
                     NULLDate,
                     averageGoToSleepTime,
                     [NSDate dateWithTimeInterval:(60 * 60 * 16) sinceDate:sleepData.wakeUpTime], nil];
-    }
-    else
-    {
-
+    } else {
         fireDate = [[NSArray alloc] initWithObjects:
                     [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:NULLDate],
                     [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:NULLDate],

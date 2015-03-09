@@ -116,24 +116,28 @@
         }
     }
     else if (indexPath.section == 1) {
-        cell.detailTextLabel.text = [formatter stringFromDate:fireDate[4]];
-
         if (indexPath.row == 0) {
             switchControl.on = [userPreferences boolForKey:notificationName[4]];
             [switchControl addTarget:self action:@selector(switchChanged4:) forControlEvents:UIControlEventValueChanged];
             
             if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && self.sleepData.wakeUpTime > 0) ) {
-                cell.detailTextLabel.text = [formatter stringFromDate:fireDate[3]];
+                cell.detailTextLabel.text = [formatter stringFromDate:fireDate[4]];
             } else {
                 cell.detailTextLabel.text = @"--:--";
             }
         }
     }
     else if (indexPath.section == 2) {
-        cell.detailTextLabel.text = [formatter stringFromDate:fireDate[5]];
-
-        switchControl.on = [userPreferences boolForKey:notificationName[5]];
-        [switchControl addTarget:self action:@selector(switchChanged5:) forControlEvents:UIControlEventValueChanged];
+        if (indexPath.row == 0) {
+            switchControl.on = [userPreferences boolForKey:notificationName[5]];
+            [switchControl addTarget:self action:@selector(switchChanged5:) forControlEvents:UIControlEventValueChanged];
+            
+            if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && self.sleepData.wakeUpTime > 0) ) {
+                cell.detailTextLabel.text = [formatter stringFromDate:fireDate[5]];
+            } else {
+                cell.detailTextLabel.text = @"--:--";
+            }
+        }
     }
     
     return cell;
@@ -164,26 +168,45 @@
 
 - (void)switchChanged4:(id)sender
 {
-    UISwitch *switchControl = sender;
-    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    [userPreferences setBool:switchControl.on forKey:notificationName[4]];
-    [self.intelligentNotification rescheduleIntelligentNotification];
+    self.switchControl = sender;
+    
+    if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && self.sleepData.wakeUpTime > 0) ) {
+        [userPreferences setBool:self.switchControl.on forKey:notificationName[4]];
+        [self.intelligentNotification rescheduleIntelligentNotification];
+    } else {
+        [[[UIAlertView alloc] initWithTitle:@"無法啟用"
+                                    message:@"資料不足，最少要有一筆完整的資料"
+                                   delegate:self
+                          cancelButtonTitle:@"確定" otherButtonTitles:nil, nil] show];
+    }
 }
 
 - (void)switchChanged5:(id)sender
 {
-    UISwitch *switchControl = sender;
-    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    [userPreferences setBool:switchControl.on forKey:notificationName[5]];
+    self.switchControl = sender;
+    
+    if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && self.sleepData.wakeUpTime > 0) ) {
+        [userPreferences setBool:self.switchControl.on forKey:notificationName[5]];
+        [self.intelligentNotification rescheduleIntelligentNotification];
+    } else {
+        [[[UIAlertView alloc] initWithTitle:@"無法啟用"
+                                    message:@"資料不足，最少要有一筆完整的資料"
+                                   delegate:self
+                          cancelButtonTitle:@"確定" otherButtonTitles:nil, nil] show];
+    }
+}
+
+- (void)switchChanged6:(id)sender {
+    self.switchControl = sender;
+    [userPreferences setBool:self.switchControl.on forKey:notificationName[3]];
     [self.intelligentNotification rescheduleIntelligentNotification];
 }
 
-- (void)switchChanged6:(id)sender
+#pragma mark - alert
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    UISwitch *switchControl = sender;
-    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    [userPreferences setBool:switchControl.on forKey:notificationName[3]];
-    [self.intelligentNotification rescheduleIntelligentNotification];
+    self.switchControl.on = NO;
 }
 
 @end
