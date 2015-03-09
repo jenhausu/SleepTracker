@@ -112,13 +112,13 @@
             [switchControl addTarget:self action:@selector(switchChanged3:) forControlEvents:UIControlEventValueChanged];
         }
         else if (indexPath.row == 3) {
-            [switchControl addTarget:self action:@selector(switchChanged6:) forControlEvents:UIControlEventValueChanged];
+            [switchControl addTarget:self action:@selector(switchChanged4:) forControlEvents:UIControlEventValueChanged];
         }
     }
     else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             switchControl.on = [userPreferences boolForKey:notificationName[4]];
-            [switchControl addTarget:self action:@selector(switchChanged4:) forControlEvents:UIControlEventValueChanged];
+            [switchControl addTarget:self action:@selector(switchChanged5:) forControlEvents:UIControlEventValueChanged];
             
             if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && self.sleepData.wakeUpTime > 0) ) {
                 cell.detailTextLabel.text = [formatter stringFromDate:fireDate[4]];
@@ -130,7 +130,7 @@
     else if (indexPath.section == 2) {
         if (indexPath.row == 0) {
             switchControl.on = [userPreferences boolForKey:notificationName[5]];
-            [switchControl addTarget:self action:@selector(switchChanged5:) forControlEvents:UIControlEventValueChanged];
+            [switchControl addTarget:self action:@selector(switchChanged6:) forControlEvents:UIControlEventValueChanged];
             
             if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && self.sleepData.wakeUpTime > 0) ) {
                 cell.detailTextLabel.text = [formatter stringFromDate:fireDate[5]];
@@ -169,16 +169,9 @@
 - (void)switchChanged4:(id)sender
 {
     self.switchControl = sender;
-    
-    if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && self.sleepData.wakeUpTime > 0) ) {
-        [userPreferences setBool:self.switchControl.on forKey:notificationName[4]];
-        [self.intelligentNotification rescheduleIntelligentNotification];
-    } else {
-        [[[UIAlertView alloc] initWithTitle:@"無法啟用"
-                                    message:@"資料不足，最少要有一筆完整的資料"
-                                   delegate:self
-                          cancelButtonTitle:@"確定" otherButtonTitles:nil, nil] show];
-    }
+
+    [userPreferences setBool:self.switchControl.on forKey:notificationName[3]];
+    [self.intelligentNotification rescheduleIntelligentNotification];
 }
 
 - (void)switchChanged5:(id)sender
@@ -186,20 +179,22 @@
     self.switchControl = sender;
     
     if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && self.sleepData.wakeUpTime > 0) ) {
-        [userPreferences setBool:self.switchControl.on forKey:notificationName[5]];
+        [userPreferences setBool:self.switchControl.on forKey:notificationName[4]];
         [self.intelligentNotification rescheduleIntelligentNotification];
     } else {
-        [[[UIAlertView alloc] initWithTitle:@"無法啟用"
-                                    message:@"資料不足，最少要有一筆完整的資料"
-                                   delegate:self
-                          cancelButtonTitle:@"確定" otherButtonTitles:nil, nil] show];
+        [self dontHaveEnoughDataAlert];
     }
 }
 
 - (void)switchChanged6:(id)sender {
     self.switchControl = sender;
-    [userPreferences setBool:self.switchControl.on forKey:notificationName[3]];
-    [self.intelligentNotification rescheduleIntelligentNotification];
+    
+    if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && self.sleepData.wakeUpTime > 0) ) {
+        [userPreferences setBool:self.switchControl.on forKey:notificationName[5]];
+        [self.intelligentNotification rescheduleIntelligentNotification];
+    } else {
+        [self dontHaveEnoughDataAlert];
+    }
 }
 
 #pragma mark - alert
@@ -207,6 +202,16 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     self.switchControl.on = NO;
+}
+
+#pragma mark - custom method
+
+- (void)dontHaveEnoughDataAlert
+{
+    [[[UIAlertView alloc] initWithTitle:@"無法啟用"
+                                message:@"資料不足，最少要有一筆完整的資料"
+                               delegate:self
+                      cancelButtonTitle:@"確定" otherButtonTitles:nil, nil] show];
 }
 
 @end
