@@ -25,11 +25,15 @@
 
 @property (nonatomic) NSUserDefaults *userPreferences;
 
+@property (nonatomic) NSString *footerText;
+@property (nonatomic) NSTimer *timer;
+@property (nonatomic) NSInteger remainingCounts;
+
 @end
 
 @implementation IntelligentNotificationTableViewController
 
-@synthesize notificationName, fireDate, fetchDataArray, userPreferences;
+@synthesize notificationName, fireDate, fetchDataArray, userPreferences, footerText, timer, remainingCounts;
 
 #pragma mark - Lazy initialization
 
@@ -146,7 +150,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 30.0f;
+        return 45;
     } else {
         return UITableViewAutomaticDimension;
     }
@@ -155,15 +159,17 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     if (section == 0) {
-        CGRect rect = CGRectMake(0, 0, 320, 40);
+        CGRect rect = CGRectMake(20, 0, 280, 50);
         UIView *footerView = [[UIView alloc] initWithFrame:rect];
         UILabel *footerLabel = [[UILabel alloc] initWithFrame:rect];
         
-        footerLabel.text = @"footer";
+        footerLabel.text = footerText;
+        footerLabel.font = [UIFont fontWithName:@"AppleGothic" size:10];
+        footerLabel.textColor = [UIColor grayColor];
+        footerLabel.numberOfLines = 0;
         footerLabel.textAlignment = NSTextAlignmentCenter;
         
         [footerView addSubview:footerLabel];
-        
         return footerView;
     } else {
         return nil;
@@ -177,6 +183,14 @@
     self.switchControl = sender;
     [userPreferences setBool:self.switchControl.on forKey:notificationName[0]];
     [self.intelligentNotification rescheduleIntelligentNotification];
+    
+    if (self.switchControl.on) {
+        footerText = @"App 會在應該上床睡覺時間的前三個小時發出通知，提醒你不要再吃東西了，好讓腸胃開始休息。";
+    } else {
+        footerText = @"";
+    }
+    
+    [self updateSectionOneFooter];
 }
 
 - (void)switchChanged2:(id)sender
@@ -184,6 +198,14 @@
     self.switchControl = sender;
     [userPreferences setBool:self.switchControl.on forKey:notificationName[1]];
     [self.intelligentNotification rescheduleIntelligentNotification];
+    
+    if (self.switchControl.on) {
+        footerText = @"App 會在應該上床睡覺時間的前一個小時發出通知，提醒你不要再看電子螢幕了。";
+    } else {
+        footerText = @"";
+    }
+    
+    [self updateSectionOneFooter];
 }
 
 - (void)switchChanged3:(id)sender
@@ -191,14 +213,29 @@
     self.switchControl = sender;
     [userPreferences setBool:self.switchControl.on forKey:notificationName[2]];
     [self.intelligentNotification rescheduleIntelligentNotification];
+    
+    if (self.switchControl.on) {
+        footerText = @"App 會在應該上床睡覺時間的前兩個小時發出通知，提醒你如果你還沒去洗澡，建議你可以趕快去洗澡，這樣兩個小時後體溫開始下降，最適合入睡。";
+    } else {
+        footerText = @"";
+    }
+    
+    [self updateSectionOneFooter];
 }
 
 - (void)switchChanged4:(id)sender
 {
     self.switchControl = sender;
-
     [userPreferences setBool:self.switchControl.on forKey:notificationName[3]];
     [self.intelligentNotification rescheduleIntelligentNotification];
+    
+    if (self.switchControl.on) {
+        footerText = @"App 會在午夜時發出通知";
+    } else {
+        footerText = @"";
+    }
+    
+    [self updateSectionOneFooter];
 }
 
 - (void)switchChanged5:(id)sender
@@ -213,7 +250,8 @@
     }
 }
 
-- (void)switchChanged6:(id)sender {
+- (void)switchChanged6:(id)sender
+{
     self.switchControl = sender;
     
     if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && self.sleepData.wakeUpTime > 0) ) {
@@ -239,6 +277,30 @@
                                 message:@"資料不足，最少要有一筆完整的資料"
                                delegate:self
                       cancelButtonTitle:@"確定" otherButtonTitles:nil, nil] show];
+}
+
+- (void)updateSectionOneFooter
+{
+    remainingCounts = 1;
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0f
+                                             target:self
+                                           selector:@selector(countDown)
+                                           userInfo:nil
+                                            repeats:YES];
+}
+
+- (void)countDown
+{
+    if (--remainingCounts == 0) {
+        [timer invalidate];
+        [self.tableView reloadData];
+    }
+}
+
+- (void)stopTimer
+{
+    [timer invalidate];
+    timer = nil;
 }
 
 @end
