@@ -446,7 +446,6 @@
         lastDataDate = dataDate + 1;
         
         NSDate *wakeUpTime;
-        NSInteger wakeUpTimeInSecond;
         
         NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
         NSDateComponents *dateComponents;
@@ -457,8 +456,6 @@
             {
                 wakeUpTime = self.sleepData.wakeUpTime;
                 dateComponents = [greCalendar components: NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond  fromDate:wakeUpTime];
-                
-                wakeUpTimeInSecond = dateComponents.second + dateComponents.minute*60 + dateComponents.hour*3600 ;
                 
                 if (lastDataDate != dataDate) {
                     if (dateComponents.hour > 8) {

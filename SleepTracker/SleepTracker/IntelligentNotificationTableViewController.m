@@ -292,15 +292,9 @@
 - (void)countDown
 {
     if (--remainingCounts == 0) {
-        [self stopTimer];
+        [timer invalidate];
         [self.tableView reloadData];
     }
-}
-
-- (void)stopTimer
-{
-    [timer invalidate];
-    timer = nil;
 }
 
 @end
