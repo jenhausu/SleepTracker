@@ -143,6 +143,29 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 30.0f;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    if (section == 0) {
+        CGRect rect = CGRectMake(0, 0, 320, 40);
+        UIView *footerView = [[UIView alloc] initWithFrame:rect];
+        UILabel *footerLabel = [[UILabel alloc] initWithFrame:rect];
+        
+        footerLabel.text = @"footer";
+        footerLabel.textAlignment = NSTextAlignmentCenter;
+        
+        [footerView addSubview:footerLabel];
+        
+        return footerView;
+    } else {
+        return nil;
+    }
+}
+
 #pragma mark - switchChinaged
 
 - (void)switchChanged1:(id)sender
