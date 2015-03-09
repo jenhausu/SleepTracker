@@ -7,7 +7,6 @@
 //
 
 #import "SleepDataModel.h"
-#import <UIKit/UIKit.h>
 
 #import "SleepData.h"
 

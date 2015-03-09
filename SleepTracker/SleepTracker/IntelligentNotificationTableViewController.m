@@ -9,18 +9,27 @@
 #import "IntelligentNotificationTableViewController.h"
 
 #import "IntelligentNotification.h"
+#import "SleepDataModel.h"
+#import "SleepData.h"
 
-@interface IntelligentNotificationTableViewController ()
+@interface IntelligentNotificationTableViewController ()  <UIAlertViewDelegate>
 
 @property (strong, nonatomic) IntelligentNotification *intelligentNotification;
 @property (strong, nonatomic) NSArray *fireDate;
 @property (strong, nonatomic) NSArray *notificationName;
 
+@property (nonatomic) NSArray *fetchDataArray;
+@property (nonatomic) UISwitch *switchControl;
+
+@property (nonatomic) SleepData *sleepData;
+
+@property (nonatomic) NSUserDefaults *userPreferences;
+
 @end
 
 @implementation IntelligentNotificationTableViewController
 
-@synthesize notificationName, fireDate;
+@synthesize notificationName, fireDate, fetchDataArray, userPreferences;
 
 #pragma mark - Lazy initialization
 
@@ -42,6 +51,13 @@
     
     fireDate = [self.intelligentNotification decideFireDate];
     notificationName = [self.intelligentNotification decideNotificationTitle];
+    
+    fetchDataArray = [[[SleepDataModel alloc] init] fetchSleepDataSortWithAscending:YES];
+    if (fetchDataArray.count) {
+        self.sleepData = fetchDataArray[0];
+    }
+    
+    userPreferences = [NSUserDefaults standardUserDefaults];
     
     [self.tableView reloadData];
 }
@@ -81,7 +97,6 @@
     cell.accessoryView = switchControl;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     if (indexPath.section == 0)
     {
         switchControl.on = [userPreferences boolForKey:notificationName[indexPath.row]];
@@ -106,6 +121,12 @@
         if (indexPath.row == 0) {
             switchControl.on = [userPreferences boolForKey:notificationName[4]];
             [switchControl addTarget:self action:@selector(switchChanged4:) forControlEvents:UIControlEventValueChanged];
+            
+            if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && self.sleepData.wakeUpTime > 0) ) {
+                cell.detailTextLabel.text = [formatter stringFromDate:fireDate[3]];
+            } else {
+                cell.detailTextLabel.text = @"--:--";
+            }
         }
     }
     else if (indexPath.section == 2) {
@@ -122,25 +143,22 @@
 
 - (void)switchChanged1:(id)sender
 {
-    UISwitch *switchControl = sender;
-    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    [userPreferences setBool:switchControl.on forKey:notificationName[0]];
+    self.switchControl = sender;
+    [userPreferences setBool:self.switchControl.on forKey:notificationName[0]];
     [self.intelligentNotification rescheduleIntelligentNotification];
 }
 
 - (void)switchChanged2:(id)sender
 {
-    UISwitch *switchControl = sender;
-    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    [userPreferences setBool:switchControl.on forKey:notificationName[1]];
+    self.switchControl = sender;
+    [userPreferences setBool:self.switchControl.on forKey:notificationName[1]];
     [self.intelligentNotification rescheduleIntelligentNotification];
 }
 
 - (void)switchChanged3:(id)sender
 {
-    UISwitch *switchControl = sender;
-    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    [userPreferences setBool:switchControl.on forKey:notificationName[2]];
+    self.switchControl = sender;
+    [userPreferences setBool:self.switchControl.on forKey:notificationName[2]];
     [self.intelligentNotification rescheduleIntelligentNotification];
 }
 
