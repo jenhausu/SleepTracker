@@ -937,7 +937,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="睡眠足跡" id="7SU-kK-vkY">
-                        <barButtonItem key="leftBarButtonItem" title="編輯" id="LL3-Bw-eyw"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pGZ-EM-r9B">
                             <connections>
                                 <action selector="addNewSleepdata:" destination="8qK-hw-1m1" id="xes-pF-RiH"/>
