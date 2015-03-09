@@ -145,7 +145,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 30.0f;
+    if (section == 0) {
+        return 30.0f;
+    } else {
+        return UITableViewAutomaticDimension;
+    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
