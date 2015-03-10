@@ -455,10 +455,10 @@
             if ([self.sleepData.sleepType isEqualToString:@"一般"])
             {
                 wakeUpTime = self.sleepData.wakeUpTime;
-                dateComponents = [greCalendar components: NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond  fromDate:wakeUpTime];
+                dateComponents = [greCalendar components: NSCalendarUnitHour fromDate:wakeUpTime];
                 
                 if (lastDataDate != dataDate) {
-                    if (dateComponents.hour > 8) {
+                    if (dateComponents.hour >= 8) {
                         sleepLate++;
                     } else {
                         sleepEarly++;
