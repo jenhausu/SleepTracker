@@ -94,6 +94,7 @@
     self.sleepTimeAvgLabel.text = [self stringFromTimeInterval:[sleepTimeData[2] floatValue]];
     
     self.getUpTooLate.text = [NSString stringWithFormat:@"%0.01f", [self.statistic calculateGetUpTooLatePercentage:recent]];
+    self.goToBedTimeTooLate.text = [NSString stringWithFormat:@"%0.01f", [self.statistic calculateGoToBedTooLatePercentage:recent]];
 }
 
 - (NSString *)stringFromTimeInterval:(NSInteger)timeInterval

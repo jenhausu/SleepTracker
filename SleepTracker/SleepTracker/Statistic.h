@@ -15,6 +15,7 @@
 - (NSArray *)showWakeUpTimeDataInTheRecent:(NSInteger)recent;
 
 - (float)calculateGetUpTooLatePercentage:(NSInteger)recent;
+- (float)calculateGoToBedTooLatePercentage:(NSInteger)recent;
 
 - (NSString *)stringFromTimeInterval:(NSTimeInterval)interval;
 

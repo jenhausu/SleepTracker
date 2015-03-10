@@ -427,6 +427,54 @@
 
 #pragma mark - 
 
+- (float)calculateGoToBedTooLatePercentage:(NSInteger)recent
+{
+    float sleepLate = 0;
+    float sleepEarly = 0;
+    
+    fetchArray = [self.sleepDataModel fetchSleepDataSortWithAscending:YES];
+    
+    if (fetchArray.count > 0 ) 
+    {
+        self.sleepData = fetchArray[0];
+
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"DDD"];  // 1~366 一年的第幾天
+        
+        today = [[formatter stringFromDate:[NSDate date]] integerValue];
+        dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+        lastDataDate = dataDate - 1;
+        
+        NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        NSDateComponents *dateComponents, *dateComponents2;
+        
+        for (NSInteger i = 0 ; i < fetchArray.count ; i++) {
+            self.sleepData = fetchArray[i];
+
+            if ([self.sleepData.sleepType isEqualToString:@"一般"]) {
+                dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+                
+                if (dataDate != lastDataDate) {
+                    if (dataDate > (today - recent)) {
+                        dateComponents = [greCalendar components: NSCalendarUnitHour | NSCalendarUnitDay fromDate:self.sleepData.goToBedTime];
+                        dateComponents2 = [greCalendar components: NSCalendarUnitDay fromDate:self.sleepData.wakeUpTime];
+                        
+                        if (dateComponents.hour >= 23 || dateComponents.day == dateComponents2.day) {
+                            sleepLate++;
+                        } else {
+                            sleepEarly++;
+                        }
+                    }
+                }
+                
+                lastDataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+            }
+        }
+    }
+
+    return ( sleepLate / ( sleepLate + sleepEarly )) * 100;
+}
+
 - (float)calculateGetUpTooLatePercentage:(NSInteger)recent
 {
     [self Initailize];
