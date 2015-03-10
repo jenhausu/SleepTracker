@@ -58,6 +58,10 @@
     goToBedTime = self.sleepData.goToBedTime;
     wakeUpTime = [NSDate date];
     selectedSleepType = 0;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy/M/d EEE"];
+    self.title = [dateFormatter stringFromDate:[NSDate date]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -86,7 +90,7 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy/M/d EEE ah:mm"];
+        [dateFormatter setDateFormat:@"ah:mm"];
         if (indexPath.row == 0) {
             cell.detailTextLabel.text = [dateFormatter stringFromDate:goToBedTime];
         } else if (indexPath.row == 1) {
