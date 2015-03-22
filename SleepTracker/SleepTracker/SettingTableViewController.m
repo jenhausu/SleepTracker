@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    section1 = @[@"應該上床時間", @"睡前通知"];
+    section1 = @[@"希望上床時間"];
     section2 = @[@"意見回饋"];
     textLabelOfTableViewCell = @[section1, section2];
 }
@@ -60,14 +60,12 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"ShouldGoToSleepTime"];
-        } else if (indexPath.row == 1) {
-            page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"SleepNotificationPage"];
         }
         
         page2.title = section1[indexPath.row];
-        
         [self.navigationController pushViewController:page2 animated:YES];
-    } else if (indexPath.section == 1) {
+    }
+    else if (indexPath.section == 1) {
         if (indexPath.row == 0)
         {
             if ([MFMailComposeViewController canSendMail])
@@ -91,8 +89,6 @@
                                                       otherButtonTitles:nil];
                 [alert show];
             }
-
-            
         }
     }
 }
