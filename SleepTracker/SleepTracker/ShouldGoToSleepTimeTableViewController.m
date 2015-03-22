@@ -127,6 +127,12 @@
                 if ([value isEqualToString:@"HopeToGoToBed"])
                 {
                     [application cancelLocalNotification:localNotification];
+                    
+                    NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:0 inSection:1];
+                    UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:oldIndexPath];
+                    oldCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                    oldCell.detailTextLabel.text = @"--:--";
+                                        
                     break;
                 }
             }
