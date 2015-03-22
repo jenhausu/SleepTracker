@@ -247,7 +247,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzn-n6-IUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2331" y="1883"/>
+            <point key="canvasLocation" x="2340" y="3195"/>
         </scene>
         <!--設定-->
         <scene sceneID="9S0-Jj-ac1">
@@ -283,7 +283,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qRL-lU-L1F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1582" y="2298"/>
+            <point key="canvasLocation" x="1567" y="3202"/>
         </scene>
         <!--希望上床睡覺時間-->
         <scene sceneID="l8k-Hr-Asv">
@@ -341,7 +341,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jY-Xy-DXB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3076" y="1883"/>
+            <point key="canvasLocation" x="3085" y="3195"/>
+        </scene>
+        <!--睡眠提醒-->
+        <scene sceneID="Nrv-8f-GuC">
+            <objects>
+                <navigationController id="7wF-Tl-lga" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="睡眠提醒" id="FTj-Je-5sj"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kjh-TX-TYa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="AVm-ny-7b0" kind="relationship" relationship="rootViewController" id="yig-uN-fz4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i6E-ha-vuR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-333" y="1590"/>
         </scene>
         <!--睡前通知-->
         <scene sceneID="d1n-4X-Nne">
@@ -405,7 +422,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7by-jK-upe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2331" y="2670"/>
+            <point key="canvasLocation" x="747" y="1590"/>
         </scene>
         <!--Intelligent Notification Table View Controller-->
         <scene sceneID="ep1-gv-gQB">
@@ -445,7 +462,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqT-oB-UeY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3076" y="2670"/>
+            <point key="canvasLocation" x="1652" y="1128"/>
         </scene>
         <!--自訂睡前通知-->
         <scene sceneID="Mw0-UU-4IW">
@@ -516,7 +533,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gD-TD-XMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2692" y="3706"/>
+            <point key="canvasLocation" x="1652" y="1962"/>
         </scene>
         <!--新增自訂睡前通知-->
         <scene sceneID="TId-uF-stx">
@@ -586,7 +603,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUL-9s-Fyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4266" y="3385"/>
+            <point key="canvasLocation" x="3226" y="1641"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="TIA-qr-Fe1">
@@ -665,7 +682,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NJc-zE-jYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3553" y="4101"/>
+            <point key="canvasLocation" x="2513" y="2357"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y0s-GO-CHk">
@@ -681,7 +698,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dnm-Vd-LXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3553" y="3385"/>
+            <point key="canvasLocation" x="2513" y="1641"/>
         </scene>
         <!--設定-->
         <scene sceneID="du2-s9-udy">
@@ -698,7 +715,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w6U-XL-bbq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="762" y="2298"/>
+            <point key="canvasLocation" x="747" y="3202"/>
         </scene>
         <!--統計圖表-->
         <scene sceneID="wg7-f3-ORb">
@@ -1204,6 +1221,7 @@
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="RnY-EW-5cx" kind="relationship" relationship="viewControllers" id="03H-Wg-h7Y"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="7wF-Tl-lga" kind="relationship" relationship="viewControllers" id="4VG-4L-Cf2"/>
                         <segue destination="XFN-u5-hst" kind="relationship" relationship="viewControllers" id="PWY-iY-WrS"/>
                     </connections>
                 </tabBarController>

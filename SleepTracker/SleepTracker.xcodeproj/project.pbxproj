@@ -254,6 +254,7 @@
 				1D89020B1A4B52E2001A69A3 /* Record */,
 				1D89020C1A4B52EE001A69A3 /* History */,
 				1D89020E1A4B5302001A69A3 /* Statistic */,
+				1DF063F91A8C75E800F21359 /* Sleep Notificaiton */,
 				1D89020D1A4B52FA001A69A3 /* Setting */,
 				1D8901FD1A4B5199001A69A3 /* Main.storyboard */,
 				1D89020F1A4B5C84001A69A3 /* Images */,
@@ -348,7 +349,6 @@
 			children = (
 				1DF063F41A8C59F600F21359 /* SettingTableViewController.h */,
 				1DF063F51A8C59F600F21359 /* SettingTableViewController.m */,
-				1DF063F91A8C75E800F21359 /* Sleep Notificaiton */,
 				1D1CB5BC1AA6FF54002186E1 /* shouldGoToSleepTime */,
 			);
 			name = Setting;
