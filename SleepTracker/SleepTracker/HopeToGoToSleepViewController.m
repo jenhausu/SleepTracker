@@ -27,6 +27,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
+    [components setHour:23];
+    [components setMinute:0];
+    self.datePicker.date = [calendar dateFromComponents:components];
+    
+    
     dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"hh:mm a"];
     
