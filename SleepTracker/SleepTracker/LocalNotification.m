@@ -15,6 +15,11 @@
 - (void)setLocalNotificationWithMessage:(NSString *)message fireDate:(NSDate *)fireDate repeatOrNot:(BOOL)repeat Sound:(NSString *)sound
                                setValue:(id)value forKey:(NSString *)key
 {
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound|UIUserNotificationTypeBadge
+                                                                                                              categories:nil]];
+    }
+    
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = fireDate;
     localNotification.alertBody = message;
