@@ -26,6 +26,8 @@
 @property (nonatomic) NSUserDefaults *userPreferences;
 
 @property (nonatomic) NSString *footerText;
+@property (nonatomic) float footerHeight;
+
 @property (nonatomic) NSTimer *timer;
 @property (nonatomic) NSInteger remainingCounts;
 
@@ -33,7 +35,7 @@
 
 @implementation IntelligentNotificationTableViewController
 
-@synthesize notificationName, fireDate, fetchDataArray, userPreferences, footerText, timer, remainingCounts;
+@synthesize notificationName, fireDate, fetchDataArray, userPreferences, footerText, footerHeight, timer, remainingCounts;
 
 #pragma mark - Lazy initialization
 
@@ -150,7 +152,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 45;
+        return footerHeight;
     } else {
         return UITableViewAutomaticDimension;
     }
@@ -186,11 +188,13 @@
     
     if (self.switchControl.on) {
         footerText = @"App 會在應該上床睡覺時間的前三個小時發出通知，提醒你不要再吃東西了，好讓腸胃開始休息。";
+        footerHeight = 35;
     } else {
         footerText = @"";
+        footerHeight = 0;
     }
     
-    [self updateSectionOneFooter];
+    [self postponeForAFewSecondThenChangeSectionOneFooter];
 }
 
 - (void)switchChanged2:(id)sender
@@ -201,11 +205,13 @@
     
     if (self.switchControl.on) {
         footerText = @"App 會在應該上床睡覺時間的前一個小時發出通知，提醒你不要再看電子螢幕了。";
+        footerHeight = 35;
     } else {
         footerText = @"";
+        footerHeight = 0;
     }
     
-    [self updateSectionOneFooter];
+    [self postponeForAFewSecondThenChangeSectionOneFooter];
 }
 
 - (void)switchChanged3:(id)sender
@@ -216,11 +222,13 @@
     
     if (self.switchControl.on) {
         footerText = @"App 會在應該上床睡覺時間的前兩個小時發出通知，提醒你如果你還沒去洗澡，建議你可以趕快去洗澡，這樣兩個小時後體溫開始下降，最適合入睡。";
+        footerHeight = 40;
     } else {
         footerText = @"";
+        footerHeight = 0;
     }
     
-    [self updateSectionOneFooter];
+    [self postponeForAFewSecondThenChangeSectionOneFooter];
 }
 
 - (void)switchChanged4:(id)sender
@@ -231,11 +239,13 @@
     
     if (self.switchControl.on) {
         footerText = @"App 會在午夜時發出通知";
+        footerHeight = 30;
     } else {
         footerText = @"";
+        footerHeight = 0;
     }
     
-    [self updateSectionOneFooter];
+    [self postponeForAFewSecondThenChangeSectionOneFooter];
 }
 
 - (void)switchChanged5:(id)sender
@@ -247,6 +257,9 @@
         [self.intelligentNotification rescheduleIntelligentNotification];
     } else {
         [self dontHaveEnoughDataAlert];
+        
+        footerText = @"";
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
 
@@ -259,14 +272,10 @@
         [self.intelligentNotification rescheduleIntelligentNotification];
     } else {
         [self dontHaveEnoughDataAlert];
+        
+        footerText = @"";
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
-}
-
-#pragma mark - alert
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    self.switchControl.on = NO;
 }
 
 #pragma mark - custom method
@@ -279,22 +288,31 @@
                       cancelButtonTitle:@"確定" otherButtonTitles:nil, nil] show];
 }
 
-- (void)updateSectionOneFooter
+- (void)postponeForAFewSecondThenChangeSectionOneFooter
 {
     remainingCounts = 1;
-    timer = [NSTimer scheduledTimerWithTimeInterval:1.0f
-                                             target:self
-                                           selector:@selector(countDown)
-                                           userInfo:nil
-                                            repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.5f
+                                     target:self
+                                   selector:@selector(countDown)
+                                   userInfo:nil
+                                    repeats:NO];
 }
 
 - (void)countDown
 {
-    if (--remainingCounts == 0) {
+    if (--remainingCounts <= 0) {
         [timer invalidate];
-        [self.tableView reloadData];
+        
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+#warning 螢幕會稍微閃爍一下，取消的時候會比較明顯，開啟的時候使用者目光會被出現的文字吸引，比較不會注意到
     }
+}
+
+#pragma mark - alert
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self.switchControl setOn:NO animated:YES];
 }
 
 @end
