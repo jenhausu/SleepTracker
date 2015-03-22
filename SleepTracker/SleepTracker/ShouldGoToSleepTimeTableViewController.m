@@ -158,8 +158,26 @@
             [self.navigationController pushViewController:page2 animated:YES];
         }
     }
-    
-    [self.tableView reloadData];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    if (section == 1) {
+        CGRect rect = CGRectMake(20, 5, 280, 30);
+        UIView *footerView = [[UIView alloc] initWithFrame:rect];
+        UILabel *footerLabel = [[UILabel alloc] initWithFrame:rect];
+        
+        footerLabel.text = @"「希望起床時間」是App用來設定「吃東西」、「看電子螢幕」、「洗澡」這三個睡前通知的基準點。";
+        footerLabel.font = [UIFont fontWithName:@"AppleGothic" size:11];
+        footerLabel.textColor = [UIColor grayColor];
+        footerLabel.numberOfLines = 0;
+        footerLabel.textAlignment = NSTextAlignmentCenter;
+        
+        [footerView addSubview:footerLabel];
+        return footerView;
+    } else {
+        return nil;
+    }
 }
 
 @end
