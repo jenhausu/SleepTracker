@@ -99,15 +99,6 @@
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@ ~ %@",[dateFormatter stringFromDate:self.sleepData.goToBedTime], [dateFormatter2 stringFromDate:self.sleepData.wakeUpTime]];
     
-    NSDateFormatter *dateFormatter5 = [[NSDateFormatter alloc] init];
-    [dateFormatter5 setDateFormat:@"DDD"];
-    NSInteger day = [[dateFormatter5 stringFromDate:self.sleepData.wakeUpTime] integerValue];
-    if (day % 2 == 0) {
-        cell.textLabel.textColor = [UIColor colorWithRed:0.267 green:0.486 blue:0.843 alpha:1] /*#447cd7*/;
-    } else {
-        cell.textLabel.textColor = [UIColor blackColor];
-    }
-    
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", self.sleepData.sleepType,[self stringFromTimeInterval:[self.sleepData.sleepTime floatValue]]];
 
     
