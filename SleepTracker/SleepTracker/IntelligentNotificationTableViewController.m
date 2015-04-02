@@ -189,12 +189,19 @@
     if (self.switchControl.on) {
         footerText = @"App 會在應該上床睡覺時間的前三個小時發出通知，提醒你不要再吃東西了，好讓腸胃開始休息。";
         footerHeight = 35;
+        
+        [self postponeForAFewSecondThenChangeSectionOneFooter];
     } else {
-        footerText = @"";
-        footerHeight = 0;
+        if (footerText) {
+            footerText = nil;
+            footerHeight = 0;
+            
+            [self postponeForAFewSecondThenChangeSectionOneFooter];
+        } else {
+            footerText = nil;
+            footerHeight = 0;
+        }
     }
-    
-    [self postponeForAFewSecondThenChangeSectionOneFooter];
 }
 
 - (void)switchChanged2:(id)sender
@@ -206,12 +213,19 @@
     if (self.switchControl.on) {
         footerText = @"App 會在應該上床睡覺時間的前一個小時發出通知，提醒你不要再看電子螢幕了。";
         footerHeight = 35;
+        
+        [self postponeForAFewSecondThenChangeSectionOneFooter];
     } else {
-        footerText = @"";
-        footerHeight = 0;
+        if (footerText) {
+            footerText = nil;
+            footerHeight = 0;
+            
+            [self postponeForAFewSecondThenChangeSectionOneFooter];
+        } else {
+            footerText = nil;
+            footerHeight = 0;
+        }
     }
-    
-    [self postponeForAFewSecondThenChangeSectionOneFooter];
 }
 
 - (void)switchChanged3:(id)sender
@@ -223,12 +237,19 @@
     if (self.switchControl.on) {
         footerText = @"App 會在應該上床睡覺時間的前兩個小時發出通知，提醒你如果你還沒去洗澡，建議你可以趕快去洗澡，這樣兩個小時後體溫開始下降，最適合入睡。";
         footerHeight = 40;
+        
+        [self postponeForAFewSecondThenChangeSectionOneFooter];
     } else {
-        footerText = @"";
-        footerHeight = 0;
+        if (footerText) {
+            footerText = nil;
+            footerHeight = 0;
+            
+            [self postponeForAFewSecondThenChangeSectionOneFooter];
+        } else {
+            footerText = nil;
+            footerHeight = 0;
+        }
     }
-    
-    [self postponeForAFewSecondThenChangeSectionOneFooter];
 }
 
 - (void)switchChanged4:(id)sender
@@ -240,12 +261,19 @@
     if (self.switchControl.on) {
         footerText = @"App 會在午夜時發出通知";
         footerHeight = 30;
+        
+        [self postponeForAFewSecondThenChangeSectionOneFooter];
     } else {
-        footerText = @"";
-        footerHeight = 0;
+        if (footerText) {
+            footerText = nil;
+            footerHeight = 0;
+            
+            [self postponeForAFewSecondThenChangeSectionOneFooter];
+        } else {
+            footerText = nil;
+            footerHeight = 0;
+        }
     }
-    
-    [self postponeForAFewSecondThenChangeSectionOneFooter];
 }
 
 - (void)switchChanged5:(id)sender
@@ -258,7 +286,7 @@
     } else {
         [self dontHaveEnoughDataAlert];
         
-        footerText = @"";
+        footerText = nil;
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
@@ -273,7 +301,7 @@
     } else {
         [self dontHaveEnoughDataAlert];
         
-        footerText = @"";
+        footerText = nil;
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
