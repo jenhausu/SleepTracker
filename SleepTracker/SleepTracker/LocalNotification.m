@@ -16,6 +16,8 @@
 
 - (void)setLocalNotificationWithMessage:(NSString *)message fireDate:(NSDate *)fireDate repeatOrNot:(BOOL)repeat Sound:(NSString *)sound
 {
+    [self checkIfAppGetUserPermission];
+    
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     localNotification.fireDate = fireDate;
@@ -27,6 +29,8 @@
 - (void)setLocalNotificationWithMessage:(NSString *)message fireDate:(NSDate *)fireDate repeatOrNot:(BOOL)repeat Sound:(NSString *)sound
                                setValue:(id)value forKey:(NSString *)key
 {
+    [self checkIfAppGetUserPermission];
+    
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     localNotification.fireDate = fireDate;
@@ -41,6 +45,14 @@
     }
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+}
+
+- (void)checkIfAppGetUserPermission
+{
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound|UIUserNotificationTypeBadge
+                                                                                                              categories:nil]];
+    }
 }
 
 #pragma mark - Fetch
