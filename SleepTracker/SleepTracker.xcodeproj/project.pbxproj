@@ -407,9 +407,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D8901C21A4B5119001A69A3 /* SleepTracker */ = {
+		1D8901C21A4B5119001A69A3 /* SleepEarlier */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D8901E91A4B511A001A69A3 /* Build configuration list for PBXNativeTarget "SleepTracker" */;
+			buildConfigurationList = 1D8901E91A4B511A001A69A3 /* Build configuration list for PBXNativeTarget "SleepEarlier" */;
 			buildPhases = (
 				1D8901BF1A4B5119001A69A3 /* Sources */,
 				1D8901C01A4B5119001A69A3 /* Frameworks */,
@@ -419,7 +419,7 @@
 			);
 			dependencies = (
 			);
-			name = SleepTracker;
+			name = SleepEarlier;
 			productName = SleepTracker;
 			productReference = 1D8901C31A4B5119001A69A3 /* SleepTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -474,7 +474,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D8901C21A4B5119001A69A3 /* SleepTracker */,
+				1D8901C21A4B5119001A69A3 /* SleepEarlier */,
 				1D8901DE1A4B511A001A69A3 /* SleepTrackerTests */,
 			);
 		};
@@ -557,7 +557,7 @@
 /* Begin PBXTargetDependency section */
 		1D8901E11A4B511A001A69A3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1D8901C21A4B5119001A69A3 /* SleepTracker */;
+			target = 1D8901C21A4B5119001A69A3 /* SleepEarlier */;
 			targetProxy = 1D8901E01A4B511A001A69A3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -711,7 +711,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1D8901E91A4B511A001A69A3 /* Build configuration list for PBXNativeTarget "SleepTracker" */ = {
+		1D8901E91A4B511A001A69A3 /* Build configuration list for PBXNativeTarget "SleepEarlier" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D8901EA1A4B511A001A69A3 /* Debug */,
