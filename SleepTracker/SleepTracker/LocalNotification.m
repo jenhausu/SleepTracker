@@ -12,14 +12,23 @@
 
 @implementation LocalNotification
 
+#pragma mark - Set
+
+- (void)setLocalNotificationWithMessage:(NSString *)message fireDate:(NSDate *)fireDate repeatOrNot:(BOOL)repeat Sound:(NSString *)sound
+{
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = fireDate;
+    localNotification.alertBody = message;
+    
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.soundName = sound;  //@"UILocalNotificationDefaultSoundName"
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+}
+
 - (void)setLocalNotificationWithMessage:(NSString *)message fireDate:(NSDate *)fireDate repeatOrNot:(BOOL)repeat Sound:(NSString *)sound
                                setValue:(id)value forKey:(NSString *)key
 {
-    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
-        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound|UIUserNotificationTypeBadge
-                                                                                                              categories:nil]];
-    }
-    
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = fireDate;
     localNotification.alertBody = message;
@@ -35,6 +44,78 @@
     }
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+}
+
+#pragma mark - Fetch
+
+- (id)fetchLocalNotificationWithParticularOneValue:(id)value forKey:(NSString *)key
+{
+    UIApplication *application = [UIApplication sharedApplication];
+    NSArray *arrayOfAllLocalNotification = [application scheduledLocalNotifications];
+    UILocalNotification *localNotification;
+    NSDictionary *userInfo;
+    
+    for (NSInteger row = 0 ; row < arrayOfAllLocalNotification.count ; row++ )
+    {
+        localNotification = arrayOfAllLocalNotification[row];
+        userInfo = localNotification.userInfo;
+        
+        if ([[userInfo objectForKey:key] isEqualToString:value])
+        {
+            return localNotification;
+        }
+    }
+    
+    return nil;
+}
+
+- (NSMutableArray *)fetchLocalNotifictionWithParticularKindOfValue:(id)value forKey:(NSString *)key
+{
+    UIApplication *application = [UIApplication sharedApplication];
+    NSArray *arrayOfAllLocalNotification = [application scheduledLocalNotifications];
+    UILocalNotification *localNotification;
+    NSDictionary *userInfo;
+    
+    NSMutableArray *returnArray;
+    
+    for (NSInteger row = 0 ; row < arrayOfAllLocalNotification.count ; row++ )
+    {
+        localNotification = arrayOfAllLocalNotification[row];
+        userInfo = localNotification.userInfo;
+        
+        if ([[userInfo objectForKey:key] isEqualToString:value])
+        {
+            [returnArray addObject:localNotification];
+        }
+    }
+    
+    return returnArray;
+}
+
+#pragma mark - Delete
+
+- (void)deleteLocalNotificaionWithValue:(id)value foreKey:(NSString *)key
+{
+    UIApplication *application = [UIApplication sharedApplication];
+    NSArray *arrayOfAllLocalNotification = [application scheduledLocalNotifications];
+    UILocalNotification *localNotification;
+    NSDictionary *userInfo;
+    
+    for (NSInteger row = 0 ; row < arrayOfAllLocalNotification.count ; row++ )
+    {
+        localNotification = arrayOfAllLocalNotification[row];
+        userInfo = localNotification.userInfo;
+        
+        if ([[userInfo objectForKey:key] isEqualToString:value])
+        {
+            [application cancelLocalNotification:localNotification];
+        }
+    }
+}
+
+- (void)deleteAllLocalNotification
+{
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
 @end
