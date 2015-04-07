@@ -8,16 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1D1CB5BF1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1CB5BE1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m */; };
-		1D1F91291AAED8BD0029BCD8 /* tab bar icons-07.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F91161AAED8BD0029BCD8 /* tab bar icons-07.png */; };
-		1D1F912A1AAED8BD0029BCD8 /* tab bar icons-06.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F91171AAED8BD0029BCD8 /* tab bar icons-06.png */; };
-		1D1F912B1AAED8BD0029BCD8 /* statistic.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F91181AAED8BD0029BCD8 /* statistic.png */; };
-		1D1F912D1AAED8BD0029BCD8 /* 19-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F911A1AAED8BD0029BCD8 /* 19-gear.png */; };
-		1D1F912E1AAED8BD0029BCD8 /* 16-line-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F911B1AAED8BD0029BCD8 /* 16-line-chart.png */; };
-		1D1F91331AAED8BD0029BCD8 /* storage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F91201AAED8BD0029BCD8 /* storage.png */; };
-		1D1F91361AAED8BD0029BCD8 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F91231AAED8BD0029BCD8 /* gear.png */; };
-		1D1F91371AAED8BD0029BCD8 /* presentation.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F91241AAED8BD0029BCD8 /* presentation.png */; };
-		1D1F91391AAED8BD0029BCD8 /* pen.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F91261AAED8BD0029BCD8 /* pen.png */; };
-		1D1F913A1AAED8BD0029BCD8 /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F91271AAED8BD0029BCD8 /* pencil.png */; };
 		1D26812A1A4C070300D510F8 /* History2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2681291A4C070300D510F8 /* History2TableViewController.m */; };
 		1D2C076A1AA057A500434EF2 /* CustomNotification-Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2C07691AA057A500434EF2 /* CustomNotification-Model.m */; };
 		1D2DB7EA1A6D677000A72EFA /* Statistic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB7E91A6D677000A72EFA /* Statistic.m */; };
@@ -42,6 +32,11 @@
 		1D995E011A7D4D37002F069C /* HopeToGoToSleepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */; };
 		1DBC7C031A70FD81007B35B8 /* IntelligentNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */; };
 		1DBC7C0F1A70FFBB007B35B8 /* LocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC7C0E1A70FFBB007B35B8 /* LocalNotification.m */; };
+		1DBCE4941AD39BC1001DCB80 /* double_bed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCE4931AD39BC1001DCB80 /* double_bed@2x.png */; };
+		1DBCE4AA1AD3A334001DCB80 /* Settings-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCE4A91AD3A334001DCB80 /* Settings-50@2x.png */; };
+		1DBCE4AC1AD3A39F001DCB80 /* Tones-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCE4AB1AD3A39F001DCB80 /* Tones-50@2x.png */; };
+		1DBCE4AE1AD3A3F2001DCB80 /* Combo Chart-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCE4AD1AD3A3F2001DCB80 /* Combo Chart-50@2x.png */; };
+		1DBCE4B01AD3A512001DCB80 /* Create New-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCE4AF1AD3A512001DCB80 /* Create New-50@2x.png */; };
 		1DBCE5B31A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCE5B21A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m */; };
 		1DBCE5B71A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCE5B61A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m */; };
 		1DCDD3E31AA1E59200609D2F /* CustomNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDD3E21AA1E59200609D2F /* CustomNotificationTableViewCell.m */; };
@@ -63,16 +58,6 @@
 /* Begin PBXFileReference section */
 		1D1CB5BD1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShouldGoToSleepTimeTableViewController.h; sourceTree = "<group>"; };
 		1D1CB5BE1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShouldGoToSleepTimeTableViewController.m; sourceTree = "<group>"; };
-		1D1F91161AAED8BD0029BCD8 /* tab bar icons-07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab bar icons-07.png"; sourceTree = "<group>"; };
-		1D1F91171AAED8BD0029BCD8 /* tab bar icons-06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab bar icons-06.png"; sourceTree = "<group>"; };
-		1D1F91181AAED8BD0029BCD8 /* statistic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statistic.png; sourceTree = "<group>"; };
-		1D1F911A1AAED8BD0029BCD8 /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-gear.png"; sourceTree = "<group>"; };
-		1D1F911B1AAED8BD0029BCD8 /* 16-line-chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "16-line-chart.png"; sourceTree = "<group>"; };
-		1D1F91201AAED8BD0029BCD8 /* storage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storage.png; sourceTree = "<group>"; };
-		1D1F91231AAED8BD0029BCD8 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
-		1D1F91241AAED8BD0029BCD8 /* presentation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = presentation.png; sourceTree = "<group>"; };
-		1D1F91261AAED8BD0029BCD8 /* pen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pen.png; sourceTree = "<group>"; };
-		1D1F91271AAED8BD0029BCD8 /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
 		1D2681281A4C070300D510F8 /* History2TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History2TableViewController.h; sourceTree = "<group>"; };
 		1D2681291A4C070300D510F8 /* History2TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History2TableViewController.m; sourceTree = "<group>"; };
 		1D2C07681AA057A500434EF2 /* CustomNotification-Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CustomNotification-Model.h"; sourceTree = "<group>"; };
@@ -120,6 +105,11 @@
 		1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntelligentNotification.m; sourceTree = "<group>"; };
 		1DBC7C0D1A70FFBB007B35B8 /* LocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotification.h; sourceTree = "<group>"; };
 		1DBC7C0E1A70FFBB007B35B8 /* LocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotification.m; sourceTree = "<group>"; };
+		1DBCE4931AD39BC1001DCB80 /* double_bed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "double_bed@2x.png"; sourceTree = "<group>"; };
+		1DBCE4A91AD3A334001DCB80 /* Settings-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-50@2x.png"; sourceTree = "<group>"; };
+		1DBCE4AB1AD3A39F001DCB80 /* Tones-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tones-50@2x.png"; sourceTree = "<group>"; };
+		1DBCE4AD1AD3A3F2001DCB80 /* Combo Chart-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Combo Chart-50@2x.png"; sourceTree = "<group>"; };
+		1DBCE4AF1AD3A512001DCB80 /* Create New-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Create New-50@2x.png"; sourceTree = "<group>"; };
 		1DBCE5B11A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewSleepdataTableViewController.h; sourceTree = "<group>"; };
 		1DBCE5B21A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewSleepdataTableViewController.m; sourceTree = "<group>"; };
 		1DBCE5B51A7BA319009DDCDC /* AddNewSleepdataTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewSleepdataTwoViewController.h; sourceTree = "<group>"; };
@@ -166,50 +156,13 @@
 		1D1F91141AAED8AC0029BCD8 /* Tab Bar icon */ = {
 			isa = PBXGroup;
 			children = (
-				1D1F913B1AAED8F90029BCD8 /* 記錄 */,
-				1D1F913E1AAED9440029BCD8 /* 睡眠足跡 */,
-				1D1F913C1AAED9110029BCD8 /* 統計圖表 */,
-				1D1F913D1AAED9200029BCD8 /* 設定 */,
+				1DBCE4AF1AD3A512001DCB80 /* Create New-50@2x.png */,
+				1DBCE4931AD39BC1001DCB80 /* double_bed@2x.png */,
+				1DBCE4AD1AD3A3F2001DCB80 /* Combo Chart-50@2x.png */,
+				1DBCE4AB1AD3A39F001DCB80 /* Tones-50@2x.png */,
+				1DBCE4A91AD3A334001DCB80 /* Settings-50@2x.png */,
 			);
 			name = "Tab Bar icon";
-			sourceTree = "<group>";
-		};
-		1D1F913B1AAED8F90029BCD8 /* 記錄 */ = {
-			isa = PBXGroup;
-			children = (
-				1D1F91261AAED8BD0029BCD8 /* pen.png */,
-				1D1F91271AAED8BD0029BCD8 /* pencil.png */,
-			);
-			name = "記錄";
-			sourceTree = "<group>";
-		};
-		1D1F913C1AAED9110029BCD8 /* 統計圖表 */ = {
-			isa = PBXGroup;
-			children = (
-				1D1F91161AAED8BD0029BCD8 /* tab bar icons-07.png */,
-				1D1F91181AAED8BD0029BCD8 /* statistic.png */,
-				1D1F911B1AAED8BD0029BCD8 /* 16-line-chart.png */,
-				1D1F91241AAED8BD0029BCD8 /* presentation.png */,
-			);
-			name = "統計圖表";
-			sourceTree = "<group>";
-		};
-		1D1F913D1AAED9200029BCD8 /* 設定 */ = {
-			isa = PBXGroup;
-			children = (
-				1D1F911A1AAED8BD0029BCD8 /* 19-gear.png */,
-				1D1F91231AAED8BD0029BCD8 /* gear.png */,
-			);
-			name = "設定";
-			sourceTree = "<group>";
-		};
-		1D1F913E1AAED9440029BCD8 /* 睡眠足跡 */ = {
-			isa = PBXGroup;
-			children = (
-				1D1F91171AAED8BD0029BCD8 /* tab bar icons-06.png */,
-				1D1F91201AAED8BD0029BCD8 /* storage.png */,
-			);
-			name = "睡眠足跡";
 			sourceTree = "<group>";
 		};
 		1D2DB7FE1A70F31800A72EFA /* Custom Notification */ = {
@@ -485,18 +438,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D1F912B1AAED8BD0029BCD8 /* statistic.png in Resources */,
-				1D1F91391AAED8BD0029BCD8 /* pen.png in Resources */,
-				1D1F91331AAED8BD0029BCD8 /* storage.png in Resources */,
-				1D1F91361AAED8BD0029BCD8 /* gear.png in Resources */,
+				1DBCE4941AD39BC1001DCB80 /* double_bed@2x.png in Resources */,
+				1DBCE4B01AD3A512001DCB80 /* Create New-50@2x.png in Resources */,
 				1D8902051A4B5199001A69A3 /* Main.storyboard in Resources */,
-				1D1F91371AAED8BD0029BCD8 /* presentation.png in Resources */,
-				1D1F912E1AAED8BD0029BCD8 /* 16-line-chart.png in Resources */,
-				1D1F912D1AAED8BD0029BCD8 /* 19-gear.png in Resources */,
-				1D1F913A1AAED8BD0029BCD8 /* pencil.png in Resources */,
+				1DBCE4AA1AD3A334001DCB80 /* Settings-50@2x.png in Resources */,
+				1DBCE4AE1AD3A3F2001DCB80 /* Combo Chart-50@2x.png in Resources */,
+				1DBCE4AC1AD3A39F001DCB80 /* Tones-50@2x.png in Resources */,
 				1D8901D71A4B5119001A69A3 /* Images.xcassets in Resources */,
-				1D1F91291AAED8BD0029BCD8 /* tab bar icons-07.png in Resources */,
-				1D1F912A1AAED8BD0029BCD8 /* tab bar icons-06.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
