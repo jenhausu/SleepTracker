@@ -81,7 +81,7 @@
                             <constraint firstItem="EDO-Pq-6Ld" firstAttribute="top" secondItem="m7v-RI-Q5m" secondAttribute="bottom" constant="8" id="j1Z-yJ-dGb"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="紀錄" image="pen.png" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="紀錄" image="Create New-50.png" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="alreadyAwakeLabel" destination="ocf-9R-tfj" id="ZSK-5u-VOO"/>
                         <outlet property="alreadySleptLabel" destination="MHo-HO-9Qg" id="X5u-7z-J49"/>
@@ -355,11 +355,11 @@
             </objects>
             <point key="canvasLocation" x="3085" y="3195"/>
         </scene>
-        <!--睡眠提醒-->
+        <!--睡前通知-->
         <scene sceneID="Nrv-8f-GuC">
             <objects>
                 <navigationController id="7wF-Tl-lga" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="睡眠提醒" id="FTj-Je-5sj"/>
+                    <tabBarItem key="tabBarItem" title="睡前通知" image="Tones-50.png" id="FTj-Je-5sj"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kjh-TX-TYa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -370,7 +370,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i6E-ha-vuR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-333" y="1590"/>
+            <point key="canvasLocation" x="762" y="1566"/>
         </scene>
         <!--睡前通知-->
         <scene sceneID="d1n-4X-Nne">
@@ -437,7 +437,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7by-jK-upe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="747" y="1590"/>
+            <point key="canvasLocation" x="1622" y="1566"/>
         </scene>
         <!--Intelligent Notification Table View Controller-->
         <scene sceneID="ep1-gv-gQB">
@@ -479,7 +479,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqT-oB-UeY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1652" y="1128"/>
+            <point key="canvasLocation" x="2527" y="1104"/>
         </scene>
         <!--自訂睡前通知-->
         <scene sceneID="Mw0-UU-4IW">
@@ -552,7 +552,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gD-TD-XMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1652" y="1962"/>
+            <point key="canvasLocation" x="2527" y="1938"/>
         </scene>
         <!--新增自訂睡前通知-->
         <scene sceneID="TId-uF-stx">
@@ -623,7 +623,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUL-9s-Fyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3226" y="1641"/>
+            <point key="canvasLocation" x="4101" y="1617"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="TIA-qr-Fe1">
@@ -705,7 +705,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NJc-zE-jYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2513" y="2357"/>
+            <point key="canvasLocation" x="3388" y="2333"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y0s-GO-CHk">
@@ -721,13 +721,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dnm-Vd-LXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2513" y="1641"/>
+            <point key="canvasLocation" x="3388" y="1617"/>
         </scene>
         <!--設定-->
         <scene sceneID="du2-s9-udy">
             <objects>
                 <navigationController id="XFN-u5-hst" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="設定" image="19-gear.png" id="M3r-g0-wub"/>
+                    <tabBarItem key="tabBarItem" title="設定" image="Settings-50.png" id="M3r-g0-wub"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MnY-fg-nQT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -943,7 +943,7 @@
                             <constraint firstItem="L1n-HH-24R" firstAttribute="centerX" secondItem="Ftx-mB-ftg" secondAttribute="centerX" id="z9j-S0-5OU"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="統計圖表" image="16-line-chart.png" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="統計圖表" image="Combo Chart-50.png" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="getUpTooLate" destination="Wyo-I5-qIn" id="jAg-Xu-ASd"/>
                         <outlet property="goToBedTimeAvgLabel" destination="7Fa-iN-Jh0" id="imd-3p-9oc"/>
@@ -1238,7 +1238,7 @@
         <scene sceneID="xJu-Ph-s68">
             <objects>
                 <navigationController id="RnY-EW-5cx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="睡眠足跡" image="storage.png" id="8jF-8C-2si"/>
+                    <tabBarItem key="tabBarItem" title="睡眠足跡" image="double_bed.png" id="8jF-8C-2si"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8GW-H4-Z9L">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1275,9 +1275,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="16-line-chart.png" width="30" height="24"/>
-        <image name="19-gear.png" width="26" height="26"/>
-        <image name="pen.png" width="30" height="30"/>
-        <image name="storage.png" width="30" height="30"/>
+        <image name="Combo Chart-50.png" width="25" height="25"/>
+        <image name="Create New-50.png" width="25" height="25"/>
+        <image name="Settings-50.png" width="25" height="25"/>
+        <image name="Tones-50.png" width="25" height="25"/>
+        <image name="double_bed.png" width="32" height="32"/>
     </resources>
 </document>
