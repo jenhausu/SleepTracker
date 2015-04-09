@@ -49,11 +49,16 @@
 
 #pragma mark - view
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.title = self.parentViewController.tabBarItem.title;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:NO];
-    
-    self.title = @"智能提醒";
     
     fireDate = [self.intelligentNotification decideFireDate];
     notificationName = [self.intelligentNotification decideNotificationTitle];
