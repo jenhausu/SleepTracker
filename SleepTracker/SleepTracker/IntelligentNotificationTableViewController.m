@@ -350,7 +350,6 @@
         [timer invalidate];
         
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-#warning 螢幕會稍微閃爍一下，取消的時候會比較明顯，開啟的時候使用者目光會被出現的文字吸引，比較不會注意到
     }
 }
 
