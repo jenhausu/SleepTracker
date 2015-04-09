@@ -144,7 +144,7 @@
         if (indexPath.row == 0) {
             UITableViewCell *cell2 = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
             
-            cell2.textLabel.text = @"自訂睡眠通知";
+            cell2.textLabel.text = @"自訂睡前通知";
             cell2.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell2.selectionStyle = UITableViewCellSelectionStyleDefault;
             
