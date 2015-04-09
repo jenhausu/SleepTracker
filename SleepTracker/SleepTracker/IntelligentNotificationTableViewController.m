@@ -190,7 +190,7 @@
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
         
         UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"CustomNotification"];
-        page2.title = @"自訂睡眠通知";
+        page2.title = @"自訂睡前通知";
         
         [self.navigationController pushViewController:page2 animated:YES];
     }
