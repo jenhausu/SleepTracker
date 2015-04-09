@@ -78,75 +78,76 @@
     if (section == 0) {
         return 4;
     } else if (section == 1) {
-        return 1;
+        return 2;
     } else {
         return 1;
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"HH:mm"];
-    
-    if (indexPath.section == 0) {
-        cell.textLabel.text = notificationName[indexPath.row];
-    } else if (indexPath.section == 1) {
-        cell.textLabel.text = notificationName[4];
-    } else {
-        cell.textLabel.text = notificationName[5];
-    }
-    cell.detailTextLabel.text = [formatter stringFromDate:fireDate[indexPath.row]];
-
-    UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(1.0, 1.0, 20.0, 30.0)];
-    cell.accessoryView = switchControl;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    if (indexPath.section == 0)
-    {
-        switchControl.on = [userPreferences boolForKey:notificationName[indexPath.row]];
-        cell.detailTextLabel.text = [formatter stringFromDate:fireDate[indexPath.row]];
-
-        if (indexPath.row == 0) {
-            [switchControl addTarget:self action:@selector(switchChanged1:) forControlEvents:UIControlEventValueChanged];
-        }
-        else if (indexPath.row == 1) {
-            [switchControl addTarget:self action:@selector(switchChanged2:) forControlEvents:UIControlEventValueChanged];
-        }
-        else if (indexPath.row == 2) {
-            [switchControl addTarget:self action:@selector(switchChanged3:) forControlEvents:UIControlEventValueChanged];
-        }
-        else if (indexPath.row == 3) {
-            [switchControl addTarget:self action:@selector(switchChanged4:) forControlEvents:UIControlEventValueChanged];
-        }
-    }
-    else if (indexPath.section == 1) {
-        if (indexPath.row == 0) {
-            switchControl.on = [userPreferences boolForKey:notificationName[4]];
-            [switchControl addTarget:self action:@selector(switchChanged5:) forControlEvents:UIControlEventValueChanged];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section != 2) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"HH:mm"];
+        
+        UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(1.0, 1.0, 20.0, 30.0)];
+        cell.accessoryView = switchControl;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        if (indexPath.section == 0)
+        {
+            cell.textLabel.text = notificationName[indexPath.row];
+            cell.detailTextLabel.text = [formatter stringFromDate:fireDate[indexPath.row]];
             
+            switchControl.on = [userPreferences boolForKey:notificationName[indexPath.row]];
+            
+            if (indexPath.row == 0) {
+                [switchControl addTarget:self action:@selector(switchChanged1:) forControlEvents:UIControlEventValueChanged];
+            }
+            else if (indexPath.row == 1) {
+                [switchControl addTarget:self action:@selector(switchChanged2:) forControlEvents:UIControlEventValueChanged];
+            }
+            else if (indexPath.row == 2) {
+                [switchControl addTarget:self action:@selector(switchChanged3:) forControlEvents:UIControlEventValueChanged];
+            }
+            else if (indexPath.row == 3) {
+                [switchControl addTarget:self action:@selector(switchChanged4:) forControlEvents:UIControlEventValueChanged];
+            }
+        }
+        else if (indexPath.section == 1) {
+            cell.textLabel.text = notificationName[4 + indexPath.row];
             if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && self.sleepData.wakeUpTime > 0) ) {
-                cell.detailTextLabel.text = [formatter stringFromDate:fireDate[4]];
+                cell.detailTextLabel.text = [formatter stringFromDate:fireDate[4 + indexPath.row]];
             } else {
                 cell.detailTextLabel.text = @"--:--";
             }
-        }
-    }
-    else if (indexPath.section == 2) {
-        if (indexPath.row == 0) {
-            switchControl.on = [userPreferences boolForKey:notificationName[5]];
-            [switchControl addTarget:self action:@selector(switchChanged6:) forControlEvents:UIControlEventValueChanged];
             
-            if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && self.sleepData.wakeUpTime > 0) ) {
-                cell.detailTextLabel.text = [formatter stringFromDate:fireDate[5]];
-            } else {
-                cell.detailTextLabel.text = @"--:--";
+            switchControl.on = [userPreferences boolForKey:notificationName[4 + indexPath.row]];
+            
+            if (indexPath.row == 0) {
+                [switchControl addTarget:self action:@selector(switchChanged5:) forControlEvents:UIControlEventValueChanged];
+            } else if (indexPath.row == 1) {
+                [switchControl addTarget:self action:@selector(switchChanged6:) forControlEvents:UIControlEventValueChanged];
             }
+        }
+        
+        return cell;
+        
+    } else if (indexPath.section == 2) {
+        if (indexPath.row == 0) {
+            UITableViewCell *cell2 = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
+            
+            cell2.textLabel.text = @"自訂睡眠通知";
+            cell2.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell2.selectionStyle = UITableViewCellSelectionStyleDefault;
+            
+            return cell2;
         }
     }
     
-    return cell;
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -175,6 +176,18 @@
         return footerView;
     } else {
         return nil;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 2) {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"CustomNotification"];
+        page2.title = @"自訂睡眠通知";
+        
+        [self.navigationController pushViewController:page2 animated:YES];
     }
 }
 
