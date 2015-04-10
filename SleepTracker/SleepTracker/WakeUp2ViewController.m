@@ -38,13 +38,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    const NSInteger LATEST_DATA = 0;
+    
     formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"u/MM/dd EEE ahh:mm"];
     
-    self.sleepDataModel = [[SleepDataModel alloc] init];
-    fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
-    const NSInteger LATEST_DATA = 0;
+    fetchDataArray = [[[SleepDataModel alloc] init] fetchSleepDataSortWithAscending:NO];
     self.sleepData = fetchDataArray[LATEST_DATA];
+    
     if ([DateType isEqualToString:@"goToBedTime"])
     {
         self.datePicker.date = goToBedTime;
