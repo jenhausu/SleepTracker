@@ -11,7 +11,7 @@
 #import "SleepDataModel.h"
 #import "SleepData.h"
 
-@interface History2TableViewController ()
+@interface History2TableViewController () <UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSArray *section1;
 @property (nonatomic, strong) NSArray *section2;
@@ -112,6 +112,8 @@
     return cell;
 }
 
+#pragma mark - UITableViewDelegate
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -142,7 +144,7 @@
     }
 }
 
-#pragma mark -
+#pragma mark - Custom Method
 
 - (IBAction)update:(id)sender {
     switch (selectedSleepType) {
@@ -168,6 +170,13 @@
                                           otherButtonTitles:@"確定", nil];
 
     [alert show];
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
