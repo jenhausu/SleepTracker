@@ -9,6 +9,7 @@
 #import "HopeToGoToSleepViewController.h"
 
 #import "LocalNotification.h"
+#import "IntelligentNotification.h"
 
 @interface HopeToGoToSleepViewController ()
 
@@ -84,6 +85,8 @@
                                                               repeatOrNot:YES
                                                                     Sound:@"UILocalNotificationDefaultSoundName"
                                                                  setValue:@"HopeToGoToBed" forKey:@"NotificationType"];
+        
+        [[[IntelligentNotification alloc] init] rescheduleIntelligentNotification];
     }
 }
 

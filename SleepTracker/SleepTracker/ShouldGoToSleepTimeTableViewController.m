@@ -8,6 +8,8 @@
 
 #import "ShouldGoToSleepTimeTableViewController.h"
 
+#import "IntelligentNotification.h"
+
 @interface ShouldGoToSleepTimeTableViewController ()
 
 @property (strong, nonatomic) NSArray *section1;
@@ -146,6 +148,8 @@
             oldCell.accessoryType = UITableViewCellAccessoryNone;
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
             selectedRow = indexPath.row;
+            
+            [[[IntelligentNotification alloc] init] rescheduleIntelligentNotification];
         }
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
