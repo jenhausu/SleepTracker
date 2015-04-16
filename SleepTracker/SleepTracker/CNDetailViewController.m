@@ -11,7 +11,7 @@
 #import "CustomNotification-Model.h"
 #import "CustomNotification.h"
 
-@interface CNDetailViewController ()
+@interface CNDetailViewController () <UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
