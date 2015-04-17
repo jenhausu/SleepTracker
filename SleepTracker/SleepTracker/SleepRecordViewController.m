@@ -81,14 +81,18 @@
         {
             [self startCountingAwakeTime];
             [self.button setTitle:@"上床" forState:UIControlStateNormal];
+            self.alreadySleptLabel.text = @"00:00:00";
         }
         else  //sleep state
         {
             [self startCountingSleepTime];
             [self.button setTitle:@"起床" forState:UIControlStateNormal];
+            self.alreadyAwakeLabel.text = @"00:00:00";
         }
     } else {
         [self.button setTitle:@"上床" forState:UIControlStateNormal];
+        self.alreadySleptLabel.text = @"00:00:00";
+        self.alreadyAwakeLabel.text = @"00:00:00";
     }
 }
 
