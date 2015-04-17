@@ -15,6 +15,7 @@
 
 @interface IntelligentNotification ()
 
+@property (nonatomic) SleepData *sleepData;
 @property (nonatomic) Statistic *statistic;
 
 @end
@@ -168,13 +169,28 @@
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     LocalNotification *localNotification = [[LocalNotification alloc] init];
     
-    for (NSInteger i = 0 ; i < [notification count] ; i++ ) {
-        if ([userPreferences boolForKey:notification[i]]) {
-            [localNotification setLocalNotificationWithMessage:Message[i]
-                                                      fireDate:fireDate[i]
-                                                   repeatOrNot:YES
-                                                         Sound:@"UILocalNotificationDefaultSoundName"
-                                                      setValue:@"IntelligentNotification" forKey:@"NotificationType"];
+    NSArray *fetchArray = [[[SleepDataModel alloc] init] fetchSleepDataSortWithAscending:NO];
+    if (fetchArray.count) {  //判斷有沒有資料，有資料的話就可以知道現在的睡眠壯代
+        if ([[userPreferences valueForKey:@"睡眠狀態"] isEqualToString:@"清醒"]) {
+            for (NSInteger i = 0 ; i < [notification count] ; i++ ) {
+                if ([userPreferences boolForKey:notification[i]]) {
+                    [localNotification setLocalNotificationWithMessage:Message[i]
+                                                              fireDate:fireDate[i]
+                                                           repeatOrNot:YES
+                                                                 Sound:@"UILocalNotificationDefaultSoundName"
+                                                              setValue:@"IntelligentNotification" forKey:@"NotificationType"];
+                }
+            }
+        }
+    } else {
+        for (NSInteger i = 0 ; i < [notification count] ; i++ ) {  //如果沒有資料，就一定是清醒狀態，要不讓起馬會有一筆只有上床時間的資料，所以不用檢查睡眠狀態。要獨立分出來是因為在沒有資料時，如果想要設定睡前通知的時候會被 if (fetchArray.count) 這個判別是給過濾掉
+            if ([userPreferences boolForKey:notification[i]]) {
+                [localNotification setLocalNotificationWithMessage:Message[i]
+                                                          fireDate:fireDate[i]
+                                                       repeatOrNot:YES
+                                                             Sound:@"UILocalNotificationDefaultSoundName"
+                                                          setValue:@"IntelligentNotification" forKey:@"NotificationType"];
+            }
         }
     }
 }

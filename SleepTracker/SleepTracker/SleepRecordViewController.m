@@ -27,14 +27,15 @@
 @property (nonatomic, strong) NSArray *fetchDataArray;
 
 @property (nonatomic, strong) IntelligentNotification *intelligentNotification;
-
 @property (nonatomic, strong) CustomNotification_Model *customNotification;
+
+@property (nonatomic) NSUserDefaults *userPreferences;
 
 @end
 
 @implementation SleepRecordViewController
 
-@synthesize timer, fetchDataArray;
+@synthesize timer, fetchDataArray, userPreferences;
 
 #pragma mark - Lazy Initialization
 
@@ -71,6 +72,8 @@
 {
     [super viewWillAppear:NO];
     
+    userPreferences = [NSUserDefaults standardUserDefaults];
+    
     fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
     if ([fetchDataArray count]) {  //避免一開始完全沒有任何資
         self.sleepData = fetchDataArray[0];
@@ -97,7 +100,6 @@
         
         NSDate *now = [NSDate date];
         [self.sleepDataModel addNewSleepdataAndAddGoToBedTime:now wakeUpTime:nil sleepTime:nil sleepType:nil];
-        
         fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
 
         NSInteger const LATEST_DATA = 0;
@@ -109,6 +111,8 @@
         
         [self.intelligentNotification deleteAllIntelligentNotification];
         [self.customNotification cancelAllCustomNotification];
+        
+        [userPreferences setValue:@"睡覺" forKey:@"睡眠狀態"];
     }else {
         UINavigationController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"wakeUpPage"];
         [self presentViewController:page2 animated:YES completion:nil];
@@ -129,6 +133,7 @@
     [self stopTimer];
     [self startCountingAwakeTime];
     
+    [userPreferences setValue:@"清醒" forKey:@"睡眠狀態"];
     [self.intelligentNotification rescheduleIntelligentNotification];
     [self.customNotification setCustomNotificatioin];
 }
