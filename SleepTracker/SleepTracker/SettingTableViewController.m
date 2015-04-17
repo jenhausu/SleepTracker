@@ -66,19 +66,13 @@
         [self.navigationController pushViewController:page2 animated:YES];
     }
     else if (indexPath.section == 1) {
-        if (indexPath.row == 0)
-        {
+        if (indexPath.row == 0) {
             if ([MFMailComposeViewController canSendMail])
             {
-                NSString *emailTitle = @"Title";
-                NSString *messageBody = @"Message Body";
-                NSArray *toRecipents = [NSArray arrayWithObject:@"jenhausu@icloud.com"];
-                
                 MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
                 mailViewController.mailComposeDelegate = self;
-                [mailViewController setSubject:emailTitle];
-                [mailViewController setMessageBody:messageBody isHTML:YES];
-                [mailViewController setToRecipients:toRecipents];
+                
+                [mailViewController setToRecipients:[NSArray arrayWithObject:@"jenhausu@icloud.com"]];
                 
                 [self presentViewController:mailViewController animated:YES completion:NULL];
             } else {
@@ -93,18 +87,18 @@
     }
 }
 
-- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
     switch (result)
     {
         case MFMailComposeResultCancelled:
-            NSLog(@"Mail cancelled");
+            
             break;
         case MFMailComposeResultSaved:
-            NSLog(@"Mail saved");
+            
             break;
         case MFMailComposeResultSent:
-            NSLog(@"Mail sented");
+            
             break;
         case MFMailComposeResultFailed:
             NSLog(@"Mail sent failure: %@", [error localizedDescription]);
