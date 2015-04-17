@@ -113,18 +113,27 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        self.sleepData = fetchDataArray[indexPath.row];
-        if (!self.sleepData.wakeUpTime) {  //如果刪除的這筆資料是入睡狀態，刪掉後就是處於醒來的狀態，那就要重新設定通知
-            [self.customNotification setCustomNotificatioin];
-        }
-        
+        //刪除資料
         [self.sleepDataModel deleteSleepData:fetchDataArray[indexPath.row]];
         fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
-        [self.intelligentNotification rescheduleIntelligentNotification];  //有資料被刪除的話，要重新排成睡前通知
-        
-        
+        //重新設定睡前通知
+        NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+        if (fetchDataArray.count) {
+            self.sleepData = fetchDataArray[0];
+            if (self.sleepData.wakeUpTime) {
+                [userPreferences setValue:@"清醒" forKey:@"睡眠狀態"];
+                [self.customNotification resetCustomNotification];
+                [self.intelligentNotification rescheduleIntelligentNotification];
+            } else {
+                [userPreferences setValue:@"睡著" forKey:@"睡眠狀態"];
+            }
+        } else {
+            [userPreferences setValue:@"清醒" forKey:@"睡眠狀態"];
+            [self.customNotification resetCustomNotification];
+            [self.intelligentNotification rescheduleIntelligentNotification];
+        }
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
