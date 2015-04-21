@@ -61,4 +61,17 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - 把虛擬鍵盤收起來
+
+//點擊其它地方讓鍵盤收起來
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+
+//按下 return 鍵收起鍵盤
+- (IBAction)returnPress:(id)sender {
+    [sender resignFirstResponder];
+}
+
 @end
