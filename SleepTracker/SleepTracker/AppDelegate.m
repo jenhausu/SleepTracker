@@ -55,6 +55,15 @@
 {
     application.applicationIconBadgeNumber = 1;
     application.applicationIconBadgeNumber = 0;
+    
+    UIApplicationState applicationState = [application applicationState];
+    if (applicationState == UIApplicationStateActive) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前通知"
+                                                        message:notification.alertBody
+                                                       delegate:self cancelButtonTitle:@"關閉"
+                                              otherButtonTitles:nil, nil];
+        [alert show];
+    }
 }
 
 #pragma mark - Core Data stack
