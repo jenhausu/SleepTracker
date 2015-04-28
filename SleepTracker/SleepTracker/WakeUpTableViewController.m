@@ -131,7 +131,46 @@
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
             selectedSleepType = indexPath.row;
+            
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
         }
+    }
+}
+
+#pragma mark - Custom Footer
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return UITableViewAutomaticDimension;
+    } else {
+        return 44;
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    if (section == 1)
+    {
+        CGRect rect = CGRectMake(20, 0, 280, 40);
+        UIView *footerView = [[UIView alloc] initWithFrame:rect];
+        UILabel *footerLabel = [[UILabel alloc] initWithFrame:rect];
+        
+        if (selectedSleepType == 0) {
+            footerLabel.text = @"說明：App在計算起床時間、上床時間時，只會讀取「一般」睡眠型態的資料。";
+        } else if (selectedSleepType == 1) {
+            footerLabel.text = @"說明：「小睡」睡眠型態的資料只有在 App 計算「睡覺時間」的時候才會一起納入計算。";
+        }
+        
+        footerLabel.font = [UIFont fontWithName:@"AppleGothic" size:10.5];
+        footerLabel.textColor = [UIColor whiteColor];
+        footerLabel.numberOfLines = 0;
+        footerLabel.textAlignment = NSTextAlignmentCenter;
+        
+        [footerView addSubview:footerLabel];
+        return footerView;
+    } else {
+        return nil;
     }
 }
 
