@@ -64,7 +64,7 @@
     fireDate = [self.intelligentNotification decideFireDate];
     notificationName = [self.intelligentNotification decideNotificationTitle];
     
-    fetchDataArray = [[[SleepDataModel alloc] init] fetchSleepDataSortWithAscending:YES];
+    fetchDataArray = [[[SleepDataModel alloc] init] fetchSleepDataSortWithAscending:NO];
     if (fetchDataArray.count) {
         self.sleepData = fetchDataArray[0];
     }
@@ -126,6 +126,12 @@
             cell.textLabel.text = notificationName[4 + indexPath.row];
             if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && self.sleepData.wakeUpTime > 0) ) {
                 cell.detailTextLabel.text = [formatter stringFromDate:fireDate[4 + indexPath.row]];
+                
+                if (indexPath.row == 1) {
+                    if (!self.sleepData.wakeUpTime) {
+                        cell.detailTextLabel.text = @"--:--";
+                    }
+                }
             } else {
                 cell.detailTextLabel.text = @"--:--";
             }
