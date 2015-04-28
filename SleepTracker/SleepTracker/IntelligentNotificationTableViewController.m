@@ -27,6 +27,7 @@
 
 @property (nonatomic) NSString *footerText;
 @property (nonatomic) float footerHeight;
+@property (nonatomic) NSInteger selectedRow;
 
 @property (nonatomic) NSTimer *timer;
 @property (nonatomic) NSInteger remainingCounts;
@@ -167,13 +168,21 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     if (section == 0) {
-        CGRect rect = CGRectMake(20, 0, 280, 50);
+        CGRect rect;
+        if (self.selectedRow == 0 || self.selectedRow == 1) {
+            rect = CGRectMake(20, 0, 280, 40);
+        } else if (self.selectedRow == 3) {
+            rect = CGRectMake(20, 0, 280, 35);
+        } else {
+            rect = CGRectMake(20, 0, 280, 50);
+        }
+        
         UIView *footerView = [[UIView alloc] initWithFrame:rect];
         UILabel *footerLabel = [[UILabel alloc] initWithFrame:rect];
         
         footerLabel.text = footerText;
         footerLabel.font = [UIFont fontWithName:@"AppleGothic" size:10];
-        footerLabel.textColor = [UIColor grayColor];
+        footerLabel.textColor = [UIColor whiteColor];
         footerLabel.numberOfLines = 0;
         footerLabel.textAlignment = NSTextAlignmentCenter;
         
@@ -208,6 +217,8 @@
         footerText = @"App 會在應該上床睡覺時間的前三個小時發出通知，提醒你不要再吃東西了，好讓腸胃開始休息。";
         footerHeight = 35;
         
+        self.selectedRow = 0;
+        
         [self postponeForAFewSecondThenChangeSectionOneFooter];
     } else {
         if (footerText) {
@@ -232,6 +243,8 @@
         footerText = @"App 會在應該上床睡覺時間的前一個小時發出通知，提醒你不要再看電子螢幕了。";
         footerHeight = 35;
         
+        self.selectedRow = 1;
+        
         [self postponeForAFewSecondThenChangeSectionOneFooter];
     } else {
         if (footerText) {
@@ -254,7 +267,9 @@
     
     if (self.switchControl.on) {
         footerText = @"App 會在應該上床睡覺時間的前兩個小時發出通知，提醒你如果你還沒去洗澡，建議你可以趕快去洗澡，這樣兩個小時後體溫開始下降，最適合入睡。";
-        footerHeight = 40;
+        footerHeight = 45;
+        
+        self.selectedRow = 2;
         
         [self postponeForAFewSecondThenChangeSectionOneFooter];
     } else {
@@ -278,7 +293,9 @@
     
     if (self.switchControl.on) {
         footerText = @"App 會在午夜時發出通知";
-        footerHeight = 30;
+        footerHeight = 25;
+        
+        self.selectedRow = 3;
         
         [self postponeForAFewSecondThenChangeSectionOneFooter];
     } else {
