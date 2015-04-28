@@ -99,7 +99,7 @@
 
 - (NSString *)stringFromTimeInterval:(NSInteger)timeInterval
 {
-    NSInteger minutes = abs((timeInterval / 60) % 60);
+    NSInteger minutes = labs((timeInterval / 60) % 60);
     NSInteger hours = abs((int)(timeInterval / 3600));  //取整數
     
     return [NSString stringWithFormat:@"%02li:%02li", (long)hours, (long)minutes];

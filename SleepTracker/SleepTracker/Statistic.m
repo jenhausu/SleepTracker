@@ -533,7 +533,7 @@
 - (NSString *)stringFromTimeInterval:(NSTimeInterval)interval
 {
     NSInteger time = (NSInteger)interval;
-    NSInteger minutes = abs((time / 60) % 60);
+    NSInteger minutes = labs((time / 60) % 60);
     NSInteger hours = abs((int)(time / 3600));  //取整數
     
     if (time >= 0)
