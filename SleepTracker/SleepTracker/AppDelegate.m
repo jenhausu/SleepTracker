@@ -8,7 +8,11 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+#import "LocalNotification.h"
+
+@interface AppDelegate ()  <UIAlertViewDelegate>
+
+@property (nonatomic) UILocalNotification *localNotification;
 
 @end
 
@@ -18,10 +22,17 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-    if (localNotification) {
+    _localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (_localNotification) {
         application.applicationIconBadgeNumber = 1;
         application.applicationIconBadgeNumber = 0;
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前通知"
+                                                        message:_localNotification.alertBody
+                                                       delegate:self
+                                              cancelButtonTitle:@"我知道了～"
+                                              otherButtonTitles:@"十五分鐘後再提醒我", nil];
+        [alert show];
     }
     
     return YES;
@@ -53,16 +64,29 @@
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
+    _localNotification = notification;
+    
     application.applicationIconBadgeNumber = 1;
     application.applicationIconBadgeNumber = 0;
     
-    UIApplicationState applicationState = [application applicationState];
-    if (applicationState == UIApplicationStateActive) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前通知"
-                                                        message:notification.alertBody
-                                                       delegate:self cancelButtonTitle:@"關閉"
-                                              otherButtonTitles:nil, nil];
-        [alert show];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前通知"
+                                                    message:notification.alertBody
+                                                   delegate:self
+                                          cancelButtonTitle:@"我知道了～"
+                                          otherButtonTitles:@"十五分鐘後再提醒我一次", nil];
+    [alert show];
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {  //稍後提醒
+        [[[LocalNotification alloc] init] setLocalNotificationWithMessage:_localNotification.alertBody
+                                                                 fireDate:[NSDate dateWithTimeInterval:60*15 sinceDate:[NSDate date]]
+                                                              repeatOrNot:NO
+                                                                    Sound:@"UILocalNotificationDefaultSoundName"
+                                                                 setValue:@"PosponNotification" forKey:@"NotificationType"];
     }
 }
 
