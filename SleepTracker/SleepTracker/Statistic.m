@@ -71,7 +71,7 @@
         NSMutableArray *lastMinStack = [[NSMutableArray alloc] init];
         
         NSInteger sleepTimeSum = 0;
-        NSInteger sleepTimeSumTem = 0;
+        NSInteger todaySleepTimeSum = 0;
         NSInteger lastDataSleepTime = 0;
         
         Correction = (today != dataDate) ? (today - dataDate) : 0 ;
@@ -81,12 +81,12 @@
             sleepTimeSum += sleepTime;
             
             if (dataDate != lastDataDate) {
-                sleepTimeSumTem = 0;  //歸零
+                todaySleepTimeSum = 0;  //歸零
+                lastDataSleepTime = sleepTime;
                 
                 if (sleepTime > MAX) {
                     MAX = sleepTime;
                 }
-                
                 if (sleepTime < MIN) {
                     MIN = sleepTime;
                     
@@ -94,20 +94,21 @@
                     [lastMinStack addObject:[NSNumber numberWithFloat:sleepTime]];  //加入堆疊中
                 }
             } else if (dataDate == lastDataDate) {  //兩筆資料是同一天
-                sleepTimeSumTem += sleepTime + lastDataSleepTime;
+                todaySleepTimeSum = sleepTime + lastDataSleepTime;  //今天的資料加上上一筆資料（因為兩筆資料同一天），翻成人話就是sleepTimeSumTem儲存了同一天睡覺時間的總和
+                lastDataSleepTime = todaySleepTimeSum;
                 
-                if (sleepTimeSumTem > MAX) {  //處理最大值
-                    MAX = sleepTimeSumTem;
+                if (todaySleepTimeSum > MAX) {  //處理最大值
+                    MAX = todaySleepTimeSum;
                 }
                 
                 if (lastMinDate == dataDate) {  //處理最小值
                     if (lastMinStack.count >= 2) {   //堆疊數量超過一個
-                        if (sleepTimeSumTem < [lastMinStack[lastMinStack.count -2] integerValue]) {
-                            MIN = sleepTimeSumTem;
+                        if (todaySleepTimeSum < [lastMinStack[lastMinStack.count - 2] integerValue]) {
+                            MIN = todaySleepTimeSum;
                             lastMinDate = dataDate;
                             
                             [lastMinStack removeLastObject];
-                            [lastMinStack addObject:[NSNumber numberWithInteger:sleepTimeSumTem]];
+                            [lastMinStack addObject:[NSNumber numberWithInteger:todaySleepTimeSum]];
                         } else {
                             MIN = [lastMinStack[lastMinStack.count - 2] integerValue];
                             lastMinDate = dataDate;
@@ -115,16 +116,15 @@
                             [lastMinStack removeLastObject];
                         }
                     } else {
-                        MIN = sleepTimeSumTem;
+                        MIN = todaySleepTimeSum;
                         lastMinDate = dataDate;
                         
                         [lastMinStack removeLastObject];
-                        [lastMinStack addObject:[NSNumber numberWithInteger:sleepTimeSumTem]];
+                        [lastMinStack addObject:[NSNumber numberWithInteger:todaySleepTimeSum]];
                     }
                 }
             }
             
-            lastDataSleepTime = sleepTime;
             lastDataDate = dataDate;
             
             if (lastDataDate - dataDate > 1) {  //如果中間有一天是沒有輸入資料的話進行校正，中間這幾天不納入計算
