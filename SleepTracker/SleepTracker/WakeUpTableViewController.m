@@ -152,7 +152,7 @@
 {
     if (section == 1)
     {
-        CGRect rect = CGRectMake(20, 0, 280, 40);
+        CGRect rect = CGRectMake(20, 0, 280, 35);
         UIView *footerView = [[UIView alloc] initWithFrame:rect];
         UILabel *footerLabel = [[UILabel alloc] initWithFrame:rect];
         
