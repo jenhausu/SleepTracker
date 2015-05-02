@@ -144,10 +144,6 @@
             }
         }
         AVG = sleepTimeSum / (today - lastDataDate + 1 - Correction);
-    } else {
-        MIN = 0;
-        MAX = 0;
-        AVG = 0;
     }
     
     if (MIN == MIN_Default) {
@@ -313,12 +309,6 @@
         if ((sumTem + MIN) < 0) MIN += 86400;
         AVG = sumTem + MIN;
     }
-    else
-    {
-        MIN = 0;
-        MAX = 0;
-        AVG = 0;
-    }
     
     
     if (MIN < 0) {
@@ -415,11 +405,6 @@
         }
         sumTem /= (today - lastDataDate + 1) - Correction;
         AVG = sumTem + MIN;
-        
-    } else {
-        MIN = 0;
-        MAX = 0;
-        AVG = 0;
     }
     
     
