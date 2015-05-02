@@ -157,9 +157,9 @@
         UILabel *footerLabel = [[UILabel alloc] initWithFrame:rect];
         
         if (selectedSleepType == 0) {
-            footerLabel.text = @"App 在計算起床時間、上床時間時，只會讀取「一般」睡眠型態的資料。";  //如果一個晚上起來好幾次的話，App 會取這一天全部的「一般」睡眠型態的頭跟尾，來當作這天的上床跟起床時間做計算。
+            footerLabel.text = @"App 在計算起床時間、上床時間時，只會讀取「一般」睡眠型態的資料。";  //如果一天有好幾筆一般睡眠型態的資料，App 會取這一天全部的「一般」睡眠型態的頭跟尾，來當作這天的上床跟起床時間做計算。
         } else if (selectedSleepType == 1) {
-            footerLabel.text = @"「小睡」睡眠型態的資料只有在 App 計算「睡覺時間」的時候才會一起納入計算。";  //「小睡」睡眠型態的睡眠資料只有在 App 計算「睡覺時間」時才會一起納入計算。
+            footerLabel.text = @"「小睡」睡眠型態的資料只有在 App 計算「睡覺時間」時才會一起納入計算。";
         }
         
         footerLabel.font = [UIFont fontWithName:@"AppleGothic" size:10.5];
