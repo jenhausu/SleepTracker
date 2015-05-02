@@ -137,6 +137,48 @@
     }
 }
 
+#pragma mark - Custom Header
+
+#define HeadersHeight 25
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 35;  //UITableViewAutomaticDimension 的高度就是35，但如果直接填 UITableViewAutomaticDimension 的話就不能自訂 Header 的內容
+    } else {
+        return HeadersHeight - 1;
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    CGRect rect;
+    UILabel *headerLabel;
+    
+    if (section == 0) {
+        rect = CGRectMake(15, 0, 280, 50);
+        headerLabel = [[UILabel alloc] initWithFrame:rect];
+        
+        headerLabel.text = @"睡眠時間";
+    } else if (section == 1) {
+        rect = CGRectMake(15, 0, 280, HeadersHeight);
+        headerLabel = [[UILabel alloc] initWithFrame:rect];
+        
+        headerLabel.text = @"睡眠型態";
+    } else {
+        return nil;
+    }
+    
+    headerLabel.font = [UIFont fontWithName:@"AppleGothic" size:10.5];
+    headerLabel.textColor = [UIColor lightTextColor];
+    headerLabel.numberOfLines = 0;
+    headerLabel.textAlignment = NSTextAlignmentLeft;
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:rect];
+    [headerView addSubview:headerLabel];
+    return headerView;
+}
+
 #pragma mark - Custom Footer
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
