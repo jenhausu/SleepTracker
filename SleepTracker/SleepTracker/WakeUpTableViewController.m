@@ -162,8 +162,8 @@
             footerLabel.text = @"「小睡」睡眠型態的資料只有在 App 計算「睡覺時間」時才會一起納入計算。";
         }
         
-        footerLabel.font = [UIFont fontWithName:@"AppleGothic" size:10.5];
-        footerLabel.textColor = [UIColor whiteColor];
+        footerLabel.font = [UIFont fontWithName:@"AppleGothic" size:10];
+        footerLabel.textColor = [UIColor lightTextColor];
         footerLabel.numberOfLines = 0;
         footerLabel.textAlignment = NSTextAlignmentCenter;
         

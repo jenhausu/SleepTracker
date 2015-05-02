@@ -188,7 +188,7 @@
         
         footerLabel.text = footerText;
         footerLabel.font = [UIFont fontWithName:@"AppleGothic" size:10];
-        footerLabel.textColor = [UIColor whiteColor];
+        footerLabel.textColor = [UIColor lightTextColor];
         footerLabel.numberOfLines = 0;
         footerLabel.textAlignment = NSTextAlignmentCenter;
         
