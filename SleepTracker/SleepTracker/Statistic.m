@@ -26,6 +26,10 @@
 
 @synthesize fetchArray;
 
+#define MIN_Default 99999999
+#define MAX_Default 0
+#define AVG_Default 0
+
 - (SleepDataModel *)sleepDataModel
 {
     if (!_sleepDataModel) {
@@ -36,9 +40,9 @@
 
 - (void)Initailize
 {
-    MAX = 0;
-    MIN = 99999999;
-    AVG = 0;
+    MAX = MAX_Default;
+    MIN = MIN_Default;
+    AVG = AVG_Default;
     
     fetchArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
     if (fetchArray.count > 0 ) {
@@ -146,7 +150,7 @@
         AVG = 0;
     }
     
-    if (MIN == 99999999) {
+    if (MIN == MIN_Default) {
         MIN = 0;
     }
     
@@ -319,7 +323,7 @@
     
     if (MIN < 0) {
         MIN += 86400;
-    } else if (MIN == 99999999) {
+    } else if (MIN == MIN_Default) {
         MIN = 0;
     }
     
@@ -373,7 +377,7 @@
                 break;  //如果總資料比數少於所需要計算的天數，直接跳出
             }
         }
-        if (MIN == 99999999)  MIN = MAX;
+        if (MIN == MIN_Default)  MIN = MAX;
         
         
         /* 計算平均值 */
@@ -418,7 +422,8 @@
         AVG = 0;
     }
     
-    if (MIN == 99999999) {
+    
+    if (MIN == MIN_Default) {
         MIN = 0;
     }
 
