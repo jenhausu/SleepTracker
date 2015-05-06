@@ -54,9 +54,9 @@
     NSArray *fetchDataArray = [self fetchAllCustomNotificationData];
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     
-    for (NSInteger i = 0 ; i < fetchDataArray.count ; i++ ) {
-        self.customNotification = fetchDataArray[i];
-        if ([[userPreferences valueForKey:@"睡眠狀態"] isEqualToString:@"清醒"]) {
+    if ([[userPreferences valueForKey:@"睡眠狀態"] isEqualToString:@"清醒"]) {
+        for (NSInteger i = 0 ; i < fetchDataArray.count ; i++ ) {
+            self.customNotification = fetchDataArray[i];
             if ([self.customNotification.on boolValue]) {
                 [self.localNotification setLocalNotificationWithMessage:self.customNotification.message
                                                                fireDate:self.customNotification.fireDate
