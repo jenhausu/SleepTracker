@@ -112,9 +112,7 @@
         [self stopTimer];
         [self startCountingSleepTime];
         
-        
-        [self.intelligentNotification deleteAllIntelligentNotification];
-        [self.customNotification cancelAllCustomNotification];
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
         
         [userPreferences setValue:@"睡覺" forKey:@"睡眠狀態"];
     }else {
