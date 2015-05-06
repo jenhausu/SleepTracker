@@ -24,9 +24,6 @@
     
     _localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (_localNotification) {
-        application.applicationIconBadgeNumber = 1;
-        application.applicationIconBadgeNumber = 0;
-        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前通知"
                                                         message:_localNotification.alertBody
                                                        delegate:self
@@ -54,6 +51,10 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    //不管是點擊通知或是直接打開 App，App 開啟就會把所有在通知中心的通知給刪除，這樣就避免使用者要消除通知一定要點擊通知的問題。
+    application.applicationIconBadgeNumber = 1;
+    application.applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -62,12 +63,10 @@
     [self saveContext];
 }
 
+//點擊通知
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     _localNotification = notification;
-    
-    application.applicationIconBadgeNumber = 1;
-    application.applicationIconBadgeNumber = 0;
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前通知"
                                                     message:notification.alertBody
