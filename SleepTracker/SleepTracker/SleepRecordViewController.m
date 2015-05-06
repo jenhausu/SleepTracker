@@ -93,6 +93,7 @@
         [self.button setTitle:@"上床" forState:UIControlStateNormal];
         self.alreadySleptLabel.text = @"00:00:00";
         self.alreadyAwakeLabel.text = @"00:00:00";
+        [userPreferences setValue:@"清醒" forKey:@"睡眠狀態"];  //如果沒有資料時設定睡眠狀態為清醒。
     }
 }
 
