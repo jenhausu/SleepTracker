@@ -122,7 +122,7 @@
                                 MIN = [minStack[minStack.count - 2] integerValue];
                                 [minStack removeLastObject];
                                 
-                                minDate = dataDate;
+                                minDate = [minDateStack[minDateStack.count - 2] integerValue];
                                 [minDateStack removeLastObject];
                             }
                         }
