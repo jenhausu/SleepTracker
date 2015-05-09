@@ -471,7 +471,7 @@
         }
     }
 
-    return ( sleepLate / ( sleepLate + sleepEarly )) * 100;
+    return ( sleepEarly / ( sleepLate + sleepEarly )) * 100;
 }
 
 - (float)calculateGetUpTooLatePercentage:(NSInteger)recent
@@ -524,7 +524,7 @@
         }
     }
     
-    return ( sleepLate / ( sleepLate + sleepEarly )) * 100 ;
+    return ( sleepEarly / ( sleepLate + sleepEarly )) * 100 ;
 }
 
 #pragma mark -
