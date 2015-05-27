@@ -90,9 +90,9 @@
     return [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
 }
 
-#pragma mark - Delete
+#pragma mark - Cancel
 
-- (void)deleteSpecificCustomNotification:(NSManagedObject *)dataArray row:(NSInteger)row
+- (void)cancelSpecificCustomNotification:(NSManagedObject *)dataArray row:(NSInteger)row
 {
     NSArray *fetchDataArray = [self fetchAllCustomNotificationData];
     self.customNotification = fetchDataArray[row];
@@ -119,8 +119,6 @@
     [self.managedObjectContext deleteObject:dataArray];
     [self.managedObjectContext save:nil];
 }
-
-#pragma mark - Cancel
 
 - (void)cancelAllCustomNotification
 {

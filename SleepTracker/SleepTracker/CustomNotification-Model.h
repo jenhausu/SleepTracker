@@ -13,7 +13,7 @@
 @interface CustomNotification_Model : NSObject
 
 - (void)addNewCustomNotification:(NSString *)message fireDate:(NSDate *)fireDate sound:(NSString *)sound;
-- (void)deleteSpecificCustomNotification:(NSManagedObject *)dataArray row:(NSInteger)row;
+- (void)cancelSpecificCustomNotification:(NSManagedObject *)dataArray row:(NSInteger)row;
 - (void)cancelAllCustomNotification;
 - (NSArray *)fetchAllCustomNotificationData;
 - (void)setCustomNotificatioin;

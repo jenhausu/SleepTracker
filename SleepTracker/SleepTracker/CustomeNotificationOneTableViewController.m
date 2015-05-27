@@ -93,7 +93,7 @@
         {
             if (row == indexPath.row)
             {
-                [self.customNotificationModel deleteSpecificCustomNotification:fetchDataArray[indexPath.row] row:indexPath.row];
+                [self.customNotificationModel cancelSpecificCustomNotification:fetchDataArray[indexPath.row] row:indexPath.row];
                 fetchDataArray = [self.customNotificationModel fetchAllCustomNotificationData];
 
                 break;
