@@ -402,8 +402,9 @@
 
                 sumTem = sumTem + ((dateComponents.hour * 3600 + dateComponents.minute * 60 + dateComponents.second) - MIN);
                 
+                // 如果中間有一天是沒有輸入資料的話進行校正，中間這幾天不納入計算
+                if (lastDataDate - dataDate > 1)  Correction += (lastDataDate - dataDate) - 1 ;
                 lastDataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
-                if (lastDataDate - dataDate > 1)  Correction += (lastDataDate - dataDate) - 1 ;  //如果中間有一天是沒有輸入資料的話進行校正，中間這幾天不納入計算
             }
             
             if (++row == [fetchArray count])  //為了避免資料數比所需要的天數還要少
