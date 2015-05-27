@@ -138,11 +138,12 @@
                 }
             }
             
-            lastDataDate = dataDate;
-            
-            if (lastDataDate - dataDate > 1) {  //如果中間有一天是沒有輸入資料的話進行校正，中間這幾天不納入計算
+            // 校正，如果中間有一天是沒有輸入資料的話進行校正，中間這幾天不納入計算
+            if (lastDataDate - dataDate > 1) {
                 Correction += (lastDataDate - dataDate) - 1;
             }
+            
+            lastDataDate = dataDate;
             
             
             if (++row < fetchArray.count) {
