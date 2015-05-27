@@ -397,7 +397,6 @@
             if ([self.sleepData.sleepType isEqualToString:@"一般"] && lastDataDate != dataDate)
             {
                 wakeUpTime = self.sleepData.wakeUpTime;
-                
                 dateComponents = [greCalendar components: NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond  fromDate:wakeUpTime];
 
                 sumTem = sumTem + ((dateComponents.hour * 3600 + dateComponents.minute * 60 + dateComponents.second) - MIN);
