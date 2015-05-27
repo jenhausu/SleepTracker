@@ -62,32 +62,14 @@
         }
             break;
         case 2: {  //自訂
-            UIApplication *application = [UIApplication sharedApplication];
-            NSArray *arrayOfAllLocalNotification = [application scheduledLocalNotifications];
-            UILocalNotification *localNotification;
-            NSDictionary *userInfo;
-            NSString *value;
+            NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+            NSDate *HopeToGoToBedTime = [userPreferences valueForKey:@"HopeToGoToBedTime"];
+            NSDateComponents *dateComponents = [greCalendar components: NSCalendarUnitHour | NSCalendarUnitMinute fromDate:HopeToGoToBedTime];
             
-            for (NSInteger row = 0 ; row < arrayOfAllLocalNotification.count ; row++ )
-            {
-                localNotification = arrayOfAllLocalNotification[row];
-                
-                userInfo = localNotification.userInfo;
-                value = [userInfo objectForKey:@"NotificationType"];
-                
-                if ([value isEqualToString:@"HopeToGoToBed"])
-                {
-                    NSDate *hopeToGoToSleepTime = localNotification.fireDate;
-                    NSDateComponents *dateComponents = [greCalendar components: NSCalendarUnitHour | NSCalendarUnitMinute fromDate:hopeToGoToSleepTime];
-                    
-                    [components setHour:dateComponents.hour];
-                    [components setMinute:dateComponents.minute];
-                    
-                    break;
-                }
-            }
+            [components setHour:dateComponents.hour];
+            [components setMinute:dateComponents.minute];
         }
-            break;
+        break;
     }
     
     return [greCalendar dateFromComponents:components];

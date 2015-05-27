@@ -77,22 +77,8 @@
                 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                 [dateFormatter setDateFormat:@"HH:mm"];
                 
-                UIApplication *application = [UIApplication sharedApplication];
-                NSArray *arrayOfAllLocalNotification = [application scheduledLocalNotifications];
-                UILocalNotification *localNotification;
-                NSDictionary *userInfo;
-                NSString *value;
-                for (NSInteger row = 0 ; row < arrayOfAllLocalNotification.count ; row++ )
-                {
-                    localNotification = arrayOfAllLocalNotification[row];
-                    userInfo = localNotification.userInfo;
-                    value = [userInfo objectForKey:@"NotificationType"];
-                    if ([value isEqualToString:@"HopeToGoToBed"])
-                    {
-                        cell.detailTextLabel.text = [dateFormatter stringFromDate:localNotification.fireDate];
-                        break;
-                    }
-                }
+                NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+                cell.detailTextLabel.text = [dateFormatter stringFromDate: [userPreferences valueForKey:@"HopeToGoToBedTime"]];
             } else {
                 cell.detailTextLabel.text = @"--:--";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -112,37 +98,23 @@
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    if (indexPath.section == 0) {
-        if ([userPreferences integerForKey:@"ShouldGoToSleepTime"] == 2) {  //如果之前是選擇自訂希望上床時間，要把HopeToGoToBed的通知刪除
-            UIApplication *application = [UIApplication sharedApplication];
-            NSArray *arrayOfAllLocalNotification = [application scheduledLocalNotifications];
-            UILocalNotification *localNotification;
-            NSDictionary *userInfo;
-            NSString *value;
-            for (NSInteger row = 0 ; row < arrayOfAllLocalNotification.count ; row++ )
-            {
-                localNotification = arrayOfAllLocalNotification[row];
-                
-                userInfo = localNotification.userInfo;
-                value = [userInfo objectForKey:@"NotificationType"];
-                
-                if ([value isEqualToString:@"HopeToGoToBed"])
-                {
-                    [application cancelLocalNotification:localNotification];
-                    
-                    NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:0 inSection:1];
-                    UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:oldIndexPath];
-                    oldCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                    oldCell.detailTextLabel.text = @"--:--";
-                                        
-                    break;
-                }
-            }
+    if (indexPath.section == 0)
+    {
+        // 如果之前是選擇自訂希望上床時間，要先把HopeToGoToBed的通知刪除
+        if ([userPreferences integerForKey:@"ShouldGoToSleepTime"] == 2)
+        {
+            NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:0 inSection:1];
+            UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:oldIndexPath];
+            oldCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            oldCell.detailTextLabel.text = @"--:--";
         }
         
+        // 設定 ShouldGoToSleepTime
         [userPreferences setInteger:indexPath.row forKey:@"ShouldGoToSleepTime"];
         
-        if (indexPath.row != selectedRow) {  //設定Checkmark
+        
+        // 設定Checkmark
+        if (indexPath.row != selectedRow) {
             NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:selectedRow inSection:0];
             UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:oldIndexPath];
             oldCell.accessoryType = UITableViewCellAccessoryNone;
@@ -158,7 +130,6 @@
             
             UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"HopeToGoToBedPage"];
             page2.title = textLabelOfTableViewCell[indexPath.section][indexPath.row];
-            
             [self.navigationController pushViewController:page2 animated:YES];
         }
     }
