@@ -120,7 +120,7 @@
         NSDate *averageGoToSleepTime = [calendar dateFromComponents:components];
         
         //如果現在是睡眠狀態，把「醒來超過十六小時」的 fireDate 設為 00:00，雖然原本的方法也沒有出現錯誤，但我為了避免以後會出什麼問題，所以我就用這個判別式把出錯的可能給擋掉。
-        if (sleepData.wakeUpTime) {
+        if (sleepData.wakeUpTime) {  //清醒狀態
             fireDate = [[NSArray alloc] initWithObjects:
                         [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:shouldGoToBedTime],
                         [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:shouldGoToBedTime],
@@ -128,7 +128,7 @@
                         NULLDate,
                         averageGoToSleepTime,
                         [NSDate dateWithTimeInterval:(60 * 60 * 16) sinceDate:sleepData.wakeUpTime], nil];
-        } else {
+        } else {  //睡著狀態
             fireDate = [[NSArray alloc] initWithObjects:
                         [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:shouldGoToBedTime],
                         [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:shouldGoToBedTime],
@@ -137,7 +137,7 @@
                         averageGoToSleepTime,
                         NULLDate, nil];
         }
-    } else {
+    } else {  //沒有睡眠資料時
         fireDate = [[NSArray alloc] initWithObjects:
                     [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:NULLDate],
                     [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:NULLDate],
