@@ -153,7 +153,10 @@
                 break;  //如果總資料比數少於所需要計算的天數，直接跳出
             }
         }
-        AVG = sleepTimeSum / (today - lastDataDate + 1 - Correction);
+        
+        if (sleepTimeSum) {
+            AVG = sleepTimeSum / (today - lastDataDate + 1 - Correction);
+        }
     }
     
     if (MIN == MIN_Default) {
@@ -314,10 +317,14 @@
                 dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
             }
         }
-        sumTem /= ((today - lastValidDataDate + 1) - Correction);
-        if (sumTem + MIN > 86400) sumTem -= 86400;
-        if ((sumTem + MIN) < 0) MIN += 86400;
-        AVG = sumTem + MIN;
+        
+        
+        if (sumTem) {
+            sumTem /= ((today - lastValidDataDate + 1) - Correction);
+            if (sumTem + MIN > 86400) sumTem -= 86400;
+            if ((sumTem + MIN) < 0) MIN += 86400;
+            AVG = sumTem + MIN;
+        }
     }
     
     
@@ -413,8 +420,12 @@
                 dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
             }
         }
-        sumTem /= (today - lastDataDate + 1) - Correction;
-        AVG = sumTem + MIN;
+        
+        
+        if (sumTem) {
+            sumTem /= (today - lastDataDate + 1) - Correction;
+            AVG = sumTem + MIN;
+        }
     }
     
     
