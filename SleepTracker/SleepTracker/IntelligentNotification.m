@@ -77,7 +77,7 @@
 
 - (NSArray *)decideNotificationTitle
 {
-    NSArray *notification = @[@"吃東西", @"看任何電子螢幕", @"洗澡", @"超過午夜十二點", @"平均上床時間", @"醒來超過十六小時"];
+    NSArray *notification = @[@"不要再吃宵夜", @"不要再看電子螢幕", @"建議去洗澡", @"超過午夜十二點", @"平均上床時間", @"醒來超過十六小時"];
     
     return notification;
 }
