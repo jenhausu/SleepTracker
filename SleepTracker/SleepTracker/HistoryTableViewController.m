@@ -102,7 +102,7 @@
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", self.sleepData.sleepType,[self stringFromTimeInterval:[self.sleepData.sleepTime floatValue]]];
     } else {
         cell.textLabel.text = [NSString stringWithFormat:@"%@ ~",[dateFormatter stringFromDate:self.sleepData.goToBedTime]];
-        cell.detailTextLabel.text = @"";
+        cell.detailTextLabel.text = @" ";
     }
 
     
