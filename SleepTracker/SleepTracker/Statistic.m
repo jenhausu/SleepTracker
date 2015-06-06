@@ -154,7 +154,7 @@
             }
         }
         
-        if (sleepTimeSum) {
+        if (today - lastDataDate + 1 - Correction) {
             AVG = sleepTimeSum / (today - lastDataDate + 1 - Correction);
         }
     }
@@ -316,7 +316,7 @@
         }
         
         
-        if (sumTem) {
+        if ((today - lastValidDataDate + 1) - Correction) {
             sumTem /= ((today - lastValidDataDate + 1) - Correction);
             if (sumTem + MIN > 86400) sumTem -= 86400;
             if ((sumTem + MIN) < 0) MIN += 86400;
@@ -419,7 +419,7 @@
         }
         
         
-        if (sumTem) {
+        if ((today - lastDataDate + 1) - Correction) {
             sumTem /= (today - lastDataDate + 1) - Correction;
             AVG = sumTem + MIN;
         }
