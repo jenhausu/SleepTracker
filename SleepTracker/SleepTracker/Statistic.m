@@ -216,8 +216,7 @@
                 } else if (dataDate == lastDataDate) {
                     if ( goToBedTimeInSecond < MIN) MIN = goToBedTimeInSecond;
                     
-                    if ([maxStack count] >= 2)
-                    {
+                    if ([maxStack count] >= 2) {
                         if (dataDate == lastMaxDate) {
                             if (goToBedTimeInSecond > [maxStack[maxStack.count - 2] floatValue]) {
                                 MAX = goToBedTimeInSecond;
@@ -238,9 +237,7 @@
                                 //do nothing
                             }
                         }
-                    }
-                    else if (maxStack.count == 1)  //不會有零筆資料，因為這裡要一天中超過一筆資料程式才會跑到這裡來
-                    {
+                    } else if (maxStack.count == 1) { //不會有零筆資料，因為這裡要一天中超過一筆資料程式才會跑到這裡來
                         if (dataDate == lastMaxDate) {
                             MAX = goToBedTimeInSecond;
                             [maxStack removeLastObject];
