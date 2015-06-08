@@ -272,7 +272,7 @@
     [self.intelligentNotification rescheduleIntelligentNotification];
     
     if (self.switchControl.on) {
-        footerText = @"App 會在應該上床睡覺時間的前兩個小時發出通知，提醒你如果你還沒去洗澡，建議你可以趕快去洗澡，這樣兩個小時後體溫開始下降，最適合入睡。";
+        footerText = @"App 會在應該上床睡覺時間的前兩個小時發出通知，提醒你如果你還沒去洗澡，建議你可以去洗個澡，這樣兩個小時後體溫開始下降，最適合入睡。";
         footerHeight = 45;
         
         self.selectedRow = 2;
