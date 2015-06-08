@@ -36,7 +36,9 @@
     
     
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    self.datePicker.date = [userPreferences valueForKey:@"HopeToGoToBedTime"];
+    if ([userPreferences valueForKey:@"HopeToGoToBedTime"]) {
+        self.datePicker.date = [userPreferences valueForKey:@"HopeToGoToBedTime"];
+    }
     
     dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"a hh:mm"];
