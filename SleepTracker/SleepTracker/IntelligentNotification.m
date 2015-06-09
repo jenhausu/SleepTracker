@@ -191,7 +191,7 @@
     } else {
         //如果沒有資料，就一定是清醒狀態，要不讓起馬會有一筆只有上床時間的資料，所以不用檢查睡眠狀態。
         //要獨立分出來是因為在沒有資料時，如果想要設定睡前通知的時候會被 if (fetchArray.count) 這個判別是給過濾掉
-        for (NSInteger i = 0 ; i < [notification count] ; i++ ) {
+        for (NSInteger i = 0 ; i < [notification count] - 2 ; i++ ) {  //「平均上床時間」、「醒來超過十六小時」兩個通知不用發出，因為沒有睡眠資料
             if ([userPreferences boolForKey:notification[i]]) {
                 [localNotification setLocalNotificationWithMessage:Message[i]
                                                           fireDate:fireDate[i]
