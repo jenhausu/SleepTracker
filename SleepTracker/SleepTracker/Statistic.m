@@ -27,7 +27,7 @@
 @synthesize fetchArray;
 
 #define MIN_Default 99999999
-#define MAX_Default 0
+#define MAX_Default -9999999
 #define AVG_Default 0
 
 - (SleepDataModel *)sleepDataModel
@@ -162,6 +162,11 @@
     if (MIN == MIN_Default) {
         MIN = 0;
     }
+    
+    if (MAX == MAX_Default) {
+        MAX = 0;
+    }
+    
     
     return @[[NSNumber numberWithFloat:MIN], [NSNumber numberWithFloat:MAX], [NSNumber numberWithFloat:AVG]];
 }
@@ -331,8 +336,12 @@
         MIN = 0;
     }
     
-    if (MAX < 0) MAX += 86400;
-
+    if (MAX == MAX_Default) {
+        MAX = 0;
+    } else {
+        if (MAX < 0) MAX += 86400;
+    }
+    
     
     return @[[NSNumber numberWithFloat:MIN], [NSNumber numberWithFloat:MAX], [NSNumber numberWithFloat:AVG]];
 }
@@ -429,6 +438,11 @@
     if (MIN == MIN_Default) {
         MIN = 0;
     }
+    
+    if (MAX == MAX_Default) {
+        MAX = 0;
+    }
+    
 
     return @[[NSNumber numberWithInteger:MIN], [NSNumber numberWithInteger:MAX], [NSNumber numberWithInteger:AVG]];
 }
