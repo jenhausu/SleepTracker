@@ -121,8 +121,7 @@
             else if (indexPath.row == 3) {
                 [switchControl addTarget:self action:@selector(switchChanged4:) forControlEvents:UIControlEventValueChanged];
             }
-        }
-        else if (indexPath.section == 1) {
+        } else if (indexPath.section == 1) {
             cell.textLabel.text = notificationName[4 + indexPath.row];
             if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && self.sleepData.wakeUpTime > 0) ) {
                 cell.detailTextLabel.text = [formatter stringFromDate:fireDate[4 + indexPath.row]];
