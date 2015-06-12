@@ -506,12 +506,6 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igx-S6-eL6">
-                                <rect key="frame" x="279" y="182" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="EWY-gR-w7G">
                                 <rect key="frame" x="140" y="219" width="320" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="443609691.76644999">
@@ -521,11 +515,8 @@
                                     <action selector="valueChanged:" destination="MQ7-VU-fuK" eventType="valueChanged" id="cV0-Ul-fRE"/>
                                 </connections>
                             </datePicker>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="message" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o6g-UW-wRw">
-                                <rect key="frame" x="193" y="97" width="215" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="215" id="lOC-kW-5U4"/>
-                                </constraints>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="時間不早了，早點睡吧！" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o6g-UW-wRw">
+                                <rect key="frame" x="16" y="97" width="568" height="30"/>
                                 <color key="textColor" red="0.1221966244" green="0.17704892289999999" blue="0.30916587750000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -536,11 +527,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.1960784314" green="0.37254901959999998" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="EWY-gR-w7G" firstAttribute="top" secondItem="igx-S6-eL6" secondAttribute="bottom" constant="16" id="528-7h-rH9"/>
+                            <constraint firstItem="o6g-UW-wRw" firstAttribute="trailing" secondItem="4jV-iY-4nZ" secondAttribute="trailingMargin" id="96A-KX-VlP"/>
+                            <constraint firstItem="o6g-UW-wRw" firstAttribute="leading" secondItem="4jV-iY-4nZ" secondAttribute="leadingMargin" id="IBf-OW-l8b"/>
                             <constraint firstAttribute="centerX" secondItem="EWY-gR-w7G" secondAttribute="centerX" id="Ndy-S0-GUu"/>
                             <constraint firstAttribute="centerX" secondItem="o6g-UW-wRw" secondAttribute="centerX" id="ZHh-cx-a2j"/>
                             <constraint firstItem="o6g-UW-wRw" firstAttribute="top" secondItem="7Yb-gp-9bQ" secondAttribute="bottom" constant="33" id="pCT-bl-Hyd"/>
-                            <constraint firstAttribute="centerX" secondItem="igx-S6-eL6" secondAttribute="centerX" id="vpA-Dw-ceL"/>
                             <constraint firstAttribute="centerY" secondItem="EWY-gR-w7G" secondAttribute="centerY" id="y6O-88-nrF"/>
                         </constraints>
                     </view>
@@ -560,7 +551,6 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="datePicker" destination="EWY-gR-w7G" id="rJv-vb-DPd"/>
-                        <outlet property="label" destination="igx-S6-eL6" id="xAB-oz-ZAf"/>
                         <outlet property="textField" destination="o6g-UW-wRw" id="KWA-7L-Cuh"/>
                     </connections>
                 </viewController>
@@ -598,7 +588,6 @@
                             </datePicker>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vG5-4U-vtW">
                                 <rect key="frame" x="326" y="397" width="51" height="31"/>
-                                <color key="onTintColor" red="0.1221966244" green="0.17704892289999999" blue="0.30916587750000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開啟" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNu-82-lL2">
@@ -607,11 +596,8 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="message" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="glW-7l-xM3">
-                                <rect key="frame" x="193" y="97" width="215" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="215" id="KQZ-lj-HtN"/>
-                                </constraints>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="glW-7l-xM3">
+                                <rect key="frame" x="16" y="97" width="568" height="30"/>
                                 <color key="textColor" red="0.1221966244" green="0.17704892289999999" blue="0.30916587750000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -631,7 +617,9 @@
                             <constraint firstItem="vG5-4U-vtW" firstAttribute="leading" secondItem="gNu-82-lL2" secondAttribute="trailing" constant="36" id="J90-0i-c75"/>
                             <constraint firstItem="ywj-fp-d4Z" firstAttribute="top" secondItem="9hd-3z-m0x" secondAttribute="bottom" constant="16" id="Jeb-Gl-fnH"/>
                             <constraint firstAttribute="centerX" secondItem="ywj-fp-d4Z" secondAttribute="centerX" id="Uex-ur-j6s"/>
+                            <constraint firstItem="glW-7l-xM3" firstAttribute="leading" secondItem="dU2-oR-5OG" secondAttribute="leadingMargin" id="dx4-UK-MLT"/>
                             <constraint firstItem="vG5-4U-vtW" firstAttribute="top" secondItem="ywj-fp-d4Z" secondAttribute="bottom" constant="16" id="rtW-Au-n26"/>
+                            <constraint firstItem="glW-7l-xM3" firstAttribute="trailing" secondItem="dU2-oR-5OG" secondAttribute="trailingMargin" id="txS-1G-GQc"/>
                             <constraint firstAttribute="centerX" secondItem="9hd-3z-m0x" secondAttribute="centerX" id="ywO-W3-b2z"/>
                         </constraints>
                     </view>
