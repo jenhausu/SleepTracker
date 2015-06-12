@@ -10,6 +10,7 @@
 
 @interface IntelligentNotification : NSObject
 
+- (NSDate *)decideShouldGoToBedTime;
 - (NSArray *)decideFireDate;
 - (NSArray *)decideNotificationTitle;
 - (void)rescheduleIntelligentNotification;

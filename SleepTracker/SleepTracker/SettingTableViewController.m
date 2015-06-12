@@ -10,6 +10,8 @@
 
 #import <MessageUI/MessageUI.h>
 
+#import "IntelligentNotification.h"
+
 @interface SettingTableViewController ()  <MFMailComposeViewControllerDelegate>
 
 @property (strong, nonatomic) NSArray *section1;
@@ -30,6 +32,10 @@
     textLabelOfTableViewCell = @[section1, section2];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -45,9 +51,19 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     cell.textLabel.text = textLabelOfTableViewCell[indexPath.section][indexPath.row];
+    cell.detailTextLabel.text = @" ";
     
     if (indexPath.section == 0) {
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        if (indexPath.row == 0) {
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.accessoryView = nil;
+            cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"HH:mm"];
+            
+            cell.detailTextLabel.text = [formatter stringFromDate:[[[IntelligentNotification alloc] init] decideShouldGoToBedTime]];
+        }
     }
     
     return cell;
