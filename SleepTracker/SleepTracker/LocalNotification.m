@@ -15,18 +15,6 @@
 #pragma mark - Set
 
 - (void)setLocalNotificationWithMessage:(NSString *)message fireDate:(NSDate *)fireDate repeatOrNot:(BOOL)repeat Sound:(NSString *)sound
-{
-    [self checkIfAppGetUserPermission];
-    
-    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.fireDate = fireDate;
-    localNotification.alertBody = message;
-    localNotification.soundName = sound;  //@"UILocalNotificationDefaultSoundName"
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-}
-
-- (void)setLocalNotificationWithMessage:(NSString *)message fireDate:(NSDate *)fireDate repeatOrNot:(BOOL)repeat Sound:(NSString *)sound
                                setValue:(id)value forKey:(NSString *)key
 {
     [self checkIfAppGetUserPermission];
