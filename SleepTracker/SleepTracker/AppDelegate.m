@@ -35,7 +35,7 @@
         [alert show];
     }
     
-    [Fabric with:@[CrashlyticsKit]];
+    //[Fabric with:@[CrashlyticsKit]];  //避免在開發的時候一直觸動 Crashlytics，污染我的數據
     
     return YES;
 }
