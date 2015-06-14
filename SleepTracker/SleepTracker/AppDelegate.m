@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 #import "LocalNotification.h"
 
 @interface AppDelegate ()  <UIAlertViewDelegate>
@@ -31,6 +34,8 @@
                                               otherButtonTitles:@"十五分鐘後再提醒我", nil];
         [alert show];
     }
+    
+    [Fabric with:@[CrashlyticsKit]];
     
     return YES;
 }
