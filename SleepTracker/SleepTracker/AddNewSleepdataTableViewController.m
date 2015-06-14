@@ -18,7 +18,6 @@
 @property (nonatomic, strong) NSArray *section2;
 @property (nonatomic, strong) NSArray *textLabel;
 
-@property (nonatomic, strong) SleepDataModel *sleepDataModel;
 @property (nonatomic, weak) NSArray *fetchDataArray;
 @property (nonatomic, weak) SleepData *sleepData;
 @property (nonatomic, strong) NSDate *goToBedTime;
@@ -154,11 +153,10 @@
     }
     NSNumber *sleepTime = [NSNumber numberWithDouble:[wakeUpTime timeIntervalSinceDate:goToBedTime]];
     
-    self.sleepDataModel = [[SleepDataModel alloc] init];
-    [self.sleepDataModel addNewSleepdataAndAddGoToBedTime:goToBedTime
-                                               wakeUpTime:wakeUpTime
-                                                sleepTime:sleepTime
-                                                sleepType:sleepType];
+    [[[SleepDataModel alloc] init] addNewSleepdataAndAddGoToBedTime:goToBedTime
+                                                         wakeUpTime:wakeUpTime
+                                                          sleepTime:sleepTime
+                                                          sleepType:sleepType];
     
     [self.intelligentNotification rescheduleIntelligentNotification];
     
