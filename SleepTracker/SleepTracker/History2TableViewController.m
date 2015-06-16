@@ -11,8 +11,7 @@
 #import "SleepDataModel.h"
 #import "SleepData.h"
 
-#import "IntelligentNotification.h"
-#import "CustomNotification-Model.h"
+#import "SleepNotification.h"
 
 @interface History2TableViewController () <UIAlertViewDelegate>
 
@@ -168,8 +167,7 @@
     
     NSUserDefaults *userPreferences = userPreferences = [NSUserDefaults standardUserDefaults];
     [userPreferences setValue:@"清醒" forKey:@"睡眠狀態"];
-    [[[IntelligentNotification alloc] init] rescheduleIntelligentNotification];
-    [[[CustomNotification_Model alloc] init] resetCustomNotification];
+    [[[SleepNotification alloc] init] resetSleepNotification];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"修改資料"
                                                     message:@"成功！"
