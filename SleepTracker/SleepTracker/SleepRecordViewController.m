@@ -10,8 +10,8 @@
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
-#import "IntelligentNotification.h"
-#import "CustomNotification-Model.h"
+
+#import "SleepNotification.h"
 
 @interface SleepRecordViewController ()
 
@@ -25,9 +25,6 @@
 
 @property (nonatomic, strong) SleepData *sleepData;
 @property (nonatomic, strong) NSArray *fetchDataArray;
-
-@property (nonatomic, strong) IntelligentNotification *intelligentNotification;
-@property (nonatomic, strong) CustomNotification_Model *customNotification;
 
 @property (nonatomic) NSUserDefaults *userPreferences;
 
@@ -46,24 +43,6 @@
     }
     
     return _sleepDataModel;
-}
-
-- (IntelligentNotification *)intelligentNotification
-{
-    if (!_intelligentNotification) {
-        _intelligentNotification = [[IntelligentNotification alloc] init];
-    }
-    
-    return _intelligentNotification;
-}
-
-- (CustomNotification_Model *)customNotification
-{
-    if (!_customNotification) {
-        _customNotification = [[CustomNotification_Model alloc] init];
-    }
-    
-    return _customNotification;
 }
 
 #pragma mark - view
@@ -137,8 +116,7 @@
     [self startCountingAwakeTime];
     
     [userPreferences setValue:@"清醒" forKey:@"睡眠狀態"];
-    [self.intelligentNotification rescheduleIntelligentNotification];
-    [self.customNotification setCustomNotificatioin];
+    [[[SleepNotification alloc] init] resetSleepNotification];
 }
 
 #pragma mark - timer

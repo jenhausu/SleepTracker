@@ -43,6 +43,7 @@
 		1DCDD3E61AA2CE5E00609D2F /* CustomNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDD3E51AA2CE5E00609D2F /* CustomNotification.m */; };
 		1DD087091B2D42CD00B37D2D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD087071B2D42CD00B37D2D /* Fabric.framework */; };
 		1DD0870A1B2D42CD00B37D2D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD087081B2D42CD00B37D2D /* Crashlytics.framework */; };
+		1DD087121B2D69CB00B37D2D /* SleepNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD087111B2D69CB00B37D2D /* SleepNotification.m */; };
 		1DF063F61A8C59F600F21359 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF063F51A8C59F600F21359 /* SettingTableViewController.m */; };
 		1DF063F81A8C626700F21359 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF063F71A8C626700F21359 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
@@ -122,6 +123,8 @@
 		1DCDD3E51AA2CE5E00609D2F /* CustomNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNotification.m; sourceTree = "<group>"; };
 		1DD087071B2D42CD00B37D2D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		1DD087081B2D42CD00B37D2D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		1DD087101B2D69CB00B37D2D /* SleepNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepNotification.h; sourceTree = "<group>"; };
+		1DD087111B2D69CB00B37D2D /* SleepNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepNotification.m; sourceTree = "<group>"; };
 		1DF063F41A8C59F600F21359 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		1DF063F51A8C59F600F21359 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		1DF063F71A8C626700F21359 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -271,12 +274,7 @@
 				1D8901F01A4B5199001A69A3 /* SleepDataModel.m */,
 				1D2DB7E81A6D677000A72EFA /* Statistic.h */,
 				1D2DB7E91A6D677000A72EFA /* Statistic.m */,
-				1DBC7C0D1A70FFBB007B35B8 /* LocalNotification.h */,
-				1DBC7C0E1A70FFBB007B35B8 /* LocalNotification.m */,
-				1DBC7C011A70FD81007B35B8 /* IntelligentNotification.h */,
-				1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */,
-				1D2C07681AA057A500434EF2 /* CustomNotification-Model.h */,
-				1D2C07691AA057A500434EF2 /* CustomNotification-Model.m */,
+				1DD0870F1B2D69B500B37D2D /* Sleep Notification */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -353,6 +351,21 @@
 				1DBCE5B61A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m */,
 			);
 			name = "Add New Sleepdata";
+			sourceTree = "<group>";
+		};
+		1DD0870F1B2D69B500B37D2D /* Sleep Notification */ = {
+			isa = PBXGroup;
+			children = (
+				1DBC7C0D1A70FFBB007B35B8 /* LocalNotification.h */,
+				1DBC7C0E1A70FFBB007B35B8 /* LocalNotification.m */,
+				1DBC7C011A70FD81007B35B8 /* IntelligentNotification.h */,
+				1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */,
+				1D2C07681AA057A500434EF2 /* CustomNotification-Model.h */,
+				1D2C07691AA057A500434EF2 /* CustomNotification-Model.m */,
+				1DD087101B2D69CB00B37D2D /* SleepNotification.h */,
+				1DD087111B2D69CB00B37D2D /* SleepNotification.m */,
+			);
+			name = "Sleep Notification";
 			sourceTree = "<group>";
 		};
 		1DF063F91A8C75E800F21359 /* Sleep Notificaiton */ = {
@@ -497,6 +510,7 @@
 				1D8901CF1A4B5119001A69A3 /* SleepTracker.xcdatamodeld in Sources */,
 				1D8902011A4B5199001A69A3 /* WakeUpTableViewController.m in Sources */,
 				1D2DB7FA1A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.m in Sources */,
+				1DD087121B2D69CB00B37D2D /* SleepNotification.m in Sources */,
 				1D26812A1A4C070300D510F8 /* History2TableViewController.m in Sources */,
 				1D2DB7EA1A6D677000A72EFA /* Statistic.m in Sources */,
 				1D8901FE1A4B5199001A69A3 /* SleepDataModel.m in Sources */,

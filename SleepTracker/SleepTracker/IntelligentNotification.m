@@ -168,7 +168,11 @@
 - (void)rescheduleIntelligentNotification
 {
     [self deleteAllIntelligentNotification];
-    
+    [self setIntelligentNotification];
+}
+
+- (void)setIntelligentNotification
+{
     NSArray *notification = [self decideNotificationTitle];
     NSArray *Message = [self decideMessage];
     NSArray *fireDate = [self decideFireDate];
