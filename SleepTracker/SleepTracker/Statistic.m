@@ -273,7 +273,7 @@
         
 
         //計算平均值
-        NSInteger sumTem = 0;  //計算平均值
+        NSInteger sumTem = 0;  //儲存每筆資料與最小值的差的和
         [maxStack removeAllObjects];
         
         self.sleepData = fetchArray[0];
