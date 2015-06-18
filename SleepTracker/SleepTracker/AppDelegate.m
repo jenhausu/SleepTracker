@@ -27,11 +27,11 @@
     
     _localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (_localNotification) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前通知"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前提醒"
                                                         message:_localNotification.alertBody
                                                        delegate:self
-                                              cancelButtonTitle:@"我知道了～"
-                                              otherButtonTitles:@"十五分鐘後再提醒我", nil];
+                                              cancelButtonTitle:@"我今天要熬夜，不要吵我！！"
+                                              otherButtonTitles:@"知道了", @"20 分鐘後再提醒我一次", nil];
         [alert show];
     }
     
@@ -72,12 +72,11 @@
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     _localNotification = notification;
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前通知"
-                                                    message:notification.alertBody
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前提醒"
+                                                    message:_localNotification.alertBody
                                                    delegate:self
-                                          cancelButtonTitle:@"我知道了～"
-                                          otherButtonTitles:@"十五分鐘後再提醒我一次", nil];
+                                          cancelButtonTitle:@"我今天要熬夜，不要吵我！！"
+                                          otherButtonTitles:@"知道了", @"20 分鐘後再提醒我一次", nil];
     [alert show];
 }
 
@@ -85,12 +84,22 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1) {  //稍後提醒
-        [[[LocalNotification alloc] init] setLocalNotificationWithMessage:_localNotification.alertBody
-                                                                 fireDate:[NSDate dateWithTimeInterval:60*15 sinceDate:[NSDate date]]
-                                                              repeatOrNot:NO
-                                                                    Sound:@"UILocalNotificationDefaultSoundName"
-                                                                 setValue:@"PosponNotification" forKey:@"NotificationType"];
+    switch (buttonIndex) {
+        case 0:
+            [[UIApplication sharedApplication] cancelAllLocalNotifications];
+            break;
+        case 1:
+            // Do nothing
+            break;
+        case 2:
+            [[[LocalNotification alloc] init] setLocalNotificationWithMessage:_localNotification.alertBody
+                                                                     fireDate:[NSDate dateWithTimeInterval:60*20 sinceDate:[NSDate date]]
+                                                                  repeatOrNot:NO
+                                                                        Sound:@"UILocalNotificationDefaultSoundName"
+                                                                     setValue:@"PosponNotification" forKey:@"NotificationType"];
+            break;
+        default:
+            break;
     }
 }
 
