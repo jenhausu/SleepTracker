@@ -27,12 +27,7 @@
     
     _localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (_localNotification) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前提醒"
-                                                        message:_localNotification.alertBody
-                                                       delegate:self
-                                              cancelButtonTitle:@"我今天要熬夜，不要吵我！！"
-                                              otherButtonTitles:@"知道了", @"20 分鐘後再提醒我一次", nil];
-        [alert show];
+        [self showSleepNotificationAlertView];
     }
     
     //[Fabric with:@[CrashlyticsKit]];  //避免在開發的時候一直觸動 Crashlytics，污染我的數據
@@ -72,6 +67,13 @@
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     _localNotification = notification;
+    [self showSleepNotificationAlertView];
+}
+
+#pragma mark - SleepNotificationAlert
+
+- (void)showSleepNotificationAlertView
+{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前提醒"
                                                     message:_localNotification.alertBody
                                                    delegate:self
