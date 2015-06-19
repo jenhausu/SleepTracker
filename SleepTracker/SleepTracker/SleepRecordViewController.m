@@ -12,6 +12,7 @@
 #import "SleepData.h"
 
 #import "SleepNotification.h"
+#import "IntelligentNotification.h"
 
 @interface SleepRecordViewController ()
 
@@ -91,10 +92,10 @@
         
         [self stopTimer];
         [self startCountingSleepTime];
-        
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
-        
         [userPreferences setValue:@"睡覺" forKey:@"睡眠狀態"];
+        
+        [[[IntelligentNotification alloc] init] setRemindUserToRecordWakeUpTime];
     }else {
         UINavigationController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"wakeUpPage"];
         [self presentViewController:page2 animated:YES completion:nil];

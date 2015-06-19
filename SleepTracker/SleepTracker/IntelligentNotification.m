@@ -207,6 +207,37 @@
     }
 }
 
+- (void)setRemindUserToRecordWakeUpTime
+{
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
+    
+    NSDateComponents *currentDateComponents = [greCalendar components: NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:[NSDate date]];
+    [components setYear:currentDateComponents.year];
+    [components setMonth:currentDateComponents.month];
+    [components setDay:currentDateComponents.day];
+    
+    NSInteger averageWakeUpTimeInSecond = [[[[[Statistic alloc] init] showWakeUpTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+    if (averageWakeUpTimeInSecond) {
+        [components setHour:averageWakeUpTimeInSecond / 3600];
+        [components setMinute:((averageWakeUpTimeInSecond / 60) % 60)];
+    } else {
+        [components setHour:10];
+        [components setMinute:0];
+    }
+    
+    NSDate *fireDate = [NSDate dateWithTimeInterval:60 * 60 * 2 sinceDate:[greCalendar dateFromComponents:components]];
+    if ([[fireDate earlierDate:[NSDate date]] isEqualToDate:fireDate]) {
+        fireDate = [NSDate dateWithTimeInterval:60 * 60 * 24 sinceDate:fireDate];
+    }
+    
+    [[[LocalNotification alloc] init] setLocalNotificationWithMessage:@"你真的睡到現在！？趕快紀錄一下你是幾點起床的吧！"
+                                                             fireDate:fireDate
+                                                          repeatOrNot:NO
+                                                                Sound:@"UILocalNotificationDefaultSoundName"
+                                                             setValue:nil forKey:nil];
+}
+
 #pragma mark - Delete
 
 - (void)deleteAllIntelligentNotification
