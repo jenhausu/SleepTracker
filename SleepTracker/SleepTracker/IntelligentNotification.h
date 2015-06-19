@@ -14,6 +14,7 @@
 - (NSArray *)decideFireDate;
 - (NSArray *)decideNotificationTitle;
 - (void)rescheduleIntelligentNotification;
+- (void)setRemindUserToRecordWakeUpTime;
 - (void)deleteAllIntelligentNotification;
 
 @end
