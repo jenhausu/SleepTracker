@@ -92,10 +92,9 @@
         
         [self stopTimer];
         [self startCountingSleepTime];
-        [[UIApplication sharedApplication] cancelAllLocalNotifications];
         [userPreferences setValue:@"睡覺" forKey:@"睡眠狀態"];
         
-        [[[IntelligentNotification alloc] init] setRemindUserToRecordWakeUpTime];
+        [[[SleepNotification alloc] init] goToBed];
     }else {
         UINavigationController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"wakeUpPage"];
         [self presentViewController:page2 animated:YES completion:nil];
@@ -117,7 +116,7 @@
     [self startCountingAwakeTime];
     
     [userPreferences setValue:@"清醒" forKey:@"睡眠狀態"];
-    [[[SleepNotification alloc] init] resetSleepNotification];
+    [[[SleepNotification alloc] init] wakeUp];
 }
 
 #pragma mark - timer

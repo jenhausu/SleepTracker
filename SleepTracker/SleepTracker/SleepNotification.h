@@ -10,6 +10,8 @@
 
 @interface SleepNotification : NSObject
 
+- (void)goToBed;
+- (void)wakeUp;
 - (void)resetSleepNotification;
 
 @end
