@@ -21,6 +21,7 @@
 
 - (void)wakeUp
 {
+    [self cancelAllLocalNotification];  //主要是要把提醒使用者輸入起床時間的通知刪除
     [[[IntelligentNotification alloc] init] setIntelligentNotification];
     [[[CustomNotification_Model alloc] init] setCustomNotificatioin];
 }
