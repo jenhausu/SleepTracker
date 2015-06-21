@@ -101,9 +101,9 @@
     return returnArray;
 }
 
-#pragma mark - Delete
+#pragma mark - Cancel
 
-- (void)deleteLocalNotificaionWithValue:(id)value foreKey:(NSString *)key
+- (void)cancelLocalNotificaionWithValue:(id)value foreKey:(NSString *)key
 {
     UIApplication *application = [UIApplication sharedApplication];
     NSArray *arrayOfAllLocalNotification = [application scheduledLocalNotifications];
@@ -122,7 +122,7 @@
     }
 }
 
-- (void)deleteAllLocalNotification
+- (void)cancelAllLocalNotification
 {
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }

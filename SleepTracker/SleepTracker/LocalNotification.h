@@ -16,7 +16,7 @@
 - (id)fetchLocalNotificationWithParticularOneValue:(id)value forKey:(NSString *)key;
 - (NSMutableArray *)fetchLocalNotifictionWithParticularKindOfValue:(id)value forKey:(NSString *)key;
 
-- (void)deleteLocalNotificaionWithValue:(id)value foreKey:(NSString *)key;
-- (void)deleteAllLocalNotification;
+- (void)cancelLocalNotificaionWithValue:(id)value foreKey:(NSString *)key;
+- (void)cancelAllLocalNotification;
 
 @end

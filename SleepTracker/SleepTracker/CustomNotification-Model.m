@@ -122,23 +122,7 @@
 
 - (void)cancelAllCustomNotification
 {
-    UIApplication *application = [UIApplication sharedApplication];
-    NSArray *arrayOfAllLocalNotification = [application scheduledLocalNotifications];
-    NSDictionary *userInfo;
-    NSString *value;
-    UILocalNotification *localNotification;
-    
-    for (NSInteger i = 0 ; i < arrayOfAllLocalNotification.count ; i++ )
-    {
-        localNotification = arrayOfAllLocalNotification[i];
-        
-        userInfo = localNotification.userInfo;
-        value = [userInfo objectForKey:@"NotificationType"];
-        
-        if ([value isEqualToString:@"CustomNotification"]) {
-            [application cancelLocalNotification:localNotification];
-        }
-    }
+    [[[LocalNotification alloc] init] cancelLocalNotificaionWithValue:@"CustomNotification" foreKey:@"NotificationType"];
 }
 
 #pragma mark - Update
