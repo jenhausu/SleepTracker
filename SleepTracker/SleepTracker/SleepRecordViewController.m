@@ -114,8 +114,8 @@
     
     [self stopTimer];
     [self startCountingAwakeTime];
-    
     [userPreferences setValue:@"清醒" forKey:@"睡眠狀態"];
+    
     [[[SleepNotification alloc] init] wakeUp];
 }
 
