@@ -13,10 +13,27 @@
 
 @implementation SleepNotification
 
+- (void)goToBed
+{
+    [self cancelAllLocalNotification];  //刪除所有還沒發出的通知
+    [[[IntelligentNotification alloc] init] setRemindUserToRecordWakeUpTime];
+}
+
+- (void)wakeUp
+{
+    [[[IntelligentNotification alloc] init] setIntelligentNotification];
+    [[[CustomNotification_Model alloc] init] setCustomNotificatioin];
+}
+
 - (void)resetSleepNotification
 {
     [[[IntelligentNotification alloc] init] rescheduleIntelligentNotification];
     [[[CustomNotification_Model alloc] init] resetCustomNotification];
+}
+
+- (void)cancelAllLocalNotification
+{
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
 @end
