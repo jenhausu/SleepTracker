@@ -16,6 +16,6 @@
 - (void)rescheduleIntelligentNotification;
 - (void)setIntelligentNotification;
 - (void)setRemindUserToRecordWakeUpTime;
-- (void)deleteAllIntelligentNotification;
+- (void)cancelAllIntelligentNotification;
 
 @end

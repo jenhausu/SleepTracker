@@ -238,7 +238,7 @@
                                                              setValue:nil forKey:nil];
 }
 
-#pragma mark - Delete
+#pragma mark - Cancel
 
 - (void)cancelAllIntelligentNotification
 {
