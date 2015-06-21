@@ -167,7 +167,7 @@
 
 - (void)rescheduleIntelligentNotification
 {
-    [self deleteAllIntelligentNotification];
+    [self cancelAllIntelligentNotification];
     [self setIntelligentNotification];
 }
 
@@ -240,26 +240,9 @@
 
 #pragma mark - Delete
 
-- (void)deleteAllIntelligentNotification
+- (void)cancelAllIntelligentNotification
 {
-    UIApplication *application = [UIApplication sharedApplication];
-    NSArray *arrayOfAllLocalNotification = [application scheduledLocalNotifications];
-    UILocalNotification *localNotification;
-    NSDictionary *userInfo;
-    NSString *value;
-    
-    for (NSInteger row = 0 ; row < arrayOfAllLocalNotification.count ; row++ )
-    {
-        localNotification = arrayOfAllLocalNotification[row];
-        
-        userInfo = localNotification.userInfo;
-        value = [userInfo objectForKey:@"NotificationType"];
-        
-        if ([value isEqualToString:@"IntelligentNotification"])
-        {
-            [application cancelLocalNotification:localNotification];
-        }
-    }
+    [[[LocalNotification alloc] init] cancelLocalNotificaionWithValue:@"IntelligentNotification" foreKey:@"NotificationType"];
 }
 
 @end
