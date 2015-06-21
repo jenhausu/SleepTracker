@@ -82,7 +82,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 4;
+        return 3;
     } else if (section == 1) {
         return 2;
     } else {
@@ -124,7 +124,7 @@
         } else if (indexPath.section == 1) {
             cell.textLabel.text = notificationName[4 + indexPath.row];
             if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && self.sleepData.wakeUpTime > 0) ) {
-                cell.detailTextLabel.text = [formatter stringFromDate:fireDate[4 + indexPath.row]];
+                cell.detailTextLabel.text = [formatter stringFromDate:fireDate[sectionTwoRow]];
                 
                 if (indexPath.row == 1) {
                     if (!self.sleepData.wakeUpTime) {
@@ -135,12 +135,12 @@
                 cell.detailTextLabel.text = @"--:--";
             }
             
-            switchControl.on = [userPreferences boolForKey:notificationName[4 + indexPath.row]];
+            switchControl.on = [userPreferences boolForKey:notificationName[sectionTwoRow]];
             
             if (indexPath.row == 0) {
-                [switchControl addTarget:self action:@selector(switchChanged5:) forControlEvents:UIControlEventValueChanged];
+                [switchControl addTarget:self action:@selector(switchChanged4:) forControlEvents:UIControlEventValueChanged];
             } else if (indexPath.row == 1) {
-                [switchControl addTarget:self action:@selector(switchChanged6:) forControlEvents:UIControlEventValueChanged];
+                [switchControl addTarget:self action:@selector(switchChanged5:) forControlEvents:UIControlEventValueChanged];
             }
         }
         
@@ -298,39 +298,12 @@
     self.switchControl = sender;
     [userPreferences setBool:self.switchControl.on forKey:notificationName[3]];
     [self.intelligentNotification rescheduleIntelligentNotification];
-    
-    //設定說明文字
-    if (self.switchControl.on) {
-        footerText = @"App 會在午夜時發出通知";
-        footerHeight = 25;
-        
-        self.selectedRow = 3;
-        
-        [self postponeForAFewSecondThenChangeSectionOneFooter];
-    } else {
-        if (footerText) {
-            footerText = nil;
-            footerHeight = 0;
-            
-            [self postponeForAFewSecondThenChangeSectionOneFooter];
-        } else {
-            footerText = nil;
-            footerHeight = 0;
-        }
-    }
 }
 
 - (void)switchChanged5:(id)sender
 {
     self.switchControl = sender;
     [userPreferences setBool:self.switchControl.on forKey:notificationName[4]];
-    [self.intelligentNotification rescheduleIntelligentNotification];
-}
-
-- (void)switchChanged6:(id)sender
-{
-    self.switchControl = sender;
-    [userPreferences setBool:self.switchControl.on forKey:notificationName[5]];
     [self.intelligentNotification rescheduleIntelligentNotification];
 }
 
