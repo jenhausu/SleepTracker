@@ -77,7 +77,7 @@
 
 - (NSArray *)decideNotificationTitle
 {
-    NSArray *notification = @[@"不要再吃宵夜", @"不要再看任何電子螢幕", @"建議此時去洗澡", @"超過午夜十二點", @"平均上床時間", @"醒來超過十六小時"];
+    NSArray *notification = @[@"不要再吃宵夜", @"不要再看任何電子螢幕", @"建議此時去洗澡", @"平均上床時間", @"醒來超過十六小時"];
     
     return notification;
 }
@@ -100,7 +100,6 @@
     NSArray *message = @[@"建議你不要再吃東西，讓胃開始休息了。",
                          @"建議你不要再看任何電子螢幕了，讓眼睛開始休息。",
                          bathMessage,
-                         @"已經過了午夜十二點了，趕快去睡覺吧。",
                          @"已經過了你平均上床的時間了，趕快上床休息吧。",
                          @"從你今天起床醒來到現在已經超過十六個小時了，建議你盡快去上床休息吧。"];
     
@@ -138,7 +137,6 @@
                         [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:shouldGoToBedTime],
                         [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:shouldGoToBedTime],
                         [NSDate dateWithTimeInterval:-(60 * 60 * 2) sinceDate:shouldGoToBedTime],
-                        NULLDate,
                         averageGoToSleepTime,
                         [NSDate dateWithTimeInterval:(60 * 60 * 16) sinceDate:sleepData.wakeUpTime], nil];
         } else {  //睡著狀態
@@ -146,7 +144,6 @@
                         [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:shouldGoToBedTime],
                         [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:shouldGoToBedTime],
                         [NSDate dateWithTimeInterval:-(60 * 60 * 2) sinceDate:shouldGoToBedTime],
-                        NULLDate,
                         averageGoToSleepTime,
                         NULLDate, nil];
         }
@@ -155,7 +152,6 @@
                     [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:NULLDate],
                     [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:NULLDate],
                     [NSDate dateWithTimeInterval:-(60 * 60 * 2) sinceDate:NULLDate],
-                    NULLDate,
                     NULLDate,
                     NULLDate, nil];
     }
