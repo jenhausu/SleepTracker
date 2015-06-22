@@ -27,7 +27,13 @@
     
     _localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (_localNotification) {
-        [self showSleepNotificationAlertView];
+        NSDictionary *userInfo = _localNotification.userInfo;
+        
+        if ([[userInfo objectForKey:@"NotificationType"] isEqualToString:@"IntelligentNotification"]) {
+            [self showSleepNotificationAlertView];
+        } else if ([[userInfo objectForKey:@"NotificationType"] isEqualToString:@"CustomNotification"]) {
+            [self showSleepNotificationAlertView];
+        }
     }
     
     //[Fabric with:@[CrashlyticsKit]];  //避免在開發的時候一直觸動 Crashlytics，污染我的數據
@@ -67,7 +73,13 @@
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     _localNotification = notification;
-    [self showSleepNotificationAlertView];
+    NSDictionary *userInfo = _localNotification.userInfo;
+    
+    if ([[userInfo objectForKey:@"NotificationType"] isEqualToString:@"IntelligentNotification"]) {
+        [self showSleepNotificationAlertView];
+    } else if ([[userInfo objectForKey:@"NotificationType"] isEqualToString:@"CustomNotification"]) {
+        [self showSleepNotificationAlertView];
+    }
 }
 
 #pragma mark - SleepNotificationAlert
