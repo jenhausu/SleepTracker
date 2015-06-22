@@ -66,14 +66,21 @@
     
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.accessoryView = nil;
-            cell.selectionStyle = UITableViewCellSelectionStyleDefault;
-            
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             [formatter setDateFormat:@"HH:mm"];
-            
             cell.detailTextLabel.text = [formatter stringFromDate:[[[IntelligentNotification alloc] init] decideShouldGoToBedTime]];
+            
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            
+            cell.accessoryView = nil;
+            cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+        } else if (indexPath.row == 1) {
+            UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(1.0, 1.0, 20.0, 30.0)];
+            cell.accessoryView = switchControl;
+            switchControl.on = [userPreferences boolForKey:@"重複發出睡前通知"];
+            [switchControl addTarget:self action:@selector(switchChanged1:) forControlEvents:UIControlEventValueChanged];
+            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
     }
     

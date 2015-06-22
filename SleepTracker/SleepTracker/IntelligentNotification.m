@@ -178,7 +178,7 @@
     return fireDate;
 }
 
-#pragma mark - Reschedule
+#pragma mark - Set
 
 - (void)rescheduleIntelligentNotification
 {
@@ -222,6 +222,15 @@
             }
         }
     }
+}
+
+- (void)setLocalNotification:(NSInteger)i RepeatOrNot:(BOOL)Repeat Message:(NSString *)message fireDate:(NSDate *)fireDate
+{
+    [[[LocalNotification alloc] init] setLocalNotificationWithMessage:message
+                                                             fireDate:fireDate
+                                                          repeatOrNot:Repeat
+                                                                Sound:@"UILocalNotificationDefaultSoundName"
+                                                             setValue:@"IntelligentNotification" forKey:@"NotificationType"];
 }
 
 - (void)setRemindUserToRecordWakeUpTime
