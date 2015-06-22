@@ -25,6 +25,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    if (![userPreferences boolForKey:@"NotFirstLaunch"]) {
+        [userPreferences setBool:YES forKey:@"重複發出睡前通知"];
+        [userPreferences setBool:YES forKey:@"NotFirstLaunch"];
+    }
+    
+    
     _localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (_localNotification) {
         NSDictionary *userInfo = _localNotification.userInfo;

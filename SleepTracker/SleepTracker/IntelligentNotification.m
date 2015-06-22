@@ -37,42 +37,56 @@
 
 - (NSDate *)decideShouldGoToBedTime
 {
-    NSDateComponents *components = [[NSDateComponents alloc] init];
     NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
-    
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    NSDateComponents *currentDate = [greCalendar components: NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:[NSDate date]];
+
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     NSInteger shouldGoToSleepTime = [userPreferences integerForKey:@"ShouldGoToSleepTime"];
+    
+    [dateComponents setYear:currentDate.year];
+    [dateComponents setMonth:currentDate.month];
+    [dateComponents setDay:currentDate.day];
     
     switch (shouldGoToSleepTime) {
         case 0: {  //平均上床時間
             NSInteger averageGoToSleepTimeInSecond = [[[self.statistic showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
-            [components setHour:averageGoToSleepTimeInSecond / 3600];
-            [components setMinute:((averageGoToSleepTimeInSecond / 60) % 60)];
+            if (averageGoToSleepTimeInSecond) {
+                [dateComponents setHour:averageGoToSleepTimeInSecond / 3600];
+                [dateComponents setMinute:((averageGoToSleepTimeInSecond / 60) % 60)];
+            } else {
+                [dateComponents setHour:23];
+                [dateComponents setMinute:0];
+            }
         }
             break;
         case 1: {  //平均起床時間
             NSInteger averageWakeUpTimeInSecond = [[[self.statistic showWakeUpTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
-            if (((averageWakeUpTimeInSecond / 3600) - 8) > 0) {
-                [components setHour:averageWakeUpTimeInSecond / 3600 - 8];
-                [components setMinute:((averageWakeUpTimeInSecond / 60) % 60)];
+            if (averageWakeUpTimeInSecond) {
+                if (((averageWakeUpTimeInSecond / 3600) - 8) > 0) {
+                    [dateComponents setHour:averageWakeUpTimeInSecond / 3600 - 8];
+                    [dateComponents setMinute:((averageWakeUpTimeInSecond / 60) % 60)];
+                } else {
+                    [dateComponents setHour:(averageWakeUpTimeInSecond / 3600) - 8 + 24];
+                    [dateComponents setMinute:60 - ((averageWakeUpTimeInSecond / 60) % 60)];
+                }
             } else {
-                [components setHour:(averageWakeUpTimeInSecond / 3600) - 8 + 24];
-                [components setMinute:60 - ((averageWakeUpTimeInSecond / 60) % 60)];
+                [dateComponents setHour:23];
+                [dateComponents setMinute:0];
             }
         }
             break;
         case 2: {  //自訂
             NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
             NSDate *HopeToGoToBedTime = [userPreferences valueForKey:@"HopeToGoToBedTime"];
-            NSDateComponents *dateComponents = [greCalendar components: NSCalendarUnitHour | NSCalendarUnitMinute fromDate:HopeToGoToBedTime];
-            
-            [components setHour:dateComponents.hour];
-            [components setMinute:dateComponents.minute];
+            NSDateComponents *hopeToGoToBedTime = [greCalendar components: NSCalendarUnitHour | NSCalendarUnitMinute fromDate:HopeToGoToBedTime];
+            [dateComponents setHour:hopeToGoToBedTime.hour];
+            [dateComponents setMinute:hopeToGoToBedTime.minute];
         }
         break;
     }
     
-    return [greCalendar dateFromComponents:components];
+    return [greCalendar dateFromComponents:dateComponents];
 }
 
 - (NSArray *)decideNotificationTitle
@@ -115,6 +129,11 @@
     
     NSDateComponents *components = [[NSDateComponents alloc] init];
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
+    
+    NSDateComponents *currentDate = [calendar components: NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:[NSDate date]];
+    [components setYear:currentDate.year];
+    [components setMonth:currentDate.month];
+    [components setDay:currentDate.day];
     [components setHour:0];
     [components setMinute:0];
     NSDate *NULLDate = [calendar dateFromComponents:components];
@@ -149,9 +168,9 @@
         }
     } else {  //沒有睡眠資料時
         fireDate = [[NSArray alloc] initWithObjects:
-                    [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:NULLDate],
-                    [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:NULLDate],
-                    [NSDate dateWithTimeInterval:-(60 * 60 * 2) sinceDate:NULLDate],
+                    [NSDate dateWithTimeInterval:-(60 * 60 * 3) sinceDate:shouldGoToBedTime],
+                    [NSDate dateWithTimeInterval:-(60 * 60 * 1) sinceDate:shouldGoToBedTime],
+                    [NSDate dateWithTimeInterval:-(60 * 60 * 2) sinceDate:shouldGoToBedTime],
                     NULLDate,
                     NULLDate, nil];
     }
@@ -173,18 +192,24 @@
     NSArray *Message = [self decideMessage];
     NSArray *fireDate = [self decideFireDate];
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    LocalNotification *localNotification = [[LocalNotification alloc] init];
-    
     NSArray *fetchArray = [[[SleepDataModel alloc] init] fetchSleepDataSortWithAscending:NO];
-    if (fetchArray.count) {  //判斷有沒有資料，有資料的話就可以知道現在的睡眠狀態
+    if (fetchArray.count) {  //判斷有沒有資料，有資料的話就可以知道現在的睡眠狀態是什麼
         if ([[userPreferences valueForKey:@"睡眠狀態"] isEqualToString:@"清醒"]) {
-            for (NSInteger i = 0 ; i < [notification count] ; i++ ) {
-                if ([userPreferences boolForKey:notification[i]]) {
-                    [localNotification setLocalNotificationWithMessage:Message[i]
-                                                              fireDate:fireDate[i]
-                                                           repeatOrNot:YES
-                                                                 Sound:@"UILocalNotificationDefaultSoundName"
-                                                              setValue:@"IntelligentNotification" forKey:@"NotificationType"];
+            if ([userPreferences boolForKey:@"重複發出睡前通知"]) {
+                for (NSInteger i = 0 ; i < [notification count] ; i++ ) {
+                    if ([userPreferences boolForKey:notification[i]]) {
+                        [self setLocalNotification:i RepeatOrNot:YES Message:Message[i] fireDate:fireDate[i]];
+                    }
+                }
+            } else {
+                for (NSInteger i = 0 ; i < [notification count] ; i++ ) {
+                    if ([userPreferences boolForKey:notification[i]]) {
+                        NSArray *fetchDataArray = [[[SleepDataModel alloc] init] fetchSleepDataSortWithAscending:NO];
+                        self.sleepData = fetchDataArray[0];
+                        if ((-[self.sleepData.wakeUpTime timeIntervalSinceNow]) / (60 * 60) <= 23) {  // 醒來超過二十四小時就不發出通知了
+                            [self setLocalNotification:i RepeatOrNot:NO Message:Message[i] fireDate:fireDate[i]];
+                        }
+                    }
                 }
             }
         }
@@ -193,11 +218,7 @@
         //要獨立分出來是因為在沒有資料時，如果想要設定睡前通知的時候會被 if (fetchArray.count) 這個判別是給過濾掉
         for (NSInteger i = 0 ; i < [notification count] - 2 ; i++ ) {  //「平均上床時間」、「醒來超過十六小時」兩個通知不用發出，因為沒有睡眠資料
             if ([userPreferences boolForKey:notification[i]]) {
-                [localNotification setLocalNotificationWithMessage:Message[i]
-                                                          fireDate:fireDate[i]
-                                                       repeatOrNot:YES
-                                                             Sound:@"UILocalNotificationDefaultSoundName"
-                                                          setValue:@"IntelligentNotification" forKey:@"NotificationType"];
+                [self setLocalNotification:i RepeatOrNot:[userPreferences boolForKey:@"重複發出睡前通知"] Message:Message[i] fireDate:fireDate[i]];
             }
         }
     }
