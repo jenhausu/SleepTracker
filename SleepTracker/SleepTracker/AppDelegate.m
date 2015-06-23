@@ -60,8 +60,7 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
     //不管是點擊通知或是直接打開 App，App 開啟就會把所有在通知中心的通知給刪除，這樣就避免使用者要消除通知一定要點擊通知的問題。
-    application.applicationIconBadgeNumber = 1;
-    application.applicationIconBadgeNumber = 0;
+    [self removeNotificationFromNotificationCenter];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -75,6 +74,8 @@
 {
     _localNotification = notification;
     [self clickNotification];
+    
+    [self removeNotificationFromNotificationCenter];  //如果通知發出時剛好使用者在使用App，也把通知從通知中心中移除。
 }
 
 #pragma mark - SleepNotification
@@ -95,6 +96,12 @@
                                           cancelButtonTitle:@"我今天要熬夜，不要吵我！！"
                                           otherButtonTitles:@"知道了", @"20 分鐘後再提醒我一次", nil];
     [alert show];
+}
+
+- (void)removeNotificationFromNotificationCenter
+{
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:1];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
 }
 
 #pragma mark - UIAlertViewDelegate
