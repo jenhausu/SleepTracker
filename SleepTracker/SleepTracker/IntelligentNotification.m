@@ -261,7 +261,7 @@
                                                              fireDate:fireDate
                                                           repeatOrNot:NO
                                                                 Sound:@"UILocalNotificationDefaultSoundName"
-                                                             setValue:nil forKey:nil];
+                                                             setValue:@"提醒輸入起床時間" forKey:@"NotificationType"];
 }
 
 #pragma mark - Cancel

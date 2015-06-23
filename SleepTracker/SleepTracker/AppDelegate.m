@@ -34,13 +34,7 @@
     
     _localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (_localNotification) {
-        NSDictionary *userInfo = _localNotification.userInfo;
-        
-        if ([[userInfo objectForKey:@"NotificationType"] isEqualToString:@"IntelligentNotification"]) {
-            [self showSleepNotificationAlertView];
-        } else if ([[userInfo objectForKey:@"NotificationType"] isEqualToString:@"CustomNotification"]) {
-            [self showSleepNotificationAlertView];
-        }
+        [self clickNotification];
     }
     
     //[Fabric with:@[CrashlyticsKit]];  //避免在開發的時候一直觸動 Crashlytics，污染我的數據
@@ -76,20 +70,22 @@
     [self saveContext];
 }
 
-//點擊通知
+// 點擊通知
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     _localNotification = notification;
+    [self clickNotification];
+}
+
+#pragma mark - SleepNotification
+
+- (void)clickNotification
+{
     NSDictionary *userInfo = _localNotification.userInfo;
-    
-    if ([[userInfo objectForKey:@"NotificationType"] isEqualToString:@"IntelligentNotification"]) {
-        [self showSleepNotificationAlertView];
-    } else if ([[userInfo objectForKey:@"NotificationType"] isEqualToString:@"CustomNotification"]) {
+    if (![[userInfo objectForKey:@"NotificationType"] isEqualToString:@"提醒輸入起床時間"]) {
         [self showSleepNotificationAlertView];
     }
 }
-
-#pragma mark - SleepNotificationAlert
 
 - (void)showSleepNotificationAlertView
 {
