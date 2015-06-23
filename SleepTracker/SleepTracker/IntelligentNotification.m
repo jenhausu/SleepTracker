@@ -248,7 +248,7 @@
         [components setHour:averageWakeUpTimeInSecond / 3600];
         [components setMinute:((averageWakeUpTimeInSecond / 60) % 60)];
     } else {
-        [components setHour:10];
+        [components setHour:8];  //如果沒有資料預設是十點會發出通知，但因為後面會設定往後調兩個小時，所以在這邊設定八點
         [components setMinute:0];
     }
     
