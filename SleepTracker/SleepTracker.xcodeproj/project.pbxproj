@@ -19,6 +19,7 @@
 		1D7C39041A4C811800A02793 /* History3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C39031A4C811800A02793 /* History3ViewController.m */; };
 		1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C39071A4C909D00A02793 /* StatisticViewController.m */; };
 		1D7C390B1A4C962500A02793 /* WakeUp2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C390A1A4C962500A02793 /* WakeUp2ViewController.m */; };
+		1D807BAA1B39409C009138D8 /* ZeroTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D807BA91B39409C009138D8 /* ZeroTableViewCell.m */; };
 		1D8901C91A4B5119001A69A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901C81A4B5119001A69A3 /* main.m */; };
 		1D8901CC1A4B5119001A69A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901CB1A4B5119001A69A3 /* AppDelegate.m */; };
 		1D8901CF1A4B5119001A69A3 /* SleepTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901CD1A4B5119001A69A3 /* SleepTracker.xcdatamodeld */; };
@@ -41,6 +42,7 @@
 		1DBCE5B71A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCE5B61A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m */; };
 		1DCDD3E31AA1E59200609D2F /* CustomNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDD3E21AA1E59200609D2F /* CustomNotificationTableViewCell.m */; };
 		1DCDD3E61AA2CE5E00609D2F /* CustomNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDD3E51AA2CE5E00609D2F /* CustomNotification.m */; };
+		1DCF9AB41B38183F00687499 /* ZeroTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF9AB31B38183F00687499 /* ZeroTableViewController.m */; };
 		1DD087091B2D42CD00B37D2D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD087071B2D42CD00B37D2D /* Fabric.framework */; };
 		1DD0870A1B2D42CD00B37D2D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD087081B2D42CD00B37D2D /* Crashlytics.framework */; };
 		1DD087121B2D69CB00B37D2D /* SleepNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD087111B2D69CB00B37D2D /* SleepNotification.m */; };
@@ -83,6 +85,8 @@
 		1D7C39071A4C909D00A02793 /* StatisticViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticViewController.m; sourceTree = "<group>"; };
 		1D7C39091A4C962500A02793 /* WakeUp2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WakeUp2ViewController.h; sourceTree = "<group>"; };
 		1D7C390A1A4C962500A02793 /* WakeUp2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WakeUp2ViewController.m; sourceTree = "<group>"; };
+		1D807BA81B39409C009138D8 /* ZeroTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZeroTableViewCell.h; sourceTree = "<group>"; };
+		1D807BA91B39409C009138D8 /* ZeroTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZeroTableViewCell.m; sourceTree = "<group>"; };
 		1D8901C31A4B5119001A69A3 /* SleepTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D8901C71A4B5119001A69A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D8901C81A4B5119001A69A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 		1DCDD3E21AA1E59200609D2F /* CustomNotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNotificationTableViewCell.m; sourceTree = "<group>"; };
 		1DCDD3E41AA2CE5E00609D2F /* CustomNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNotification.h; sourceTree = "<group>"; };
 		1DCDD3E51AA2CE5E00609D2F /* CustomNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNotification.m; sourceTree = "<group>"; };
+		1DCF9AB21B38183F00687499 /* ZeroTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZeroTableViewController.h; sourceTree = "<group>"; };
+		1DCF9AB31B38183F00687499 /* ZeroTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZeroTableViewController.m; sourceTree = "<group>"; };
 		1DD087071B2D42CD00B37D2D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		1DD087081B2D42CD00B37D2D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		1DD087101B2D69CB00B37D2D /* SleepNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepNotification.h; sourceTree = "<group>"; };
@@ -187,6 +193,17 @@
 				1DCDD3E21AA1E59200609D2F /* CustomNotificationTableViewCell.m */,
 			);
 			name = "Custom Notification";
+			sourceTree = "<group>";
+		};
+		1D807BAB1B395CCA009138D8 /* 醒來計時器歸零 */ = {
+			isa = PBXGroup;
+			children = (
+				1DCF9AB21B38183F00687499 /* ZeroTableViewController.h */,
+				1DCF9AB31B38183F00687499 /* ZeroTableViewController.m */,
+				1D807BA81B39409C009138D8 /* ZeroTableViewCell.h */,
+				1D807BA91B39409C009138D8 /* ZeroTableViewCell.m */,
+			);
+			name = "醒來計時器歸零";
 			sourceTree = "<group>";
 		};
 		1D8901BA1A4B5119001A69A3 = {
@@ -309,6 +326,7 @@
 				1DF063F41A8C59F600F21359 /* SettingTableViewController.h */,
 				1DF063F51A8C59F600F21359 /* SettingTableViewController.m */,
 				1D1CB5BC1AA6FF54002186E1 /* shouldGoToSleepTime */,
+				1D807BAB1B395CCA009138D8 /* 醒來計時器歸零 */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -505,6 +523,7 @@
 				1D8902021A4B5199001A69A3 /* HistoryTableViewController.m in Sources */,
 				1D8901CC1A4B5119001A69A3 /* AppDelegate.m in Sources */,
 				1D7C39041A4C811800A02793 /* History3ViewController.m in Sources */,
+				1D807BAA1B39409C009138D8 /* ZeroTableViewCell.m in Sources */,
 				1D2C076A1AA057A500434EF2 /* CustomNotification-Model.m in Sources */,
 				1D2DB7EE1A6DA4B300A72EFA /* SleepRecordViewController.m in Sources */,
 				1D8901CF1A4B5119001A69A3 /* SleepTracker.xcdatamodeld in Sources */,
@@ -522,6 +541,7 @@
 				1D995E011A7D4D37002F069C /* HopeToGoToSleepViewController.m in Sources */,
 				1D3BB38A1AA1BE2500349F5A /* CNDetailViewController.m in Sources */,
 				1DBCE5B31A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m in Sources */,
+				1DCF9AB41B38183F00687499 /* ZeroTableViewController.m in Sources */,
 				1D8901C91A4B5119001A69A3 /* main.m in Sources */,
 				1D1CB5BF1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m in Sources */,
 				1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */,
