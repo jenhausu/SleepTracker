@@ -120,16 +120,6 @@
 
 #pragma mark - Header
 
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if (section == 1) {
-        return 30;
-    } else {
-        return UITableViewAutomaticDimension;
-    }
-}
-
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 1) {
@@ -139,6 +129,37 @@
     }
 }
 
+/*
+ 
+#define HeadersHeight 28
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    CGRect rect;
+    UILabel *headerLabel;
+    
+    if (section == 0) {
+        return nil;
+    } else if (section == 1) {
+        rect = CGRectMake(15, 3, 280, HeadersHeight);
+        headerLabel = [[UILabel alloc] initWithFrame:rect];
+        
+        headerLabel.text = @"前一天沒有輸入資料";
+        
+        headerLabel.font = [UIFont fontWithName:@"AppleGothic" size:12];
+        headerLabel.textColor = [UIColor grayColor];
+        headerLabel.numberOfLines = 0;
+        headerLabel.textAlignment = NSTextAlignmentLeft;
+        
+        UIView *headerView = [[UIView alloc] initWithFrame:rect];
+        [headerView addSubview:headerLabel];
+        return headerView;
+    } else {
+        return nil;
+    }
+    
+
+}  //*/
 #pragma mark -
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
