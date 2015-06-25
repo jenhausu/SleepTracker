@@ -13,9 +13,6 @@
 @interface CustomNotificationTwoViewController ()
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
-@property (strong, nonatomic) NSDateFormatter *formatter;
-@property (weak, nonatomic) IBOutlet UILabel *label;
-
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @property (strong, nonatomic) CustomNotification_Model *customNotification;
@@ -23,8 +20,6 @@
 @end
 
 @implementation CustomNotificationTwoViewController
-
-@synthesize formatter;
 
 - (CustomNotification_Model *)customNotification
 {
@@ -39,13 +34,6 @@
 {
     [super viewDidLoad];
     
-    formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"h:mm a"];
-    self.label.text = [formatter stringFromDate:self.datePicker.date];
-}
-
-- (IBAction)valueChanged:(id)sender {
-    self.label.text = [formatter stringFromDate:self.datePicker.date];
 }
 
 - (IBAction)save:(id)sender
