@@ -587,9 +587,6 @@
                                 <date key="date" timeIntervalSinceReferenceDate="443609691.76644999">
                                     <!--2015-01-22 08:54:51 +0000-->
                                 </date>
-                                <connections>
-                                    <action selector="valueChanged:" destination="MQ7-VU-fuK" eventType="valueChanged" id="cV0-Ul-fRE"/>
-                                </connections>
                             </datePicker>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="時間不早了，早點睡吧！" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o6g-UW-wRw">
                                 <rect key="frame" x="16" y="97" width="568" height="30"/>
