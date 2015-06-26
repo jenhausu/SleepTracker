@@ -20,11 +20,13 @@
 
 @property (assign, nonatomic) NSUInteger selectedRow;
 
+@property (nonatomic) NSString *footerText;
+
 @end
 
 @implementation ShouldGoToSleepTimeTableViewController
 
-@synthesize section1, section2, textLabelOfTableViewCell, fireDate, selectedRow;
+@synthesize section1, section2, textLabelOfTableViewCell, fireDate, selectedRow, footerText;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,6 +42,9 @@
     
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     selectedRow = [userPreferences integerForKey:@"ShouldGoToSleepTime"];
+    
+    if (footerText) footerText = nil;
+    
     [self.tableView reloadData];
 }
 
@@ -149,6 +154,17 @@
             
             [[[IntelligentNotification alloc] init] rescheduleIntelligentNotification];
         }
+        
+        // 設定 Footer
+        if (indexPath.row == 1) {
+            footerText = @"選擇平均起床時間，App會把「平均起床時間」往前推 8 個小時作為希望起床時間。";
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+        } else {
+            if (footerText) {
+                footerText = nil;
+                [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+            }
+        }
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             [userPreferences setInteger:2 forKey:@"ShouldGoToSleepTime"];
@@ -161,6 +177,17 @@
     }
 }
 
+#pragma mark - Footer
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return footerText;
+    } else {
+        return nil;
+    }
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     if (section == 1) {
@@ -168,7 +195,7 @@
         UIView *footerView = [[UIView alloc] initWithFrame:rect];
         UILabel *footerLabel = [[UILabel alloc] initWithFrame:rect];
         
-        footerLabel.text = @"「希望起床時間」是App用來設定「吃東西」、「看電子螢幕」、「洗澡」這三個睡前通知的基準點。";
+        footerLabel.text = @"希望起床時間是App用來設定「吃東西」、「看電子螢幕」、「洗澡」這三個睡前通知的基準點。";
         footerLabel.font = [UIFont fontWithName:@"AppleGothic" size:11];
         footerLabel.textColor = [UIColor grayColor];
         footerLabel.numberOfLines = 0;

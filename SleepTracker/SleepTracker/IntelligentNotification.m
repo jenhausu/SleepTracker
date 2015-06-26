@@ -63,13 +63,8 @@
         case 1: {  //平均起床時間
             NSInteger averageWakeUpTimeInSecond = [[[self.statistic showWakeUpTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
             if (averageWakeUpTimeInSecond) {
-                if (((averageWakeUpTimeInSecond / 3600) - 8) > 0) {
-                    [dateComponents setHour:averageWakeUpTimeInSecond / 3600 - 8];
-                    [dateComponents setMinute:((averageWakeUpTimeInSecond / 60) % 60)];
-                } else {
-                    [dateComponents setHour:(averageWakeUpTimeInSecond / 3600) - 8 + 24];
-                    [dateComponents setMinute:60 - ((averageWakeUpTimeInSecond / 60) % 60)];
-                }
+                dateComponents.hour = (((averageWakeUpTimeInSecond / 3600) - 8) >= 0) ? averageWakeUpTimeInSecond / 3600 - 8 : (averageWakeUpTimeInSecond / 3600) - 8 + 24 ;
+                dateComponents.minute = ((averageWakeUpTimeInSecond / 60) % 60);
             } else {
                 [dateComponents setHour:23];
                 [dateComponents setMinute:0];
