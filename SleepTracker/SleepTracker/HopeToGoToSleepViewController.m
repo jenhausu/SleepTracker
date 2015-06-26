@@ -27,17 +27,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Default ShouldToGoBedTime Date
-    NSDateComponents *components = [[NSDateComponents alloc] init];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
-    [components setHour:23];
-    [components setMinute:0];
-    self.datePicker.date = [calendar dateFromComponents:components];
-    
-    
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     if ([userPreferences valueForKey:@"HopeToGoToBedTime"]) {
         self.datePicker.date = [userPreferences valueForKey:@"HopeToGoToBedTime"];
+    } else {
+        // Default ShouldToGoBedTime Date
+        NSDateComponents *components = [[NSDateComponents alloc] init];
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
+        components.hour = 23;
+        components.minute = 0;
+        self.datePicker.date = [calendar dateFromComponents:components];
     }
     
     dateFormatter = [[NSDateFormatter alloc] init];
