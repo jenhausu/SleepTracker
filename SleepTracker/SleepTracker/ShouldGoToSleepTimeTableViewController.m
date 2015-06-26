@@ -9,12 +9,14 @@
 #import "ShouldGoToSleepTimeTableViewController.h"
 
 #import "IntelligentNotification.h"
+#import "Statistic.h"
 
 @interface ShouldGoToSleepTimeTableViewController ()
 
 @property (strong, nonatomic) NSArray *section1;
 @property (strong, nonatomic) NSArray *section2;
 @property (strong, nonatomic) NSArray *textLabelOfTableViewCell;
+@property (nonatomic) NSArray *fireDate;
 
 @property (assign, nonatomic) NSUInteger selectedRow;
 
@@ -22,7 +24,7 @@
 
 @implementation ShouldGoToSleepTimeTableViewController
 
-@synthesize section1, section2, textLabelOfTableViewCell, selectedRow;
+@synthesize section1, section2, textLabelOfTableViewCell, fireDate, selectedRow;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,12 +57,37 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     cell.textLabel.text = textLabelOfTableViewCell[indexPath.section][indexPath.row];
+    cell.detailTextLabel.text = @"--:--";
     
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            cell.detailTextLabel.text = @"適合想要早點睡的人";
+            NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
+            NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+            
+            NSInteger averageGoToSleepTimeInSecond = [[[[[Statistic alloc] init] showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+            if (averageGoToSleepTimeInSecond) {
+                dateComponents.hour = averageGoToSleepTimeInSecond / 3600;
+                dateComponents.minute = ((averageGoToSleepTimeInSecond / 60) % 60);
+                
+                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                [dateFormatter setDateFormat:@"HH:mm"];
+                
+                cell.detailTextLabel.text = [dateFormatter stringFromDate:[greCalendar dateFromComponents:dateComponents]];  //@"適合想要早點睡的人";
+            }
         } else if (indexPath.row == 1) {
-            cell.detailTextLabel.text = @"適合想要早點起床的人";
+            NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
+            NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+            
+            NSInteger averageWakeUpTimeInSecond = [[[[[Statistic alloc] init] showWakeUpTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+            if (averageWakeUpTimeInSecond) {
+                dateComponents.hour = ((averageWakeUpTimeInSecond / 3600  - 8) >= 0) ? (averageWakeUpTimeInSecond / 3600 - 8) : (averageWakeUpTimeInSecond / 3600 - 8) + 24 ;
+                dateComponents.minute = ((averageWakeUpTimeInSecond / 60) % 60);
+
+                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                [dateFormatter setDateFormat:@"HH:mm"];
+                
+                cell.detailTextLabel.text = [dateFormatter stringFromDate:[greCalendar dateFromComponents:dateComponents]];  //@"適合想要早點睡的人";
+            }
         }
         
         if (indexPath.row == selectedRow) {
@@ -80,7 +107,6 @@
                 NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
                 cell.detailTextLabel.text = [dateFormatter stringFromDate: [userPreferences valueForKey:@"HopeToGoToBedTime"]];
             } else {
-                cell.detailTextLabel.text = @"--:--";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             }
         }
