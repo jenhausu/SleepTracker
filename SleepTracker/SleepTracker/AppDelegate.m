@@ -55,13 +55,11 @@
 {
 #ifdef DEBUG
     NSLog(@"Debug Mode");
-    [userPreferences setBool:NO forKey:@"ReleaseMode"];
 #else
     NSLog(@"Release Mode");
-    [userPreferences setBool:YES forKey:@"ReleaseMode"];
 #endif
     
-    if ([userPreferences boolForKey:@"ReleaseMode"]) {
+    if (RELEASE_MODE) {
         [self crashlytics];
         [self googleAnalytics];
     }

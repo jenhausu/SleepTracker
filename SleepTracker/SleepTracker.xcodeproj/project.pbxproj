@@ -259,6 +259,7 @@
 				1D8901C71A4B5119001A69A3 /* Info.plist */,
 				1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */,
 				1D8901C81A4B5119001A69A3 /* main.m */,
+				1DB8836A1B3FABDF00ED945D /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -717,7 +718,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				GCC_PREFIX_HEADER = "";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(TARGET_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = SleepTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -737,7 +738,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				GCC_PREFIX_HEADER = "";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(TARGET_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = SleepTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
