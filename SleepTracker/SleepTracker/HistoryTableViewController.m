@@ -7,6 +7,7 @@
 //
 
 #import "HistoryTableViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
@@ -52,6 +53,14 @@
     
     fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
     [self.tableView reloadData];
+    
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"History"];
 }
 
 #pragma mark - Table view data source

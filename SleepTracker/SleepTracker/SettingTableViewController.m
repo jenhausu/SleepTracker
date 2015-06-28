@@ -7,6 +7,7 @@
 //
 
 #import "SettingTableViewController.h"
+#import "GoogleAnalytics.h"
 
 #import <MessageUI/MessageUI.h>
 
@@ -48,6 +49,14 @@
     [super viewWillAppear:animated];
     
     [self.tableView reloadData];
+    
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"Setting"];
 }
 
 #pragma mark - Table view data source
@@ -188,6 +197,7 @@
                 [mailViewController setToRecipients:[NSArray arrayWithObject:@"jenhausu@icloud.com"]];
                 
                 [self presentViewController:mailViewController animated:YES completion:NULL];
+                [[[GoogleAnalytics alloc] init] trackPageView:@"Feedback"];
             } else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
                                                                 message:@"Your device doesn't support the composer sheet"

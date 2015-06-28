@@ -7,6 +7,7 @@
 //
 
 #import "ZeroTableViewController.h"
+#import "GoogleAnalytics.h"
 
 @interface ZeroTableViewController ()
 
@@ -28,6 +29,18 @@
     
     userPreferences = [NSUserDefaults standardUserDefaults];
     selectedRow = [userPreferences integerForKey:@"醒來計時器歸零"];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"醒來計時器歸零"];
 }
 
 #pragma mark - Table view data source

@@ -7,6 +7,7 @@
 //
 
 #import "ShouldGoToSleepTimeTableViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "IntelligentNotification.h"
 #import "Statistic.h"
@@ -46,6 +47,14 @@
     if (footerText) footerText = nil;
     
     [self.tableView reloadData];
+    
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"ShouldGoToBedTime"];
 }
 
 #pragma mark - Table view data source

@@ -7,6 +7,7 @@
 //
 
 #import "StatisticViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "Statistic.h"
 
@@ -99,6 +100,24 @@
     } else {
         self.getUpTooLate.text = @"沒有資料";
         self.goToBedTimeTooLate.text = @"沒有資料";
+    }
+    
+    
+    [self googleAnalytics:recent];
+}
+
+- (void)googleAnalytics:(NSInteger)recent
+{
+    switch (recent) {
+        case 7:
+            [[[GoogleAnalytics alloc] init] trackPageView:@"Statistic 最近一週"];
+            break;
+        case 30:
+            [[[GoogleAnalytics alloc] init] trackPageView:@"Statistic 最近一個月"];
+            break;
+        case 183:
+            [[[GoogleAnalytics alloc] init] trackPageView:@"Statistic 最近半年"];
+            break;
     }
 }
 

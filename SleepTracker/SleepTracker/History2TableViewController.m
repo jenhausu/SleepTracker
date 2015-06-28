@@ -7,6 +7,7 @@
 //
 
 #import "History2TableViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
@@ -46,7 +47,6 @@
     return _sleepDataModel;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -75,6 +75,14 @@
     [super viewWillAppear:NO];
     
     [self.tableView reloadData];
+    
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"History2"];
 }
 
 #pragma mark - Table view data source
