@@ -30,7 +30,9 @@
 		1D8902021A4B5199001A69A3 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901F81A4B5199001A69A3 /* HistoryTableViewController.m */; };
 		1D8902051A4B5199001A69A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8901FD1A4B5199001A69A3 /* Main.storyboard */; };
 		1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902071A4B52C8001A69A3 /* SleepData.m */; };
+		1D9545121B3D6C1300A56456 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */; };
 		1D995E011A7D4D37002F069C /* HopeToGoToSleepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */; };
+		1DB8836D1B3FB05500ED945D /* GoogleAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8836C1B3FB05500ED945D /* GoogleAnalytics.m */; };
 		1DBC7C031A70FD81007B35B8 /* IntelligentNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */; };
 		1DBC7C0F1A70FFBB007B35B8 /* LocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC7C0E1A70FFBB007B35B8 /* LocalNotification.m */; };
 		1DBCE4941AD39BC1001DCB80 /* double_bed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCE4931AD39BC1001DCB80 /* double_bed@2x.png */; };
@@ -48,6 +50,7 @@
 		1DD087121B2D69CB00B37D2D /* SleepNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD087111B2D69CB00B37D2D /* SleepNotification.m */; };
 		1DF063F61A8C59F600F21359 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF063F51A8C59F600F21359 /* SettingTableViewController.m */; };
 		1DF063F81A8C626700F21359 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF063F71A8C626700F21359 /* MessageUI.framework */; };
+		20CA469D72F9106760CE42DE /* libPods-SleepTracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4CFECD7E8141717536E85BD /* libPods-SleepTracker.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13771A9ECBD6E70377BAA514 /* Pods-SleepTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		1D1CB5BD1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShouldGoToSleepTimeTableViewController.h; sourceTree = "<group>"; };
 		1D1CB5BE1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShouldGoToSleepTimeTableViewController.m; sourceTree = "<group>"; };
 		1D2681281A4C070300D510F8 /* History2TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History2TableViewController.h; sourceTree = "<group>"; };
@@ -106,8 +110,12 @@
 		1D8901FD1A4B5199001A69A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1D8902061A4B52C8001A69A3 /* SleepData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepData.h; sourceTree = "<group>"; };
 		1D8902071A4B52C8001A69A3 /* SleepData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepData.m; sourceTree = "<group>"; };
+		1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1D995DFF1A7D4D37002F069C /* HopeToGoToSleepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopeToGoToSleepViewController.h; sourceTree = "<group>"; };
 		1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopeToGoToSleepViewController.m; sourceTree = "<group>"; };
+		1DB8836A1B3FABDF00ED945D /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		1DB8836B1B3FB05500ED945D /* GoogleAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleAnalytics.h; sourceTree = "<group>"; };
+		1DB8836C1B3FB05500ED945D /* GoogleAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleAnalytics.m; sourceTree = "<group>"; };
 		1DBC7C011A70FD81007B35B8 /* IntelligentNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntelligentNotification.h; sourceTree = "<group>"; };
 		1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntelligentNotification.m; sourceTree = "<group>"; };
 		1DBC7C0D1A70FFBB007B35B8 /* LocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotification.h; sourceTree = "<group>"; };
@@ -134,6 +142,8 @@
 		1DF063F41A8C59F600F21359 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		1DF063F51A8C59F600F21359 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		1DF063F71A8C626700F21359 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		63CAB3BE578620210DEAAC9C /* Pods-SleepTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker.release.xcconfig"; sourceTree = "<group>"; };
+		A4CFECD7E8141717536E85BD /* libPods-SleepTracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SleepTracker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +154,7 @@
 				1DF063F81A8C626700F21359 /* MessageUI.framework in Frameworks */,
 				1DD0870A1B2D42CD00B37D2D /* Crashlytics.framework in Frameworks */,
 				1DD087091B2D42CD00B37D2D /* Fabric.framework in Frameworks */,
+				20CA469D72F9106760CE42DE /* libPods-SleepTracker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +225,8 @@
 				1DD087081B2D42CD00B37D2D /* Crashlytics.framework */,
 				1D8901E21A4B511A001A69A3 /* SleepTrackerTests */,
 				1D8901C41A4B5119001A69A3 /* Products */,
+				D0E35EE930C08809DEF0467D /* Pods */,
+				84628276B3D189C096A31A68 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -247,9 +260,10 @@
 		1D8901C61A4B5119001A69A3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1DF063F71A8C626700F21359 /* MessageUI.framework */,
 				1D8901C71A4B5119001A69A3 /* Info.plist */,
+				1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */,
 				1D8901C81A4B5119001A69A3 /* main.m */,
+				1DB8836A1B3FABDF00ED945D /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -292,6 +306,8 @@
 				1D2DB7E81A6D677000A72EFA /* Statistic.h */,
 				1D2DB7E91A6D677000A72EFA /* Statistic.m */,
 				1DD0870F1B2D69B500B37D2D /* Sleep Notification */,
+				1DB8836B1B3FB05500ED945D /* GoogleAnalytics.h */,
+				1DB8836C1B3FB05500ED945D /* GoogleAnalytics.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -396,6 +412,24 @@
 			name = "Sleep Notificaiton";
 			sourceTree = "<group>";
 		};
+		84628276B3D189C096A31A68 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF063F71A8C626700F21359 /* MessageUI.framework */,
+				A4CFECD7E8141717536E85BD /* libPods-SleepTracker.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0E35EE930C08809DEF0467D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				13771A9ECBD6E70377BAA514 /* Pods-SleepTracker.debug.xcconfig */,
+				63CAB3BE578620210DEAAC9C /* Pods-SleepTracker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -403,10 +437,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D8901E91A4B511A001A69A3 /* Build configuration list for PBXNativeTarget "SleepTracker" */;
 			buildPhases = (
+				B3D2AD793F0FD7F2078D5FAB /* Check Pods Manifest.lock */,
 				1D8901BF1A4B5119001A69A3 /* Sources */,
 				1D8901C01A4B5119001A69A3 /* Frameworks */,
 				1D8901C11A4B5119001A69A3 /* Resources */,
 				1DD087061B2D428D00B37D2D /* ShellScript */,
+				A0BC8CB4CDC00C7C7969AEA8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -479,6 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DBCE4941AD39BC1001DCB80 /* double_bed@2x.png in Resources */,
+				1D9545121B3D6C1300A56456 /* GoogleService-Info.plist in Resources */,
 				1DBCE4B01AD3A512001DCB80 /* Create New-50@2x.png in Resources */,
 				1D8902051A4B5199001A69A3 /* Main.storyboard in Resources */,
 				1DBCE4AA1AD3A334001DCB80 /* Settings-50@2x.png in Resources */,
@@ -511,6 +548,36 @@
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run fe4e3029cb8b16a4090a639738cd883da14c63c5 ca7e9d93baac38d611e659a233772b2ecaea2649e82eeae23faf48fdc0f18b19";
 		};
+		A0BC8CB4CDC00C7C7969AEA8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3D2AD793F0FD7F2078D5FAB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -531,6 +598,7 @@
 				1D2DB7FA1A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.m in Sources */,
 				1DD087121B2D69CB00B37D2D /* SleepNotification.m in Sources */,
 				1D26812A1A4C070300D510F8 /* History2TableViewController.m in Sources */,
+				1DB8836D1B3FB05500ED945D /* GoogleAnalytics.m in Sources */,
 				1D2DB7EA1A6D677000A72EFA /* Statistic.m in Sources */,
 				1D8901FE1A4B5199001A69A3 /* SleepDataModel.m in Sources */,
 				1D7C390B1A4C962500A02793 /* WakeUp2ViewController.m in Sources */,
@@ -648,6 +716,7 @@
 		};
 		1D8901EA1A4B511A001A69A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13771A9ECBD6E70377BAA514 /* Pods-SleepTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -656,6 +725,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(TARGET_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = SleepTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -666,6 +736,7 @@
 		};
 		1D8901EB1A4B511A001A69A3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63CAB3BE578620210DEAAC9C /* Pods-SleepTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -674,6 +745,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(TARGET_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = SleepTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

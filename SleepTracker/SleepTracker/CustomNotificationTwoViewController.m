@@ -7,6 +7,7 @@
 //
 
 #import "CustomNotificationTwoViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "CustomNotification-Model.h"
 
@@ -34,6 +35,18 @@
 {
     [super viewDidLoad];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"Add New Custom Notification"];
 }
 
 - (IBAction)save:(id)sender

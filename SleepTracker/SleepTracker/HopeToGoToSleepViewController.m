@@ -7,6 +7,7 @@
 //
 
 #import "HopeToGoToSleepViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "LocalNotification.h"
 #import "IntelligentNotification.h"
@@ -42,6 +43,18 @@
     dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"a hh:mm"];
     self.dateLabel.text = [dateFormatter stringFromDate:self.datePicker.date];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"Custom ShouldGoToBedTime"];
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent

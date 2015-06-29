@@ -10,26 +10,28 @@
 
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import <Google/Analytics.h>
 
 #import "LocalNotification.h"
 
 @interface AppDelegate ()  <UIAlertViewDelegate>
 
 @property (nonatomic) UILocalNotification *localNotification;
+@property (nonatomic) NSUserDefaults *userPreferences;
 
 @end
 
 @implementation AppDelegate
 
+@synthesize userPreferences;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    if (![userPreferences boolForKey:@"NotFirstLaunch"]) {
-        [userPreferences setBool:YES forKey:@"重複發出睡前通知"];
-        [userPreferences setBool:YES forKey:@"NotFirstLaunch"];
-    }
+    userPreferences = [NSUserDefaults standardUserDefaults];
+    [self firstLaunch];
+    
+    [self analytics];
     
     
     _localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
@@ -37,10 +39,50 @@
         [self clickNotification];
     }
     
-    //[Fabric with:@[CrashlyticsKit]];  //避免在開發的時候一直觸動 Crashlytics，污染我的數據
     
     return YES;
 }
+
+- (void)firstLaunch
+{
+    if (![userPreferences boolForKey:@"NotFirstLaunch"]) {
+        [userPreferences setBool:YES forKey:@"重複發出睡前通知"];
+        [userPreferences setBool:YES forKey:@"NotFirstLaunch"];
+    }
+}
+
+- (void)analytics
+{
+#ifdef DEBUG
+    NSLog(@"Debug Mode");
+#else
+    NSLog(@"Release Mode");
+#endif
+    
+    if (RELEASE_MODE) {
+        [self crashlytics];
+        [self googleAnalytics];
+    }
+}
+
+- (void)crashlytics
+{
+    [Fabric with:@[CrashlyticsKit]];  //避免在開發的時候一直觸動 Crashlytics，污染我的數據
+}
+
+- (void)googleAnalytics
+{
+    // Configure tracker from GoogleService-Info.plist.
+    NSError *configureError;
+    [[GGLContext sharedInstance] configureWithError:&configureError];
+    NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
+    
+    // Optional: configure GAI options.
+    GAI *gai = [GAI sharedInstance];
+    gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
+    gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -7,6 +7,7 @@
 //
 
 #import "SleepRecordViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
@@ -95,6 +96,14 @@
         self.alreadyAwakeLabel.text = @"00:00:00";
         [userPreferences setValue:@"清醒" forKey:@"睡眠狀態"];  //如果沒有資料時設定睡眠狀態為清醒。
     }
+    
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"Record"];
 }
 
 - (IBAction)buttonPress:(UIButton *)sender {

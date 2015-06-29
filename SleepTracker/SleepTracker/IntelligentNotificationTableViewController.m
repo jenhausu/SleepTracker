@@ -7,6 +7,7 @@
 //
 
 #import "IntelligentNotificationTableViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "IntelligentNotification.h"
 #import "SleepDataModel.h"
@@ -72,6 +73,14 @@
     userPreferences = [NSUserDefaults standardUserDefaults];
     
     [self.tableView reloadData];
+    
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"Intelligent Notification"];
 }
 
 #pragma mark - Table view data source

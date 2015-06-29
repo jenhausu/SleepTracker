@@ -7,6 +7,7 @@
 //
 
 #import "AddNewSleepdataTableViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
@@ -52,6 +53,14 @@
     [super viewWillAppear:NO];
     
     [self.tableView reloadData];
+    
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"Add New SleepData"];
 }
 
 #pragma mark - Table view data source

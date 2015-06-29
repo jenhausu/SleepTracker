@@ -7,6 +7,7 @@
 //
 
 #import "AddNewSleepdataTwoViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "AddNewSleepdataTableViewController.h"
 
@@ -56,6 +57,22 @@
         self.dateLabel.text = [dateFormatter stringFromDate:wakeUpTime];
         
         self.datePicker.minimumDate = goToBedTime;  //起床時間可設定的最小值限制為上床時間
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    if ([DateType isEqualToString:@"goToBedTime"]) {
+        [[[GoogleAnalytics alloc] init] trackPageView:@"AddNewSleepData2_goToBedTime"];
+    } else if ([DateType isEqualToString:@"wakeUpTime"]) {
+        [[[GoogleAnalytics alloc] init] trackPageView:@"AddNewSleepData2_wakeUpTime"];
     }
 }
 
