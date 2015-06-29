@@ -7,6 +7,7 @@
 //
 
 #import "History3ViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "History2TableViewController.h"
 
@@ -71,7 +72,22 @@
         
         self.dateLabel.text = [dateFormatter stringFromDate:wakeUpTime];
     }
+}
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    if ([DateType isEqualToString:@"goToBedTime"]) {
+        [[[GoogleAnalytics alloc] init] trackPageView:@"History3_goToBedTime"];
+    } else if ([DateType isEqualToString:@"wakeUpTime"]) {
+        [[[GoogleAnalytics alloc] init] trackPageView:@"History3_wakeUpTime"];
+    }
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent

@@ -7,6 +7,7 @@
 //
 
 #import "CNDetailViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "CustomNotification-Model.h"
 #import "CustomNotification.h"
@@ -45,6 +46,18 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"h:mm a"];
     self.dateLabel.text = [formatter stringFromDate:self.datePicker.date];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"Custom Notification Detail"];
 }
 
 - (IBAction)update:(id)sender

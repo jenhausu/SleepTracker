@@ -7,6 +7,7 @@
 //
 
 #import "IntelligentNotificationTableViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "IntelligentNotification.h"
 #import "SleepDataModel.h"
@@ -72,6 +73,14 @@
     userPreferences = [NSUserDefaults standardUserDefaults];
     
     [self.tableView reloadData];
+    
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"Intelligent Notification"];
 }
 
 #pragma mark - Table view data source
@@ -218,7 +227,7 @@
     
     //設定說明文字
     if (self.switchControl.on) {
-        footerText = @"App 會在應該上床睡覺時間的前三個小時發出通知，提醒你不要再吃東西了，好讓腸胃開始休息。";
+        footerText = @"App 會在「希望上床時間」的前三個小時發出通知，提醒你不要再吃東西了，好讓腸胃開始休息。";
         footerHeight = 35;
         
         self.selectedRow = 0;
@@ -245,7 +254,7 @@
     
     //設定說明文字
     if (self.switchControl.on) {
-        footerText = @"App 會在應該上床睡覺時間的前一個小時發出通知，提醒你不要再看電子螢幕了。";
+        footerText = @"App 會在「希望上床時間」的前一個小時發出通知，提醒你不要再看電子螢幕了。";
         footerHeight = 35;
         
         self.selectedRow = 1;
@@ -272,7 +281,7 @@
     
     //設定說明文字
     if (self.switchControl.on) {
-        footerText = @"App 會在應該上床睡覺時間的前兩個小時發出通知，提醒你如果你還沒去洗澡，建議你可以去洗個澡，這樣兩個小時後體溫開始下降，最適合入睡。";
+        footerText = @"App 會在「希望上床時間」的前兩個小時發出通知，提醒你如果你還沒去洗澡，建議你可以去洗個澡，這樣兩個小時後體溫開始下降，最適合入睡。";
         footerHeight = 45;
         
         self.selectedRow = 2;

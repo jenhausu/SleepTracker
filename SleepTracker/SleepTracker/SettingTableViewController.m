@@ -7,6 +7,7 @@
 //
 
 #import "SettingTableViewController.h"
+#import "GoogleAnalytics.h"
 
 #import <MessageUI/MessageUI.h>
 
@@ -48,6 +49,14 @@
     [super viewWillAppear:animated];
     
     [self.tableView reloadData];
+    
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"Setting"];
 }
 
 #pragma mark - Table view data source
@@ -120,16 +129,6 @@
 
 #pragma mark - Header
 
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if (section == 1) {
-        return 30;
-    } else {
-        return UITableViewAutomaticDimension;
-    }
-}
-
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 1) {
@@ -139,6 +138,37 @@
     }
 }
 
+/*
+ 
+#define HeadersHeight 28
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    CGRect rect;
+    UILabel *headerLabel;
+    
+    if (section == 0) {
+        return nil;
+    } else if (section == 1) {
+        rect = CGRectMake(15, 3, 280, HeadersHeight);
+        headerLabel = [[UILabel alloc] initWithFrame:rect];
+        
+        headerLabel.text = @"前一天沒有輸入資料";
+        
+        headerLabel.font = [UIFont fontWithName:@"AppleGothic" size:12];
+        headerLabel.textColor = [UIColor grayColor];
+        headerLabel.numberOfLines = 0;
+        headerLabel.textAlignment = NSTextAlignmentLeft;
+        
+        UIView *headerView = [[UIView alloc] initWithFrame:rect];
+        [headerView addSubview:headerLabel];
+        return headerView;
+    } else {
+        return nil;
+    }
+    
+
+}  //*/
 #pragma mark -
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -167,6 +197,7 @@
                 [mailViewController setToRecipients:[NSArray arrayWithObject:@"jenhausu@icloud.com"]];
                 
                 [self presentViewController:mailViewController animated:YES completion:NULL];
+                [[[GoogleAnalytics alloc] init] trackPageView:@"Feedback"];
             } else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
                                                                 message:@"Your device doesn't support the composer sheet"
@@ -186,6 +217,12 @@
     UISwitch *switchControl = sender;
     [userPreferences setBool:switchControl.on forKey:@"重複發出睡前通知"];
     [[[IntelligentNotification alloc] init] rescheduleIntelligentNotification];
+    
+    if (switchControl.on) {
+        [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"前一天沒有輸入資料" action:@"睡前通知「要」重複發出" label:@"「睡前通知」重複發出" value:nil];
+    } else {
+        [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"前一天沒有輸入資料" action:@"睡前通知「不」重複發出" label:@"「睡前通知」重複發出" value:nil];
+    }
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
