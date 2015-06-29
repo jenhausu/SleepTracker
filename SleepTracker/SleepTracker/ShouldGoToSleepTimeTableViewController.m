@@ -18,16 +18,16 @@
 @property (strong, nonatomic) NSArray *section2;
 @property (strong, nonatomic) NSArray *textLabelOfTableViewCell;
 @property (nonatomic) NSArray *fireDate;
-
 @property (assign, nonatomic) NSUInteger selectedRow;
-
 @property (nonatomic) NSString *footerText;
+
+@property (nonatomic) NSUserDefaults *userPreferences;
 
 @end
 
 @implementation ShouldGoToSleepTimeTableViewController
 
-@synthesize section1, section2, textLabelOfTableViewCell, fireDate, selectedRow, footerText;
+@synthesize section1, section2, textLabelOfTableViewCell, fireDate, selectedRow, footerText, userPreferences;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,7 +41,7 @@
 {
     [super viewWillAppear:YES];
     
-    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    userPreferences = [NSUserDefaults standardUserDefaults];
     selectedRow = [userPreferences integerForKey:@"ShouldGoToSleepTime"];
     
     if (footerText) footerText = nil;
@@ -118,7 +118,6 @@
                 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                 [dateFormatter setDateFormat:@"HH:mm"];
                 
-                NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
                 cell.detailTextLabel.text = [dateFormatter stringFromDate: [userPreferences valueForKey:@"HopeToGoToBedTime"]];
             } else {
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -135,7 +134,6 @@
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     if (indexPath.section == 0)
@@ -214,6 +212,25 @@
         return footerView;
     } else {
         return nil;
+    }
+}
+
+#pragma mark -
+
+- (void)willMoveToParentViewController:(UIViewController *)parent
+{
+    if (!parent) {
+        switch ([userPreferences integerForKey:@"ShouldGoToSleepTime"]) {
+            case 0:
+                [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"希望上床時間" action:@"平均「上床」時間" label:@"智能" value:nil];
+                break;
+            case 1:
+                [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"希望上床時間" action:@"平均「起床」時間" label:@"智能" value:nil];
+                break;
+            case 2:
+                [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"希望上床時間" action:@"自訂" label:@"自訂" value:nil];
+                break;
+        }
     }
 }
 
