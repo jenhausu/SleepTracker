@@ -118,4 +118,26 @@
     }
 }
 
+#pragma mark -
+
+- (void)willMoveToParentViewController:(UIViewController *)parent
+{
+    if (!parent) {
+        switch ([userPreferences integerForKey:@"醒來計時器歸零"]) {
+            case 0:
+                [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"前一天沒有輸入資料" action:@"普通＿照常運算" label:@"醒來計時器歸零" value:nil];
+                break;
+            case 1:
+                [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"前一天沒有輸入資料" action:@"普通＿超過24小時便不再計算" label:@"醒來計時器歸零" value:nil];
+                break;
+            case 2:
+                [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"前一天沒有輸入資料" action:@"智能＿減去24小時繼續計算" label:@"醒來計時器歸零" value:nil];
+                break;
+            case 3:
+                [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"前一天沒有輸入資料" action:@"智能＿從平均起床時間開始計算" label:@"醒來計時器歸零" value:nil];
+                break;
+        }
+    }
+}
+
 @end

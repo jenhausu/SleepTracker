@@ -217,6 +217,12 @@
     UISwitch *switchControl = sender;
     [userPreferences setBool:switchControl.on forKey:@"重複發出睡前通知"];
     [[[IntelligentNotification alloc] init] rescheduleIntelligentNotification];
+    
+    if (switchControl.on) {
+        [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"前一天沒有輸入資料" action:@"睡前通知「要」重複發出" label:@"「睡前通知」重複發出" value:nil];
+    } else {
+        [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"前一天沒有輸入資料" action:@"睡前通知「不」重複發出" label:@"「睡前通知」重複發出" value:nil];
+    }
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
