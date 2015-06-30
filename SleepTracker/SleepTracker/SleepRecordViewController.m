@@ -185,13 +185,11 @@
         } else if ([userPreferences integerForKey:@"醒來計時器歸零"] == 1) {  //超過二十四小時便不再計算
             self.alreadyAwakeLabel.text = [self stringFromTimeInterval:-[self.sleepData.wakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
         } else if ([userPreferences integerForKey:@"醒來計時器歸零"] == 2) {  //減去二十四小時繼續計算
-            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"DDD"];  // 1~366 一年的第幾天
-            
-            NSInteger today = [[formatter stringFromDate:[NSDate date]] integerValue];
-            NSInteger dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
-            
-            self.alreadyAwakeLabel.text = [self stringFromTimeInterval:((-[self.sleepData.wakeUpTime timeIntervalSinceNow]) - (86400 * (today - dataDate)))];  //看上一筆資料離現在差幾天，就扣掉幾個24小時
+            NSInteger awakeTime = -[self.sleepData.wakeUpTime timeIntervalSinceNow];
+            while ((awakeTime / (60 * 60)) >= 24 ) {
+                awakeTime = awakeTime - 86400;
+            }
+            self.alreadyAwakeLabel.text = [self stringFromTimeInterval:awakeTime];  //看上一筆資料離現在差幾天，就扣掉幾個24小時
         } else if ([userPreferences integerForKey:@"醒來計時器歸零"] == 3) {
             //從平均起床時間開始計算
             if ((-[self.sleepData.wakeUpTime timeIntervalSinceNow]) / (60 * 60) <= 23) {
