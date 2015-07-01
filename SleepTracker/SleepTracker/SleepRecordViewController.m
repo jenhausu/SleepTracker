@@ -195,24 +195,37 @@
             if ((-[self.sleepData.wakeUpTime timeIntervalSinceNow]) / (60 * 60) <= 23) {
                 self.alreadyAwakeLabel.text = [self stringFromTimeInterval:-[self.sleepData.wakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
             } else {
-                NSDateComponents *components = [[NSDateComponents alloc] init];
+                NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
                 NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
                 
                 NSDateComponents *currentDate = [greCalendar components: NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:[NSDate date]];
-                [components setYear:currentDate.year];
-                [components setMonth:currentDate.month];
-                [components setDay:currentDate.day];
+                [dateComponents setYear:currentDate.year];
+                [dateComponents setMonth:currentDate.month];
+                [dateComponents setDay:currentDate.day];
                 
                 NSInteger averageWakeUpTimeInSecond = [[[[[Statistic alloc] init] showWakeUpTimeDataInTheRecent:30] objectAtIndex:2] integerValue];
                 if (averageWakeUpTimeInSecond) {
-                    [components setHour:averageWakeUpTimeInSecond / 3600];
-                    [components setMinute:((averageWakeUpTimeInSecond / 60) % 60)];
+                    [dateComponents setHour:averageWakeUpTimeInSecond / 3600];
+                    [dateComponents setMinute:((averageWakeUpTimeInSecond / 60) % 60)];
                 } else {
-                    [components setHour:9];
-                    [components setMinute:0];
+                    [dateComponents setHour:9];
+                    [dateComponents setMinute:0];
                 }
+                NSDate *averageWakeUpTime = [greCalendar dateFromComponents:dateComponents];
                 
-                self.alreadyAwakeLabel.text = [self stringFromTimeInterval:-[[greCalendar dateFromComponents:components] timeIntervalSinceNow]];  //即時顯示已經醒了多久
+                
+                if ([[averageWakeUpTime earlierDate:[NSDate date]] isEqualToDate:averageWakeUpTime]) {
+                    self.alreadyAwakeLabel.text = [self stringFromTimeInterval:-[averageWakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
+                } else {
+                    currentDate = [greCalendar components: NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay
+                                                 fromDate:[NSDate dateWithTimeIntervalSinceNow:- 60 * 60 * 24]];
+                    dateComponents.year = currentDate.year;
+                    dateComponents.month = currentDate.month;
+                    dateComponents.day = currentDate.day;
+                    
+                    averageWakeUpTime = [greCalendar dateFromComponents:dateComponents];
+                    self.alreadyAwakeLabel.text = [self stringFromTimeInterval:-[averageWakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
+                }
             }
         }
     }
@@ -226,7 +239,16 @@
     NSInteger seconds = time % 60; // ％取餘數
     NSInteger minutes = (time / 60) % 60;
     NSInteger hours = (time / 3600);
+    
     return [NSString stringWithFormat:@"%02li:%02li:%02li", (long)hours, (long)minutes, (long)seconds];
+/*
+    
+    if (time >= 0)
+        return [NSString stringWithFormat:@"%02li:%02li:%02li", (long)hours, (long)minutes, (long)seconds];
+    else
+        return [NSString stringWithFormat:@"-%02li:%02li:%02li", (long)hours, (long)minutes, (long)seconds];
+ 
+ //*/
 }
 
 @end
