@@ -254,7 +254,7 @@
     
     //設定說明文字
     if (self.switchControl.on) {
-        footerText = @"App 會在「希望上床時間」的前一個小時發出通知，提醒你不要再看電子螢幕了。";
+        footerText = @"App 會在「希望上床時間」的前一個小時發出通知，提醒你不要再看電子螢幕了，電子螢幕的亮光會延後你的睡眠週期。";
         footerHeight = 35;
         
         self.selectedRow = 1;
