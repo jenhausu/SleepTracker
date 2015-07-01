@@ -136,7 +136,7 @@
                                                     message:_localNotification.alertBody
                                                    delegate:self
                                           cancelButtonTitle:@"我今天要熬夜，不要吵我！！"
-                                          otherButtonTitles:@"知道了", @"20 分鐘後再提醒我一次", nil];
+                                          otherButtonTitles:@"知道了", @"稍後提醒", nil];
     [alert show];
 }
 
