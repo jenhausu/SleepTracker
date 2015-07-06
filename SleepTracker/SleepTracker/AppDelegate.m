@@ -53,12 +53,6 @@
 
 - (void)analytics
 {
-#ifdef DEBUG
-    NSLog(@"Debug Mode");
-#else
-    NSLog(@"Release Mode");
-#endif
-    
     if (RELEASE_MODE) {
         [self crashlytics];
         [self googleAnalytics];
