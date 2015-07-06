@@ -7,6 +7,7 @@
 //
 
 #import "IntelligentNotificationTableViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "IntelligentNotification.h"
 #import "SleepDataModel.h"
@@ -72,6 +73,14 @@
     userPreferences = [NSUserDefaults standardUserDefaults];
     
     [self.tableView reloadData];
+    
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"Intelligent Notification"];
 }
 
 #pragma mark - Table view data source
@@ -82,7 +91,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 4;
+        return 3;
     } else if (section == 1) {
         return 2;
     } else {
@@ -118,14 +127,11 @@
             else if (indexPath.row == 2) {
                 [switchControl addTarget:self action:@selector(switchChanged3:) forControlEvents:UIControlEventValueChanged];
             }
-            else if (indexPath.row == 3) {
-                [switchControl addTarget:self action:@selector(switchChanged4:) forControlEvents:UIControlEventValueChanged];
-            }
-        }
-        else if (indexPath.section == 1) {
-            cell.textLabel.text = notificationName[4 + indexPath.row];
+        } else if (indexPath.section == 1) {
+            NSInteger sectionTwoRow = 3 + indexPath.row;
+            cell.textLabel.text = notificationName[sectionTwoRow];
             if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && self.sleepData.wakeUpTime > 0) ) {
-                cell.detailTextLabel.text = [formatter stringFromDate:fireDate[4 + indexPath.row]];
+                cell.detailTextLabel.text = [formatter stringFromDate:fireDate[sectionTwoRow]];
                 
                 if (indexPath.row == 1) {
                     if (!self.sleepData.wakeUpTime) {
@@ -136,12 +142,12 @@
                 cell.detailTextLabel.text = @"--:--";
             }
             
-            switchControl.on = [userPreferences boolForKey:notificationName[4 + indexPath.row]];
+            switchControl.on = [userPreferences boolForKey:notificationName[sectionTwoRow]];
             
             if (indexPath.row == 0) {
-                [switchControl addTarget:self action:@selector(switchChanged5:) forControlEvents:UIControlEventValueChanged];
+                [switchControl addTarget:self action:@selector(switchChanged4:) forControlEvents:UIControlEventValueChanged];
             } else if (indexPath.row == 1) {
-                [switchControl addTarget:self action:@selector(switchChanged6:) forControlEvents:UIControlEventValueChanged];
+                [switchControl addTarget:self action:@selector(switchChanged5:) forControlEvents:UIControlEventValueChanged];
             }
         }
         
@@ -221,7 +227,7 @@
     
     //設定說明文字
     if (self.switchControl.on) {
-        footerText = @"App 會在應該上床睡覺時間的前三個小時發出通知，提醒你不要再吃東西了，好讓腸胃開始休息。";
+        footerText = @"App 會在「希望上床時間」的前三個小時發出通知，提醒你不要再吃東西了，好讓腸胃開始休息。";
         footerHeight = 35;
         
         self.selectedRow = 0;
@@ -248,7 +254,7 @@
     
     //設定說明文字
     if (self.switchControl.on) {
-        footerText = @"App 會在應該上床睡覺時間的前一個小時發出通知，提醒你不要再看電子螢幕了。";
+        footerText = @"App 會在「希望上床時間」的前一個小時發出通知，提醒你不要再看電子螢幕了，電子螢幕的亮光會延後你的睡眠週期。";
         footerHeight = 35;
         
         self.selectedRow = 1;
@@ -275,7 +281,7 @@
     
     //設定說明文字
     if (self.switchControl.on) {
-        footerText = @"App 會在應該上床睡覺時間的前兩個小時發出通知，提醒你如果你還沒去洗澡，建議你可以去洗個澡，這樣兩個小時後體溫開始下降，最適合入睡。";
+        footerText = @"App 會在「希望上床時間」的前兩個小時發出通知，提醒你如果你還沒去洗澡，建議你可以去洗個澡，這樣兩個小時後體溫開始下降，最適合入睡。";
         footerHeight = 45;
         
         self.selectedRow = 2;
@@ -299,39 +305,12 @@
     self.switchControl = sender;
     [userPreferences setBool:self.switchControl.on forKey:notificationName[3]];
     [self.intelligentNotification rescheduleIntelligentNotification];
-    
-    //設定說明文字
-    if (self.switchControl.on) {
-        footerText = @"App 會在午夜時發出通知";
-        footerHeight = 25;
-        
-        self.selectedRow = 3;
-        
-        [self postponeForAFewSecondThenChangeSectionOneFooter];
-    } else {
-        if (footerText) {
-            footerText = nil;
-            footerHeight = 0;
-            
-            [self postponeForAFewSecondThenChangeSectionOneFooter];
-        } else {
-            footerText = nil;
-            footerHeight = 0;
-        }
-    }
 }
 
 - (void)switchChanged5:(id)sender
 {
     self.switchControl = sender;
     [userPreferences setBool:self.switchControl.on forKey:notificationName[4]];
-    [self.intelligentNotification rescheduleIntelligentNotification];
-}
-
-- (void)switchChanged6:(id)sender
-{
-    self.switchControl = sender;
-    [userPreferences setBool:self.switchControl.on forKey:notificationName[5]];
     [self.intelligentNotification rescheduleIntelligentNotification];
 }
 

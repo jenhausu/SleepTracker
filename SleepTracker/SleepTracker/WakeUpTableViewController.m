@@ -7,6 +7,7 @@
 //
 
 #import "WakeUpTableViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
@@ -69,6 +70,13 @@
     [super viewWillAppear:NO];
     
     [self.tableView reloadData];
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"WakeUp"];
 }
 
 #pragma mark - Table view data source
@@ -137,8 +145,20 @@
     }
 }
 
-#pragma mark - Custom Header
+#pragma mark - Header
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"睡眠時間";
+    } else if (section == 1){
+        return @"睡眠型態";
+    } else {
+        return nil;
+    }
+}
+
+/*
 #define HeadersHeight 25
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -177,7 +197,7 @@
     UIView *headerView = [[UIView alloc] initWithFrame:rect];
     [headerView addSubview:headerLabel];
     return headerView;
-}
+}  //*/
 
 #pragma mark - Custom Footer
 

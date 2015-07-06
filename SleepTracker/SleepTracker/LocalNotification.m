@@ -15,25 +15,19 @@
 #pragma mark - Set
 
 - (void)setLocalNotificationWithMessage:(NSString *)message fireDate:(NSDate *)fireDate repeatOrNot:(BOOL)repeat Sound:(NSString *)sound
-{
-    [self checkIfAppGetUserPermission];
-    
-    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.fireDate = fireDate;
-    localNotification.alertBody = message;
-    localNotification.soundName = sound;  //@"UILocalNotificationDefaultSoundName"
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-}
-
-- (void)setLocalNotificationWithMessage:(NSString *)message fireDate:(NSDate *)fireDate repeatOrNot:(BOOL)repeat Sound:(NSString *)sound
                                setValue:(id)value forKey:(NSString *)key
 {
     [self checkIfAppGetUserPermission];
     
+    
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    
+    localNotification.timeZone = [NSTimeZone localTimeZone];
+    while ([[fireDate earlierDate:[NSDate date]] isEqualToDate:fireDate]) {   // 如果 fireDate 比現在時間還要早的話，把 fireDate 往後調 24 小時
+        fireDate = [NSDate dateWithTimeInterval:60 * 60 * 24 sinceDate:fireDate];
+    }
     localNotification.fireDate = fireDate;
+    
     localNotification.alertBody = message;
     localNotification.soundName = sound;  //@"UILocalNotificationDefaultSoundName"
     
@@ -101,9 +95,9 @@
     return returnArray;
 }
 
-#pragma mark - Delete
+#pragma mark - Cancel
 
-- (void)deleteLocalNotificaionWithValue:(id)value foreKey:(NSString *)key
+- (void)cancelLocalNotificaionWithValue:(id)value foreKey:(NSString *)key
 {
     UIApplication *application = [UIApplication sharedApplication];
     NSArray *arrayOfAllLocalNotification = [application scheduledLocalNotifications];
@@ -122,7 +116,7 @@
     }
 }
 
-- (void)deleteAllLocalNotification
+- (void)cancelAllLocalNotification
 {
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }

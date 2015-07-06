@@ -7,6 +7,7 @@
 //
 
 #import "AddNewSleepdataTableViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
@@ -18,7 +19,6 @@
 @property (nonatomic, strong) NSArray *section2;
 @property (nonatomic, strong) NSArray *textLabel;
 
-@property (nonatomic, strong) SleepDataModel *sleepDataModel;
 @property (nonatomic, weak) NSArray *fetchDataArray;
 @property (nonatomic, weak) SleepData *sleepData;
 @property (nonatomic, strong) NSDate *goToBedTime;
@@ -26,24 +26,11 @@
 @property (strong, nonatomic) NSString *sleepType;
 @property (assign, nonatomic) NSUInteger selectedSleepType;
 
-@property (strong, nonatomic) IntelligentNotification *intelligentNotification;
-
 @end
 
 @implementation AddNewSleepdataTableViewController
 
 @synthesize section1, section2, textLabel, goToBedTime, wakeUpTime, sleepType, selectedSleepType, fetchDataArray;
-
-#pragma mark - lazy initialization
-
-- (IntelligentNotification *)intelligentNotification
-{
-    if (!_intelligentNotification) {
-        _intelligentNotification = [[IntelligentNotification alloc] init];
-    }
-    
-    return _intelligentNotification;
-}
 
 #pragma mark - view
 
@@ -66,6 +53,14 @@
     [super viewWillAppear:NO];
     
     [self.tableView reloadData];
+    
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"Add New SleepData"];
 }
 
 #pragma mark - Table view data source
@@ -154,13 +149,12 @@
     }
     NSNumber *sleepTime = [NSNumber numberWithDouble:[wakeUpTime timeIntervalSinceDate:goToBedTime]];
     
-    self.sleepDataModel = [[SleepDataModel alloc] init];
-    [self.sleepDataModel addNewSleepdataAndAddGoToBedTime:goToBedTime
-                                               wakeUpTime:wakeUpTime
-                                                sleepTime:sleepTime
-                                                sleepType:sleepType];
+    [[[SleepDataModel alloc] init] addNewSleepdataAndAddGoToBedTime:goToBedTime
+                                                         wakeUpTime:wakeUpTime
+                                                          sleepTime:sleepTime
+                                                          sleepType:sleepType];
     
-    [self.intelligentNotification rescheduleIntelligentNotification];
+    [[[IntelligentNotification alloc] init] rescheduleIntelligentNotification];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

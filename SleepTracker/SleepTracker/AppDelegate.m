@@ -10,35 +10,73 @@
 
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import <Google/Analytics.h>
 
 #import "LocalNotification.h"
 
 @interface AppDelegate ()  <UIAlertViewDelegate>
 
 @property (nonatomic) UILocalNotification *localNotification;
+@property (nonatomic) NSUserDefaults *userPreferences;
 
 @end
 
 @implementation AppDelegate
 
+@synthesize userPreferences;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    userPreferences = [NSUserDefaults standardUserDefaults];
+    [self firstLaunch];
+    
+    [self analytics];
+    
+    
     _localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (_localNotification) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前通知"
-                                                        message:_localNotification.alertBody
-                                                       delegate:self
-                                              cancelButtonTitle:@"我知道了～"
-                                              otherButtonTitles:@"十五分鐘後再提醒我", nil];
-        [alert show];
+        [self clickNotification];
     }
     
-    [Fabric with:@[CrashlyticsKit]];
     
     return YES;
 }
+
+- (void)firstLaunch
+{
+    if (![userPreferences boolForKey:@"NotFirstLaunch"]) {
+        [userPreferences setBool:YES forKey:@"重複發出睡前通知"];
+        [userPreferences setBool:YES forKey:@"NotFirstLaunch"];
+    }
+}
+
+- (void)analytics
+{
+    if (RELEASE_MODE) {
+        [self crashlytics];
+        [self googleAnalytics];
+    }
+}
+
+- (void)crashlytics
+{
+    [Fabric with:@[CrashlyticsKit]];  //避免在開發的時候一直觸動 Crashlytics，污染我的數據
+}
+
+- (void)googleAnalytics
+{
+    // Configure tracker from GoogleService-Info.plist.
+    NSError *configureError;
+    [[GGLContext sharedInstance] configureWithError:&configureError];
+    NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
+    
+    // Optional: configure GAI options.
+    GAI *gai = [GAI sharedInstance];
+    gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
+    gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -58,8 +96,7 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
     //不管是點擊通知或是直接打開 App，App 開啟就會把所有在通知中心的通知給刪除，這樣就避免使用者要消除通知一定要點擊通知的問題。
-    application.applicationIconBadgeNumber = 1;
-    application.applicationIconBadgeNumber = 0;
+    [self removeNotificationFromNotificationCenter];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -68,29 +105,61 @@
     [self saveContext];
 }
 
-//點擊通知
+// 點擊通知
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     _localNotification = notification;
+    [self clickNotification];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前通知"
-                                                    message:notification.alertBody
+    [self removeNotificationFromNotificationCenter];  //如果通知發出時剛好使用者在使用App，也把通知從通知中心中移除。
+}
+
+#pragma mark - SleepNotification
+
+- (void)clickNotification
+{
+    NSDictionary *userInfo = _localNotification.userInfo;
+    if (![[userInfo objectForKey:@"NotificationType"] isEqualToString:@"提醒輸入起床時間"]) {
+        [self showSleepNotificationAlertView];
+    }
+}
+
+- (void)showSleepNotificationAlertView
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前提醒"
+                                                    message:_localNotification.alertBody
                                                    delegate:self
-                                          cancelButtonTitle:@"我知道了～"
-                                          otherButtonTitles:@"十五分鐘後再提醒我一次", nil];
+                                          cancelButtonTitle:@"我今天要熬夜，不要吵我！！"
+                                          otherButtonTitles:@"知道了", @"稍後提醒", nil];
     [alert show];
+}
+
+- (void)removeNotificationFromNotificationCenter
+{
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:1];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
 }
 
 #pragma mark - UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1) {  //稍後提醒
-        [[[LocalNotification alloc] init] setLocalNotificationWithMessage:_localNotification.alertBody
-                                                                 fireDate:[NSDate dateWithTimeInterval:60*15 sinceDate:[NSDate date]]
-                                                              repeatOrNot:NO
-                                                                    Sound:@"UILocalNotificationDefaultSoundName"
-                                                                 setValue:@"PosponNotification" forKey:@"NotificationType"];
+    switch (buttonIndex) {
+        case 0:
+            [[UIApplication sharedApplication] cancelAllLocalNotifications];
+            break;
+        case 1:
+            // Do nothing
+            break;
+        case 2:
+            [[[LocalNotification alloc] init] setLocalNotificationWithMessage:_localNotification.alertBody
+                                                                     fireDate:[NSDate dateWithTimeInterval:60*20 sinceDate:[NSDate date]]
+                                                                  repeatOrNot:NO
+                                                                        Sound:@"UILocalNotificationDefaultSoundName"
+                                                                     setValue:@"PosponNotification" forKey:@"NotificationType"];
+            break;
+        default:
+            break;
     }
 }
 

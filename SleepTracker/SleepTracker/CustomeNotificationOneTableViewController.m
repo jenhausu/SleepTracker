@@ -7,6 +7,7 @@
 //
 
 #import "CustomeNotificationOneTableViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "CustomNotification-Model.h"
 #import "CustomNotification.h"
@@ -50,6 +51,14 @@
     
     fetchDataArray = [self.customNotificationModel fetchAllCustomNotificationData];
     [self.tableView reloadData];
+    
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"Custom Notification"];
 }
 
 #pragma mark - Table view data source

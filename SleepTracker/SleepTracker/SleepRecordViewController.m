@@ -7,11 +7,14 @@
 //
 
 #import "SleepRecordViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
-#import "IntelligentNotification.h"
-#import "CustomNotification-Model.h"
+
+#import "SleepNotification.h"
+
+#import "Statistic.h"
 
 @interface SleepRecordViewController ()
 
@@ -25,9 +28,6 @@
 
 @property (nonatomic, strong) SleepData *sleepData;
 @property (nonatomic, strong) NSArray *fetchDataArray;
-
-@property (nonatomic, strong) IntelligentNotification *intelligentNotification;
-@property (nonatomic, strong) CustomNotification_Model *customNotification;
 
 @property (nonatomic) NSUserDefaults *userPreferences;
 
@@ -48,24 +48,6 @@
     return _sleepDataModel;
 }
 
-- (IntelligentNotification *)intelligentNotification
-{
-    if (!_intelligentNotification) {
-        _intelligentNotification = [[IntelligentNotification alloc] init];
-    }
-    
-    return _intelligentNotification;
-}
-
-- (CustomNotification_Model *)customNotification
-{
-    if (!_customNotification) {
-        _customNotification = [[CustomNotification_Model alloc] init];
-    }
-    
-    return _customNotification;
-}
-
 #pragma mark - view
 
 - (void)viewWillAppear:(BOOL)animated
@@ -79,9 +61,28 @@
         self.sleepData = fetchDataArray[0];
         if (self.sleepData.wakeUpTime)  //awake state
         {
-            [self startCountingAwakeTime];
+            [self stopTimer];
             [self.button setTitle:@"上床" forState:UIControlStateNormal];
-            self.alreadySleptLabel.text = @"00:00:00";
+
+            switch ([userPreferences integerForKey:@"醒來計時器歸零"]) {
+                case 0:
+                    [self startCountingAwakeTime];
+                    break;
+                case 1:
+                    if ((-[self.sleepData.wakeUpTime timeIntervalSinceNow]) / (60 * 60) <= 23) {
+                        [self startCountingAwakeTime];
+                    } else {
+                        [self stopTimer];
+                        self.alreadyAwakeLabel.text = @"00:00:00";
+                    }
+                    break;
+                case 2:
+                    [self startCountingAwakeTime];
+                    break;
+                case 3:
+                    [self startCountingAwakeTime];
+                    break;
+            }
         }
         else  //sleep state
         {
@@ -95,6 +96,14 @@
         self.alreadyAwakeLabel.text = @"00:00:00";
         [userPreferences setValue:@"清醒" forKey:@"睡眠狀態"];  //如果沒有資料時設定睡眠狀態為清醒。
     }
+    
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"Record"];
 }
 
 - (IBAction)buttonPress:(UIButton *)sender {
@@ -112,10 +121,9 @@
         
         [self stopTimer];
         [self startCountingSleepTime];
-        
-        [[UIApplication sharedApplication] cancelAllLocalNotifications];
-        
         [userPreferences setValue:@"睡覺" forKey:@"睡眠狀態"];
+        
+        [[[SleepNotification alloc] init] goToBed];
     }else {
         UINavigationController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"wakeUpPage"];
         [self presentViewController:page2 animated:YES completion:nil];
@@ -135,10 +143,9 @@
     
     [self stopTimer];
     [self startCountingAwakeTime];
-    
     [userPreferences setValue:@"清醒" forKey:@"睡眠狀態"];
-    [self.intelligentNotification rescheduleIntelligentNotification];
-    [self.customNotification setCustomNotificatioin];
+    
+    [[[SleepNotification alloc] init] wakeUp];
 }
 
 #pragma mark - timer
@@ -161,19 +168,67 @@
                                             repeats:YES];
 }
 
+- (void)stopTimer
+{
+    [timer invalidate];
+    timer = nil;
+
+}
+
 - (void)updateTime
 {
     if ([timer.userInfo isEqualToString:@"Go To Bed"]) {
         self.alreadySleptLabel.text = [self stringFromTimeInterval:-[self.sleepData.goToBedTime timeIntervalSinceNow]];  //即時顯示已經睡了多久時間
     }else {
-        self.alreadyAwakeLabel.text = [self stringFromTimeInterval:-[self.sleepData.wakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
+        if ([userPreferences integerForKey:@"醒來計時器歸零"] == 0) {  //照常計算
+            self.alreadyAwakeLabel.text = [self stringFromTimeInterval:-[self.sleepData.wakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
+        } else if ([userPreferences integerForKey:@"醒來計時器歸零"] == 1) {  //超過二十四小時便不再計算
+            self.alreadyAwakeLabel.text = [self stringFromTimeInterval:-[self.sleepData.wakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
+        } else if ([userPreferences integerForKey:@"醒來計時器歸零"] == 2) {  //減去二十四小時繼續計算
+            NSInteger awakeTime = -[self.sleepData.wakeUpTime timeIntervalSinceNow];
+            while ((awakeTime / (60 * 60)) >= 24 ) {
+                awakeTime = awakeTime - 86400;
+            }
+            self.alreadyAwakeLabel.text = [self stringFromTimeInterval:awakeTime];  //看上一筆資料離現在差幾天，就扣掉幾個24小時
+        } else if ([userPreferences integerForKey:@"醒來計時器歸零"] == 3) {
+            //從平均起床時間開始計算
+            if ((-[self.sleepData.wakeUpTime timeIntervalSinceNow]) / (60 * 60) <= 23) {
+                self.alreadyAwakeLabel.text = [self stringFromTimeInterval:-[self.sleepData.wakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
+            } else {
+                NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+                NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
+                
+                NSDateComponents *currentDate = [greCalendar components: NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:[NSDate date]];
+                [dateComponents setYear:currentDate.year];
+                [dateComponents setMonth:currentDate.month];
+                [dateComponents setDay:currentDate.day];
+                
+                NSInteger averageWakeUpTimeInSecond = [[[[[Statistic alloc] init] showWakeUpTimeDataInTheRecent:30] objectAtIndex:2] integerValue];
+                if (averageWakeUpTimeInSecond) {
+                    [dateComponents setHour:averageWakeUpTimeInSecond / 3600];
+                    [dateComponents setMinute:((averageWakeUpTimeInSecond / 60) % 60)];
+                } else {
+                    [dateComponents setHour:9];
+                    [dateComponents setMinute:0];
+                }
+                NSDate *averageWakeUpTime = [greCalendar dateFromComponents:dateComponents];
+                
+                
+                if ([[averageWakeUpTime earlierDate:[NSDate date]] isEqualToDate:averageWakeUpTime]) {
+                    self.alreadyAwakeLabel.text = [self stringFromTimeInterval:-[averageWakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
+                } else {
+                    currentDate = [greCalendar components: NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay
+                                                 fromDate:[NSDate dateWithTimeIntervalSinceNow:- 60 * 60 * 24]];
+                    dateComponents.year = currentDate.year;
+                    dateComponents.month = currentDate.month;
+                    dateComponents.day = currentDate.day;
+                    
+                    averageWakeUpTime = [greCalendar dateFromComponents:dateComponents];
+                    self.alreadyAwakeLabel.text = [self stringFromTimeInterval:-[averageWakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
+                }
+            }
+        }
     }
-}
-
-- (void)stopTimer
-{
-    [timer invalidate];
-    timer = nil;
 }
 
 #pragma mark -
@@ -184,7 +239,16 @@
     NSInteger seconds = time % 60; // ％取餘數
     NSInteger minutes = (time / 60) % 60;
     NSInteger hours = (time / 3600);
+    
     return [NSString stringWithFormat:@"%02li:%02li:%02li", (long)hours, (long)minutes, (long)seconds];
+/*
+    
+    if (time >= 0)
+        return [NSString stringWithFormat:@"%02li:%02li:%02li", (long)hours, (long)minutes, (long)seconds];
+    else
+        return [NSString stringWithFormat:@"-%02li:%02li:%02li", (long)hours, (long)minutes, (long)seconds];
+ 
+ //*/
 }
 
 @end

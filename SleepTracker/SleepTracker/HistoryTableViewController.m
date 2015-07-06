@@ -7,21 +7,19 @@
 //
 
 #import "HistoryTableViewController.h"
+#import "GoogleAnalytics.h"
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
-#import "IntelligentNotification.h"
-#import "CustomNotification-Model.h"
+
+#import "SleepNotification.h"
+
 
 @interface HistoryTableViewController ()
 
 @property (nonatomic, strong) SleepDataModel *sleepDataModel;
 @property (nonatomic, strong) NSArray *fetchDataArray;
 @property (nonatomic, strong) SleepData *sleepData;
-
-@property (nonatomic, strong) IntelligentNotification *intelligentNotification;
-
-@property (nonatomic, strong) CustomNotification_Model *customNotification;
 
 @end
 
@@ -40,24 +38,6 @@
     return _sleepDataModel;
 }
 
-- (IntelligentNotification *)intelligentNotification
-{
-    if (!_intelligentNotification) {
-        _intelligentNotification = [[IntelligentNotification alloc] init];
-    }
-    
-    return _intelligentNotification;
-}
-
-- (CustomNotification_Model *)customNotification
-{
-    if (!_customNotification) {
-        _customNotification = [[CustomNotification_Model alloc] init];
-    }
-    
-    return _customNotification;
-}
-
 #pragma mark - view
 
 - (void)viewDidLoad
@@ -73,6 +53,14 @@
     
     fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
     [self.tableView reloadData];
+    
+    
+    [self googleAnalytics];
+}
+
+- (void)googleAnalytics
+{
+    [[[GoogleAnalytics alloc] init] trackPageView:@"History"];
 }
 
 #pragma mark - Table view data source
@@ -128,15 +116,13 @@
             self.sleepData = fetchDataArray[0];
             if (self.sleepData.wakeUpTime) {
                 [userPreferences setValue:@"清醒" forKey:@"睡眠狀態"];
-                [self.customNotification resetCustomNotification];
-                [self.intelligentNotification rescheduleIntelligentNotification];
+                [[[SleepNotification alloc] init] resetSleepNotification];
             } else {
                 [userPreferences setValue:@"睡著" forKey:@"睡眠狀態"];
             }
         } else {
             [userPreferences setValue:@"清醒" forKey:@"睡眠狀態"];
-            [self.customNotification resetCustomNotification];
-            [self.intelligentNotification rescheduleIntelligentNotification];
+            [[[SleepNotification alloc] init] resetSleepNotification];
         }
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
