@@ -42,9 +42,9 @@
 		1DBCE4B01AD3A512001DCB80 /* Create New-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCE4AF1AD3A512001DCB80 /* Create New-50@2x.png */; };
 		1DBCE5B31A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCE5B21A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m */; };
 		1DBCE5B71A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCE5B61A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m */; };
+		1DC3EE8C1B43962E00D8E07B /* AwakeTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC3EE8B1B43962E00D8E07B /* AwakeTimeTableViewController.m */; };
 		1DCDD3E31AA1E59200609D2F /* CustomNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDD3E21AA1E59200609D2F /* CustomNotificationTableViewCell.m */; };
 		1DCDD3E61AA2CE5E00609D2F /* CustomNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDD3E51AA2CE5E00609D2F /* CustomNotification.m */; };
-		1DCF9AB41B38183F00687499 /* ZeroTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF9AB31B38183F00687499 /* ZeroTableViewController.m */; };
 		1DD087091B2D42CD00B37D2D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD087071B2D42CD00B37D2D /* Fabric.framework */; };
 		1DD0870A1B2D42CD00B37D2D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD087081B2D42CD00B37D2D /* Crashlytics.framework */; };
 		1DD087121B2D69CB00B37D2D /* SleepNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD087111B2D69CB00B37D2D /* SleepNotification.m */; };
@@ -129,12 +129,12 @@
 		1DBCE5B21A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewSleepdataTableViewController.m; sourceTree = "<group>"; };
 		1DBCE5B51A7BA319009DDCDC /* AddNewSleepdataTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewSleepdataTwoViewController.h; sourceTree = "<group>"; };
 		1DBCE5B61A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewSleepdataTwoViewController.m; sourceTree = "<group>"; };
+		1DC3EE8A1B43962E00D8E07B /* AwakeTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwakeTimeTableViewController.h; sourceTree = "<group>"; };
+		1DC3EE8B1B43962E00D8E07B /* AwakeTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwakeTimeTableViewController.m; sourceTree = "<group>"; };
 		1DCDD3E11AA1E59200609D2F /* CustomNotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNotificationTableViewCell.h; sourceTree = "<group>"; };
 		1DCDD3E21AA1E59200609D2F /* CustomNotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNotificationTableViewCell.m; sourceTree = "<group>"; };
 		1DCDD3E41AA2CE5E00609D2F /* CustomNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNotification.h; sourceTree = "<group>"; };
 		1DCDD3E51AA2CE5E00609D2F /* CustomNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNotification.m; sourceTree = "<group>"; };
-		1DCF9AB21B38183F00687499 /* ZeroTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZeroTableViewController.h; sourceTree = "<group>"; };
-		1DCF9AB31B38183F00687499 /* ZeroTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZeroTableViewController.m; sourceTree = "<group>"; };
 		1DD087071B2D42CD00B37D2D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		1DD087081B2D42CD00B37D2D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		1DD087101B2D69CB00B37D2D /* SleepNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepNotification.h; sourceTree = "<group>"; };
@@ -209,8 +209,8 @@
 		1D807BAB1B395CCA009138D8 /* 醒來計時器歸零 */ = {
 			isa = PBXGroup;
 			children = (
-				1DCF9AB21B38183F00687499 /* ZeroTableViewController.h */,
-				1DCF9AB31B38183F00687499 /* ZeroTableViewController.m */,
+				1DC3EE8A1B43962E00D8E07B /* AwakeTimeTableViewController.h */,
+				1DC3EE8B1B43962E00D8E07B /* AwakeTimeTableViewController.m */,
 				1D807BA81B39409C009138D8 /* ZeroTableViewCell.h */,
 				1D807BA91B39409C009138D8 /* ZeroTableViewCell.m */,
 			);
@@ -609,7 +609,7 @@
 				1D995E011A7D4D37002F069C /* HopeToGoToSleepViewController.m in Sources */,
 				1D3BB38A1AA1BE2500349F5A /* CNDetailViewController.m in Sources */,
 				1DBCE5B31A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m in Sources */,
-				1DCF9AB41B38183F00687499 /* ZeroTableViewController.m in Sources */,
+				1DC3EE8C1B43962E00D8E07B /* AwakeTimeTableViewController.m in Sources */,
 				1D8901C91A4B5119001A69A3 /* main.m in Sources */,
 				1D1CB5BF1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m in Sources */,
 				1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */,

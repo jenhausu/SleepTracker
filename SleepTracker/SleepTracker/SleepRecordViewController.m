@@ -19,13 +19,14 @@
 @interface SleepRecordViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *alreadySleptLabel;
-@property (weak, nonatomic) IBOutlet UILabel *alreadyAwakeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *alreadyAwakeTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *alreadyAwakeTimeLabel;
+
 @property (weak, nonatomic) IBOutlet UIButton *button;
 
-@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, weak) NSTimer *timer;
 
 @property (nonatomic, strong) SleepDataModel *sleepDataModel;
-
 @property (nonatomic, strong) SleepData *sleepData;
 @property (nonatomic, strong) NSArray *fetchDataArray;
 
@@ -55,45 +56,32 @@
     [super viewWillAppear:NO];
     
     userPreferences = [NSUserDefaults standardUserDefaults];
+    [self stopTimer];
+    
+    if ([userPreferences boolForKey:@"顯示醒了多久"]) {
+        self.alreadyAwakeTextLabel.text = @"已經醒了多久：";
+        if (!self.alreadyAwakeTimeLabel.text) {
+            self.alreadyAwakeTimeLabel.text = @"00:00:00";
+        }
+    } else {
+        self.alreadyAwakeTextLabel.text = @" ";
+        self.alreadyAwakeTimeLabel.text = nil;
+    }
     
     fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
     if ([fetchDataArray count]) {  //避免一開始完全沒有任何資
         self.sleepData = fetchDataArray[0];
-        if (self.sleepData.wakeUpTime)  //awake state
-        {
-            [self stopTimer];
+        if (self.sleepData.wakeUpTime)  { //awake state
             [self.button setTitle:@"上床" forState:UIControlStateNormal];
 
-            switch ([userPreferences integerForKey:@"醒來計時器歸零"]) {
-                case 0:
-                    [self startCountingAwakeTime];
-                    break;
-                case 1:
-                    if ((-[self.sleepData.wakeUpTime timeIntervalSinceNow]) / (60 * 60) <= 23) {
-                        [self startCountingAwakeTime];
-                    } else {
-                        [self stopTimer];
-                        self.alreadyAwakeLabel.text = @"00:00:00";
-                    }
-                    break;
-                case 2:
-                    [self startCountingAwakeTime];
-                    break;
-                case 3:
-                    [self startCountingAwakeTime];
-                    break;
-            }
-        }
-        else  //sleep state
-        {
+            if ([userPreferences boolForKey:@"顯示醒了多久"]) [self startCountingAwakeTime];
+        } else  {  //sleep state
             [self startCountingSleepTime];
             [self.button setTitle:@"起床" forState:UIControlStateNormal];
-            self.alreadyAwakeLabel.text = @"00:00:00";
         }
     } else {
         [self.button setTitle:@"上床" forState:UIControlStateNormal];
         self.alreadySleptLabel.text = @"00:00:00";
-        self.alreadyAwakeLabel.text = @"00:00:00";
         [userPreferences setValue:@"清醒" forKey:@"睡眠狀態"];  //如果沒有資料時設定睡眠狀態為清醒。
     }
     
@@ -107,15 +95,17 @@
 }
 
 - (IBAction)buttonPress:(UIButton *)sender {
-    if ([sender.titleLabel.text isEqualToString:@"上床"])
+    if ([sender.titleLabel.text isEqualToString:@"上床"])  //按下上床，進入睡眠狀態
     {
         [self.button setTitle:@"起床" forState:UIControlStateNormal];
-        self.alreadyAwakeLabel.text = @"00:00:00";
+        if ([userPreferences boolForKey:@"顯示醒了多久"]) {
+            self.alreadyAwakeTextLabel.text = @"已經醒了多久：";
+            self.alreadyAwakeTimeLabel.text = @"00:00:00";
+        }
         
         NSDate *now = [NSDate date];
         [self.sleepDataModel addNewSleepdataAndAddGoToBedTime:now wakeUpTime:nil sleepTime:nil sleepType:nil];
         fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
-
         NSInteger const LATEST_DATA = 0;
         self.sleepData = fetchDataArray[LATEST_DATA];
         
@@ -142,11 +132,13 @@
     self.alreadySleptLabel.text = @"00:00:00";
     
     [self stopTimer];
-    [self startCountingAwakeTime];
+    if ([userPreferences boolForKey:@"顯示醒了多久"]) [self startCountingAwakeTime];
+    
     [userPreferences setValue:@"清醒" forKey:@"睡眠狀態"];
     
     [[[SleepNotification alloc] init] wakeUp];
 }
+
 
 #pragma mark - timer
 
@@ -181,19 +173,23 @@
         self.alreadySleptLabel.text = [self stringFromTimeInterval:-[self.sleepData.goToBedTime timeIntervalSinceNow]];  //即時顯示已經睡了多久時間
     }else {
         if ([userPreferences integerForKey:@"醒來計時器歸零"] == 0) {  //照常計算
-            self.alreadyAwakeLabel.text = [self stringFromTimeInterval:-[self.sleepData.wakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
+            self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:-[self.sleepData.wakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
         } else if ([userPreferences integerForKey:@"醒來計時器歸零"] == 1) {  //超過二十四小時便不再計算
-            self.alreadyAwakeLabel.text = [self stringFromTimeInterval:-[self.sleepData.wakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
+            if ((-[self.sleepData.wakeUpTime timeIntervalSinceNow]) / (60 * 60) <= 23) {
+                self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:-[self.sleepData.wakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
+            } else {
+                self.alreadyAwakeTimeLabel.text = @"00:00:00";
+            }
         } else if ([userPreferences integerForKey:@"醒來計時器歸零"] == 2) {  //減去二十四小時繼續計算
             NSInteger awakeTime = -[self.sleepData.wakeUpTime timeIntervalSinceNow];
             while ((awakeTime / (60 * 60)) >= 24 ) {
                 awakeTime = awakeTime - 86400;
             }
-            self.alreadyAwakeLabel.text = [self stringFromTimeInterval:awakeTime];  //看上一筆資料離現在差幾天，就扣掉幾個24小時
+            self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:awakeTime];  //看上一筆資料離現在差幾天，就扣掉幾個24小時
         } else if ([userPreferences integerForKey:@"醒來計時器歸零"] == 3) {
             //從平均起床時間開始計算
             if ((-[self.sleepData.wakeUpTime timeIntervalSinceNow]) / (60 * 60) <= 23) {
-                self.alreadyAwakeLabel.text = [self stringFromTimeInterval:-[self.sleepData.wakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
+                self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:-[self.sleepData.wakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
             } else {
                 NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
                 NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
@@ -215,7 +211,7 @@
                 
                 
                 if ([[averageWakeUpTime earlierDate:[NSDate date]] isEqualToDate:averageWakeUpTime]) {
-                    self.alreadyAwakeLabel.text = [self stringFromTimeInterval:-[averageWakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
+                    self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:-[averageWakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
                 } else {
                     currentDate = [greCalendar components: NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay
                                                  fromDate:[NSDate dateWithTimeIntervalSinceNow:- 60 * 60 * 24]];
@@ -224,7 +220,7 @@
                     dateComponents.day = currentDate.day;
                     
                     averageWakeUpTime = [greCalendar dateFromComponents:dateComponents];
-                    self.alreadyAwakeLabel.text = [self stringFromTimeInterval:-[averageWakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
+                    self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:-[averageWakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
                 }
             }
         }
@@ -241,14 +237,6 @@
     NSInteger hours = (time / 3600);
     
     return [NSString stringWithFormat:@"%02li:%02li:%02li", (long)hours, (long)minutes, (long)seconds];
-/*
-    
-    if (time >= 0)
-        return [NSString stringWithFormat:@"%02li:%02li:%02li", (long)hours, (long)minutes, (long)seconds];
-    else
-        return [NSString stringWithFormat:@"-%02li:%02li:%02li", (long)hours, (long)minutes, (long)seconds];
- 
- //*/
 }
 
 @end

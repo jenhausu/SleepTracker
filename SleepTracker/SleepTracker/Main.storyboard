@@ -84,7 +84,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="紀錄" image="Create New-50.png" id="acW-dT-cKf"/>
                     <connections>
-                        <outlet property="alreadyAwakeLabel" destination="ocf-9R-tfj" id="ZSK-5u-VOO"/>
+                        <outlet property="alreadyAwakeTextLabel" destination="EDO-Pq-6Ld" id="AJ8-Ao-6oN"/>
+                        <outlet property="alreadyAwakeTimeLabel" destination="ocf-9R-tfj" id="Oum-H5-TyS"/>
                         <outlet property="alreadySleptLabel" destination="MHo-HO-9Qg" id="X5u-7z-J49"/>
                         <outlet property="button" destination="hZq-AG-ckl" id="AZ3-1V-19M"/>
                     </connections>
@@ -261,10 +262,10 @@
             </objects>
             <point key="canvasLocation" x="2336" y="2855"/>
         </scene>
-        <!--Zero Table View Controller-->
+        <!--Awake Time Table View Controller-->
         <scene sceneID="4cJ-mg-qTw">
             <objects>
-                <tableViewController storyboardIdentifier="zero" id="cXE-1L-XxO" customClass="ZeroTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AwakeTime" id="cXE-1L-XxO" customClass="AwakeTimeTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="jcj-LV-or1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -296,7 +297,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gse-LB-Uwm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2336" y="3608"/>
+            <point key="canvasLocation" x="2336" y="3574"/>
         </scene>
         <!--設定-->
         <scene sceneID="9S0-Jj-ac1">
