@@ -5,6 +5,9 @@ target 'SleepTracker' do
 
 pod 'Google/Analytics', '~> 1.0.0'
 
+pod 'FBSDKCoreKit'
+pod 'FBSDKShareKit'
+
 end
 
 target 'SleepTrackerTests' do
