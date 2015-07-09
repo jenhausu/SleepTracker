@@ -221,8 +221,6 @@
 			isa = PBXGroup;
 			children = (
 				1D8901C51A4B5119001A69A3 /* SleepTracker */,
-				1DD087071B2D42CD00B37D2D /* Fabric.framework */,
-				1DD087081B2D42CD00B37D2D /* Crashlytics.framework */,
 				1D8901E21A4B511A001A69A3 /* SleepTrackerTests */,
 				1D8901C41A4B5119001A69A3 /* Products */,
 				D0E35EE930C08809DEF0467D /* Pods */,
@@ -416,6 +414,8 @@
 			isa = PBXGroup;
 			children = (
 				1DF063F71A8C626700F21359 /* MessageUI.framework */,
+				1DD087071B2D42CD00B37D2D /* Fabric.framework */,
+				1DD087081B2D42CD00B37D2D /* Crashlytics.framework */,
 				A4CFECD7E8141717536E85BD /* libPods-SleepTracker.a */,
 			);
 			name = Frameworks;

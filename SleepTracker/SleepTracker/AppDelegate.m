@@ -12,6 +12,8 @@
 #import <Crashlytics/Crashlytics.h>
 #import <Google/Analytics.h>
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 #import "LocalNotification.h"
 
 @interface AppDelegate ()  <UIAlertViewDelegate>
@@ -40,7 +42,15 @@
     }
     
     
-    return YES;
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
 }
 
 - (void)firstLaunch
@@ -97,6 +107,9 @@
     
     //不管是點擊通知或是直接打開 App，App 開啟就會把所有在通知中心的通知給刪除，這樣就避免使用者要消除通知一定要點擊通知的問題。
     [self removeNotificationFromNotificationCenter];
+    
+    // FB
+    [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
