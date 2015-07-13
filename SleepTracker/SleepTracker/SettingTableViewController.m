@@ -40,7 +40,7 @@
                 @[@"意見回饋"]];
     
     zero = @[@"照常計算", @"超過 24 小時不再計算", @"減去 24 小時", @"平均起床時間"];
-    music = @[@"不播放", @"幫放自己的音樂"];
+    music = @[@"關閉", @"開啟"];
     
     userPreferences = [NSUserDefaults standardUserDefaults];
 }
@@ -80,7 +80,6 @@
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             [formatter setDateFormat:@"HH:mm"];
             cell.detailTextLabel.text = [formatter stringFromDate:[[[IntelligentNotification alloc] init] decideShouldGoToBedTime]];
-            cell.detailTextLabel.font = [UIFont systemFontOfSize:15];
             
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             
@@ -88,8 +87,6 @@
             cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         } else if (indexPath.row == 1) {
             cell.detailTextLabel.text = ([userPreferences boolForKey:@"顯示醒了多久"]) ? zero[[userPreferences integerForKey:@"醒來計時器歸零"]] : @"不計算";
-            cell.detailTextLabel.font = [UIFont systemFontOfSize:15];
-            
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         } else if (indexPath.row == 2) {
             cell.detailTextLabel.text = @" ";
@@ -102,12 +99,11 @@
         }
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            cell.detailTextLabel.text = ([userPreferences boolForKey:@"睡前播放音樂"]) ? music[[userPreferences integerForKey:@"睡前播放音樂"]] : @"不播放";
+            cell.detailTextLabel.text = music[[userPreferences boolForKey:@"睡前播放音樂"]];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
     } else if (indexPath.section == (setting.count - 1)) {
         cell.detailTextLabel.text = @" ";
-        
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
@@ -146,7 +142,7 @@
     }
 }
 
-#pragma mark -
+#pragma mark - DidSelect
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -161,7 +157,11 @@
             page2.title = setting[indexPath.section][indexPath.row];
             [self.navigationController pushViewController:page2 animated:YES];
         }
-    } else if (indexPath.section == (setting.count - 1)) {
+    } else if (indexPath.section == 1) {
+        page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"MusicRoot"];
+        page2.title = setting[indexPath.section][indexPath.row];
+        [self.navigationController pushViewController:page2 animated:YES];
+    }  else if (indexPath.section == (setting.count - 1)) {
         if (indexPath.row == 0) {
             if ([MFMailComposeViewController canSendMail])
             {

@@ -44,6 +44,7 @@
 		1DC3EE8C1B43962E00D8E07B /* AwakeTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC3EE8B1B43962E00D8E07B /* AwakeTimeTableViewController.m */; };
 		1DCDD3E31AA1E59200609D2F /* CustomNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDD3E21AA1E59200609D2F /* CustomNotificationTableViewCell.m */; };
 		1DCDD3E61AA2CE5E00609D2F /* CustomNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDD3E51AA2CE5E00609D2F /* CustomNotification.m */; };
+		1DCF05551B53ADA4003A6DA5 /* MusicRootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF05541B53ADA4003A6DA5 /* MusicRootTableViewController.m */; };
 		1DD087091B2D42CD00B37D2D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD087071B2D42CD00B37D2D /* Fabric.framework */; };
 		1DD0870A1B2D42CD00B37D2D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD087081B2D42CD00B37D2D /* Crashlytics.framework */; };
 		1DD087121B2D69CB00B37D2D /* SleepNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD087111B2D69CB00B37D2D /* SleepNotification.m */; };
@@ -132,6 +133,8 @@
 		1DCDD3E21AA1E59200609D2F /* CustomNotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNotificationTableViewCell.m; sourceTree = "<group>"; };
 		1DCDD3E41AA2CE5E00609D2F /* CustomNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNotification.h; sourceTree = "<group>"; };
 		1DCDD3E51AA2CE5E00609D2F /* CustomNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNotification.m; sourceTree = "<group>"; };
+		1DCF05531B53ADA4003A6DA5 /* MusicRootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicRootTableViewController.h; sourceTree = "<group>"; };
+		1DCF05541B53ADA4003A6DA5 /* MusicRootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicRootTableViewController.m; sourceTree = "<group>"; };
 		1DD087071B2D42CD00B37D2D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		1DD087081B2D42CD00B37D2D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		1DD087101B2D69CB00B37D2D /* SleepNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepNotification.h; sourceTree = "<group>"; };
@@ -336,6 +339,8 @@
 			children = (
 				1DF063F41A8C59F600F21359 /* SettingTableViewController.h */,
 				1DF063F51A8C59F600F21359 /* SettingTableViewController.m */,
+				1DCF05531B53ADA4003A6DA5 /* MusicRootTableViewController.h */,
+				1DCF05541B53ADA4003A6DA5 /* MusicRootTableViewController.m */,
 				1D1CB5BC1AA6FF54002186E1 /* shouldGoToSleepTime */,
 				1D807BAB1B395CCA009138D8 /* 醒來計時器歸零 */,
 			);
@@ -600,6 +605,7 @@
 				1D2DB7FD1A70F30E00A72EFA /* CustomNotificationTwoViewController.m in Sources */,
 				1DBCE5B71A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m in Sources */,
 				1DF063F61A8C59F600F21359 /* SettingTableViewController.m in Sources */,
+				1DCF05551B53ADA4003A6DA5 /* MusicRootTableViewController.m in Sources */,
 				1D995E011A7D4D37002F069C /* HopeToGoToSleepViewController.m in Sources */,
 				1D3BB38A1AA1BE2500349F5A /* CNDetailViewController.m in Sources */,
 				1DBCE5B31A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m in Sources */,
