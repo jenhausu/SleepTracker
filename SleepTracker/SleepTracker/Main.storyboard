@@ -331,38 +331,6 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.1960784314" green="0.37254901959999998" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell2" id="7Oa-oz-ruw" customClass="ZeroTableViewCell">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Oa-oz-ruw" id="Ado-PC-efx">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="希望上床時間" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEQ-YI-w6c">
-                                            <rect key="frame" x="8" y="12" width="96" height="20"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="center" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfV-Wl-m26">
-                                            <rect key="frame" x="518" y="12" width="41" height="19"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                            <size key="shadowOffset" width="0.0" height="0.0"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="NfV-Wl-m26" firstAttribute="trailing" secondItem="Ado-PC-efx" secondAttribute="trailingMargin" id="IQI-Xx-jS4"/>
-                                        <constraint firstItem="kEQ-YI-w6c" firstAttribute="centerY" secondItem="NfV-Wl-m26" secondAttribute="centerY" id="YkG-jN-3GE"/>
-                                        <constraint firstAttribute="centerY" secondItem="kEQ-YI-w6c" secondAttribute="centerY" id="b6d-en-ybg"/>
-                                        <constraint firstItem="kEQ-YI-w6c" firstAttribute="leading" secondItem="Ado-PC-efx" secondAttribute="leadingMargin" id="hYT-Uk-HZl"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.1960784314" green="0.37254901959999998" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="detailText" destination="NfV-Wl-m26" id="HZS-HQ-ian"/>
-                                    <outlet property="text" destination="kEQ-YI-w6c" id="Gse-8X-zZH"/>
-                                </connections>
-                            </tableViewCell>
                         </prototypes>
                         <sections/>
                         <connections>
