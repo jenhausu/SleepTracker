@@ -214,13 +214,6 @@
             footerHeight = 0;
         }
     }
-    
-    
-    if (switchControl.on) {
-        [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"前一天沒有輸入資料" action:@"睡前通知「要」重複發出" label:@"「睡前通知」重複發出" value:nil];
-    } else {
-        [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"前一天沒有輸入資料" action:@"睡前通知「不」重複發出" label:@"「睡前通知」重複發出" value:nil];
-    }
 }
 
 - (void)postponeForAFewSecondThenChangeSectionOneFooter

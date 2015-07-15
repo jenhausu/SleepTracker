@@ -215,23 +215,4 @@
     }
 }
 
-#pragma mark -
-
-- (void)willMoveToParentViewController:(UIViewController *)parent
-{
-    if (!parent) {
-        switch ([userPreferences integerForKey:@"ShouldGoToSleepTime"]) {
-            case 0:
-                [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"希望上床時間" action:@"平均「上床」時間" label:@"智能" value:nil];
-                break;
-            case 1:
-                [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"希望上床時間" action:@"平均「起床」時間" label:@"智能" value:nil];
-                break;
-            case 2:
-                [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"希望上床時間" action:@"自訂" label:@"自訂" value:nil];
-                break;
-        }
-    }
-}
-
 @end
