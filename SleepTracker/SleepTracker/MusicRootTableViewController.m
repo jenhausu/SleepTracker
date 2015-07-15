@@ -7,8 +7,9 @@
 //
 
 #import "MusicRootTableViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
 
-@interface MusicRootTableViewController ()
+@interface MusicRootTableViewController () <MPMediaPickerControllerDelegate>
 
 @property (nonatomic) NSArray *musicRoot;
 @property (nonatomic) NSArray *switcher;
@@ -92,11 +93,7 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 1) {
-        /*
-        UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"page2"];
-        page2.title = @"";
-        
-        [self.navigationController pushViewController:page2 animated:YES];  //*/
+        [self displayMusicLibrary];
     } else if (indexPath.section == 2) {
         // 原本選擇的 row
         NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:selectedRow inSection:indexPath.section];
@@ -132,6 +129,29 @@
         [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationFade];
     }
     [self.tableView endUpdates];  //*/
+}
+
+#pragma mark - MPMediaPickerControllerDelegate
+
+- (void)displayMusicLibrary
+{
+    MPMediaPickerController *mediaPicker = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeAny];
+    
+    if (mediaPicker) {
+        NSLog(@"Successfully instantiated a media picker.");
+        
+        mediaPicker.delegate = self;
+        mediaPicker.allowsPickingMultipleItems = NO;
+        
+        [self.navigationController presentViewController:mediaPicker animated:YES completion:nil];
+    } else {
+        NSLog(@"Could not instantiate a media picker.");
+    }
+}
+
+- (void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker
+{
+    [mediaPicker dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*
