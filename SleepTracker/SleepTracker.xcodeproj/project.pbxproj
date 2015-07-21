@@ -483,6 +483,11 @@
 					1D8901C21A4B5119001A69A3 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = Z2Y87QNVT9;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					1D8901DE1A4B511A001A69A3 = {
 						CreatedOnToolsVersion = 6.1.1;
