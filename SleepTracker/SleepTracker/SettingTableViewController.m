@@ -13,8 +13,6 @@
 
 #import "IntelligentNotification.h"
 
-#import "ZeroTableViewCell.h"
-
 @interface SettingTableViewController ()  <MFMailComposeViewControllerDelegate>
 
 @property (strong, nonatomic) NSArray *setting;
@@ -36,8 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    setting = @[@[@"希望上床時間", @"計算醒來時間"],
-                @[@"「睡前通知」重複發出"],
+    setting = @[@[@"希望上床時間"],
+                @[@"計算醒來時間", @"「睡前通知」繼續發出"],
                 @[@"意見回饋"]];
     
     zero = @[@"照常計算", @"超過 24 小時不再計算", @"減去 24 小時", @"平均起床時間"];
@@ -71,57 +69,47 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    cell.textLabel.text = setting[indexPath.section][indexPath.row];
+    
     if (indexPath.section == 0) {
-        ZeroTableViewCell *cell2 = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
-        
-        cell2.text.text = setting[indexPath.section][indexPath.row];
-        cell2.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
         if (indexPath.row == 0) {
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"HH:mm"];
-            cell2.detailText.text = [formatter stringFromDate:[[[IntelligentNotification alloc] init] decideShouldGoToBedTime]];
-            cell2.detailText.font = [UIFont systemFontOfSize:15];
+            formatter.dateFormat = @"HH:mm";
             
-            cell2.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            
-            cell2.accessoryView = nil;
-            cell2.selectionStyle = UITableViewCellSelectionStyleDefault;
-        } else if (indexPath.row == 1) {
-            if ([userPreferences boolForKey:@"顯示醒了多久"]) {
-                cell2.detailText.text = zero[[userPreferences integerForKey:@"醒來計時器歸零"]];
-            } else {
-                cell2.detailText.text = @"不計算";
-            }
-            cell2.detailText.font = [UIFont systemFontOfSize:15];
+            cell.detailTextLabel.text = [formatter stringFromDate:[[[IntelligentNotification alloc] init] decideShouldGoToBedTime]];
+            cell.detailTextLabel.font = [UIFont systemFontOfSize:15];
         }
-        
-        return cell2;
     } else if (indexPath.section == 1) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        
-        cell.textLabel.text = setting[indexPath.section][indexPath.row];
-        cell.detailTextLabel.text = @" ";
-        
-        UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(1.0, 1.0, 20.0, 30.0)];
-        cell.accessoryView = switchControl;
-        switchControl.on = [userPreferences boolForKey:@"重複發出睡前通知"];
-        [switchControl addTarget:self action:@selector(switchChanged1:) forControlEvents:UIControlEventValueChanged];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        return cell;
+        if (indexPath.row == 0) {
+            cell.detailTextLabel.text = [userPreferences boolForKey:@"顯示醒了多久"] ? zero[[userPreferences integerForKey:@"醒來計時器歸零"]] : @"不計算" ;
+            cell.detailTextLabel.font = [UIFont systemFontOfSize:15];
+        } else if (indexPath.row == 1) {
+            cell.detailTextLabel.text = @" ";
+            
+            UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(1.0, 1.0, 20.0, 30.0)];
+            cell.accessoryView = switchControl;
+            switchControl.on = [userPreferences boolForKey:@"重複發出睡前通知"];
+            [switchControl addTarget:self action:@selector(switchChanged1:) forControlEvents:UIControlEventValueChanged];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
     } else if (indexPath.section == (setting.count - 1)) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        
-        cell.textLabel.text = setting[indexPath.section][indexPath.row];
         cell.detailTextLabel.text = @" ";
-        
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
-        return cell;
     }
     
-    return nil;
+    
+    return cell;
+}
+
+#pragma mark - Header
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 1) {
+        return @"前一天沒有輸入資料時";
+    } else {
+        return nil;
+    }
 }
 
 #pragma mark - Footer
@@ -156,17 +144,22 @@
     }
 }
 
-#pragma mark -
+#pragma mark - didSelected
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIViewController *page2;
-    
     if (indexPath.section == 0) {
-        page2 = (indexPath.row == 0) ? [self.storyboard instantiateViewControllerWithIdentifier:@"ShouldGoToSleepTime"]
-                                     : [self.storyboard instantiateViewControllerWithIdentifier:@"AwakeTime"] ;
-        page2.title = setting[indexPath.section][indexPath.row];
-        [self.navigationController pushViewController:page2 animated:YES];
+        if (indexPath.row == 0) {
+            UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"ShouldGoToSleepTime"];
+            page2.title = setting[indexPath.section][indexPath.row];
+            [self.navigationController pushViewController:page2 animated:YES];
+        }
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"AwakeTime"];
+            page2.title = setting[indexPath.section][indexPath.row];
+            [self.navigationController pushViewController:page2 animated:YES];
+        }
     } else if (indexPath.section == (setting.count - 1)) {
         if (indexPath.row == 0) {
             if ([MFMailComposeViewController canSendMail])

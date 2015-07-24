@@ -19,7 +19,6 @@
 		1D7C39041A4C811800A02793 /* History3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C39031A4C811800A02793 /* History3ViewController.m */; };
 		1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C39071A4C909D00A02793 /* StatisticViewController.m */; };
 		1D7C390B1A4C962500A02793 /* WakeUp2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C390A1A4C962500A02793 /* WakeUp2ViewController.m */; };
-		1D807BAA1B39409C009138D8 /* ZeroTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D807BA91B39409C009138D8 /* ZeroTableViewCell.m */; };
 		1D8901C91A4B5119001A69A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901C81A4B5119001A69A3 /* main.m */; };
 		1D8901CC1A4B5119001A69A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901CB1A4B5119001A69A3 /* AppDelegate.m */; };
 		1D8901CF1A4B5119001A69A3 /* SleepTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901CD1A4B5119001A69A3 /* SleepTracker.xcdatamodeld */; };
@@ -89,8 +88,6 @@
 		1D7C39071A4C909D00A02793 /* StatisticViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticViewController.m; sourceTree = "<group>"; };
 		1D7C39091A4C962500A02793 /* WakeUp2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WakeUp2ViewController.h; sourceTree = "<group>"; };
 		1D7C390A1A4C962500A02793 /* WakeUp2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WakeUp2ViewController.m; sourceTree = "<group>"; };
-		1D807BA81B39409C009138D8 /* ZeroTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZeroTableViewCell.h; sourceTree = "<group>"; };
-		1D807BA91B39409C009138D8 /* ZeroTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZeroTableViewCell.m; sourceTree = "<group>"; };
 		1D8901C31A4B5119001A69A3 /* SleepTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D8901C71A4B5119001A69A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D8901C81A4B5119001A69A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -211,8 +208,6 @@
 			children = (
 				1DC3EE8A1B43962E00D8E07B /* AwakeTimeTableViewController.h */,
 				1DC3EE8B1B43962E00D8E07B /* AwakeTimeTableViewController.m */,
-				1D807BA81B39409C009138D8 /* ZeroTableViewCell.h */,
-				1D807BA91B39409C009138D8 /* ZeroTableViewCell.m */,
 			);
 			name = "醒來計時器歸零";
 			sourceTree = "<group>";
@@ -590,7 +585,6 @@
 				1D8902021A4B5199001A69A3 /* HistoryTableViewController.m in Sources */,
 				1D8901CC1A4B5119001A69A3 /* AppDelegate.m in Sources */,
 				1D7C39041A4C811800A02793 /* History3ViewController.m in Sources */,
-				1D807BAA1B39409C009138D8 /* ZeroTableViewCell.m in Sources */,
 				1D2C076A1AA057A500434EF2 /* CustomNotification-Model.m in Sources */,
 				1D2DB7EE1A6DA4B300A72EFA /* SleepRecordViewController.m in Sources */,
 				1D8901CF1A4B5119001A69A3 /* SleepTracker.xcdatamodeld in Sources */,
