@@ -11,12 +11,14 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import <Google/Analytics.h>
+#import "Flurry.h"
 
 @implementation AppAnalytics
 
 - (void)appAnalytics {
     [self crashlytics];
     [self googleAnalytics];
+    [self flurry];
 }
 
 - (void)crashlytics
@@ -35,6 +37,11 @@
     GAI *gai = [GAI sharedInstance];
     gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
     gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
+}
+
+- (void)flurry
+{
+    [Flurry startSession:@"8YZ68WS3RF7MDS5PY43D"];
 }
 
 @end
