@@ -15,7 +15,10 @@
 
 @implementation AppAnalytics
 
-- (void)appAnalytics {
+#pragma mark - didFinishLaunchingWithOptions
+
+- (void)didFinishLaunchingWithOptions
+{
     [self crashlytics];
     [self googleAnalytics];
     [self flurry];
@@ -23,7 +26,7 @@
 
 - (void)crashlytics
 {
-    [Fabric with:@[CrashlyticsKit]];  //避免在開發的時候一直觸動 Crashlytics，污染我的數據
+    [Fabric with:@[CrashlyticsKit]];
 }
 
 - (void)googleAnalytics

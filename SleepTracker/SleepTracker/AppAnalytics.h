@@ -10,6 +10,6 @@
 
 @interface AppAnalytics : NSObject
 
-- (void)appAnalytics;
+- (void)didFinishLaunchingWithOptions;
 
 @end

@@ -48,7 +48,7 @@
 - (void)analytics
 {
     if (RELEASE_MODE) {
-        [[[AppAnalytics alloc] init] appAnalytics];
+        [[[AppAnalytics alloc] init] didFinishLaunchingWithOptions];
     }
 }
 
