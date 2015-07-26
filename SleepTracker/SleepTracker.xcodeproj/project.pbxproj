@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D09E4D51B62739B0075BD88 /* AppAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D09E4D41B62739B0075BD88 /* AppAnalytics.m */; };
 		1D1CB5BF1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1CB5BE1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m */; };
 		1D26812A1A4C070300D510F8 /* History2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2681291A4C070300D510F8 /* History2TableViewController.m */; };
 		1D2C076A1AA057A500434EF2 /* CustomNotification-Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2C07691AA057A500434EF2 /* CustomNotification-Model.m */; };
@@ -16,6 +17,7 @@
 		1D2DB7FA1A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB7F91A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.m */; };
 		1D2DB7FD1A70F30E00A72EFA /* CustomNotificationTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB7FC1A70F30E00A72EFA /* CustomNotificationTwoViewController.m */; };
 		1D3BB38A1AA1BE2500349F5A /* CNDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BB3891AA1BE2500349F5A /* CNDetailViewController.m */; };
+		1D5996C71B6334C200BFDB07 /* libFlurry_6.5.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D5996C51B6334C200BFDB07 /* libFlurry_6.5.0.a */; };
 		1D7C39041A4C811800A02793 /* History3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C39031A4C811800A02793 /* History3ViewController.m */; };
 		1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C39071A4C909D00A02793 /* StatisticViewController.m */; };
 		1D7C390B1A4C962500A02793 /* WakeUp2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C390A1A4C962500A02793 /* WakeUp2ViewController.m */; };
@@ -64,6 +66,8 @@
 
 /* Begin PBXFileReference section */
 		13771A9ECBD6E70377BAA514 /* Pods-SleepTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		1D09E4D31B62739B0075BD88 /* AppAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppAnalytics.h; sourceTree = "<group>"; };
+		1D09E4D41B62739B0075BD88 /* AppAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppAnalytics.m; sourceTree = "<group>"; };
 		1D1CB5BD1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShouldGoToSleepTimeTableViewController.h; sourceTree = "<group>"; };
 		1D1CB5BE1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShouldGoToSleepTimeTableViewController.m; sourceTree = "<group>"; };
 		1D2681281A4C070300D510F8 /* History2TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History2TableViewController.h; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 		1D2DB7FC1A70F30E00A72EFA /* CustomNotificationTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNotificationTwoViewController.m; sourceTree = "<group>"; };
 		1D3BB3881AA1BE2500349F5A /* CNDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNDetailViewController.h; sourceTree = "<group>"; };
 		1D3BB3891AA1BE2500349F5A /* CNDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNDetailViewController.m; sourceTree = "<group>"; };
+		1D5996C51B6334C200BFDB07 /* libFlurry_6.5.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.5.0.a; sourceTree = "<group>"; };
+		1D5996C61B6334C200BFDB07 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		1D7C39021A4C811800A02793 /* History3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History3ViewController.h; sourceTree = "<group>"; };
 		1D7C39031A4C811800A02793 /* History3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History3ViewController.m; sourceTree = "<group>"; };
 		1D7C39061A4C909D00A02793 /* StatisticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticViewController.h; sourceTree = "<group>"; };
@@ -150,6 +156,7 @@
 			files = (
 				1DF063F81A8C626700F21359 /* MessageUI.framework in Frameworks */,
 				1DD0870A1B2D42CD00B37D2D /* Crashlytics.framework in Frameworks */,
+				1D5996C71B6334C200BFDB07 /* libFlurry_6.5.0.a in Frameworks */,
 				1DD087091B2D42CD00B37D2D /* Fabric.framework in Frameworks */,
 				20CA469D72F9106760CE42DE /* libPods-SleepTracker.a in Frameworks */,
 			);
@@ -203,6 +210,17 @@
 			name = "Custom Notification";
 			sourceTree = "<group>";
 		};
+		1D5996C41B6334A800BFDB07 /* App Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				1DB8836B1B3FB05500ED945D /* GoogleAnalytics.h */,
+				1DB8836C1B3FB05500ED945D /* GoogleAnalytics.m */,
+				1D5996C51B6334C200BFDB07 /* libFlurry_6.5.0.a */,
+				1D5996C61B6334C200BFDB07 /* Flurry.h */,
+			);
+			name = "App Analytics";
+			sourceTree = "<group>";
+		};
 		1D807BAB1B395CCA009138D8 /* 醒來計時器歸零 */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +255,8 @@
 			children = (
 				1D8901CA1A4B5119001A69A3 /* AppDelegate.h */,
 				1D8901CB1A4B5119001A69A3 /* AppDelegate.m */,
+				1D09E4D31B62739B0075BD88 /* AppAnalytics.h */,
+				1D09E4D41B62739B0075BD88 /* AppAnalytics.m */,
 				1D89020A1A4B52DB001A69A3 /* Model */,
 				1D89020B1A4B52E2001A69A3 /* Record */,
 				1D89020C1A4B52EE001A69A3 /* History */,
@@ -299,8 +319,7 @@
 				1D2DB7E81A6D677000A72EFA /* Statistic.h */,
 				1D2DB7E91A6D677000A72EFA /* Statistic.m */,
 				1DD0870F1B2D69B500B37D2D /* Sleep Notification */,
-				1DB8836B1B3FB05500ED945D /* GoogleAnalytics.h */,
-				1DB8836C1B3FB05500ED945D /* GoogleAnalytics.m */,
+				1D5996C41B6334A800BFDB07 /* App Analytics */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -601,6 +620,7 @@
 				1DBCE5B71A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m in Sources */,
 				1DF063F61A8C59F600F21359 /* SettingTableViewController.m in Sources */,
 				1D995E011A7D4D37002F069C /* HopeToGoToSleepViewController.m in Sources */,
+				1D09E4D51B62739B0075BD88 /* AppAnalytics.m in Sources */,
 				1D3BB38A1AA1BE2500349F5A /* CNDetailViewController.m in Sources */,
 				1DBCE5B31A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m in Sources */,
 				1DC3EE8C1B43962E00D8E07B /* AwakeTimeTableViewController.m in Sources */,
@@ -723,6 +743,10 @@
 				INFOPLIST_FILE = SleepTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SleepTracker",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -743,6 +767,10 @@
 				INFOPLIST_FILE = SleepTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SleepTracker",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
