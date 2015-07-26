@@ -84,6 +84,9 @@
         if (indexPath.row == 0) {
             cell.detailTextLabel.text = [userPreferences boolForKey:@"顯示醒了多久"] ? zero[[userPreferences integerForKey:@"醒來計時器歸零"]] : @"不計算" ;
             cell.detailTextLabel.font = [UIFont systemFontOfSize:15];
+            
+            cell.accessoryView = nil;
+            cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         } else if (indexPath.row == 1) {
             cell.detailTextLabel.text = @" ";
             
