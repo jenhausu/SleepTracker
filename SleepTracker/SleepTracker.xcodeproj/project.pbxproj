@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D005CB31B660F3C000B098A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D005CB21B660F3C000B098A /* CloudKit.framework */; };
 		1D09E4D51B62739B0075BD88 /* AppAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D09E4D41B62739B0075BD88 /* AppAnalytics.m */; };
 		1D1CB5BF1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1CB5BE1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m */; };
 		1D26812A1A4C070300D510F8 /* History2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2681291A4C070300D510F8 /* History2TableViewController.m */; };
@@ -66,6 +67,8 @@
 
 /* Begin PBXFileReference section */
 		13771A9ECBD6E70377BAA514 /* Pods-SleepTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		1D005CB11B660F19000B098A /* SleepTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SleepTracker.entitlements; sourceTree = "<group>"; };
+		1D005CB21B660F3C000B098A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		1D09E4D31B62739B0075BD88 /* AppAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppAnalytics.h; sourceTree = "<group>"; };
 		1D09E4D41B62739B0075BD88 /* AppAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppAnalytics.m; sourceTree = "<group>"; };
 		1D1CB5BD1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShouldGoToSleepTimeTableViewController.h; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 				1DF063F81A8C626700F21359 /* MessageUI.framework in Frameworks */,
 				1DD0870A1B2D42CD00B37D2D /* Crashlytics.framework in Frameworks */,
 				1D5996C71B6334C200BFDB07 /* libFlurry_6.5.0.a in Frameworks */,
+				1D005CB31B660F3C000B098A /* CloudKit.framework in Frameworks */,
 				1DD087091B2D42CD00B37D2D /* Fabric.framework in Frameworks */,
 				20CA469D72F9106760CE42DE /* libPods-SleepTracker.a in Frameworks */,
 			);
@@ -253,6 +257,7 @@
 		1D8901C51A4B5119001A69A3 /* SleepTracker */ = {
 			isa = PBXGroup;
 			children = (
+				1D005CB11B660F19000B098A /* SleepTracker.entitlements */,
 				1D8901CA1A4B5119001A69A3 /* AppDelegate.h */,
 				1D8901CB1A4B5119001A69A3 /* AppDelegate.m */,
 				1D09E4D31B62739B0075BD88 /* AppAnalytics.h */,
@@ -427,6 +432,7 @@
 		84628276B3D189C096A31A68 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1D005CB21B660F3C000B098A /* CloudKit.framework */,
 				1DF063F71A8C626700F21359 /* MessageUI.framework */,
 				1DD087071B2D42CD00B37D2D /* Fabric.framework */,
 				1DD087081B2D42CD00B37D2D /* Crashlytics.framework */,
@@ -497,6 +503,11 @@
 					1D8901C21A4B5119001A69A3 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = Z2Y87QNVT9;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					1D8901DE1A4B511A001A69A3 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -734,7 +745,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = SleepTracker/SleepTracker.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -748,6 +761,7 @@
 					"$(PROJECT_DIR)/SleepTracker",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -758,7 +772,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = SleepTracker/SleepTracker.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -772,6 +788,7 @@
 					"$(PROJECT_DIR)/SleepTracker",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
