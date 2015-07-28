@@ -73,6 +73,7 @@
         self.sleepData = fetchDataArray[0];
         if (self.sleepData.wakeUpTime)  { //awake state
             [self.button setTitle:@"上床" forState:UIControlStateNormal];
+            self.alreadySleptLabel.text = @"00:00:00";
 
             if ([userPreferences boolForKey:@"顯示醒了多久"]) [self startCountingAwakeTime];
         } else  {  //sleep state
