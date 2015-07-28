@@ -60,7 +60,7 @@
     
     if ([userPreferences boolForKey:@"顯示醒了多久"]) {
         self.alreadyAwakeTextLabel.text = @"已經醒了多久：";
-        if (!self.alreadyAwakeTimeLabel.text) {
+        if (!self.alreadyAwakeTimeLabel.text) {  // 如果上次顯示頁面時就有要顯示醒了多久，就不要再把alreadyAwakeTimeLabel設為00:00:00，因為這樣會有幾秒的延遲
             self.alreadyAwakeTimeLabel.text = @"00:00:00";
         }
     } else {
