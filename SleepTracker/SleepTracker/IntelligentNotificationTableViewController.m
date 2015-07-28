@@ -239,9 +239,6 @@
             footerHeight = 0;
             
             [self postponeForAFewSecondThenChangeSectionOneFooter];
-        } else {
-            footerText = nil;
-            footerHeight = 0;
         }
     }
 }
@@ -266,9 +263,6 @@
             footerHeight = 0;
             
             [self postponeForAFewSecondThenChangeSectionOneFooter];
-        } else {
-            footerText = nil;
-            footerHeight = 0;
         }
     }
 }
@@ -293,9 +287,6 @@
             footerHeight = 0;
             
             [self postponeForAFewSecondThenChangeSectionOneFooter];
-        } else {
-            footerText = nil;
-            footerHeight = 0;
         }
     }
 }

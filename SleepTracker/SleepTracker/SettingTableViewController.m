@@ -205,9 +205,6 @@
             footerHeight = 0;
             
             [self postponeForAFewSecondThenChangeSectionOneFooter];
-        } else {
-            footerText = nil;
-            footerHeight = 0;
         }
     }
 }
