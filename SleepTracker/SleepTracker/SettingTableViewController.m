@@ -161,15 +161,11 @@
     
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"ShouldGoToSleepTime"];
-            page2.title = setting[indexPath.section][indexPath.row];
-            [self.navigationController pushViewController:page2 animated:YES];
+            [self pushViewController:@"ShouldGoToSleepTime" section:indexPath.section row:indexPath.row];
         }
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"AwakeTime"];
-            page2.title = setting[indexPath.section][indexPath.row];
-            [self.navigationController pushViewController:page2 animated:YES];
+            [self pushViewController:@"AwakeTime" section:indexPath.section row:indexPath.row];
         }
     } else if (indexPath.section == (setting.count - 1)) {
         if (indexPath.row == 0) {
@@ -199,6 +195,13 @@
             }
         }
     }
+}
+
+- (void)pushViewController:(NSString *)identifier section:(NSInteger)section row:(NSInteger)row
+{
+    UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+    page2.title = setting[section][row];
+    [self.navigationController pushViewController:page2 animated:YES];
 }
 
 #pragma mark - switchChinaged
