@@ -60,6 +60,8 @@
 
 - (void)firstLaunch
 {
+    [[[LocalNotification alloc] init] initLocalNotification];
+    
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
     if (![userPreferences boolForKey:@"NotFirstLaunch"]) {
         [userPreferences setBool:YES forKey:@"重複發出睡前通知"];
@@ -98,8 +100,6 @@
         [alert show];
         [userPreferences setBool:YES forKey:@"1.2.0"];
     }
-    
-    [[[LocalNotification alloc] init] initLocalNotification];
 }
 
 - (void)analytics
