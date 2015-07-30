@@ -64,6 +64,39 @@
     if (![userPreferences boolForKey:@"NotFirstLaunch"]) {
         [userPreferences setBool:YES forKey:@"重複發出睡前通知"];
         [userPreferences setBool:YES forKey:@"NotFirstLaunch"];
+        
+        [userPreferences setBool:YES forKey:@"1.2.0"];
+    } else if (![userPreferences boolForKey:@"1.2.0"]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"1.2.0版 新功能"
+                                                        message:@"1. 現在只要把通知往左滑就會有「稍後通知」、「我要熬夜」的選項了。\n2. 使用者可以決定要不要計算醒來時間。"
+                                                       delegate:self
+                                              cancelButtonTitle:@"確定"
+                                              otherButtonTitles:nil, nil];
+        
+         /*// 設定圖片的方式不夠完美，所以程式碼先留著
+         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+         UIImage *image = [UIImage imageNamed:@"swip5"];
+         imageView.contentMode = UIViewContentModeScaleToFill;
+         
+         
+         CGSize newSize = CGSizeMake(image.size.width, image.size.height);
+         UIGraphicsBeginImageContext(newSize);
+         [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+         image = UIGraphicsGetImageFromCurrentImageContext();
+         UIGraphicsEndImageContext();
+        
+        
+         imageView.image = image;
+         
+         //check if os version is 7 or above
+         if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+         [alert setValue:imageView forKey:@"accessoryView"];
+         }else{
+         [alert addSubview:imageView];
+         }  //*/
+        
+        [alert show];
+        [userPreferences setBool:YES forKey:@"1.2.0"];
     }
     
     [[[LocalNotification alloc] init] initLocalNotification];
