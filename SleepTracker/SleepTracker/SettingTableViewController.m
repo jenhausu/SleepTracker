@@ -36,7 +36,7 @@
     
     setting = @[@[@"希望上床時間"],
                 @[@"計算醒來時間", @"「睡前通知」繼續發出"],
-                @[@"意見回饋"]];
+                @[[NSString stringWithFormat:@"%@ 版 新功能說明", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]], @"意見回饋"]];
     
     zero = @[@"照常計算", @"超過 24 小時不再計算", @"減去 24 小時", @"平均起床時間"];
     
@@ -98,6 +98,10 @@
         }
     } else if (indexPath.section == (setting.count - 1)) {
         cell.detailTextLabel.text = @" ";
+        
+        if (indexPath.row == 0) {
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
     }
     
     
@@ -110,6 +114,8 @@
 {
     if (section == 1) {
         return @"前一天沒有輸入資料時";
+    } else if (section == 2) {
+        return @"其他";
     } else {
         return nil;
     }
@@ -165,6 +171,13 @@
         }
     } else if (indexPath.section == (setting.count - 1)) {
         if (indexPath.row == 0) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"1.2.0版 新功能"
+                                                            message:@"1. 現在只要把通知往左滑就會有「稍後通知」、「我要熬夜」的選項了。\n2. 使用者可以決定要不要計算醒來時間。"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"確定"
+                                                  otherButtonTitles:nil, nil];
+            [alert show];
+        } else if (indexPath.row == [setting[indexPath.section] count] - 1) {
             if ([MFMailComposeViewController canSendMail])
             {
                 MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
