@@ -61,8 +61,9 @@
                 [self.localNotification setLocalNotificationWithMessage:self.customNotification.message
                                                                fireDate:self.customNotification.fireDate
                                                             repeatOrNot:YES
-                                                                  Sound:self.customNotification.sound
-                                                               setValue:@"CustomNotification" forKey:@"NotificationType"];
+                                                                  sound:self.customNotification.sound
+                                                               setValue:@"CustomNotification" forKey:@"NotificationType"
+                                                               category:@"SleepNotification"];
             }
         }
     }

@@ -224,8 +224,9 @@
     [[[LocalNotification alloc] init] setLocalNotificationWithMessage:message
                                                              fireDate:fireDate
                                                           repeatOrNot:Repeat
-                                                                Sound:@"UILocalNotificationDefaultSoundName"
-                                                             setValue:@"IntelligentNotification" forKey:@"NotificationType"];
+                                                                sound:@"UILocalNotificationDefaultSoundName"
+                                                             setValue:@"IntelligentNotification" forKey:@"NotificationType"
+                                                             category:@"SleepNotification"];
 }
 
 - (void)setRemindUserToRecordWakeUpTime
@@ -255,8 +256,8 @@
     [[[LocalNotification alloc] init] setLocalNotificationWithMessage:@"你真的睡到現在！？趕快紀錄一下你是幾點起床的吧！"
                                                              fireDate:fireDate
                                                           repeatOrNot:NO
-                                                                Sound:@"UILocalNotificationDefaultSoundName"
-                                                             setValue:@"提醒輸入起床時間" forKey:@"NotificationType"];
+                                                                sound:@"UILocalNotificationDefaultSoundName"
+                                                             setValue:@"提醒輸入起床時間" forKey:@"NotificationType" category:@"None"];
 }
 
 #pragma mark - Cancel

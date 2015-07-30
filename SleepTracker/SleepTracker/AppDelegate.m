@@ -23,33 +23,10 @@
     // Override point for customization after application launch.
     
     [self firstLaunch];
-    
     [self analytics];
     
     
-    _localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-    if (_localNotification) {
-        [self clickNotification];
-    }
-    
-    
     return YES;
-}
-
-- (void)firstLaunch
-{
-    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
-    if (![userPreferences boolForKey:@"NotFirstLaunch"]) {
-        [userPreferences setBool:YES forKey:@"重複發出睡前通知"];
-        [userPreferences setBool:YES forKey:@"NotFirstLaunch"];
-    }
-}
-
-- (void)analytics
-{
-    if (RELEASE_MODE) {
-        [[[AppAnalytics alloc] init] didFinishLaunchingWithOptions];
-    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -79,33 +56,65 @@
     [self saveContext];
 }
 
-// 點擊通知
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+#pragma mark -
+
+- (void)firstLaunch
 {
-    _localNotification = notification;
-    [self clickNotification];
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    if (![userPreferences boolForKey:@"NotFirstLaunch"]) {
+        [userPreferences setBool:YES forKey:@"重複發出睡前通知"];
+        [userPreferences setBool:YES forKey:@"NotFirstLaunch"];
+    }
     
-    [self removeNotificationFromNotificationCenter];  //如果通知發出時剛好使用者在使用App，也把通知從通知中心中移除。
+    [[[LocalNotification alloc] init] initLocalNotification];
+}
+
+- (void)analytics
+{
+    if (RELEASE_MODE) {
+        [[[AppAnalytics alloc] init] didFinishLaunchingWithOptions];
+    }
 }
 
 #pragma mark - SleepNotification
 
-- (void)clickNotification
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-    NSDictionary *userInfo = _localNotification.userInfo;
-    if (![[userInfo objectForKey:@"NotificationType"] isEqualToString:@"提醒輸入起床時間"]) {
+    UIApplicationState state = [application applicationState];
+    if (state == UIApplicationStateActive) {
+        _localNotification = notification;
         [self showSleepNotificationAlertView];
     }
+    
+    [self removeNotificationFromNotificationCenter];  //如果通知發出時剛好使用者在使用App，也把通知從通知中心中移除。
+}
+
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^)())completionHandler
+{
+    if ([identifier isEqualToString:@"later"]) {
+        [[[LocalNotification alloc] init] setLocalNotificationWithMessage:_localNotification.alertBody
+                                                                 fireDate:[NSDate dateWithTimeInterval:60*20 sinceDate:[NSDate date]]
+                                                              repeatOrNot:NO
+                                                                    sound:@"UILocalNotificationDefaultSoundName"
+                                                                 setValue:@"PosponNotification" forKey:@"NotificationType" category:@"SleepNotification"];
+    } else if ([identifier isEqualToString:@"night"]) {
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    }
+    
+    completionHandler();
 }
 
 - (void)showSleepNotificationAlertView
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前提醒"
-                                                    message:_localNotification.alertBody
-                                                   delegate:self
-                                          cancelButtonTitle:@"我今天要熬夜，不要吵我！！"
-                                          otherButtonTitles:@"知道了", @"稍後提醒", nil];
-    [alert show];
+    NSDictionary *userInfo = _localNotification.userInfo;
+    if (![[userInfo objectForKey:@"NotificationType"] isEqualToString:@"提醒輸入起床時間"]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前提醒"
+                                                        message:_localNotification.alertBody
+                                                       delegate:self
+                                              cancelButtonTitle:@"我今天要熬夜，不要吵我！！"
+                                              otherButtonTitles:@"知道了", @"稍後提醒", nil];
+        [alert show];
+    }
 }
 
 - (void)removeNotificationFromNotificationCenter
@@ -129,8 +138,8 @@
             [[[LocalNotification alloc] init] setLocalNotificationWithMessage:_localNotification.alertBody
                                                                      fireDate:[NSDate dateWithTimeInterval:60*20 sinceDate:[NSDate date]]
                                                                   repeatOrNot:NO
-                                                                        Sound:@"UILocalNotificationDefaultSoundName"
-                                                                     setValue:@"PosponNotification" forKey:@"NotificationType"];
+                                                                        sound:@"UILocalNotificationDefaultSoundName"
+                                                                     setValue:@"PosponNotification" forKey:@"NotificationType" category:@"SleepNotification"];
             break;
         default:
             break;
