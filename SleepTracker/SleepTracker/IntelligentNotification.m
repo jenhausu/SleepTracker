@@ -224,8 +224,9 @@
     [[[LocalNotification alloc] init] setLocalNotificationWithMessage:message
                                                              fireDate:fireDate
                                                           repeatOrNot:Repeat
-                                                                Sound:@"UILocalNotificationDefaultSoundName"
-                                                             setValue:@"IntelligentNotification" forKey:@"NotificationType"];
+                                                                sound:@"UILocalNotificationDefaultSoundName"
+                                                             setValue:@"IntelligentNotification" forKey:@"NotificationType"
+                                                             category:@"SleepNotification"];
 }
 
 - (void)setRemindUserToRecordWakeUpTime
