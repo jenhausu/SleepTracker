@@ -13,3 +13,9 @@
 - (void)didFinishLaunchingWithOptions;
 
 @end
+
+#ifdef DEBUG
+    #define RELEASE_MODE NO
+#else
+    #define RELEASE_MODE YES
+#endif
