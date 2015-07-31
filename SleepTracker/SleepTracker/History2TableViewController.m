@@ -55,6 +55,7 @@
     self.textLabelArray = @[section1, section2];
     
     fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
+    ///FIXME:這個方法太蠢啦！！！
     self.sleepData = fetchDataArray[[selectedRow integerValue]];
     goToBedTime = self.sleepData.goToBedTime;
     wakeUpTime = self.sleepData.wakeUpTime;
