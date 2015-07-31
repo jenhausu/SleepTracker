@@ -8,6 +8,7 @@
 
 #import "HistoryTableViewController.h"
 #import "GoogleAnalytics.h"
+#import <CloudKit/CloudKit.h>
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
@@ -45,6 +46,96 @@
     [super viewDidLoad];
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    /*
+    // 刪除icloud上所有資料
+    CKContainer *container = [CKContainer defaultContainer];
+    CKDatabase *database = [container privateCloudDatabase];
+    NSString *recordType = @"SleepDataTest";
+    CKQuery *query = [[CKQuery alloc] initWithRecordType:recordType predicate:[NSPredicate predicateWithValue:YES]];
+    [database performQuery:query inZoneWithID:nil completionHandler:^(NSArray *results, NSError *error) {
+        if (!error) {
+            for (NSInteger i = 0 ; i < results.count ; i++ ) {
+                CKRecord *record = results[i];
+                [database deleteRecordWithID:record.recordID completionHandler:^(CKRecordID *recordID, NSError *error) {
+                    if (!error) {
+                        
+                    } else {
+                        NSLog(@"%@", error.localizedDescription);
+                    }
+                }];
+            }
+        } else {
+            NSLog(@"fetch error:%@", error);
+        }
+    }];  //*/
+    
+    
+    
+    /*
+    // 下載並寫入資料
+    CKContainer *container = [CKContainer defaultContainer];
+    CKDatabase *database = [container privateCloudDatabase];
+    NSString *recordType = @"SleepDataTest";
+    CKQuery *query = [[CKQuery alloc] initWithRecordType:recordType predicate:[NSPredicate predicateWithValue:YES]];
+    [database performQuery:query inZoneWithID:nil completionHandler:^(NSArray *results, NSError *error) {
+        if (!error) {
+            NSLog(@"Seccessfullly fetch data, results.count:%d", (int)results.count);
+            CKRecord *record;
+            if (fetchDataArray.count != results.count) {
+                for (NSInteger i = 0 ; i < results.count ; i++ ) {
+                    record = results[i];
+                    NSLog(@"recordID:%@", record.recordID);
+                    [self.sleepDataModel addNewSleepdataAndAddGoToBedTime:[record valueForKey:@"GoToBedTime"]
+                                                               wakeUpTime:[record valueForKey:@"WakeUpTime"]
+                                                                sleepTime:[record valueForKey:@"SleepTime"]
+                                                                sleepType:[record valueForKey:@"SleepType"]];
+                }
+                
+                [self.tableView reloadData];
+            }
+        } else {
+            NSLog(@"fetch error:%@", error);
+        }
+    }];  //*/
+    
+    
+    /*
+    // 上傳最近十筆資料
+    CKContainer *container = [CKContainer defaultContainer];
+    CKDatabase *database = [container privateCloudDatabase];
+    CKQuery *query = [[CKQuery alloc] initWithRecordType:@"SleepDataTest" predicate:[NSPredicate predicateWithValue:YES]];
+    [database performQuery:query inZoneWithID:nil completionHandler:^(NSArray *results, NSError *error) {
+        if (!error) {
+            NSLog(@"Seccessfullly fetch data, results.count:%d", (int)results.count);
+            NSInteger count = (fetchDataArray.count);
+            
+            if (results.count != count) {  //
+                for (NSInteger i = 0; i < 10 ; i++ ) {
+                    self.sleepData = fetchDataArray[i];
+     
+                    NSString *recordName =[NSString stringWithFormat:@"%@", self.sleepData.goToBedTime];
+                    CKRecordID *rocordID = [[CKRecordID alloc] initWithRecordName:recordName];
+                    CKRecord *record = [[CKRecord alloc] initWithRecordType:@"SleepDataTest" recordID:rocordID];
+                    record[@"GoToBedTime"] = self.sleepData.goToBedTime;
+                    record[@"WakeUpTime"] = self.sleepData.wakeUpTime;
+                    record[@"SleepTime"] = self.sleepData.sleepTime;
+                    record[@"SleepType"] = self.sleepData.sleepType;
+                    NSLog(@"%@ %@", self.sleepData.goToBedTime, rocordID);
+                    
+                    [database saveRecord:record completionHandler:^(CKRecord *record, NSError *error){
+                        if (!error) {
+                            NSLog(@"Successfully save data %@", self.sleepData.goToBedTime);
+                        } else {
+                            NSLog(@"%@", error.localizedDescription);
+                        }
+                    }];
+                }
+            }
+        } else {
+            NSLog(@"fetch error:%@", error);
+        }
+    }];  //*/
 }
 
 - (void)viewWillAppear:(BOOL)animated
