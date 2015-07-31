@@ -36,7 +36,7 @@
     
     setting = @[@[@"希望上床時間"],
                 @[@"計算醒來時間", @"「睡前通知」繼續發出"],
-                @[[NSString stringWithFormat:@"%@ 版 新功能說明", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]], @"意見回饋"]];
+                @[[NSString stringWithFormat:@"%@ 版 新功能說明", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]], @"寫信給開發者"]];
     
     zero = @[@"照常計算", @"超過 24 小時不再計算", @"減去 24 小時", @"平均起床時間"];
     
@@ -182,6 +182,7 @@
                 mailViewController.mailComposeDelegate = self;
                 
                 [mailViewController setToRecipients:[NSArray arrayWithObject:@"jenhausu@icloud.com"]];
+                [mailViewController setSubject:@"意見回饋"];
                 
                 [self presentViewController:mailViewController animated:YES completion:NULL];
                 [[[GoogleAnalytics alloc] init] trackPageView:@"Feedback"];
