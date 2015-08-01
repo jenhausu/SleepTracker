@@ -42,18 +42,13 @@
     [super viewWillAppear:YES];
     
     userPreferences = [NSUserDefaults standardUserDefaults];
-    selectedRow = [userPreferences integerForKey:@"ShouldGoToSleepTime"];
+    selectedRow = [userPreferences integerForKey:@"HopeGoToSleepTime"];
     
     if (footerText) footerText = nil;
     
     [self.tableView reloadData];
     
     
-    [self googleAnalytics];
-}
-
-- (void)googleAnalytics
-{
     [[[GoogleAnalytics alloc] init] trackPageView:@"ShouldGoToBedTime"];
 }
 

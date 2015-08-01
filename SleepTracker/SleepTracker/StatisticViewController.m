@@ -110,10 +110,10 @@
     segmentTimeLabel.text = [NSString stringWithFormat:@"%@ ~ %@", [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceNow:-(60 * 60 * 24 * (recent - 1))]], [dateFormatter stringFromDate:[NSDate date]]];
     
     
-    [self googleAnalytics:recent];
+    [self trackPageView:recent];
 }
 
-- (void)googleAnalytics:(NSInteger)recent
+- (void)trackPageView:(NSInteger)recent
 {
     switch (recent) {
         case 7:

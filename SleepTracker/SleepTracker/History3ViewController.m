@@ -78,15 +78,15 @@
 {
     [super viewWillAppear:animated];
     
-    [self googleAnalytics];
+    [self trackPageView];
 }
 
-- (void)googleAnalytics
+- (void)trackPageView
 {
     if ([DateType isEqualToString:@"goToBedTime"]) {
-        [[[GoogleAnalytics alloc] init] trackPageView:@"History3_goToBedTime"];
+        [[[GoogleAnalytics alloc] init] trackPageView:@"History ChangeValue GoToBedTime"];
     } else if ([DateType isEqualToString:@"wakeUpTime"]) {
-        [[[GoogleAnalytics alloc] init] trackPageView:@"History3_wakeUpTime"];
+        [[[GoogleAnalytics alloc] init] trackPageView:@"History ChangeValue WakeUpTime"];
     }
 }
 
