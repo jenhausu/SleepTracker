@@ -77,12 +77,7 @@
     [self.tableView reloadData];
     
     
-    [self googleAnalytics];
-}
-
-- (void)googleAnalytics
-{
-    [[[GoogleAnalytics alloc] init] trackPageView:@"History2"];
+    [[[GoogleAnalytics alloc] init] trackPageView:@"History Detail"];
 }
 
 #pragma mark - Table view data source

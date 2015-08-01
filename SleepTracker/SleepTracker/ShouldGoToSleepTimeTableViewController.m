@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    section1 = @[@"平均上床時間", @"平均起床時間"];
+    section1 = @[@"平均起床時間", @"平均上床時間"];
     section2 = @[@"自訂希望上床時間"];
     textLabelOfTableViewCell = @[section1, section2];
 }
@@ -42,18 +42,13 @@
     [super viewWillAppear:YES];
     
     userPreferences = [NSUserDefaults standardUserDefaults];
-    selectedRow = [userPreferences integerForKey:@"ShouldGoToSleepTime"];
+    selectedRow = [userPreferences integerForKey:@"HopeGoToSleepTime"];
     
     if (footerText) footerText = nil;
     
     [self.tableView reloadData];
     
     
-    [self googleAnalytics];
-}
-
-- (void)googleAnalytics
-{
     [[[GoogleAnalytics alloc] init] trackPageView:@"ShouldGoToBedTime"];
 }
 
@@ -74,14 +69,13 @@
     cell.detailTextLabel.text = @"--:--";
     
     if (indexPath.section == 0) {
+        NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
+        NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
         if (indexPath.row == 0) {
-            NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
-            NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-            
-            NSInteger averageGoToSleepTimeInSecond = [[[[[Statistic alloc] init] showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
-            if (averageGoToSleepTimeInSecond) {
-                dateComponents.hour = averageGoToSleepTimeInSecond / 3600;
-                dateComponents.minute = ((averageGoToSleepTimeInSecond / 60) % 60);
+            NSInteger averageWakeUpTimeInSecond = [[[[[Statistic alloc] init] showWakeUpTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+            if (averageWakeUpTimeInSecond) {
+                dateComponents.hour = ((averageWakeUpTimeInSecond / 3600  - 8) >= 0) ? (averageWakeUpTimeInSecond / 3600 - 8) : (averageWakeUpTimeInSecond / 3600 - 8) + 24 ;
+                dateComponents.minute = ((averageWakeUpTimeInSecond / 60) % 60);
                 
                 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                 [dateFormatter setDateFormat:@"HH:mm"];
@@ -89,14 +83,11 @@
                 cell.detailTextLabel.text = [dateFormatter stringFromDate:[greCalendar dateFromComponents:dateComponents]];  //@"適合想要早點睡的人";
             }
         } else if (indexPath.row == 1) {
-            NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
-            NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-            
-            NSInteger averageWakeUpTimeInSecond = [[[[[Statistic alloc] init] showWakeUpTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
-            if (averageWakeUpTimeInSecond) {
-                dateComponents.hour = ((averageWakeUpTimeInSecond / 3600  - 8) >= 0) ? (averageWakeUpTimeInSecond / 3600 - 8) : (averageWakeUpTimeInSecond / 3600 - 8) + 24 ;
-                dateComponents.minute = ((averageWakeUpTimeInSecond / 60) % 60);
-
+            NSInteger averageGoToSleepTimeInSecond = [[[[[Statistic alloc] init] showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+            if (averageGoToSleepTimeInSecond) {
+                dateComponents.hour = averageGoToSleepTimeInSecond / 3600;
+                dateComponents.minute = ((averageGoToSleepTimeInSecond / 60) % 60);
+                
                 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                 [dateFormatter setDateFormat:@"HH:mm"];
                 

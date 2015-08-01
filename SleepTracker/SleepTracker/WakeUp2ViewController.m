@@ -80,9 +80,9 @@
 - (void)googleAnalytics
 {
     if ([DateType isEqualToString:@"goToBedTime"]) {
-        [[[GoogleAnalytics alloc] init] trackPageView:@"WakeUp2_goToBedTime"];
+        [[[GoogleAnalytics alloc] init] trackPageView:@"WakeUp2 ChangeValue GoToBedTime"];
     } else if ([DateType isEqualToString:@"wakeUpTime"]) {
-        [[[GoogleAnalytics alloc] init] trackPageView:@"WakeUp2_wakeUpTime"];
+        [[[GoogleAnalytics alloc] init] trackPageView:@"WakeUp2 ChangeValue WakeUpTime"];
     }
 }
 

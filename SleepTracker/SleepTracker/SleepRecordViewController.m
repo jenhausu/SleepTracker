@@ -8,6 +8,7 @@
 
 #import "SleepRecordViewController.h"
 #import "GoogleAnalytics.h"
+#import "Mixpanel_Model.h"
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
@@ -51,6 +52,13 @@
 
 #pragma mark - view
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [[[Mixpanel_Model alloc] init] trackEvent:@"紀錄頁面" key:@"View" value:@"viewDidLoad"];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:NO];
@@ -60,7 +68,7 @@
     
     if ([userPreferences boolForKey:@"顯示醒了多久"]) {
         self.alreadyAwakeTextLabel.text = @"已經醒了多久：";
-        if (!self.alreadyAwakeTimeLabel.text) {
+        if (!self.alreadyAwakeTimeLabel.text) {  // 如果上次顯示頁面時就有要顯示醒了多久，就不要再把alreadyAwakeTimeLabel設為00:00:00，因為這樣會有幾秒的延遲
             self.alreadyAwakeTimeLabel.text = @"00:00:00";
         }
     } else {
@@ -73,6 +81,7 @@
         self.sleepData = fetchDataArray[0];
         if (self.sleepData.wakeUpTime)  { //awake state
             [self.button setTitle:@"上床" forState:UIControlStateNormal];
+            self.alreadySleptLabel.text = @"00:00:00";
 
             if ([userPreferences boolForKey:@"顯示醒了多久"]) [self startCountingAwakeTime];
         } else  {  //sleep state
@@ -86,12 +95,8 @@
     }
     
     
-    [self googleAnalytics];
-}
-
-- (void)googleAnalytics
-{
     [[[GoogleAnalytics alloc] init] trackPageView:@"Record"];
+    [[[Mixpanel_Model alloc] init] trackEvent:@"紀錄頁面" key:@"View" value:@"viewWillAppear"];
 }
 
 - (IBAction)buttonPress:(UIButton *)sender {

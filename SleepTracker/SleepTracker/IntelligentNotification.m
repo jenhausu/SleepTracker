@@ -49,18 +49,7 @@
     [dateComponents setDay:currentDate.day];
     
     switch (shouldGoToSleepTime) {
-        case 0: {  //平均上床時間
-            NSInteger averageGoToSleepTimeInSecond = [[[self.statistic showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
-            if (averageGoToSleepTimeInSecond) {
-                [dateComponents setHour:averageGoToSleepTimeInSecond / 3600];
-                [dateComponents setMinute:((averageGoToSleepTimeInSecond / 60) % 60)];
-            } else {
-                [dateComponents setHour:23];
-                [dateComponents setMinute:0];
-            }
-        }
-            break;
-        case 1: {  //平均起床時間
+        case 0: {  //平均起床時間
             NSInteger averageWakeUpTimeInSecond = [[[self.statistic showWakeUpTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
             if (averageWakeUpTimeInSecond) {
                 dateComponents.hour = (((averageWakeUpTimeInSecond / 3600) - 8) >= 0) ? averageWakeUpTimeInSecond / 3600 - 8 : (averageWakeUpTimeInSecond / 3600) - 8 + 24 ;
@@ -69,16 +58,30 @@
                 [dateComponents setHour:23];
                 [dateComponents setMinute:0];
             }
-        }
+            
             break;
+        }
+        case 1: {  //平均上床時間
+            NSInteger averageGoToSleepTimeInSecond = [[[self.statistic showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+            if (averageGoToSleepTimeInSecond) {
+                [dateComponents setHour:averageGoToSleepTimeInSecond / 3600];
+                [dateComponents setMinute:((averageGoToSleepTimeInSecond / 60) % 60)];
+            } else {
+                [dateComponents setHour:23];
+                [dateComponents setMinute:0];
+            }
+            
+            break;
+        }
         case 2: {  //自訂
             NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
             NSDate *HopeToGoToBedTime = [userPreferences valueForKey:@"HopeToGoToBedTime"];
             NSDateComponents *hopeToGoToBedTime = [greCalendar components: NSCalendarUnitHour | NSCalendarUnitMinute fromDate:HopeToGoToBedTime];
             [dateComponents setHour:hopeToGoToBedTime.hour];
             [dateComponents setMinute:hopeToGoToBedTime.minute];
+            
+            break;
         }
-        break;
     }
     
     return [greCalendar dateFromComponents:dateComponents];
@@ -224,8 +227,9 @@
     [[[LocalNotification alloc] init] setLocalNotificationWithMessage:message
                                                              fireDate:fireDate
                                                           repeatOrNot:Repeat
-                                                                Sound:@"UILocalNotificationDefaultSoundName"
-                                                             setValue:@"IntelligentNotification" forKey:@"NotificationType"];
+                                                                sound:@"UILocalNotificationDefaultSoundName"
+                                                             setValue:@"IntelligentNotification" forKey:@"NotificationType"
+                                                             category:@"SleepNotification"];
 }
 
 - (void)setRemindUserToRecordWakeUpTime
@@ -255,8 +259,8 @@
     [[[LocalNotification alloc] init] setLocalNotificationWithMessage:@"你真的睡到現在！？趕快紀錄一下你是幾點起床的吧！"
                                                              fireDate:fireDate
                                                           repeatOrNot:NO
-                                                                Sound:@"UILocalNotificationDefaultSoundName"
-                                                             setValue:@"提醒輸入起床時間" forKey:@"NotificationType"];
+                                                                sound:@"UILocalNotificationDefaultSoundName"
+                                                             setValue:@"提醒輸入起床時間" forKey:@"NotificationType" category:@"None"];
 }
 
 #pragma mark - Cancel

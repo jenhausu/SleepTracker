@@ -21,7 +21,7 @@
 // GoogleAnalytics
 #define COCOAPODS_POD_AVAILABLE_GoogleAnalytics
 #define COCOAPODS_VERSION_MAJOR_GoogleAnalytics 3
-#define COCOAPODS_VERSION_MINOR_GoogleAnalytics 12
+#define COCOAPODS_VERSION_MINOR_GoogleAnalytics 13
 #define COCOAPODS_VERSION_PATCH_GoogleAnalytics 0
 
 // GoogleNetworkingUtilities
@@ -41,4 +41,16 @@
 #define COCOAPODS_VERSION_MAJOR_GoogleUtilities 1
 #define COCOAPODS_VERSION_MINOR_GoogleUtilities 0
 #define COCOAPODS_VERSION_PATCH_GoogleUtilities 1
+
+// Mixpanel
+#define COCOAPODS_POD_AVAILABLE_Mixpanel
+#define COCOAPODS_VERSION_MAJOR_Mixpanel 2
+#define COCOAPODS_VERSION_MINOR_Mixpanel 8
+#define COCOAPODS_VERSION_PATCH_Mixpanel 2
+
+// Mixpanel/Mixpanel
+#define COCOAPODS_POD_AVAILABLE_Mixpanel_Mixpanel
+#define COCOAPODS_VERSION_MAJOR_Mixpanel_Mixpanel 2
+#define COCOAPODS_VERSION_MINOR_Mixpanel_Mixpanel 8
+#define COCOAPODS_VERSION_PATCH_Mixpanel_Mixpanel 2
 

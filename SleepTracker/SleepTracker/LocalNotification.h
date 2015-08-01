@@ -10,12 +10,16 @@
 
 @interface LocalNotification : NSObject
 
-- (void)setLocalNotificationWithMessage:(NSString *)message fireDate:(NSDate *)fireDate repeatOrNot:(BOOL)repeat Sound:(NSString *)sound
-                               setValue:(id)value forKey:(NSString *)key;
+- (void)setLocalNotificationWithMessage:(NSString *)message fireDate:(NSDate *)fireDate repeatOrNot:(BOOL)repeat sound:(NSString *)sound
+                               setValue:(id)value forKey:(NSString *)key category:(NSString *)category;
+
 - (id)fetchLocalNotificationWithParticularOneValue:(id)value forKey:(NSString *)key;
 - (NSMutableArray *)fetchLocalNotifictionWithParticularKindOfValue:(id)value forKey:(NSString *)key;
 
 - (void)cancelLocalNotificaionWithValue:(id)value foreKey:(NSString *)key;
 - (void)cancelAllLocalNotification;
+
+
+- (void)initLocalNotification;
 
 @end

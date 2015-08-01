@@ -41,11 +41,6 @@
 {
     [super viewWillAppear:animated];
     
-    [self googleAnalytics];
-}
-
-- (void)googleAnalytics
-{
     [[[GoogleAnalytics alloc] init] trackPageView:@"Add New Custom Notification"];
 }
 

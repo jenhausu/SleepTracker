@@ -14,6 +14,7 @@
 @interface StatisticViewController ()
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segment;
+@property (weak, nonatomic) IBOutlet UILabel *segmentTimeLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *goToBedTimeMinLabel;
 @property (weak, nonatomic) IBOutlet UILabel *goToBedTimeAvgLabel;
@@ -35,6 +36,8 @@
 @end
 
 @implementation StatisticViewController
+
+@synthesize segmentTimeLabel;
 
 - (Statistic *)statistic
 {
@@ -102,11 +105,15 @@
         self.goToBedTimeTooLate.text = @"沒有資料";
     }
     
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"M/d(E)";
+    segmentTimeLabel.text = [NSString stringWithFormat:@"%@ ~ %@", [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceNow:-(60 * 60 * 24 * (recent - 1))]], [dateFormatter stringFromDate:[NSDate date]]];
     
-    [self googleAnalytics:recent];
+    
+    [self trackPageView:recent];
 }
 
-- (void)googleAnalytics:(NSInteger)recent
+- (void)trackPageView:(NSInteger)recent
 {
     switch (recent) {
         case 7:
