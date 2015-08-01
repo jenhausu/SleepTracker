@@ -33,6 +33,7 @@
 		1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902071A4B52C8001A69A3 /* SleepData.m */; };
 		1D9545121B3D6C1300A56456 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */; };
 		1D995E011A7D4D37002F069C /* HopeToGoToSleepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */; };
+		1DB66ED01B6C6D0F0026AC9C /* SessionAnalsis.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB66ECF1B6C6D0F0026AC9C /* SessionAnalsis.m */; };
 		1DB8836D1B3FB05500ED945D /* GoogleAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8836C1B3FB05500ED945D /* GoogleAnalytics.m */; };
 		1DBC7C031A70FD81007B35B8 /* IntelligentNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */; };
 		1DBC7C0F1A70FFBB007B35B8 /* LocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC7C0E1A70FFBB007B35B8 /* LocalNotification.m */; };
@@ -116,6 +117,8 @@
 		1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1D995DFF1A7D4D37002F069C /* HopeToGoToSleepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopeToGoToSleepViewController.h; sourceTree = "<group>"; };
 		1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopeToGoToSleepViewController.m; sourceTree = "<group>"; };
+		1DB66ECE1B6C6D0F0026AC9C /* SessionAnalsis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionAnalsis.h; sourceTree = "<group>"; };
+		1DB66ECF1B6C6D0F0026AC9C /* SessionAnalsis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionAnalsis.m; sourceTree = "<group>"; };
 		1DB8836B1B3FB05500ED945D /* GoogleAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleAnalytics.h; sourceTree = "<group>"; };
 		1DB8836C1B3FB05500ED945D /* GoogleAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleAnalytics.m; sourceTree = "<group>"; };
 		1DBC7C011A70FD81007B35B8 /* IntelligentNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntelligentNotification.h; sourceTree = "<group>"; };
@@ -212,6 +215,10 @@
 		1D5996C41B6334A800BFDB07 /* App Analytics */ = {
 			isa = PBXGroup;
 			children = (
+				1DB66ECE1B6C6D0F0026AC9C /* SessionAnalsis.h */,
+				1DB66ECF1B6C6D0F0026AC9C /* SessionAnalsis.m */,
+				1D09E4D31B62739B0075BD88 /* AppAnalytics.h */,
+				1D09E4D41B62739B0075BD88 /* AppAnalytics.m */,
 				1DB8836B1B3FB05500ED945D /* GoogleAnalytics.h */,
 				1DB8836C1B3FB05500ED945D /* GoogleAnalytics.m */,
 				1D5996C51B6334C200BFDB07 /* libFlurry_6.5.0.a */,
@@ -254,8 +261,7 @@
 			children = (
 				1D8901CA1A4B5119001A69A3 /* AppDelegate.h */,
 				1D8901CB1A4B5119001A69A3 /* AppDelegate.m */,
-				1D09E4D31B62739B0075BD88 /* AppAnalytics.h */,
-				1D09E4D41B62739B0075BD88 /* AppAnalytics.m */,
+				1D5996C41B6334A800BFDB07 /* App Analytics */,
 				1D89020A1A4B52DB001A69A3 /* Model */,
 				1D89020B1A4B52E2001A69A3 /* Record */,
 				1D89020C1A4B52EE001A69A3 /* History */,
@@ -317,7 +323,6 @@
 				1D2DB7E81A6D677000A72EFA /* Statistic.h */,
 				1D2DB7E91A6D677000A72EFA /* Statistic.m */,
 				1DD0870F1B2D69B500B37D2D /* Sleep Notification */,
-				1D5996C41B6334A800BFDB07 /* App Analytics */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -623,6 +628,7 @@
 				1DBCE5B31A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m in Sources */,
 				1DC3EE8C1B43962E00D8E07B /* AwakeTimeTableViewController.m in Sources */,
 				1D8901C91A4B5119001A69A3 /* main.m in Sources */,
+				1DB66ED01B6C6D0F0026AC9C /* SessionAnalsis.m in Sources */,
 				1D1CB5BF1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m in Sources */,
 				1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */,
 				1DCDD3E61AA2CE5E00609D2F /* CustomNotification.m in Sources */,

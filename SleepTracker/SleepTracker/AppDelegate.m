@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "AppAnalytics.h"
+#import "SessionAnalsis.h"
+#import "GoogleAnalytics.h"
 
 #import "LocalNotification.h"
 
@@ -102,10 +103,17 @@
     }
 }
 
+#ifdef DEBUG
+    #define RELEASE_MODE NO
+#else
+    #define RELEASE_MODE YES
+#endif
+
 - (void)analytics
 {
     if (RELEASE_MODE) {
-        [[[AppAnalytics alloc] init] didFinishLaunchingWithOptions];
+        [[[SessionAnalsis alloc] init] startSession];
+        [[[GoogleAnalytics alloc] init] initGoogleAnalytics];
     }
 }
 
