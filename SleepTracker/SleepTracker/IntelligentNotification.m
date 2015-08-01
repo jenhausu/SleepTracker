@@ -49,11 +49,11 @@
     [dateComponents setDay:currentDate.day];
     
     switch (shouldGoToSleepTime) {
-        case 0: {  //平均上床時間
-            NSInteger averageGoToSleepTimeInSecond = [[[self.statistic showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
-            if (averageGoToSleepTimeInSecond) {
-                [dateComponents setHour:averageGoToSleepTimeInSecond / 3600];
-                [dateComponents setMinute:((averageGoToSleepTimeInSecond / 60) % 60)];
+        case 0: {  //平均起床時間
+            NSInteger averageWakeUpTimeInSecond = [[[self.statistic showWakeUpTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+            if (averageWakeUpTimeInSecond) {
+                dateComponents.hour = (((averageWakeUpTimeInSecond / 3600) - 8) >= 0) ? averageWakeUpTimeInSecond / 3600 - 8 : (averageWakeUpTimeInSecond / 3600) - 8 + 24 ;
+                dateComponents.minute = ((averageWakeUpTimeInSecond / 60) % 60);
             } else {
                 [dateComponents setHour:23];
                 [dateComponents setMinute:0];
@@ -61,11 +61,11 @@
             
             break;
         }
-        case 1: {  //平均起床時間
-            NSInteger averageWakeUpTimeInSecond = [[[self.statistic showWakeUpTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
-            if (averageWakeUpTimeInSecond) {
-                dateComponents.hour = (((averageWakeUpTimeInSecond / 3600) - 8) >= 0) ? averageWakeUpTimeInSecond / 3600 - 8 : (averageWakeUpTimeInSecond / 3600) - 8 + 24 ;
-                dateComponents.minute = ((averageWakeUpTimeInSecond / 60) % 60);
+        case 1: {  //平均上床時間
+            NSInteger averageGoToSleepTimeInSecond = [[[self.statistic showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+            if (averageGoToSleepTimeInSecond) {
+                [dateComponents setHour:averageGoToSleepTimeInSecond / 3600];
+                [dateComponents setMinute:((averageGoToSleepTimeInSecond / 60) % 60)];
             } else {
                 [dateComponents setHour:23];
                 [dateComponents setMinute:0];
