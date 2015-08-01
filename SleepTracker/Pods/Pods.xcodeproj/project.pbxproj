@@ -7,276 +7,276 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1EDFAE6C0DD643D969324165 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D41B2D0F2740C33B4BA8358 /* Foundation.framework */; };
-		A3321B86F2717459FCDC4D3B /* Pods-SleepTracker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CF41F1D2DBAE60087BCAF0 /* Pods-SleepTracker-dummy.m */; };
+		7F86E531C35E3EA8E2EC4D23 /* Pods-SleepTracker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 035833B0BB62CEFDF1049D1D /* Pods-SleepTracker-dummy.m */; };
+		F23F1E87C771BF79097ECB5B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C7C7AFEFF78B8CF99F5963 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		01D03A296294F08620686917 /* libGTM_NSStringXML.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_NSStringXML.a; path = Libraries/libGTM_NSStringXML.a; sourceTree = "<group>"; };
-		03085FD3974B0425DA674F1A /* GGLContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLContext.h; path = Headers/GGLCore/Public/GGLContext.h; sourceTree = "<group>"; };
-		03B2833BEC10A7B5355B3FA1 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = Headers/Public/GAIEcommercePromotion.h; sourceTree = "<group>"; };
-		04F5AF6E4ADDDC8B9C188253 /* Pods-SleepTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SleepTracker.release.xcconfig"; sourceTree = "<group>"; };
-		0E8D0E7481CCD6DA193A580D /* libGTM_DebugUtils.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_DebugUtils.a; path = Libraries/libGTM_DebugUtils.a; sourceTree = "<group>"; };
-		10CF41F1D2DBAE60087BCAF0 /* Pods-SleepTracker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SleepTracker-dummy.m"; sourceTree = "<group>"; };
-		193CFF2A54D16C0F0239D54A /* libGoogleAnalytics.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = Libraries/libGoogleAnalytics.a; sourceTree = "<group>"; };
-		1FC11332F2BEAB68A38825DF /* libGTM_GTMURLBuilder.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_GTMURLBuilder.a; path = Libraries/libGTM_GTMURLBuilder.a; sourceTree = "<group>"; };
-		2038C2E4F9FC0ACD3EC11CFD /* libGTMSessionFetcher_core.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMSessionFetcher_core.a; path = Libraries/libGTMSessionFetcher_core.a; sourceTree = "<group>"; };
-		21184C56235A3648A9B571D9 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceFields.h; path = Headers/Public/GAIEcommerceFields.h; sourceTree = "<group>"; };
-		232FC30AB778B0B0A56EB648 /* GAILogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = Headers/Public/GAILogger.h; sourceTree = "<group>"; };
-		28FE2AAE65B79FAE2661A32B /* GAITrackedViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = Headers/Public/GAITrackedViewController.h; sourceTree = "<group>"; };
-		2E7C7E3FECD4CDA647C0E7C9 /* libGGLCore.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGGLCore.a; path = Libraries/libGGLCore.a; sourceTree = "<group>"; };
-		30A3692A8FE1D889D4768062 /* libGTM_RoundedRectPath.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_RoundedRectPath.a; path = Libraries/libGTM_RoundedRectPath.a; sourceTree = "<group>"; };
-		3A673B6BB28B8A094110AF66 /* GAITracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = Headers/Public/GAITracker.h; sourceTree = "<group>"; };
-		3D41B2D0F2740C33B4BA8358 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		5393333030C9A3FB693A2F2F /* libGTM_Regex.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_Regex.a; path = Libraries/libGTM_Regex.a; sourceTree = "<group>"; };
-		55FC6A290A8EF7D19BEA81AF /* GAIFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = Headers/Public/GAIFields.h; sourceTree = "<group>"; };
-		60EF8E98390D2CA6DE81F107 /* Core.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Core.h; path = Headers/GGLCore/Public/Core.h; sourceTree = "<group>"; };
-		63DC182FF8BF846B3056F0E7 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = Headers/Public/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
-		67ADEAB91D0E23BDA92222D1 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProductAction.h; path = Headers/Public/GAIEcommerceProductAction.h; sourceTree = "<group>"; };
-		71624CC9CF35E1C7D8BF5788 /* libPods-SleepTracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SleepTracker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B6153F7F264FE88C3A4980E /* Pods-SleepTracker-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SleepTracker-acknowledgements.markdown"; sourceTree = "<group>"; };
-		917C8AA2B9294A793EDEC301 /* GGLConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLConfiguration.h; path = Headers/GGLCore/Public/GGLConfiguration.h; sourceTree = "<group>"; };
-		92733121EB72DC06D7C90AA0 /* libGGLAnalytics.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGGLAnalytics.a; path = Libraries/libGGLAnalytics.a; sourceTree = "<group>"; };
-		969D25CD84C033B5C7EA6455 /* Analytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Analytics.h; path = Headers/GGLAnalytics/Public/Analytics.h; sourceTree = "<group>"; };
-		AD7324C4E410E2865DA8F1B3 /* libGTM_StringEncoding.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_StringEncoding.a; path = Libraries/libGTM_StringEncoding.a; sourceTree = "<group>"; };
-		B68380098A41E56F03BDAA24 /* GGLErrorCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLErrorCode.h; path = Headers/GGLCore/Public/GGLErrorCode.h; sourceTree = "<group>"; };
-		BB7BCE7E98DF936E0346F20C /* Pods-SleepTracker-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SleepTracker-acknowledgements.plist"; sourceTree = "<group>"; };
-		CA527FA0115508BFD59DA577 /* libGTM_iPhone.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_iPhone.a; path = Libraries/libGTM_iPhone.a; sourceTree = "<group>"; };
-		CD8C13A3937F9F975AB5958B /* libGTMStackTrace.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMStackTrace.a; path = Libraries/libGTMStackTrace.a; sourceTree = "<group>"; };
-		CEDE110CC8C79F6250FB3DE6 /* Pods-SleepTracker-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SleepTracker-resources.sh"; sourceTree = "<group>"; };
-		D0AAA9993D59C6669A8D4541 /* libGTM_UIFont+LineHeight.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libGTM_UIFont+LineHeight.a"; path = "Libraries/libGTM_UIFont+LineHeight.a"; sourceTree = "<group>"; };
-		D47828C172E46EC54B3A8C76 /* libGTM_KVO.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_KVO.a; path = Libraries/libGTM_KVO.a; sourceTree = "<group>"; };
-		DB17671ED4E1DAAD1F6CE154 /* Pods-SleepTracker-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SleepTracker-environment.h"; sourceTree = "<group>"; };
-		DCB8B80F1ACC67EB90009CA4 /* libGTM_core.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_core.a; path = Libraries/libGTM_core.a; sourceTree = "<group>"; };
-		DD831B8F159B5DAFB18C7D7F /* libGTM_NSScannerJSON.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_NSScannerJSON.a; path = Libraries/libGTM_NSScannerJSON.a; sourceTree = "<group>"; };
-		DDE6C190A88816F3659C52EE /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProduct.h; path = Headers/Public/GAIEcommerceProduct.h; sourceTree = "<group>"; };
-		E56BFE16BC08B71DAD71577D /* Pods-SleepTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SleepTracker.debug.xcconfig"; sourceTree = "<group>"; };
-		E8B2EEE4924D48DD6A762D1D /* libGSDK_Overload.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGSDK_Overload.a; path = Libraries/libGSDK_Overload.a; sourceTree = "<group>"; };
-		E94A99919B58FE5133D7F4B1 /* libGTM_NSStringHTML.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_NSStringHTML.a; path = Libraries/libGTM_NSStringHTML.a; sourceTree = "<group>"; };
-		F307445C4FB411646F7709CF /* GGLContext+Analytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GGLContext+Analytics.h"; path = "Headers/GGLAnalytics/Public/GGLContext+Analytics.h"; sourceTree = "<group>"; };
-		F389374AD74BBE7829C83979 /* libGTM_SystemVersion.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_SystemVersion.a; path = Libraries/libGTM_SystemVersion.a; sourceTree = "<group>"; };
-		F56EA0F8228600B87AFFB116 /* libGTM_NSDictionary+URLArguments.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libGTM_NSDictionary+URLArguments.a"; path = "Libraries/libGTM_NSDictionary+URLArguments.a"; sourceTree = "<group>"; };
-		F8E523B156AC9ADC06F6A8AE /* GAI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Headers/Public/GAI.h; sourceTree = "<group>"; };
-		F989E513239B3B7BCCB2988B /* libGTMSessionFetcher_full.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMSessionFetcher_full.a; path = Libraries/libGTMSessionFetcher_full.a; sourceTree = "<group>"; };
-		FB3FA090A86AD4C06D662CF1 /* libGTM_AddressBook.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_AddressBook.a; path = Libraries/libGTM_AddressBook.a; sourceTree = "<group>"; };
-		FC1A2D664A4062B4ADF84468 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		01800DB9DBDE55B7CA56877F /* libGGLAnalytics.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGGLAnalytics.a; path = Libraries/libGGLAnalytics.a; sourceTree = "<group>"; };
+		01CB81D3AED71B826AF2263C /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		035833B0BB62CEFDF1049D1D /* Pods-SleepTracker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SleepTracker-dummy.m"; sourceTree = "<group>"; };
+		0BF15844F9B9D6A64C4C67C0 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = Headers/Public/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		186484A463EC6265CBBD4392 /* Core.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Core.h; path = Headers/GGLCore/Public/Core.h; sourceTree = "<group>"; };
+		1A2DDEAA1BFAFA9929DC0EBE /* libGTM_SystemVersion.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_SystemVersion.a; path = Libraries/libGTM_SystemVersion.a; sourceTree = "<group>"; };
+		1B161F931D3D3A098AA8A2FD /* Pods-SleepTracker-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SleepTracker-resources.sh"; sourceTree = "<group>"; };
+		1BE67DE6F923B9DA999074D7 /* libGTM_NSStringXML.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_NSStringXML.a; path = Libraries/libGTM_NSStringXML.a; sourceTree = "<group>"; };
+		22899EDF5E253D5D8F64FC07 /* libGTMSessionFetcher_core.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMSessionFetcher_core.a; path = Libraries/libGTMSessionFetcher_core.a; sourceTree = "<group>"; };
+		267CE84AF7C22782034474F3 /* libPods-SleepTracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SleepTracker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		286AFC94A1B7A19B1EB357A2 /* GAITracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = Headers/Public/GAITracker.h; sourceTree = "<group>"; };
+		2A291CD68E994201D729CE12 /* Pods-SleepTracker-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SleepTracker-environment.h"; sourceTree = "<group>"; };
+		2FA786312BFF5A05DF8893F6 /* libGGLCore.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGGLCore.a; path = Libraries/libGGLCore.a; sourceTree = "<group>"; };
+		343024D467CEC0E14A0E04A9 /* libGSDK_Overload.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGSDK_Overload.a; path = Libraries/libGSDK_Overload.a; sourceTree = "<group>"; };
+		34BA33F124C46D7A1529E07D /* GAIFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = Headers/Public/GAIFields.h; sourceTree = "<group>"; };
+		39F68DF98EE076206DF0E797 /* GGLErrorCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLErrorCode.h; path = Headers/GGLCore/Public/GGLErrorCode.h; sourceTree = "<group>"; };
+		3F1C9721CD9B3561316C8227 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProductAction.h; path = Headers/Public/GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		49AFE2D5FCE829C17E4F435B /* Pods-SleepTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SleepTracker.release.xcconfig"; sourceTree = "<group>"; };
+		4C1B937D107227D3FA78C2E6 /* Analytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Analytics.h; path = Headers/GGLAnalytics/Public/Analytics.h; sourceTree = "<group>"; };
+		4C9D7A0AD7ACE760E5B28819 /* GAILogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = Headers/Public/GAILogger.h; sourceTree = "<group>"; };
+		4E9B8DA20001E5602116BB2D /* libGTMSessionFetcher_full.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMSessionFetcher_full.a; path = Libraries/libGTMSessionFetcher_full.a; sourceTree = "<group>"; };
+		4FDA44711C62F1798A3F9656 /* libGTM_core.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_core.a; path = Libraries/libGTM_core.a; sourceTree = "<group>"; };
+		57897244856F77F8C185F868 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProduct.h; path = Headers/Public/GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		5B64CDE2AA0489E0CD2EED9F /* libGTM_StringEncoding.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_StringEncoding.a; path = Libraries/libGTM_StringEncoding.a; sourceTree = "<group>"; };
+		5D3D384148A3E1990E18F986 /* GAITrackedViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = Headers/Public/GAITrackedViewController.h; sourceTree = "<group>"; };
+		64CCC2FF1F9DDC976FBD71DA /* GGLContext+Analytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GGLContext+Analytics.h"; path = "Headers/GGLAnalytics/Public/GGLContext+Analytics.h"; sourceTree = "<group>"; };
+		80B5FB6C2B29028711CC0F2F /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = Headers/Public/GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		81E6277C671A4962898E34B4 /* libGTM_DebugUtils.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_DebugUtils.a; path = Libraries/libGTM_DebugUtils.a; sourceTree = "<group>"; };
+		84EF0D675878513C1744AA43 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = Libraries/libGoogleAnalytics.a; sourceTree = "<group>"; };
+		874653D939D4698339009399 /* GGLConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLConfiguration.h; path = Headers/GGLCore/Public/GGLConfiguration.h; sourceTree = "<group>"; };
+		91E0BAB7CEEE23D9CC02477A /* libGTMStackTrace.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMStackTrace.a; path = Libraries/libGTMStackTrace.a; sourceTree = "<group>"; };
+		975D75071A14C14FC2201FBA /* libGTM_UIFont+LineHeight.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libGTM_UIFont+LineHeight.a"; path = "Libraries/libGTM_UIFont+LineHeight.a"; sourceTree = "<group>"; };
+		A0C54153A4DB08C9F0C9D1F9 /* libGTM_NSStringHTML.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_NSStringHTML.a; path = Libraries/libGTM_NSStringHTML.a; sourceTree = "<group>"; };
+		A599D5149E4C0433FD82740E /* GAI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Headers/Public/GAI.h; sourceTree = "<group>"; };
+		A7869F7C2B41ADCE34E624B1 /* GGLContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLContext.h; path = Headers/GGLCore/Public/GGLContext.h; sourceTree = "<group>"; };
+		A7AA80A3DC98A31075B5D9CE /* Pods-SleepTracker-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SleepTracker-acknowledgements.plist"; sourceTree = "<group>"; };
+		AB07CE15AC5192E1509EFF5E /* libGTM_NSDictionary+URLArguments.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libGTM_NSDictionary+URLArguments.a"; path = "Libraries/libGTM_NSDictionary+URLArguments.a"; sourceTree = "<group>"; };
+		AD81A5DE52BF4730003C7682 /* Pods-SleepTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SleepTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		B4B05F140B6C9C2C136F4BC3 /* libGTM_GTMURLBuilder.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_GTMURLBuilder.a; path = Libraries/libGTM_GTMURLBuilder.a; sourceTree = "<group>"; };
+		B7A187C0A479AD6ED7C53E42 /* libGTM_AddressBook.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_AddressBook.a; path = Libraries/libGTM_AddressBook.a; sourceTree = "<group>"; };
+		BA681DF49CDD42F422DE2F7B /* GAIEcommerceFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceFields.h; path = Headers/Public/GAIEcommerceFields.h; sourceTree = "<group>"; };
+		BAA2C2DB8B7235F16DC07992 /* libGTM_Regex.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_Regex.a; path = Libraries/libGTM_Regex.a; sourceTree = "<group>"; };
+		BCC9E81ED0944F3852CD253D /* libGTM_RoundedRectPath.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_RoundedRectPath.a; path = Libraries/libGTM_RoundedRectPath.a; sourceTree = "<group>"; };
+		C1C225A98E1A557D5441AF92 /* libGTM_KVO.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_KVO.a; path = Libraries/libGTM_KVO.a; sourceTree = "<group>"; };
+		C20BF1F5510D96E3A2B45970 /* libGTM_iPhone.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_iPhone.a; path = Libraries/libGTM_iPhone.a; sourceTree = "<group>"; };
+		C2C7C7AFEFF78B8CF99F5963 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		CD62ACB631D9573F8D34BCDE /* libGTM_NSScannerJSON.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_NSScannerJSON.a; path = Libraries/libGTM_NSScannerJSON.a; sourceTree = "<group>"; };
+		CF5A95F91432D3A01ECC0048 /* Pods-SleepTracker-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SleepTracker-acknowledgements.markdown"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F18D1412542BE39F99371004 /* Frameworks */ = {
+		8FABBE41A5FD43C0CDC78050 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EDFAE6C0DD643D969324165 /* Foundation.framework in Frameworks */,
+				F23F1E87C771BF79097ECB5B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		02C4E218DDAE0AC1BA8CBA2E /* GoogleUtilities */ = {
+		055318F5B2D29176D4E2F31D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3CE3DD9D2990E03E0A843995 /* Frameworks */,
-			);
-			path = GoogleUtilities;
-			sourceTree = "<group>";
-		};
-		14043034662CB0A83D2925E4 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				3D41B2D0F2740C33B4BA8358 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		1C2B8D914BF2686C65D397AD = {
-			isa = PBXGroup;
-			children = (
-				FC1A2D664A4062B4ADF84468 /* Podfile */,
-				810B10E1F25083FC844F2C77 /* Frameworks */,
-				7225E840D1B326B118DDFF06 /* Pods */,
-				DDE823A8E7278A4F4B9BCF67 /* Products */,
-				765C5278A4EF0262BD78BC95 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		2A5D8167035FEE6F90C23911 /* Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				969D25CD84C033B5C7EA6455 /* Analytics.h */,
-				F307445C4FB411646F7709CF /* GGLContext+Analytics.h */,
-				D8D36112C2F87964CA8EC483 /* Frameworks */,
-			);
-			name = Analytics;
-			sourceTree = "<group>";
-		};
-		2B956A7E90AD52C6F31B1ADE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2038C2E4F9FC0ACD3EC11CFD /* libGTMSessionFetcher_core.a */,
-				F989E513239B3B7BCCB2988B /* libGTMSessionFetcher_full.a */,
+				19A18A20EFAF191095289144 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		349B0B604DD22F926DCFCB9B /* Core */ = {
+		09D95FE6C7B467B2FD0F6A6C /* GoogleSymbolUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				60EF8E98390D2CA6DE81F107 /* Core.h */,
-				917C8AA2B9294A793EDEC301 /* GGLConfiguration.h */,
-				03085FD3974B0425DA674F1A /* GGLContext.h */,
-				B68380098A41E56F03BDAA24 /* GGLErrorCode.h */,
-				E99A34378EC8D317C5430971 /* Frameworks */,
+				DB24BA1E0EC95DDB6DE7283E /* Frameworks */,
 			);
-			name = Core;
+			path = GoogleSymbolUtilities;
 			sourceTree = "<group>";
 		};
-		3CE3DD9D2990E03E0A843995 /* Frameworks */ = {
+		188643B80311D2BBEC404178 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CD8C13A3937F9F975AB5958B /* libGTMStackTrace.a */,
-				FB3FA090A86AD4C06D662CF1 /* libGTM_AddressBook.a */,
-				0E8D0E7481CCD6DA193A580D /* libGTM_DebugUtils.a */,
-				1FC11332F2BEAB68A38825DF /* libGTM_GTMURLBuilder.a */,
-				D47828C172E46EC54B3A8C76 /* libGTM_KVO.a */,
-				F56EA0F8228600B87AFFB116 /* libGTM_NSDictionary+URLArguments.a */,
-				DD831B8F159B5DAFB18C7D7F /* libGTM_NSScannerJSON.a */,
-				E94A99919B58FE5133D7F4B1 /* libGTM_NSStringHTML.a */,
-				01D03A296294F08620686917 /* libGTM_NSStringXML.a */,
-				5393333030C9A3FB693A2F2F /* libGTM_Regex.a */,
-				30A3692A8FE1D889D4768062 /* libGTM_RoundedRectPath.a */,
-				AD7324C4E410E2865DA8F1B3 /* libGTM_StringEncoding.a */,
-				F389374AD74BBE7829C83979 /* libGTM_SystemVersion.a */,
-				D0AAA9993D59C6669A8D4541 /* libGTM_UIFont+LineHeight.a */,
-				DCB8B80F1ACC67EB90009CA4 /* libGTM_core.a */,
-				CA527FA0115508BFD59DA577 /* libGTM_iPhone.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		7225E840D1B326B118DDFF06 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				77FD2896F353F75DD8C27F3E /* Google */,
-				C544D3E46FC306ACCC35D8E5 /* GoogleAnalytics */,
-				D1C9E92C2795D2E842D81B02 /* GoogleNetworkingUtilities */,
-				EF7622918AA7E6D98136E0BA /* GoogleSymbolUtilities */,
-				02C4E218DDAE0AC1BA8CBA2E /* GoogleUtilities */,
+				52E3BE1B38BC30351D48661B /* Google */,
+				6E03FD0FC8F555C5C1DEBDB2 /* GoogleAnalytics */,
+				36FD371A37185282D1F5B7E4 /* GoogleNetworkingUtilities */,
+				09D95FE6C7B467B2FD0F6A6C /* GoogleSymbolUtilities */,
+				217AC0CCFCE26102CB19C9EE /* GoogleUtilities */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		765C5278A4EF0262BD78BC95 /* Targets Support Files */ = {
+		19A18A20EFAF191095289144 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				E164BF149E3F012333B609CF /* Pods-SleepTracker */,
+				C2C7C7AFEFF78B8CF99F5963 /* Foundation.framework */,
 			);
-			name = "Targets Support Files";
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		77FD2896F353F75DD8C27F3E /* Google */ = {
+		217AC0CCFCE26102CB19C9EE /* GoogleUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				2A5D8167035FEE6F90C23911 /* Analytics */,
-				349B0B604DD22F926DCFCB9B /* Core */,
+				DC8BE005E0C6F8A87145250F /* Frameworks */,
 			);
-			path = Google;
+			path = GoogleUtilities;
 			sourceTree = "<group>";
 		};
-		810B10E1F25083FC844F2C77 /* Frameworks */ = {
+		36FD371A37185282D1F5B7E4 /* GoogleNetworkingUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				14043034662CB0A83D2925E4 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C544D3E46FC306ACCC35D8E5 /* GoogleAnalytics */ = {
-			isa = PBXGroup;
-			children = (
-				F8E523B156AC9ADC06F6A8AE /* GAI.h */,
-				63DC182FF8BF846B3056F0E7 /* GAIDictionaryBuilder.h */,
-				21184C56235A3648A9B571D9 /* GAIEcommerceFields.h */,
-				DDE6C190A88816F3659C52EE /* GAIEcommerceProduct.h */,
-				67ADEAB91D0E23BDA92222D1 /* GAIEcommerceProductAction.h */,
-				03B2833BEC10A7B5355B3FA1 /* GAIEcommercePromotion.h */,
-				55FC6A290A8EF7D19BEA81AF /* GAIFields.h */,
-				232FC30AB778B0B0A56EB648 /* GAILogger.h */,
-				28FE2AAE65B79FAE2661A32B /* GAITrackedViewController.h */,
-				3A673B6BB28B8A094110AF66 /* GAITracker.h */,
-				CBB409807E36940C5E16C121 /* Frameworks */,
-			);
-			path = GoogleAnalytics;
-			sourceTree = "<group>";
-		};
-		CBB409807E36940C5E16C121 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				193CFF2A54D16C0F0239D54A /* libGoogleAnalytics.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D1C9E92C2795D2E842D81B02 /* GoogleNetworkingUtilities */ = {
-			isa = PBXGroup;
-			children = (
-				2B956A7E90AD52C6F31B1ADE /* Frameworks */,
+				A0FD49B59C82E5C08743D4CA /* Frameworks */,
 			);
 			path = GoogleNetworkingUtilities;
 			sourceTree = "<group>";
 		};
-		D8D36112C2F87964CA8EC483 /* Frameworks */ = {
+		45C445FC818AC72CB01229EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				92733121EB72DC06D7C90AA0 /* libGGLAnalytics.a */,
+				01800DB9DBDE55B7CA56877F /* libGGLAnalytics.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DDE823A8E7278A4F4B9BCF67 /* Products */ = {
+		4893A6E63B9865FD81C45234 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				71624CC9CF35E1C7D8BF5788 /* libPods-SleepTracker.a */,
+				2FA786312BFF5A05DF8893F6 /* libGGLCore.a */,
 			);
-			name = Products;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E164BF149E3F012333B609CF /* Pods-SleepTracker */ = {
+		52E3BE1B38BC30351D48661B /* Google */ = {
 			isa = PBXGroup;
 			children = (
-				7B6153F7F264FE88C3A4980E /* Pods-SleepTracker-acknowledgements.markdown */,
-				BB7BCE7E98DF936E0346F20C /* Pods-SleepTracker-acknowledgements.plist */,
-				10CF41F1D2DBAE60087BCAF0 /* Pods-SleepTracker-dummy.m */,
-				DB17671ED4E1DAAD1F6CE154 /* Pods-SleepTracker-environment.h */,
-				CEDE110CC8C79F6250FB3DE6 /* Pods-SleepTracker-resources.sh */,
-				E56BFE16BC08B71DAD71577D /* Pods-SleepTracker.debug.xcconfig */,
-				04F5AF6E4ADDDC8B9C188253 /* Pods-SleepTracker.release.xcconfig */,
+				79A3C1855E499943D0324733 /* Analytics */,
+				6E4768A691C1396DF3A71C26 /* Core */,
+			);
+			path = Google;
+			sourceTree = "<group>";
+		};
+		5581FA738E4ABF8E8FF2D5A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84EF0D675878513C1744AA43 /* libGoogleAnalytics.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		57C7E9E9EB2265608319C569 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7C57A78CE1B65EAFFCCCB577 /* Pods-SleepTracker */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		6E03FD0FC8F555C5C1DEBDB2 /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				A599D5149E4C0433FD82740E /* GAI.h */,
+				0BF15844F9B9D6A64C4C67C0 /* GAIDictionaryBuilder.h */,
+				BA681DF49CDD42F422DE2F7B /* GAIEcommerceFields.h */,
+				57897244856F77F8C185F868 /* GAIEcommerceProduct.h */,
+				3F1C9721CD9B3561316C8227 /* GAIEcommerceProductAction.h */,
+				80B5FB6C2B29028711CC0F2F /* GAIEcommercePromotion.h */,
+				34BA33F124C46D7A1529E07D /* GAIFields.h */,
+				4C9D7A0AD7ACE760E5B28819 /* GAILogger.h */,
+				5D3D384148A3E1990E18F986 /* GAITrackedViewController.h */,
+				286AFC94A1B7A19B1EB357A2 /* GAITracker.h */,
+				5581FA738E4ABF8E8FF2D5A5 /* Frameworks */,
+			);
+			path = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
+		6E4768A691C1396DF3A71C26 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				186484A463EC6265CBBD4392 /* Core.h */,
+				874653D939D4698339009399 /* GGLConfiguration.h */,
+				A7869F7C2B41ADCE34E624B1 /* GGLContext.h */,
+				39F68DF98EE076206DF0E797 /* GGLErrorCode.h */,
+				4893A6E63B9865FD81C45234 /* Frameworks */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		79A3C1855E499943D0324733 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				4C1B937D107227D3FA78C2E6 /* Analytics.h */,
+				64CCC2FF1F9DDC976FBD71DA /* GGLContext+Analytics.h */,
+				45C445FC818AC72CB01229EE /* Frameworks */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
+		7C57A78CE1B65EAFFCCCB577 /* Pods-SleepTracker */ = {
+			isa = PBXGroup;
+			children = (
+				CF5A95F91432D3A01ECC0048 /* Pods-SleepTracker-acknowledgements.markdown */,
+				A7AA80A3DC98A31075B5D9CE /* Pods-SleepTracker-acknowledgements.plist */,
+				035833B0BB62CEFDF1049D1D /* Pods-SleepTracker-dummy.m */,
+				2A291CD68E994201D729CE12 /* Pods-SleepTracker-environment.h */,
+				1B161F931D3D3A098AA8A2FD /* Pods-SleepTracker-resources.sh */,
+				AD81A5DE52BF4730003C7682 /* Pods-SleepTracker.debug.xcconfig */,
+				49AFE2D5FCE829C17E4F435B /* Pods-SleepTracker.release.xcconfig */,
 			);
 			name = "Pods-SleepTracker";
 			path = "Target Support Files/Pods-SleepTracker";
 			sourceTree = "<group>";
 		};
-		E99A34378EC8D317C5430971 /* Frameworks */ = {
+		7CC44471AE416618F2289338 = {
 			isa = PBXGroup;
 			children = (
-				2E7C7E3FECD4CDA647C0E7C9 /* libGGLCore.a */,
+				01CB81D3AED71B826AF2263C /* Podfile */,
+				055318F5B2D29176D4E2F31D /* Frameworks */,
+				188643B80311D2BBEC404178 /* Pods */,
+				94B665FB16345050BBE833D2 /* Products */,
+				57C7E9E9EB2265608319C569 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		94B665FB16345050BBE833D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				267CE84AF7C22782034474F3 /* libPods-SleepTracker.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0FD49B59C82E5C08743D4CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22899EDF5E253D5D8F64FC07 /* libGTMSessionFetcher_core.a */,
+				4E9B8DA20001E5602116BB2D /* libGTMSessionFetcher_full.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EF7622918AA7E6D98136E0BA /* GoogleSymbolUtilities */ = {
+		DB24BA1E0EC95DDB6DE7283E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FF233F75033FD0787F12B3B5 /* Frameworks */,
+				343024D467CEC0E14A0E04A9 /* libGSDK_Overload.a */,
 			);
-			path = GoogleSymbolUtilities;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FF233F75033FD0787F12B3B5 /* Frameworks */ = {
+		DC8BE005E0C6F8A87145250F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E8B2EEE4924D48DD6A762D1D /* libGSDK_Overload.a */,
+				91E0BAB7CEEE23D9CC02477A /* libGTMStackTrace.a */,
+				B7A187C0A479AD6ED7C53E42 /* libGTM_AddressBook.a */,
+				81E6277C671A4962898E34B4 /* libGTM_DebugUtils.a */,
+				B4B05F140B6C9C2C136F4BC3 /* libGTM_GTMURLBuilder.a */,
+				C1C225A98E1A557D5441AF92 /* libGTM_KVO.a */,
+				AB07CE15AC5192E1509EFF5E /* libGTM_NSDictionary+URLArguments.a */,
+				CD62ACB631D9573F8D34BCDE /* libGTM_NSScannerJSON.a */,
+				A0C54153A4DB08C9F0C9D1F9 /* libGTM_NSStringHTML.a */,
+				1BE67DE6F923B9DA999074D7 /* libGTM_NSStringXML.a */,
+				BAA2C2DB8B7235F16DC07992 /* libGTM_Regex.a */,
+				BCC9E81ED0944F3852CD253D /* libGTM_RoundedRectPath.a */,
+				5B64CDE2AA0489E0CD2EED9F /* libGTM_StringEncoding.a */,
+				1A2DDEAA1BFAFA9929DC0EBE /* libGTM_SystemVersion.a */,
+				975D75071A14C14FC2201FBA /* libGTM_UIFont+LineHeight.a */,
+				4FDA44711C62F1798A3F9656 /* libGTM_core.a */,
+				C20BF1F5510D96E3A2B45970 /* libGTM_iPhone.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -284,12 +284,12 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		12600919AD2D7212F1E043B4 /* Pods-SleepTracker */ = {
+		62E6D2775827213C2966F56A /* Pods-SleepTracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F5EE7B7F8DFE99285A178424 /* Build configuration list for PBXNativeTarget "Pods-SleepTracker" */;
+			buildConfigurationList = C4F7C60B0DF67C2D41AAA690 /* Build configuration list for PBXNativeTarget "Pods-SleepTracker" */;
 			buildPhases = (
-				40319698E88AAF5A13FAE371 /* Sources */,
-				F18D1412542BE39F99371004 /* Frameworks */,
+				7B85028990B2DD7C2B258977 /* Sources */,
+				8FABBE41A5FD43C0CDC78050 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -297,65 +297,49 @@
 			);
 			name = "Pods-SleepTracker";
 			productName = "Pods-SleepTracker";
-			productReference = 71624CC9CF35E1C7D8BF5788 /* libPods-SleepTracker.a */;
+			productReference = 267CE84AF7C22782034474F3 /* libPods-SleepTracker.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		096504D7271E9FC4BFC68B91 /* Project object */ = {
+		09FAB75686D1ED72E54D7485 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = 235F3FD0BFCD6E0951018E92 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 38FF1AB20ED4B94F5C4155A3 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 1C2B8D914BF2686C65D397AD;
-			productRefGroup = DDE823A8E7278A4F4B9BCF67 /* Products */;
+			mainGroup = 7CC44471AE416618F2289338;
+			productRefGroup = 94B665FB16345050BBE833D2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				12600919AD2D7212F1E043B4 /* Pods-SleepTracker */,
+				62E6D2775827213C2966F56A /* Pods-SleepTracker */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		40319698E88AAF5A13FAE371 /* Sources */ = {
+		7B85028990B2DD7C2B258977 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3321B86F2717459FCDC4D3B /* Pods-SleepTracker-dummy.m in Sources */,
+				7F86E531C35E3EA8E2EC4D23 /* Pods-SleepTracker-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		21B041D1FFF9F83A711FC959 /* Debug */ = {
+		04BAB69C2969B294ED141ED2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E56BFE16BC08B71DAD71577D /* Pods-SleepTracker.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		771BA64907C8F3021DF873B8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04F5AF6E4ADDDC8B9C188253 /* Pods-SleepTracker.release.xcconfig */;
+			baseConfigurationReference = 49AFE2D5FCE829C17E4F435B /* Pods-SleepTracker.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -369,7 +353,7 @@
 			};
 			name = Release;
 		};
-		913E5983AA7A5F1FD136B5AC /* Debug */ = {
+		5242D4B146893A92A2BFD505 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -408,7 +392,7 @@
 			};
 			name = Debug;
 		};
-		B94129A8DF517F1C53DDB478 /* Release */ = {
+		599E7640C432AED770D363F9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -442,28 +426,44 @@
 			};
 			name = Release;
 		};
+		ECB5B54AD5CAC9E4816F5A2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD81A5DE52BF4730003C7682 /* Pods-SleepTracker.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		235F3FD0BFCD6E0951018E92 /* Build configuration list for PBXProject "Pods" */ = {
+		38FF1AB20ED4B94F5C4155A3 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				913E5983AA7A5F1FD136B5AC /* Debug */,
-				B94129A8DF517F1C53DDB478 /* Release */,
+				5242D4B146893A92A2BFD505 /* Debug */,
+				599E7640C432AED770D363F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F5EE7B7F8DFE99285A178424 /* Build configuration list for PBXNativeTarget "Pods-SleepTracker" */ = {
+		C4F7C60B0DF67C2D41AAA690 /* Build configuration list for PBXNativeTarget "Pods-SleepTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				21B041D1FFF9F83A711FC959 /* Debug */,
-				771BA64907C8F3021DF873B8 /* Release */,
+				ECB5B54AD5CAC9E4816F5A2E /* Debug */,
+				04BAB69C2969B294ED141ED2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 096504D7271E9FC4BFC68B91 /* Project object */;
+	rootObject = 09FAB75686D1ED72E54D7485 /* Project object */;
 }
