@@ -174,6 +174,7 @@
                                                   otherButtonTitles:nil, nil];
             [alert show];
             [[[GoogleAnalytics alloc] init] trackPageView:@"New Feature Instruction"];
+            [[[Mixpanel_Model alloc] init] trackEvent:@"查看新功能說明" key:@"" value:@""];
         } else if (indexPath.row == [setting[indexPath.section] count] - 1) {
             if ([MFMailComposeViewController canSendMail])
             {
