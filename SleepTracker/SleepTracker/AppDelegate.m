@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "InitAnalytics.h"
 #import "SessionAnalsis.h"
-#import "GoogleAnalytics.h"
 
 #import "LocalNotification.h"
 
@@ -112,8 +112,9 @@
 - (void)analytics
 {
     if (RELEASE_MODE) {
+        [[[InitAnalytics alloc] init] initAnalytics];
+        
         [[[SessionAnalsis alloc] init] startSession];
-        [[[GoogleAnalytics alloc] init] initGoogleAnalytics];
     }
 }
 
