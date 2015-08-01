@@ -8,6 +8,7 @@
 
 #import "SettingTableViewController.h"
 #import "GoogleAnalytics.h"
+#import "Mixpanel_Model.h"
 
 #import <MessageUI/MessageUI.h>
 
@@ -41,6 +42,8 @@
     zero = @[@"照常計算", @"超過 24 小時不再計算", @"減去 24 小時", @"平均起床時間"];
     
     userPreferences = [NSUserDefaults standardUserDefaults];
+    
+    [[[Mixpanel_Model alloc] init] trackEvent:@"設定頁面" key:@"" value:@""];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
