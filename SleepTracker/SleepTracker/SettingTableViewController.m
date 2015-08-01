@@ -170,6 +170,7 @@
                                                   cancelButtonTitle:@"確定"
                                                   otherButtonTitles:nil, nil];
             [alert show];
+            [[[GoogleAnalytics alloc] init] trackPageView:@"New Feature Instruction"];
         } else if (indexPath.row == [setting[indexPath.section] count] - 1) {
             if ([MFMailComposeViewController canSendMail])
             {
