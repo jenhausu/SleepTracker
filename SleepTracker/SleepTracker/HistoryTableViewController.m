@@ -8,6 +8,7 @@
 
 #import "HistoryTableViewController.h"
 #import "GoogleAnalytics.h"
+#import "Mixpanel_Model.h"
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
@@ -45,6 +46,7 @@
     [super viewDidLoad];
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    [[[Mixpanel_Model alloc] init] trackEvent:@"History" key:@"" value:@""];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -100,6 +102,15 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
+        //追蹤刪除事件
+        self.sleepData = fetchDataArray[indexPath.row];
+        [[[Mixpanel_Model alloc] init] trackEvent:@"Delete SleepData" key:@"GoToBedTime" value:self.sleepData.goToBedTime];
+        if (self.sleepData.wakeUpTime) {
+            [[[Mixpanel_Model alloc] init] trackEvent:@"Delete SleepData" key:@"WakeUpTime" value:self.sleepData.wakeUpTime];
+        } else {
+            [[[Mixpanel_Model alloc] init] trackEvent:@"Delete SleepData" key:@"WakeUpTime" value:@"None"];
+        }
+        
         //刪除資料
         [self.sleepDataModel deleteSleepData:fetchDataArray[indexPath.row]];
         fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
