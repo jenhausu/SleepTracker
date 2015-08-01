@@ -7,6 +7,7 @@
 //
 
 #import "AwakeTimeTableViewController.h"
+#import "GoogleAnalytics.h"
 
 @interface AwakeTimeTableViewController ()
 
@@ -35,6 +36,13 @@
     switcher = @[@"計算今天醒了多久"];
     after24h = @[@"照常計算", @"超過 24 小時便不再計算", @"減去 24 小時繼續計算", @"從「平均起床時間」開始計算"];
     awakeTime = ([userPreferences boolForKey:@"顯示醒了多久"]) ? @[switcher, after24h] : @[switcher] ;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [[[GoogleAnalytics alloc] init] trackPageView:@"計算醒來時間"];
 }
 
 #pragma mark - Table view data source
