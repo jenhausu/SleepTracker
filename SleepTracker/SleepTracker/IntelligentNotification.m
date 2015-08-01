@@ -58,8 +58,9 @@
                 [dateComponents setHour:23];
                 [dateComponents setMinute:0];
             }
-        }
+            
             break;
+        }
         case 1: {  //平均起床時間
             NSInteger averageWakeUpTimeInSecond = [[[self.statistic showWakeUpTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
             if (averageWakeUpTimeInSecond) {
@@ -69,16 +70,18 @@
                 [dateComponents setHour:23];
                 [dateComponents setMinute:0];
             }
-        }
+            
             break;
+        }
         case 2: {  //自訂
             NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
             NSDate *HopeToGoToBedTime = [userPreferences valueForKey:@"HopeToGoToBedTime"];
             NSDateComponents *hopeToGoToBedTime = [greCalendar components: NSCalendarUnitHour | NSCalendarUnitMinute fromDate:HopeToGoToBedTime];
             [dateComponents setHour:hopeToGoToBedTime.hour];
             [dateComponents setMinute:hopeToGoToBedTime.minute];
+            
+            break;
         }
-        break;
     }
     
     return [greCalendar dateFromComponents:dateComponents];
