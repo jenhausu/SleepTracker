@@ -186,6 +186,7 @@
                 
                 [self presentViewController:mailViewController animated:YES completion:NULL];
                 [[[GoogleAnalytics alloc] init] trackPageView:@"Feedback"];
+                [[[Mixpanel_Model alloc] init] trackEvent:@"寫信給開發者" key:@"狀態" value:@"成功"];
             } else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
                                                                 message:@"Your device doesn't support the composer sheet"
@@ -193,6 +194,7 @@
                                                       cancelButtonTitle:@"OK"
                                                       otherButtonTitles:nil];
                 [alert show];
+                [[[Mixpanel_Model alloc] init] trackEvent:@"寫信給開發者" key:@"狀態" value:@"失敗"];
             }
         }
     }
