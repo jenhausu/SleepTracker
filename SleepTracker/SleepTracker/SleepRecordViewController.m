@@ -8,6 +8,7 @@
 
 #import "SleepRecordViewController.h"
 #import "GoogleAnalytics.h"
+#import "Mixpanel_Model.h"
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
@@ -51,6 +52,13 @@
 
 #pragma mark - view
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [[[Mixpanel_Model alloc] init] trackEvent:@"紀錄頁面" key:@"View" value:@"viewDidLoad"];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:NO];
@@ -88,6 +96,7 @@
     
     
     [[[GoogleAnalytics alloc] init] trackPageView:@"Record"];
+    [[[Mixpanel_Model alloc] init] trackEvent:@"紀錄頁面" key:@"View" value:@"viewWillAppear"];
 }
 
 - (IBAction)buttonPress:(UIButton *)sender {

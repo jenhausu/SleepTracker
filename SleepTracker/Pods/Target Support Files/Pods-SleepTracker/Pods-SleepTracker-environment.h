@@ -42,3 +42,15 @@
 #define COCOAPODS_VERSION_MINOR_GoogleUtilities 0
 #define COCOAPODS_VERSION_PATCH_GoogleUtilities 1
 
+// Mixpanel
+#define COCOAPODS_POD_AVAILABLE_Mixpanel
+#define COCOAPODS_VERSION_MAJOR_Mixpanel 2
+#define COCOAPODS_VERSION_MINOR_Mixpanel 8
+#define COCOAPODS_VERSION_PATCH_Mixpanel 2
+
+// Mixpanel/Mixpanel
+#define COCOAPODS_POD_AVAILABLE_Mixpanel_Mixpanel
+#define COCOAPODS_VERSION_MAJOR_Mixpanel_Mixpanel 2
+#define COCOAPODS_VERSION_MINOR_Mixpanel_Mixpanel 8
+#define COCOAPODS_VERSION_PATCH_Mixpanel_Mixpanel 2
+

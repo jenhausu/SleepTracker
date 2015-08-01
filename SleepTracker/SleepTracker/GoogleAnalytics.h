@@ -10,7 +10,6 @@
 
 @interface GoogleAnalytics : NSObject
 
-- (void)initGoogleAnalytics;
 - (void)trackPageView:(NSString *)screenName;
 - (void)trackEventWithCategory:(NSString *)category action:(NSString *)action label:(NSString *)label value:(NSNumber *)value;
 

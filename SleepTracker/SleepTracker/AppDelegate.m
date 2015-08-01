@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "InitAnalytics.h"
 #import "SessionAnalsis.h"
-#import "GoogleAnalytics.h"
 
 #import "LocalNotification.h"
 

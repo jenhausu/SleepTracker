@@ -8,6 +8,7 @@
 
 #import "SettingTableViewController.h"
 #import "GoogleAnalytics.h"
+#import "Mixpanel_Model.h"
 
 #import <MessageUI/MessageUI.h>
 
@@ -41,6 +42,8 @@
     zero = @[@"照常計算", @"超過 24 小時不再計算", @"減去 24 小時", @"平均起床時間"];
     
     userPreferences = [NSUserDefaults standardUserDefaults];
+    
+    [[[Mixpanel_Model alloc] init] trackEvent:@"設定頁面" key:@"" value:@""];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -171,6 +174,7 @@
                                                   otherButtonTitles:nil, nil];
             [alert show];
             [[[GoogleAnalytics alloc] init] trackPageView:@"New Feature Instruction"];
+            [[[Mixpanel_Model alloc] init] trackEvent:@"查看新功能說明" key:@"" value:@""];
         } else if (indexPath.row == [setting[indexPath.section] count] - 1) {
             if ([MFMailComposeViewController canSendMail])
             {
@@ -182,6 +186,7 @@
                 
                 [self presentViewController:mailViewController animated:YES completion:NULL];
                 [[[GoogleAnalytics alloc] init] trackPageView:@"Feedback"];
+                [[[Mixpanel_Model alloc] init] trackEvent:@"寫信給開發者" key:@"狀態" value:@"成功"];
             } else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
                                                                 message:@"Your device doesn't support the composer sheet"
@@ -189,6 +194,7 @@
                                                       cancelButtonTitle:@"OK"
                                                       otherButtonTitles:nil];
                 [alert show];
+                [[[Mixpanel_Model alloc] init] trackEvent:@"寫信給開發者" key:@"狀態" value:@"失敗"];
             }
         }
     }
