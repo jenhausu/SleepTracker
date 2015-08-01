@@ -49,11 +49,6 @@
     [self.tableView reloadData];
     
     
-    [self googleAnalytics];
-}
-
-- (void)googleAnalytics
-{
     [[[GoogleAnalytics alloc] init] trackPageView:@"Setting"];
 }
 
