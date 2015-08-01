@@ -13,7 +13,7 @@
 
 @implementation SessionAnalsis
 
-- (void)startSession
+- (void)startSessionTracking
 {
     [self crashlytics];
     [self flurry];

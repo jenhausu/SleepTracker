@@ -112,7 +112,7 @@
 - (void)analytics
 {
     if (RELEASE_MODE) {
-        [[[SessionAnalsis alloc] init] startSession];
+        [[[SessionAnalsis alloc] init] startSessionTracking];
         [[[GoogleAnalytics alloc] init] initGoogleAnalytics];
     }
 }

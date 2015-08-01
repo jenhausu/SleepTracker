@@ -10,6 +10,6 @@
 
 @interface SessionAnalsis : NSObject
 
-- (void)startSession;
+- (void)startSessionTracking;
 
 @end
