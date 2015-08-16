@@ -95,12 +95,7 @@
             }
         }
         
-        if (indexPath.row == selectedRow) {
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        } else {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }
-        
+        cell.accessoryType = (indexPath.row == selectedRow) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             if (selectedRow == 2) {
@@ -119,7 +114,7 @@
     return cell;
 }
 
-#pragma mark - tableView 
+#pragma mark - tableView delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -140,7 +135,6 @@
         
         // 設定 ShouldGoToSleepTime
         [userPreferences setInteger:indexPath.row forKey:@"ShouldGoToSleepTime"];
-        
         
         // 設定Checkmark
         if (indexPath.row != selectedRow) {
