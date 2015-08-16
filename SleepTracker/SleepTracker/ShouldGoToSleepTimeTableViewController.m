@@ -42,7 +42,7 @@
     [super viewWillAppear:YES];
     
     userPreferences = [NSUserDefaults standardUserDefaults];
-    selectedRow = [userPreferences integerForKey:@"HopeGoToSleepTime"];
+    selectedRow = [userPreferences integerForKey:@"ShouldGoToSleepTime"];
     
     if (footerText) footerText = nil;
     
@@ -154,7 +154,7 @@
         }
         
         // 設定 Footer
-        if (indexPath.row == 1) {
+        if (indexPath.row == 0) {
             footerText = @"選擇平均起床時間，App會把「平均起床時間」往前推 8 個小時作為希望起床時間。";
             [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
         } else {
