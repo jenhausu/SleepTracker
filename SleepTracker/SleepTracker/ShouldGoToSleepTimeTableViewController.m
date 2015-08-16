@@ -42,7 +42,7 @@
     [super viewWillAppear:YES];
     
     userPreferences = [NSUserDefaults standardUserDefaults];
-    selectedRow = [userPreferences integerForKey:@"HopeGoToSleepTime"];
+    selectedRow = [userPreferences integerForKey:@"ShouldGoToSleepTime"];
     
     if (footerText) footerText = nil;
     
@@ -95,12 +95,7 @@
             }
         }
         
-        if (indexPath.row == selectedRow) {
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        } else {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }
-        
+        cell.accessoryType = (indexPath.row == selectedRow) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             if (selectedRow == 2) {
@@ -119,7 +114,7 @@
     return cell;
 }
 
-#pragma mark - tableView 
+#pragma mark - tableView delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -141,7 +136,6 @@
         // 設定 ShouldGoToSleepTime
         [userPreferences setInteger:indexPath.row forKey:@"ShouldGoToSleepTime"];
         
-        
         // 設定Checkmark
         if (indexPath.row != selectedRow) {
             NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:selectedRow inSection:0];
@@ -154,7 +148,7 @@
         }
         
         // 設定 Footer
-        if (indexPath.row == 1) {
+        if (indexPath.row == 0) {
             footerText = @"選擇平均起床時間，App會把「平均起床時間」往前推 8 個小時作為希望起床時間。";
             [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
         } else {
