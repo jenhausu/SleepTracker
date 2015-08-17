@@ -8,6 +8,7 @@
 
 #import "WakeUp2ViewController.h"
 #import "GoogleAnalytics.h"
+#import "Mixpanel_Model.h"
 
 #import "WakeUpTableViewController.h"
 
@@ -67,6 +68,17 @@
         self.datePicker.maximumDate = [NSDate date];  //最大值為現在時間，起床時間不可以設為未來的時間，要不計算清醒時間會錯亂
         
         self.dateLabel.text = [formatter stringFromDate:wakeUpTime];
+    }
+    
+    [self mixpanelAnalytics];
+}
+
+- (void)mixpanelAnalytics
+{
+    if ([DateType isEqualToString:@"goToBedTime"]) {
+        [[[Mixpanel_Model alloc] init] trackEvent:@"儲存資料前修改資料" key:@"上床時間" value:goToBedTime];
+    } else if ([DateType isEqualToString:@"wakeUpTime"]) {
+        [[[Mixpanel_Model alloc] init] trackEvent:@"儲存資料前修改資料" key:@"起床時間" value:wakeUpTime];
     }
 }
 
