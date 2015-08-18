@@ -10,6 +10,8 @@
 #import "InitAnalytics.h"
 #import "SessionAnalsis.h"
 
+#import "Mixpanel_Model.h"
+
 #import "LocalNotification.h"
 
 @interface AppDelegate ()  <UIAlertViewDelegate>
@@ -169,22 +171,26 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    switch (buttonIndex) {
-        case 0:
-            [[UIApplication sharedApplication] cancelAllLocalNotifications];
-            break;
-        case 1:
-            // Do nothing
-            break;
-        case 2:
-            [[[LocalNotification alloc] init] setLocalNotificationWithMessage:_localNotification.alertBody
-                                                                     fireDate:[NSDate dateWithTimeInterval:60*20 sinceDate:[NSDate date]]
-                                                                  repeatOrNot:NO
-                                                                        sound:@"UILocalNotificationDefaultSoundName"
-                                                                     setValue:@"PosponNotification" forKey:@"NotificationType" category:@"SleepNotification"];
-            break;
-        default:
-            break;
+    if ([alertView.title isEqualToString:@"睡前提醒"]) {
+        switch (buttonIndex) {
+            case 0:
+                [[UIApplication sharedApplication] cancelAllLocalNotifications];
+                break;
+            case 1:
+                // Do nothing
+                break;
+            case 2:
+                [[[LocalNotification alloc] init] setLocalNotificationWithMessage:_localNotification.alertBody
+                                                                         fireDate:[NSDate dateWithTimeInterval:60*20 sinceDate:[NSDate date]]
+                                                                      repeatOrNot:NO
+                                                                            sound:@"UILocalNotificationDefaultSoundName"
+                                                                         setValue:@"PosponNotification" forKey:@"NotificationType" category:@"SleepNotification"];
+                break;
+            default:
+                break;
+        }
+    } else {
+        [[[Mixpanel_Model alloc] init] trackEvent:@"首次開啟新版" key:@"" value:@""];  //這行程式碼放在這邊是因為放在顯示alertView哪裏不知道為什麼追蹤事件就是沒辦法成功發出
     }
 }
 

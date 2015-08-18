@@ -43,7 +43,8 @@
     
     userPreferences = [NSUserDefaults standardUserDefaults];
     
-    [[[Mixpanel_Model alloc] init] trackEvent:@"設定頁面" key:@"" value:@""];
+    
+    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「設定」頁面" key:@"view" value:@"viewDidLoad"];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -53,6 +54,7 @@
     
     
     [[[GoogleAnalytics alloc] init] trackPageView:@"Setting"];
+    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「設定」頁面" key:@"view" value:@"viewWillAppear"];
 }
 
 #pragma mark - Table view data source
@@ -174,7 +176,7 @@
                                                   otherButtonTitles:nil, nil];
             [alert show];
             [[[GoogleAnalytics alloc] init] trackPageView:@"New Feature Instruction"];
-            [[[Mixpanel_Model alloc] init] trackEvent:@"查看新功能說明" key:@"" value:@""];
+            [[[Mixpanel_Model alloc] init] trackEvent:@"查看「新功能說明」" key:@"" value:@""];
         } else if (indexPath.row == [setting[indexPath.section] count] - 1) {
             if ([MFMailComposeViewController canSendMail])
             {
@@ -186,7 +188,7 @@
                 
                 [self presentViewController:mailViewController animated:YES completion:NULL];
                 [[[GoogleAnalytics alloc] init] trackPageView:@"Feedback"];
-                [[[Mixpanel_Model alloc] init] trackEvent:@"寫信給開發者" key:@"狀態" value:@"成功"];
+                [[[Mixpanel_Model alloc] init] trackEvent:@"點選「寫信給開發者」" key:@"狀態" value:@"成功"];
             } else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
                                                                 message:@"Your device doesn't support the composer sheet"
@@ -194,7 +196,7 @@
                                                       cancelButtonTitle:@"OK"
                                                       otherButtonTitles:nil];
                 [alert show];
-                [[[Mixpanel_Model alloc] init] trackEvent:@"寫信給開發者" key:@"狀態" value:@"失敗"];
+                [[[Mixpanel_Model alloc] init] trackEvent:@"點選「寫信給開發者」" key:@"狀態" value:@"失敗"];
             }
         }
     }
