@@ -115,7 +115,7 @@
     if (section == 1) {
         return @"前一天沒有輸入資料時";
     } else if (section == 2) {
-        return @"其他";
+        return @"其它";
     } else {
         return nil;
     }
