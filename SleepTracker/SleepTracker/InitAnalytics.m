@@ -33,7 +33,7 @@
 
 - (void)initMixpanel
 {
-#define MIXPANEL_TOKEN @"d15c0cbaa13095c4b50b621c262ab09e"
+#define MIXPANEL_TOKEN @"0b75510342d69461a74f4c505ab6a8bf"
     
     // Initialize the library with your Mixpanel project token, MIXPANEL_TOKEN
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
