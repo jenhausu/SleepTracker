@@ -8,7 +8,6 @@
 
 #import "HistoryTableViewController.h"
 #import "GoogleAnalytics.h"
-#import "Mixpanel_Model.h"
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
@@ -46,7 +45,7 @@
     [super viewDidLoad];
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    [[[Mixpanel_Model alloc] init] trackEvent:@"History" key:@"" value:@""];
+    //[[[Mixpanel_Model alloc] init] trackEvent:@"查看「睡眠足跡」頁面" key:@"view" value:@"viewDidLoad"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -58,6 +57,7 @@
     
     
     [[[GoogleAnalytics alloc] init] trackPageView:@"History"];
+    //[[[Mixpanel_Model alloc] init] trackEvent:@"查看「睡眠足跡」頁面" key:@"view" value:@"viewWillAppear"];
 }
 
 #pragma mark - Table view data source
@@ -102,14 +102,19 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        //追蹤刪除事件
+        /*//追蹤刪除事件
         self.sleepData = fetchDataArray[indexPath.row];
-        [[[Mixpanel_Model alloc] init] trackEvent:@"Delete SleepData" key:@"GoToBedTime" value:self.sleepData.goToBedTime];
+        NSDate *wakeuptime = self.sleepData.wakeUpTime;
+        
+        Mixpanel *mixpanel = [Mixpanel sharedInstance];
         if (self.sleepData.wakeUpTime) {
-            [[[Mixpanel_Model alloc] init] trackEvent:@"Delete SleepData" key:@"WakeUpTime" value:self.sleepData.wakeUpTime];
+            [mixpanel track:@"刪除歷史資料" properties:@{@"上床時間": self.sleepData.goToBedTime,
+                                                   @"起床時間": self.sleepData.wakeUpTime,
+                                                   @"睡眠時間": self.sleepData.sleepTime,
+                                                   @"睡眠型態": self.sleepData.sleepType}];
         } else {
-            [[[Mixpanel_Model alloc] init] trackEvent:@"Delete SleepData" key:@"WakeUpTime" value:@"None"];
-        }
+            [mixpanel track:@"刪除歷史資料" properties:@{@"上床時間": self.sleepData.goToBedTime}];
+        }  //*/
         
         //刪除資料
         [self.sleepDataModel deleteSleepData:fetchDataArray[indexPath.row]];
