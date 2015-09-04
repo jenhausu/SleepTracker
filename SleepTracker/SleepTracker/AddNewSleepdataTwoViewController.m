@@ -64,15 +64,15 @@
 {
     [super viewWillAppear:animated];
     
-    [self googleAnalytics];
+    [self trackPageView];
 }
 
-- (void)googleAnalytics
+- (void)trackPageView
 {
     if ([DateType isEqualToString:@"goToBedTime"]) {
-        [[[GoogleAnalytics alloc] init] trackPageView:@"AddNewSleepData2_goToBedTime"];
+        [[[GoogleAnalytics alloc] init] trackPageView:@"AddNewSleepData2 GoToBedTime"];
     } else if ([DateType isEqualToString:@"wakeUpTime"]) {
-        [[[GoogleAnalytics alloc] init] trackPageView:@"AddNewSleepData2_wakeUpTime"];
+        [[[GoogleAnalytics alloc] init] trackPageView:@"AddNewSleepData2 WakeUpTime"];
     }
 }
 

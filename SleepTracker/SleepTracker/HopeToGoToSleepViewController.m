@@ -49,12 +49,7 @@
 {
     [super viewWillAppear:animated];
     
-    [self googleAnalytics];
-}
-
-- (void)googleAnalytics
-{
-    [[[GoogleAnalytics alloc] init] trackPageView:@"Custom ShouldGoToBedTime"];
+    [[[GoogleAnalytics alloc] init] trackPageView:@"HopeGoToBedTime Custom"];
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent

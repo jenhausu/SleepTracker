@@ -7,76 +7,30 @@
 //
 
 #import "AppDelegate.h"
+#import "InitAnalytics.h"
+#import "SessionAnalsis.h"
 
-#import <Fabric/Fabric.h>
-#import <Crashlytics/Crashlytics.h>
-#import <Google/Analytics.h>
+#import "Mixpanel_Model.h"
 
 #import "LocalNotification.h"
 
 @interface AppDelegate ()  <UIAlertViewDelegate>
 
 @property (nonatomic) UILocalNotification *localNotification;
-@property (nonatomic) NSUserDefaults *userPreferences;
 
 @end
 
 @implementation AppDelegate
 
-@synthesize userPreferences;
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    userPreferences = [NSUserDefaults standardUserDefaults];
     [self firstLaunch];
-    
     [self analytics];
-    
-    
-    _localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-    if (_localNotification) {
-        [self clickNotification];
-    }
     
     
     return YES;
 }
-
-- (void)firstLaunch
-{
-    if (![userPreferences boolForKey:@"NotFirstLaunch"]) {
-        [userPreferences setBool:YES forKey:@"重複發出睡前通知"];
-        [userPreferences setBool:YES forKey:@"NotFirstLaunch"];
-    }
-}
-
-- (void)analytics
-{
-    if (RELEASE_MODE) {
-        [self crashlytics];
-        [self googleAnalytics];
-    }
-}
-
-- (void)crashlytics
-{
-    [Fabric with:@[CrashlyticsKit]];  //避免在開發的時候一直觸動 Crashlytics，污染我的數據
-}
-
-- (void)googleAnalytics
-{
-    // Configure tracker from GoogleService-Info.plist.
-    NSError *configureError;
-    [[GGLContext sharedInstance] configureWithError:&configureError];
-    NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
-    
-    // Optional: configure GAI options.
-    GAI *gai = [GAI sharedInstance];
-    gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
-    gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
-}
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -105,33 +59,106 @@
     [self saveContext];
 }
 
-// 點擊通知
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+#pragma mark -
+
+- (void)firstLaunch
 {
-    _localNotification = notification;
-    [self clickNotification];
+    [[[LocalNotification alloc] init] initLocalNotification];
     
-    [self removeNotificationFromNotificationCenter];  //如果通知發出時剛好使用者在使用App，也把通知從通知中心中移除。
+    NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    if (![userPreferences boolForKey:@"NotFirstLaunch"]) {
+        [userPreferences setBool:YES forKey:@"重複發出睡前通知"];
+        [userPreferences setBool:YES forKey:@"NotFirstLaunch"];
+        
+        [userPreferences setBool:YES forKey:@"1.2.0"];
+    } else if (![userPreferences boolForKey:@"1.2.0"]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"1.2.0版 新功能"
+                                                        message:@"1. 現在只要把通知往左滑就會有「稍後通知」、「我要熬夜」的選項了。\n2. 使用者可以決定要不要計算醒來時間。"
+                                                       delegate:self
+                                              cancelButtonTitle:@"確定"
+                                              otherButtonTitles:nil, nil];
+        
+         /*// 設定圖片的方式不夠完美，所以程式碼先留著
+         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+         UIImage *image = [UIImage imageNamed:@"swip5"];
+         imageView.contentMode = UIViewContentModeScaleToFill;
+         
+         
+         CGSize newSize = CGSizeMake(image.size.width, image.size.height);
+         UIGraphicsBeginImageContext(newSize);
+         [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+         image = UIGraphicsGetImageFromCurrentImageContext();
+         UIGraphicsEndImageContext();
+        
+        
+         imageView.image = image;
+         
+         //check if os version is 7 or above
+         if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+         [alert setValue:imageView forKey:@"accessoryView"];
+         }else{
+         [alert addSubview:imageView];
+         }  //*/
+        
+        [alert show];
+        [userPreferences setBool:YES forKey:@"1.2.0"];
+    }
+}
+
+#ifdef DEBUG
+    #define RELEASE_MODE NO
+#else
+    #define RELEASE_MODE YES
+#endif
+
+- (void)analytics
+{
+    if (RELEASE_MODE) {
+        [[[InitAnalytics alloc] init] initAnalytics];
+        
+        [[[SessionAnalsis alloc] init] startSessionTracking];
+    }
 }
 
 #pragma mark - SleepNotification
 
-- (void)clickNotification
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-    NSDictionary *userInfo = _localNotification.userInfo;
-    if (![[userInfo objectForKey:@"NotificationType"] isEqualToString:@"提醒輸入起床時間"]) {
+    UIApplicationState state = [application applicationState];
+    if (state == UIApplicationStateActive) {
+        _localNotification = notification;
         [self showSleepNotificationAlertView];
     }
+    
+    [self removeNotificationFromNotificationCenter];  //如果通知發出時剛好使用者在使用App，也把通知從通知中心中移除。
+}
+
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^)())completionHandler
+{
+    if ([identifier isEqualToString:@"later"]) {
+        [[[LocalNotification alloc] init] setLocalNotificationWithMessage:_localNotification.alertBody
+                                                                 fireDate:[NSDate dateWithTimeInterval:60*20 sinceDate:[NSDate date]]
+                                                              repeatOrNot:NO
+                                                                    sound:@"UILocalNotificationDefaultSoundName"
+                                                                 setValue:@"PosponNotification" forKey:@"NotificationType" category:@"SleepNotification"];
+    } else if ([identifier isEqualToString:@"night"]) {
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    }
+    
+    completionHandler();
 }
 
 - (void)showSleepNotificationAlertView
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前提醒"
-                                                    message:_localNotification.alertBody
-                                                   delegate:self
-                                          cancelButtonTitle:@"我今天要熬夜，不要吵我！！"
-                                          otherButtonTitles:@"知道了", @"稍後提醒", nil];
-    [alert show];
+    NSDictionary *userInfo = _localNotification.userInfo;
+    if (![[userInfo objectForKey:@"NotificationType"] isEqualToString:@"提醒輸入起床時間"]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"睡前提醒"
+                                                        message:_localNotification.alertBody
+                                                       delegate:self
+                                              cancelButtonTitle:@"我今天要熬夜，不要吵我！！"
+                                              otherButtonTitles:@"知道了", @"稍後提醒", nil];
+        [alert show];
+    }
 }
 
 - (void)removeNotificationFromNotificationCenter
@@ -144,22 +171,26 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    switch (buttonIndex) {
-        case 0:
-            [[UIApplication sharedApplication] cancelAllLocalNotifications];
-            break;
-        case 1:
-            // Do nothing
-            break;
-        case 2:
-            [[[LocalNotification alloc] init] setLocalNotificationWithMessage:_localNotification.alertBody
-                                                                     fireDate:[NSDate dateWithTimeInterval:60*20 sinceDate:[NSDate date]]
-                                                                  repeatOrNot:NO
-                                                                        Sound:@"UILocalNotificationDefaultSoundName"
-                                                                     setValue:@"PosponNotification" forKey:@"NotificationType"];
-            break;
-        default:
-            break;
+    if ([alertView.title isEqualToString:@"睡前提醒"]) {
+        switch (buttonIndex) {
+            case 0:
+                [[UIApplication sharedApplication] cancelAllLocalNotifications];
+                break;
+            case 1:
+                // Do nothing
+                break;
+            case 2:
+                [[[LocalNotification alloc] init] setLocalNotificationWithMessage:_localNotification.alertBody
+                                                                         fireDate:[NSDate dateWithTimeInterval:60*20 sinceDate:[NSDate date]]
+                                                                      repeatOrNot:NO
+                                                                            sound:@"UILocalNotificationDefaultSoundName"
+                                                                         setValue:@"PosponNotification" forKey:@"NotificationType" category:@"SleepNotification"];
+                break;
+            default:
+                break;
+        }
+    } else {
+        [[[Mixpanel_Model alloc] init] trackEvent:@"首次開啟新版" key:@"" value:@""];  //這行程式碼放在這邊是因為放在顯示alertView哪裏不知道為什麼追蹤事件就是沒辦法成功發出
     }
 }
 

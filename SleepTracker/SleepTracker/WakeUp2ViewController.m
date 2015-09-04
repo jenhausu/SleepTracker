@@ -8,6 +8,7 @@
 
 #import "WakeUp2ViewController.h"
 #import "GoogleAnalytics.h"
+#import "Mixpanel_Model.h"
 
 #import "WakeUpTableViewController.h"
 
@@ -68,6 +69,17 @@
         
         self.dateLabel.text = [formatter stringFromDate:wakeUpTime];
     }
+    
+    [self mixpanelAnalytics];
+}
+
+- (void)mixpanelAnalytics
+{
+    if ([DateType isEqualToString:@"goToBedTime"]) {
+        [[[Mixpanel_Model alloc] init] trackEvent:@"起床儲存資料前修改資料" key:@"上床或起床時間" value:@"上床時間"];
+    } else if ([DateType isEqualToString:@"wakeUpTime"]) {
+        [[[Mixpanel_Model alloc] init] trackEvent:@"起床儲存資料前修改資料" key:@"上床或起床時間" value:@"起床時間"];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -80,9 +92,9 @@
 - (void)googleAnalytics
 {
     if ([DateType isEqualToString:@"goToBedTime"]) {
-        [[[GoogleAnalytics alloc] init] trackPageView:@"WakeUp2_goToBedTime"];
+        [[[GoogleAnalytics alloc] init] trackPageView:@"WakeUp2 ChangeValue GoToBedTime"];
     } else if ([DateType isEqualToString:@"wakeUpTime"]) {
-        [[[GoogleAnalytics alloc] init] trackPageView:@"WakeUp2_wakeUpTime"];
+        [[[GoogleAnalytics alloc] init] trackPageView:@"WakeUp2 ChangeValue WakeUpTime"];
     }
 }
 

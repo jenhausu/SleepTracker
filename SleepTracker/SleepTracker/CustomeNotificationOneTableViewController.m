@@ -58,7 +58,7 @@
 
 - (void)googleAnalytics
 {
-    [[[GoogleAnalytics alloc] init] trackPageView:@"Custom Notification"];
+    [[[GoogleAnalytics alloc] init] trackPageView:@"Custom Notification Root"];
 }
 
 #pragma mark - Table view data source

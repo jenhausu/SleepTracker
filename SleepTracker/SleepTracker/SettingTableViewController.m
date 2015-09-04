@@ -8,12 +8,11 @@
 
 #import "SettingTableViewController.h"
 #import "GoogleAnalytics.h"
+#import "Mixpanel_Model.h"
 
 #import <MessageUI/MessageUI.h>
 
 #import "IntelligentNotification.h"
-
-#import "ZeroTableViewCell.h"
 
 @interface SettingTableViewController ()  <MFMailComposeViewControllerDelegate>
 
@@ -37,12 +36,15 @@
     [super viewDidLoad];
     
     setting = @[@[@"希望上床時間"],
-                @[@"「睡前通知」重複發出", @"計算醒來時間"],
-                @[@"意見回饋"]];
+                @[@"計算醒來時間", @"「睡前通知」繼續發出"],
+                @[[NSString stringWithFormat:@"%@ 版 新功能說明", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]], @"寫信給開發者"]];
     
-    zero = @[@"照常計算", @"不再計算", @"減去 24 小時", @"平均起床時間"];
+    zero = @[@"照常計算", @"超過 24 小時不再計算", @"減去 24 小時", @"平均起床時間"];
     
     userPreferences = [NSUserDefaults standardUserDefaults];
+    
+    
+    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「設定」頁面" key:@"view" value:@"viewDidLoad"];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -51,12 +53,8 @@
     [self.tableView reloadData];
     
     
-    [self googleAnalytics];
-}
-
-- (void)googleAnalytics
-{
     [[[GoogleAnalytics alloc] init] trackPageView:@"Setting"];
+    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「設定」頁面" key:@"view" value:@"viewWillAppear"];
 }
 
 #pragma mark - Table view data source
@@ -71,60 +69,43 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section != 1) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        
-        cell.textLabel.text = setting[indexPath.section][indexPath.row];
-        
-        if (indexPath.section == 0) {
-            if (indexPath.row == 0) {
-                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-                [formatter setDateFormat:@"HH:mm"];
-                cell.detailTextLabel.text = [formatter stringFromDate:[[[IntelligentNotification alloc] init] decideShouldGoToBedTime]];
-                cell.detailTextLabel.font = [UIFont systemFontOfSize:15];
-                
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                
-                cell.accessoryView = nil;
-                cell.selectionStyle = UITableViewCellSelectionStyleDefault;
-            }
-        } else if (indexPath.section == (setting.count - 1)) {
-            cell.detailTextLabel.text = @" ";
-            
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
-        
-        return cell;
-    } else {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    cell.textLabel.text = setting[indexPath.section][indexPath.row];
+    
+    if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            formatter.dateFormat = @"HH:mm";
             
-            cell.textLabel.text = setting[indexPath.section][indexPath.row];
+            cell.detailTextLabel.text = [formatter stringFromDate:[[[IntelligentNotification alloc] init] decideShouldGoToBedTime]];
+            cell.detailTextLabel.font = [UIFont systemFontOfSize:15];
+        }
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            cell.detailTextLabel.text = [userPreferences boolForKey:@"顯示醒了多久"] ? zero[[userPreferences integerForKey:@"醒來計時器歸零"]] : @"關閉" ;
+            cell.detailTextLabel.font = [UIFont systemFontOfSize:15];
+            
+            cell.accessoryView = nil;
+            cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+        } else if (indexPath.row == 1) {
             cell.detailTextLabel.text = @" ";
-            
             
             UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(1.0, 1.0, 20.0, 30.0)];
             cell.accessoryView = switchControl;
             switchControl.on = [userPreferences boolForKey:@"重複發出睡前通知"];
             [switchControl addTarget:self action:@selector(switchChanged1:) forControlEvents:UIControlEventValueChanged];
-            
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            
-            return cell;
-        } else if (indexPath.row == 1) {
-            ZeroTableViewCell *cell2 = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
-            
-            cell2.text.text = setting[indexPath.section][indexPath.row];
-            cell2.detailText.text = zero[[userPreferences integerForKey:@"醒來計時器歸零"]];
-            cell2.detailText.font = [UIFont systemFontOfSize:15];
-            
-            cell2.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            
-            return cell2;
+        }
+    } else if (indexPath.section == (setting.count - 1)) {
+        cell.detailTextLabel.text = @" ";
+        
+        if (indexPath.row == 0) {
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
     }
     
-    return nil;
+    
+    return cell;
 }
 
 #pragma mark - Header
@@ -132,72 +113,82 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 1) {
-        return @"前一天沒有輸入資料";
+        return @"前一天沒有輸入資料時";
+    } else if (section == 2) {
+        return @"其它";
     } else {
         return nil;
     }
 }
 
-/*
- 
-#define HeadersHeight 28
+#pragma mark - Footer
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    CGRect rect;
-    UILabel *headerLabel;
-    
-    if (section == 0) {
-        return nil;
-    } else if (section == 1) {
-        rect = CGRectMake(15, 3, 280, HeadersHeight);
-        headerLabel = [[UILabel alloc] initWithFrame:rect];
+    if (section == 1) {
+        return footerHeight;
+    } else {
+        return UITableViewAutomaticDimension;
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    if (section == 1) {
+        CGRect rect = CGRectMake(20, 0, 280, 40);
         
-        headerLabel.text = @"前一天沒有輸入資料";
+        UIView *footerView = [[UIView alloc] initWithFrame:rect];
+        UILabel *footerLabel = [[UILabel alloc] initWithFrame:rect];
         
-        headerLabel.font = [UIFont fontWithName:@"AppleGothic" size:12];
-        headerLabel.textColor = [UIColor grayColor];
-        headerLabel.numberOfLines = 0;
-        headerLabel.textAlignment = NSTextAlignmentLeft;
+        footerLabel.text = footerText;
+        footerLabel.font = [UIFont systemFontOfSize:10];
+        footerLabel.textColor = [UIColor lightTextColor];
+        footerLabel.numberOfLines = 0;
+        footerLabel.textAlignment = NSTextAlignmentCenter;
         
-        UIView *headerView = [[UIView alloc] initWithFrame:rect];
-        [headerView addSubview:headerLabel];
-        return headerView;
+        [footerView addSubview:footerLabel];
+        return footerView;
     } else {
         return nil;
     }
-    
+}
 
-}  //*/
-#pragma mark -
+#pragma mark - didSelected
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIViewController *page2;
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"ShouldGoToSleepTime"];
-            page2.title = setting[indexPath.section][indexPath.row];
-            [self.navigationController pushViewController:page2 animated:YES];
+            [self pushViewController:@"ShouldGoToSleepTime" section:indexPath.section row:indexPath.row];
         }
     } else if (indexPath.section == 1) {
-        if (indexPath.row == 1) {
-            page2 = [self.storyboard instantiateViewControllerWithIdentifier:@"zero"];
-            page2.title = setting[indexPath.section][indexPath.row];
-            [self.navigationController pushViewController:page2 animated:YES];
+        if (indexPath.row == 0) {
+            [self pushViewController:@"AwakeTime" section:indexPath.section row:indexPath.row];
         }
     } else if (indexPath.section == (setting.count - 1)) {
         if (indexPath.row == 0) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"1.2.0版 新功能"
+                                                            message:@"1. 現在只要把通知往左滑就會有「稍後通知」、「我要熬夜」的選項了。\n2. 使用者可以決定要不要計算醒來時間。"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"確定"
+                                                  otherButtonTitles:nil, nil];
+            [alert show];
+            [[[GoogleAnalytics alloc] init] trackPageView:@"New Feature Instruction"];
+            [[[Mixpanel_Model alloc] init] trackEvent:@"查看「新功能說明」" key:@"" value:@""];
+        } else if (indexPath.row == [setting[indexPath.section] count] - 1) {
             if ([MFMailComposeViewController canSendMail])
             {
                 MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
                 mailViewController.mailComposeDelegate = self;
                 
                 [mailViewController setToRecipients:[NSArray arrayWithObject:@"jenhausu@icloud.com"]];
+                [mailViewController setSubject:@"意見回饋"];
                 
                 [self presentViewController:mailViewController animated:YES completion:NULL];
                 [[[GoogleAnalytics alloc] init] trackPageView:@"Feedback"];
+                [[[Mixpanel_Model alloc] init] trackEvent:@"點選「寫信給開發者」" key:@"狀態" value:@"成功"];
             } else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
                                                                 message:@"Your device doesn't support the composer sheet"
@@ -205,9 +196,17 @@
                                                       cancelButtonTitle:@"OK"
                                                       otherButtonTitles:nil];
                 [alert show];
+                [[[Mixpanel_Model alloc] init] trackEvent:@"點選「寫信給開發者」" key:@"狀態" value:@"失敗"];
             }
         }
     }
+}
+
+- (void)pushViewController:(NSString *)identifier section:(NSInteger)section row:(NSInteger)row
+{
+    UIViewController *page2 = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+    page2.title = setting[section][row];
+    [self.navigationController pushViewController:page2 animated:YES];
 }
 
 #pragma mark - switchChinaged
@@ -219,12 +218,38 @@
     [[[IntelligentNotification alloc] init] rescheduleIntelligentNotification];
     
     if (switchControl.on) {
-        [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"前一天沒有輸入資料" action:@"睡前通知「要」重複發出" label:@"「睡前通知」重複發出" value:nil];
+        footerText = @"如果前一天忘記輸入睡眠資料或是醒來超過24小時，到了晚上睡前通知要不要再次發出";
+        footerHeight = 30;
+        
+        [self postponeForAFewSecondThenChangeSectionOneFooter];
     } else {
-        [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"前一天沒有輸入資料" action:@"睡前通知「不」重複發出" label:@"「睡前通知」重複發出" value:nil];
+        if (footerText) {
+            footerText = nil;
+            footerHeight = 0;
+            
+            [self postponeForAFewSecondThenChangeSectionOneFooter];
+        }
     }
 }
 
+- (void)postponeForAFewSecondThenChangeSectionOneFooter
+{
+    remainingCounts = 1;
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.5f
+                                             target:self
+                                           selector:@selector(countDown)
+                                           userInfo:nil
+                                            repeats:NO];
+}
+
+- (void)countDown
+{
+    if (--remainingCounts <= 0) {
+        [timer invalidate];
+        
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
     switch (result)

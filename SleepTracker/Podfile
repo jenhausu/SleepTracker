@@ -4,6 +4,7 @@
 target 'SleepTracker' do
 
 pod 'Google/Analytics', '~> 1.0.0'
+pod 'Mixpanel'
 
 end
 

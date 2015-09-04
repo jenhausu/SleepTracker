@@ -45,6 +45,7 @@
     [super viewDidLoad];
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    //[[[Mixpanel_Model alloc] init] trackEvent:@"查看「睡眠足跡」頁面" key:@"view" value:@"viewDidLoad"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -55,12 +56,8 @@
     [self.tableView reloadData];
     
     
-    [self googleAnalytics];
-}
-
-- (void)googleAnalytics
-{
     [[[GoogleAnalytics alloc] init] trackPageView:@"History"];
+    //[[[Mixpanel_Model alloc] init] trackEvent:@"查看「睡眠足跡」頁面" key:@"view" value:@"viewWillAppear"];
 }
 
 #pragma mark - Table view data source
@@ -105,6 +102,20 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
+        /*//追蹤刪除事件
+        self.sleepData = fetchDataArray[indexPath.row];
+        NSDate *wakeuptime = self.sleepData.wakeUpTime;
+        
+        Mixpanel *mixpanel = [Mixpanel sharedInstance];
+        if (self.sleepData.wakeUpTime) {
+            [mixpanel track:@"刪除歷史資料" properties:@{@"上床時間": self.sleepData.goToBedTime,
+                                                   @"起床時間": self.sleepData.wakeUpTime,
+                                                   @"睡眠時間": self.sleepData.sleepTime,
+                                                   @"睡眠型態": self.sleepData.sleepType}];
+        } else {
+            [mixpanel track:@"刪除歷史資料" properties:@{@"上床時間": self.sleepData.goToBedTime}];
+        }  //*/
+        
         //刪除資料
         [self.sleepDataModel deleteSleepData:fetchDataArray[indexPath.row]];
         fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];

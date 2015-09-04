@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    section1 = @[@"平均上床時間", @"平均起床時間"];
+    section1 = @[@"平均起床時間", @"平均上床時間"];
     section2 = @[@"自訂希望上床時間"];
     textLabelOfTableViewCell = @[section1, section2];
 }
@@ -49,11 +49,6 @@
     [self.tableView reloadData];
     
     
-    [self googleAnalytics];
-}
-
-- (void)googleAnalytics
-{
     [[[GoogleAnalytics alloc] init] trackPageView:@"ShouldGoToBedTime"];
 }
 
@@ -74,10 +69,20 @@
     cell.detailTextLabel.text = @"--:--";
     
     if (indexPath.section == 0) {
+        NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
+        NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
         if (indexPath.row == 0) {
-            NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
-            NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-            
+            NSInteger averageWakeUpTimeInSecond = [[[[[Statistic alloc] init] showWakeUpTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+            if (averageWakeUpTimeInSecond) {
+                dateComponents.hour = ((averageWakeUpTimeInSecond / 3600  - 8) >= 0) ? (averageWakeUpTimeInSecond / 3600 - 8) : (averageWakeUpTimeInSecond / 3600 - 8) + 24 ;
+                dateComponents.minute = ((averageWakeUpTimeInSecond / 60) % 60);
+                
+                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                [dateFormatter setDateFormat:@"HH:mm"];
+                
+                cell.detailTextLabel.text = [dateFormatter stringFromDate:[greCalendar dateFromComponents:dateComponents]];  //@"適合想要早點睡的人";
+            }
+        } else if (indexPath.row == 1) {
             NSInteger averageGoToSleepTimeInSecond = [[[[[Statistic alloc] init] showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
             if (averageGoToSleepTimeInSecond) {
                 dateComponents.hour = averageGoToSleepTimeInSecond / 3600;
@@ -88,28 +93,9 @@
                 
                 cell.detailTextLabel.text = [dateFormatter stringFromDate:[greCalendar dateFromComponents:dateComponents]];  //@"適合想要早點睡的人";
             }
-        } else if (indexPath.row == 1) {
-            NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];  //NSCalendarIdentifierGregorian
-            NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-            
-            NSInteger averageWakeUpTimeInSecond = [[[[[Statistic alloc] init] showWakeUpTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
-            if (averageWakeUpTimeInSecond) {
-                dateComponents.hour = ((averageWakeUpTimeInSecond / 3600  - 8) >= 0) ? (averageWakeUpTimeInSecond / 3600 - 8) : (averageWakeUpTimeInSecond / 3600 - 8) + 24 ;
-                dateComponents.minute = ((averageWakeUpTimeInSecond / 60) % 60);
-
-                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                [dateFormatter setDateFormat:@"HH:mm"];
-                
-                cell.detailTextLabel.text = [dateFormatter stringFromDate:[greCalendar dateFromComponents:dateComponents]];  //@"適合想要早點睡的人";
-            }
         }
         
-        if (indexPath.row == selectedRow) {
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        } else {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }
-        
+        cell.accessoryType = (indexPath.row == selectedRow) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             if (selectedRow == 2) {
@@ -128,7 +114,7 @@
     return cell;
 }
 
-#pragma mark - tableView 
+#pragma mark - tableView delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -150,7 +136,6 @@
         // 設定 ShouldGoToSleepTime
         [userPreferences setInteger:indexPath.row forKey:@"ShouldGoToSleepTime"];
         
-        
         // 設定Checkmark
         if (indexPath.row != selectedRow) {
             NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:selectedRow inSection:0];
@@ -163,7 +148,7 @@
         }
         
         // 設定 Footer
-        if (indexPath.row == 1) {
+        if (indexPath.row == 0) {
             footerText = @"選擇平均起床時間，App會把「平均起床時間」往前推 8 個小時作為希望起床時間。";
             [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
         } else {
@@ -212,25 +197,6 @@
         return footerView;
     } else {
         return nil;
-    }
-}
-
-#pragma mark -
-
-- (void)willMoveToParentViewController:(UIViewController *)parent
-{
-    if (!parent) {
-        switch ([userPreferences integerForKey:@"ShouldGoToSleepTime"]) {
-            case 0:
-                [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"希望上床時間" action:@"平均「上床」時間" label:@"智能" value:nil];
-                break;
-            case 1:
-                [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"希望上床時間" action:@"平均「起床」時間" label:@"智能" value:nil];
-                break;
-            case 2:
-                [[[GoogleAnalytics alloc] init] trackEventWithCategory:@"希望上床時間" action:@"自訂" label:@"自訂" value:nil];
-                break;
-        }
     }
 }
 
