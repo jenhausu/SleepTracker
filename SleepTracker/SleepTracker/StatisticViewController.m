@@ -98,8 +98,8 @@
     self.sleepTimeAvgLabel.text = [self stringFromTimeInterval:[sleepTimeData[2] floatValue]];
     
     if (![self.goToBedTimeAvgLabel.text isEqualToString:@"00:00"]) {
-        self.getUpTooLate.text = [NSString stringWithFormat:@"%0.01f %%", [self.statistic calculateGetUpTooLatePercentage:recent]];
-        self.goToBedTimeTooLate.text = [NSString stringWithFormat:@"%0.01f %%", [self.statistic calculateGoToBedTooLatePercentage:recent]];
+        self.getUpTooLate.text = [self.statistic calculateGetUpTooLatePercentage:recent];
+        self.goToBedTimeTooLate.text = [self.statistic calculateGoToBedTooLatePercentage:recent];
     } else {
         self.getUpTooLate.text = @"沒有資料";
         self.goToBedTimeTooLate.text = @"沒有資料";
