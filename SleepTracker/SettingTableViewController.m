@@ -194,7 +194,8 @@
             }
     } else if (indexPath.section == (setting.count - 1)) {
         if (indexPath.row == 0) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"1.2.0版 新功能"
+            NSString *title = [NSString stringWithFormat:@"%@ 版 新功能", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
                                                             message:@"1. 現在只要把通知往左滑就會有「稍後通知」、「我要熬夜」的選項了。\n2. 使用者可以決定要不要計算醒來時間。"
                                                            delegate:self
                                                   cancelButtonTitle:@"確定"
