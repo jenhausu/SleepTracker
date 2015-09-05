@@ -449,10 +449,10 @@
 
 #pragma mark - 
 
-- (float)calculateGoToBedTooLatePercentage:(NSInteger)recent
+- (NSString *)calculateGoToBedTooLatePercentage:(NSInteger)recent
 {
-    float sleepLate = 0;
-    float sleepEarly = 0;
+    NSInteger sleepLate = 0;
+    NSInteger sleepEarly = 0;
     
     fetchArray = [self.sleepDataModel fetchSleepDataSortWithAscending:YES];
     
@@ -468,7 +468,7 @@
         lastDataDate = dataDate - 1;
         
         NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-        NSDateComponents *dateComponents, *dateComponents2;
+        NSDateComponents *goToBedTimeDateComponents, *wakeUpTimeDateComponents;
         
         for (NSInteger i = 0 ; i < fetchArray.count ; i++) {
             self.sleepData = fetchArray[i];
@@ -478,10 +478,10 @@
                 
                 if (dataDate != lastDataDate) {
                     if (dataDate > (today - recent)) {
-                        dateComponents = [greCalendar components: NSCalendarUnitHour | NSCalendarUnitDay fromDate:self.sleepData.goToBedTime];
-                        dateComponents2 = [greCalendar components: NSCalendarUnitDay fromDate:self.sleepData.wakeUpTime];
+                        goToBedTimeDateComponents = [greCalendar components: NSCalendarUnitDay fromDate:self.sleepData.goToBedTime];
+                        wakeUpTimeDateComponents = [greCalendar components: NSCalendarUnitDay fromDate:self.sleepData.wakeUpTime];
                         
-                        if (dateComponents.hour >= 23 || dateComponents.day == dateComponents2.day) {
+                        if (goToBedTimeDateComponents.day == wakeUpTimeDateComponents.day) {
                             sleepLate++;
                         } else {
                             sleepEarly++;
@@ -493,15 +493,14 @@
             }
         }
     }
-
-    return ( sleepEarly / ( sleepLate + sleepEarly )) * 100;
+    return [NSString stringWithFormat:@"%ld / %ld", sleepEarly, (sleepLate + sleepEarly)];
 }
 
-- (float)calculateGetUpTooLatePercentage:(NSInteger)recent
+- (NSString *)calculateGetUpTooLatePercentage:(NSInteger)recent
 {
     [self Initailize];
-    float sleepLate = 0;
-    float sleepEarly = 0;
+    NSInteger sleepLate = 0;
+    NSInteger sleepEarly = 0;
     
     if (fetchArray.count >= 2 || (fetchArray.count == 1 && self.sleepData.wakeUpTime > 0) )
     {
@@ -528,7 +527,7 @@
                 dateComponents = [greCalendar components: NSCalendarUnitHour fromDate:wakeUpTime];
                 
                 if (lastDataDate != dataDate) {
-                    if (dateComponents.hour >= 8) {
+                    if (dateComponents.hour >= 9) {
                         sleepLate++;
                     } else {
                         sleepEarly++;
@@ -547,7 +546,7 @@
         }
     }
     
-    return ( sleepEarly / ( sleepLate + sleepEarly )) * 100 ;
+    return [NSString stringWithFormat:@"%ld / %ld", sleepEarly, (sleepLate + sleepEarly)];
 }
 
 #pragma mark -
