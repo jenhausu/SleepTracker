@@ -451,8 +451,8 @@
 
 - (NSString *)calculateGoToBedTooLatePercentage:(NSInteger)recent
 {
-    NSInteger sleepLate = 0;
-    NSInteger sleepEarly = 0;
+    int sleepLate = 0;
+    int sleepEarly = 0;
     
     fetchArray = [self.sleepDataModel fetchSleepDataSortWithAscending:YES];
     
@@ -493,14 +493,14 @@
             }
         }
     }
-    return [NSString stringWithFormat:@"%ld / %ld", sleepEarly, (sleepLate + sleepEarly)];
+    return [NSString stringWithFormat:@"%d / %d", sleepEarly, (sleepLate + sleepEarly)];
 }
 
 - (NSString *)calculateGetUpTooLatePercentage:(NSInteger)recent
 {
     [self Initailize];
-    NSInteger sleepLate = 0;
-    NSInteger sleepEarly = 0;
+    int sleepLate = 0;
+    int sleepEarly = 0;
     
     if (fetchArray.count >= 2 || (fetchArray.count == 1 && self.sleepData.wakeUpTime > 0) )
     {
@@ -546,7 +546,7 @@
         }
     }
     
-    return [NSString stringWithFormat:@"%ld / %ld", sleepEarly, (sleepLate + sleepEarly)];
+    return [NSString stringWithFormat:@"%d / %d", sleepEarly, (sleepLate + sleepEarly)];
 }
 
 #pragma mark -
