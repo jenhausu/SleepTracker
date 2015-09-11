@@ -245,6 +245,9 @@
             for (NSInteger i = 0 ; i < fetchData.count ; i++ ) {
                 [self.sleepDataModel deleteSleepData:fetchData[i]];
             }
+            
+            
+            [[[Mixpanel_Model alloc] init] trackEvent:@"刪除所有睡眠資料" key:@"" value:@""];
         }
     }
 }
