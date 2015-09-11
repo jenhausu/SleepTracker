@@ -19,6 +19,8 @@
 {
     [self initGoogleAnalytics];
     [self initMixpanel];
+    [self crashlytics];
+    [self flurry];
 }
 
 - (void)initGoogleAnalytics
