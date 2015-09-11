@@ -32,7 +32,6 @@
 		1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902071A4B52C8001A69A3 /* SleepData.m */; };
 		1D9545121B3D6C1300A56456 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */; };
 		1D995E011A7D4D37002F069C /* HopeToGoToSleepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */; };
-		1DB66ED01B6C6D0F0026AC9C /* SessionAnalsis.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB66ECF1B6C6D0F0026AC9C /* SessionAnalsis.m */; };
 		1DB66ED91B6C8D850026AC9C /* InitAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB66ED81B6C8D850026AC9C /* InitAnalytics.m */; };
 		1DB66EDF1B6C9A840026AC9C /* Mixpanel_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB66EDE1B6C9A840026AC9C /* Mixpanel_Model.m */; };
 		1DB8836D1B3FB05500ED945D /* GoogleAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8836C1B3FB05500ED945D /* GoogleAnalytics.m */; };
@@ -116,8 +115,6 @@
 		1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1D995DFF1A7D4D37002F069C /* HopeToGoToSleepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopeToGoToSleepViewController.h; sourceTree = "<group>"; };
 		1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopeToGoToSleepViewController.m; sourceTree = "<group>"; };
-		1DB66ECE1B6C6D0F0026AC9C /* SessionAnalsis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionAnalsis.h; sourceTree = "<group>"; };
-		1DB66ECF1B6C6D0F0026AC9C /* SessionAnalsis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionAnalsis.m; sourceTree = "<group>"; };
 		1DB66ED71B6C8D850026AC9C /* InitAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitAnalytics.h; sourceTree = "<group>"; };
 		1DB66ED81B6C8D850026AC9C /* InitAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitAnalytics.m; sourceTree = "<group>"; };
 		1DB66EDD1B6C9A840026AC9C /* Mixpanel_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel_Model.h; sourceTree = "<group>"; };
@@ -220,8 +217,6 @@
 			children = (
 				1DB66ED71B6C8D850026AC9C /* InitAnalytics.h */,
 				1DB66ED81B6C8D850026AC9C /* InitAnalytics.m */,
-				1DB66ECE1B6C6D0F0026AC9C /* SessionAnalsis.h */,
-				1DB66ECF1B6C6D0F0026AC9C /* SessionAnalsis.m */,
 				1DB8836B1B3FB05500ED945D /* GoogleAnalytics.h */,
 				1DB8836C1B3FB05500ED945D /* GoogleAnalytics.m */,
 				1DB66EDD1B6C9A840026AC9C /* Mixpanel_Model.h */,
@@ -634,7 +629,6 @@
 				1DBCE5B31A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m in Sources */,
 				1DC3EE8C1B43962E00D8E07B /* AwakeTimeTableViewController.m in Sources */,
 				1D8901C91A4B5119001A69A3 /* main.m in Sources */,
-				1DB66ED01B6C6D0F0026AC9C /* SessionAnalsis.m in Sources */,
 				1D1CB5BF1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m in Sources */,
 				1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */,
 				1DCDD3E61AA2CE5E00609D2F /* CustomNotification.m in Sources */,

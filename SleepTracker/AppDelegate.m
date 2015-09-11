@@ -8,8 +8,6 @@
 
 #import "AppDelegate.h"
 #import "InitAnalytics.h"
-#import "SessionAnalsis.h"
-
 #import "Mixpanel_Model.h"
 
 #import "LocalNotification.h"
@@ -115,8 +113,6 @@
 {
     if (RELEASE_MODE) {
         [[[InitAnalytics alloc] init] initAnalytics];
-        
-        [[[SessionAnalsis alloc] init] startSessionTracking];
     }
 }
 

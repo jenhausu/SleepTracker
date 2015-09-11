@@ -9,6 +9,9 @@
 #import "InitAnalytics.h"
 #import <Google/Analytics.h>
 #import "Mixpanel.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+#import "Flurry.h"
 
 @implementation InitAnalytics
 
@@ -37,6 +40,16 @@
     
     // Initialize the library with your Mixpanel project token, MIXPANEL_TOKEN
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
+}
+
+- (void)crashlytics
+{
+    [Fabric with:@[CrashlyticsKit]];
+}
+
+- (void)flurry
+{
+    [Flurry startSession:@"8YZ68WS3RF7MDS5PY43D"];
 }
 
 @end
