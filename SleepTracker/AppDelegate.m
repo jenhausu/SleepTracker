@@ -64,13 +64,15 @@
     [[[LocalNotification alloc] init] initLocalNotification];
     
     NSUserDefaults *userPreferences = [NSUserDefaults standardUserDefaults];
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    
     if (![userPreferences boolForKey:@"NotFirstLaunch"]) {
         [userPreferences setBool:YES forKey:@"重複發出睡前通知"];
         [userPreferences setBool:YES forKey:@"NotFirstLaunch"];
         
-        [userPreferences setBool:YES forKey:@"1.2.0"];
-    } else if (![userPreferences boolForKey:@"1.2.0"]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"1.2.0版 新功能"
+        [userPreferences setBool:YES forKey:version];
+    } else if (![userPreferences boolForKey:version]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@ 版 新功能", version]
                                                         message:@"1. 現在只要把通知往左滑就會有「稍後通知」、「我要熬夜」的選項了。\n2. 使用者可以決定要不要計算醒來時間。"
                                                        delegate:self
                                               cancelButtonTitle:@"確定"
@@ -99,7 +101,7 @@
          }  //*/
         
         [alert show];
-        [userPreferences setBool:YES forKey:@"1.2.0"];
+        [userPreferences setBool:YES forKey:version];
     }
 }
 
