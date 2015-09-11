@@ -73,7 +73,7 @@
         [userPreferences setBool:YES forKey:version];   //如果是第一次開啟這個App那就不顯示這次版本更新增新功能的說明了
     } else if (![userPreferences boolForKey:version]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@ 版 新功能", version]
-                                                        message:@"1. 現在只要把通知往左滑就會有「稍後通知」、「我要熬夜」的選項了。\n2. 使用者可以決定要不要計算醒來時間。"
+                                                        message:@"1. 改成計算早於十二點上床及早於九點起床，並且改成計算次數而不是百分比\n2. 增加「一鍵刪除所有睡眠資料」的功能"
                                                        delegate:self
                                               cancelButtonTitle:@"確定"
                                               otherButtonTitles:nil, nil];
