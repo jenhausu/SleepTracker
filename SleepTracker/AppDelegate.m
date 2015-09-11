@@ -57,7 +57,7 @@
     [self saveContext];
 }
 
-#pragma mark -
+#pragma mark - First Launch
 
 - (void)firstLaunch
 {
@@ -70,7 +70,7 @@
         [userPreferences setBool:YES forKey:@"重複發出睡前通知"];
         [userPreferences setBool:YES forKey:@"NotFirstLaunch"];
         
-        [userPreferences setBool:YES forKey:version];
+        [userPreferences setBool:YES forKey:version];   //如果是第一次開啟這個App那就不顯示這次版本更新增新功能的說明了
     } else if (![userPreferences boolForKey:version]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@ 版 新功能", version]
                                                         message:@"1. 現在只要把通知往左滑就會有「稍後通知」、「我要熬夜」的選項了。\n2. 使用者可以決定要不要計算醒來時間。"
@@ -105,6 +105,8 @@
     }
 }
 
+#pragma mark - Analytics
+
 #ifdef DEBUG
     #define RELEASE_MODE NO
 #else
@@ -118,7 +120,7 @@
     }
 }
 
-#pragma mark - SleepNotification
+#pragma mark - Sleep Notification
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
