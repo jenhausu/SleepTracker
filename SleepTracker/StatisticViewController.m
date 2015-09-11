@@ -8,6 +8,7 @@
 
 #import "StatisticViewController.h"
 #import "GoogleAnalytics.h"
+#import "Mixpanel_Model.h"
 
 #import "Statistic.h"
 
@@ -50,6 +51,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「統計圖表」頁面" key:@"view" value:@"viewDidLoad"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -57,6 +60,9 @@
     [super viewDidAppear:NO];
     
     [self judgeWhichSegmentSelected];
+    
+    
+    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「統計圖表」頁面" key:@"view" value:@"viewDidAppear"];
 }
 
 - (IBAction)segmentChange:(id)sender
@@ -69,12 +75,15 @@
     switch (self.segment.selectedSegmentIndex) {
         case 0:
             [self showStatistic:7];
+            [[[Mixpanel_Model alloc] init] trackEvent:@"查看「統計圖表」頁面" key:@"時間間隔" value:@"最近七天"];
             break;
         case 1:
             [self showStatistic:30];
+            [[[Mixpanel_Model alloc] init] trackEvent:@"查看「統計圖表」頁面" key:@"時間間隔" value:@"最近一個月"];
             break;
         case 2:
             [self showStatistic:183];
+            [[[Mixpanel_Model alloc] init] trackEvent:@"查看「統計圖表」頁面" key:@"時間間隔" value:@"最近半年"];
             break;
     }
 }
