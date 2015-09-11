@@ -8,8 +8,6 @@
 
 #import "AppDelegate.h"
 #import "InitAnalytics.h"
-#import "SessionAnalsis.h"
-
 #import "Mixpanel_Model.h"
 
 #import "LocalNotification.h"
@@ -115,8 +113,6 @@
 {
     if (RELEASE_MODE) {
         [[[InitAnalytics alloc] init] initAnalytics];
-        
-        [[[SessionAnalsis alloc] init] startSessionTracking];
     }
 }
 
@@ -189,8 +185,6 @@
             default:
                 break;
         }
-    } else {
-        [[[Mixpanel_Model alloc] init] trackEvent:@"首次開啟新版" key:@"" value:@""];  //這行程式碼放在這邊是因為放在顯示alertView哪裏不知道為什麼追蹤事件就是沒辦法成功發出
     }
 }
 
