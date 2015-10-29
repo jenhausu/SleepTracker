@@ -1,0 +1,863 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D0581BE1BA2996600EA4DF4 /* libFlurry_7.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0581BC1BA2996600EA4DF4 /* libFlurry_7.1.0.a */; };
+		1D1CB5BF1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1CB5BE1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m */; };
+		1D26812A1A4C070300D510F8 /* History2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2681291A4C070300D510F8 /* History2TableViewController.m */; };
+		1D2C076A1AA057A500434EF2 /* CustomNotification-Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2C07691AA057A500434EF2 /* CustomNotification-Model.m */; };
+		1D2DB7EA1A6D677000A72EFA /* Statistic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB7E91A6D677000A72EFA /* Statistic.m */; };
+		1D2DB7EE1A6DA4B300A72EFA /* SleepRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB7ED1A6DA4B300A72EFA /* SleepRecordViewController.m */; };
+		1D2DB7F41A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB7F31A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m */; };
+		1D2DB7FA1A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB7F91A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.m */; };
+		1D2DB7FD1A70F30E00A72EFA /* CustomNotificationTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB7FC1A70F30E00A72EFA /* CustomNotificationTwoViewController.m */; };
+		1D3BB38A1AA1BE2500349F5A /* CNDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BB3891AA1BE2500349F5A /* CNDetailViewController.m */; };
+		1D7C39041A4C811800A02793 /* History3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C39031A4C811800A02793 /* History3ViewController.m */; };
+		1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C39071A4C909D00A02793 /* StatisticViewController.m */; };
+		1D7C390B1A4C962500A02793 /* WakeUp2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C390A1A4C962500A02793 /* WakeUp2ViewController.m */; };
+		1D8901C91A4B5119001A69A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901C81A4B5119001A69A3 /* main.m */; };
+		1D8901CC1A4B5119001A69A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901CB1A4B5119001A69A3 /* AppDelegate.m */; };
+		1D8901CF1A4B5119001A69A3 /* SleepTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901CD1A4B5119001A69A3 /* SleepTracker.xcdatamodeld */; };
+		1D8901D71A4B5119001A69A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D8901D61A4B5119001A69A3 /* Images.xcassets */; };
+		1D8901E61A4B511A001A69A3 /* SleepTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901E51A4B511A001A69A3 /* SleepTrackerTests.m */; };
+		1D8901FE1A4B5199001A69A3 /* SleepDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901F01A4B5199001A69A3 /* SleepDataModel.m */; };
+		1D8902011A4B5199001A69A3 /* WakeUpTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901F61A4B5199001A69A3 /* WakeUpTableViewController.m */; };
+		1D8902021A4B5199001A69A3 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901F81A4B5199001A69A3 /* HistoryTableViewController.m */; };
+		1D8902051A4B5199001A69A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8901FD1A4B5199001A69A3 /* Main.storyboard */; };
+		1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902071A4B52C8001A69A3 /* SleepData.m */; };
+		1D9545121B3D6C1300A56456 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */; };
+		1D995E011A7D4D37002F069C /* HopeToGoToSleepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */; };
+		1DB66ED91B6C8D850026AC9C /* InitAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB66ED81B6C8D850026AC9C /* InitAnalytics.m */; };
+		1DB66EDF1B6C9A840026AC9C /* Mixpanel_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB66EDE1B6C9A840026AC9C /* Mixpanel_Model.m */; };
+		1DB8836D1B3FB05500ED945D /* GoogleAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8836C1B3FB05500ED945D /* GoogleAnalytics.m */; };
+		1DBC7C031A70FD81007B35B8 /* IntelligentNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */; };
+		1DBC7C0F1A70FFBB007B35B8 /* LocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC7C0E1A70FFBB007B35B8 /* LocalNotification.m */; };
+		1DBCE4941AD39BC1001DCB80 /* double_bed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCE4931AD39BC1001DCB80 /* double_bed@2x.png */; };
+		1DBCE4AA1AD3A334001DCB80 /* Settings-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCE4A91AD3A334001DCB80 /* Settings-50@2x.png */; };
+		1DBCE4AC1AD3A39F001DCB80 /* Tones-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCE4AB1AD3A39F001DCB80 /* Tones-50@2x.png */; };
+		1DBCE4AE1AD3A3F2001DCB80 /* Combo Chart-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCE4AD1AD3A3F2001DCB80 /* Combo Chart-50@2x.png */; };
+		1DBCE4B01AD3A512001DCB80 /* Create New-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCE4AF1AD3A512001DCB80 /* Create New-50@2x.png */; };
+		1DBCE5B31A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCE5B21A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m */; };
+		1DBCE5B71A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCE5B61A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m */; };
+		1DC3EE8C1B43962E00D8E07B /* AwakeTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC3EE8B1B43962E00D8E07B /* AwakeTimeTableViewController.m */; };
+		1DCDD3E31AA1E59200609D2F /* CustomNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDD3E21AA1E59200609D2F /* CustomNotificationTableViewCell.m */; };
+		1DCDD3E61AA2CE5E00609D2F /* CustomNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDD3E51AA2CE5E00609D2F /* CustomNotification.m */; };
+		1DD087091B2D42CD00B37D2D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD087071B2D42CD00B37D2D /* Fabric.framework */; };
+		1DD0870A1B2D42CD00B37D2D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD087081B2D42CD00B37D2D /* Crashlytics.framework */; };
+		1DD087121B2D69CB00B37D2D /* SleepNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD087111B2D69CB00B37D2D /* SleepNotification.m */; };
+		1DF063F61A8C59F600F21359 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF063F51A8C59F600F21359 /* SettingTableViewController.m */; };
+		1DF063F81A8C626700F21359 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF063F71A8C626700F21359 /* MessageUI.framework */; };
+		20CA469D72F9106760CE42DE /* libPods-SleepTracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4CFECD7E8141717536E85BD /* libPods-SleepTracker.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1D8901E01A4B511A001A69A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D8901BB1A4B5119001A69A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D8901C21A4B5119001A69A3;
+			remoteInfo = SleepTracker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		13771A9ECBD6E70377BAA514 /* Pods-SleepTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		1D0581BC1BA2996600EA4DF4 /* libFlurry_7.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_7.1.0.a; sourceTree = "<group>"; };
+		1D0581BD1BA2996600EA4DF4 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		1D1CB5BD1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShouldGoToSleepTimeTableViewController.h; sourceTree = "<group>"; };
+		1D1CB5BE1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShouldGoToSleepTimeTableViewController.m; sourceTree = "<group>"; };
+		1D2681281A4C070300D510F8 /* History2TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History2TableViewController.h; sourceTree = "<group>"; };
+		1D2681291A4C070300D510F8 /* History2TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History2TableViewController.m; sourceTree = "<group>"; };
+		1D2C07681AA057A500434EF2 /* CustomNotification-Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CustomNotification-Model.h"; sourceTree = "<group>"; };
+		1D2C07691AA057A500434EF2 /* CustomNotification-Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CustomNotification-Model.m"; sourceTree = "<group>"; };
+		1D2DB7E81A6D677000A72EFA /* Statistic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Statistic.h; sourceTree = "<group>"; };
+		1D2DB7E91A6D677000A72EFA /* Statistic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Statistic.m; sourceTree = "<group>"; };
+		1D2DB7EC1A6DA4B300A72EFA /* SleepRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepRecordViewController.h; sourceTree = "<group>"; };
+		1D2DB7ED1A6DA4B300A72EFA /* SleepRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepRecordViewController.m; sourceTree = "<group>"; };
+		1D2DB7F21A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntelligentNotificationTableViewController.h; sourceTree = "<group>"; };
+		1D2DB7F31A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntelligentNotificationTableViewController.m; sourceTree = "<group>"; };
+		1D2DB7F81A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomeNotificationOneTableViewController.h; sourceTree = "<group>"; };
+		1D2DB7F91A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomeNotificationOneTableViewController.m; sourceTree = "<group>"; };
+		1D2DB7FB1A70F30E00A72EFA /* CustomNotificationTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNotificationTwoViewController.h; sourceTree = "<group>"; };
+		1D2DB7FC1A70F30E00A72EFA /* CustomNotificationTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNotificationTwoViewController.m; sourceTree = "<group>"; };
+		1D3BB3881AA1BE2500349F5A /* CNDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNDetailViewController.h; sourceTree = "<group>"; };
+		1D3BB3891AA1BE2500349F5A /* CNDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNDetailViewController.m; sourceTree = "<group>"; };
+		1D7C39021A4C811800A02793 /* History3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History3ViewController.h; sourceTree = "<group>"; };
+		1D7C39031A4C811800A02793 /* History3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History3ViewController.m; sourceTree = "<group>"; };
+		1D7C39061A4C909D00A02793 /* StatisticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticViewController.h; sourceTree = "<group>"; };
+		1D7C39071A4C909D00A02793 /* StatisticViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticViewController.m; sourceTree = "<group>"; };
+		1D7C39091A4C962500A02793 /* WakeUp2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WakeUp2ViewController.h; sourceTree = "<group>"; };
+		1D7C390A1A4C962500A02793 /* WakeUp2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WakeUp2ViewController.m; sourceTree = "<group>"; };
+		1D8901C31A4B5119001A69A3 /* SleepTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D8901C71A4B5119001A69A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D8901C81A4B5119001A69A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1D8901CA1A4B5119001A69A3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1D8901CB1A4B5119001A69A3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1D8901CE1A4B5119001A69A3 /* SleepTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SleepTracker.xcdatamodel; sourceTree = "<group>"; };
+		1D8901D61A4B5119001A69A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1D8901DF1A4B511A001A69A3 /* SleepTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D8901E41A4B511A001A69A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D8901E51A4B511A001A69A3 /* SleepTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SleepTrackerTests.m; sourceTree = "<group>"; };
+		1D8901EF1A4B5199001A69A3 /* SleepDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepDataModel.h; sourceTree = "<group>"; };
+		1D8901F01A4B5199001A69A3 /* SleepDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepDataModel.m; sourceTree = "<group>"; };
+		1D8901F51A4B5199001A69A3 /* WakeUpTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WakeUpTableViewController.h; sourceTree = "<group>"; };
+		1D8901F61A4B5199001A69A3 /* WakeUpTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WakeUpTableViewController.m; sourceTree = "<group>"; };
+		1D8901F71A4B5199001A69A3 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
+		1D8901F81A4B5199001A69A3 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
+		1D8901FD1A4B5199001A69A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1D8902061A4B52C8001A69A3 /* SleepData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepData.h; sourceTree = "<group>"; };
+		1D8902071A4B52C8001A69A3 /* SleepData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepData.m; sourceTree = "<group>"; };
+		1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1D995DFF1A7D4D37002F069C /* HopeToGoToSleepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopeToGoToSleepViewController.h; sourceTree = "<group>"; };
+		1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopeToGoToSleepViewController.m; sourceTree = "<group>"; };
+		1DB66ED71B6C8D850026AC9C /* InitAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitAnalytics.h; sourceTree = "<group>"; };
+		1DB66ED81B6C8D850026AC9C /* InitAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitAnalytics.m; sourceTree = "<group>"; };
+		1DB66EDD1B6C9A840026AC9C /* Mixpanel_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel_Model.h; sourceTree = "<group>"; };
+		1DB66EDE1B6C9A840026AC9C /* Mixpanel_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mixpanel_Model.m; sourceTree = "<group>"; };
+		1DB8836B1B3FB05500ED945D /* GoogleAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleAnalytics.h; sourceTree = "<group>"; };
+		1DB8836C1B3FB05500ED945D /* GoogleAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleAnalytics.m; sourceTree = "<group>"; };
+		1DBC7C011A70FD81007B35B8 /* IntelligentNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntelligentNotification.h; sourceTree = "<group>"; };
+		1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntelligentNotification.m; sourceTree = "<group>"; };
+		1DBC7C0D1A70FFBB007B35B8 /* LocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotification.h; sourceTree = "<group>"; };
+		1DBC7C0E1A70FFBB007B35B8 /* LocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotification.m; sourceTree = "<group>"; };
+		1DBCE4931AD39BC1001DCB80 /* double_bed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "double_bed@2x.png"; sourceTree = "<group>"; };
+		1DBCE4A91AD3A334001DCB80 /* Settings-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-50@2x.png"; sourceTree = "<group>"; };
+		1DBCE4AB1AD3A39F001DCB80 /* Tones-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tones-50@2x.png"; sourceTree = "<group>"; };
+		1DBCE4AD1AD3A3F2001DCB80 /* Combo Chart-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Combo Chart-50@2x.png"; sourceTree = "<group>"; };
+		1DBCE4AF1AD3A512001DCB80 /* Create New-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Create New-50@2x.png"; sourceTree = "<group>"; };
+		1DBCE5B11A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewSleepdataTableViewController.h; sourceTree = "<group>"; };
+		1DBCE5B21A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewSleepdataTableViewController.m; sourceTree = "<group>"; };
+		1DBCE5B51A7BA319009DDCDC /* AddNewSleepdataTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewSleepdataTwoViewController.h; sourceTree = "<group>"; };
+		1DBCE5B61A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewSleepdataTwoViewController.m; sourceTree = "<group>"; };
+		1DC3EE8A1B43962E00D8E07B /* AwakeTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwakeTimeTableViewController.h; sourceTree = "<group>"; };
+		1DC3EE8B1B43962E00D8E07B /* AwakeTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwakeTimeTableViewController.m; sourceTree = "<group>"; };
+		1DCDD3E11AA1E59200609D2F /* CustomNotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNotificationTableViewCell.h; sourceTree = "<group>"; };
+		1DCDD3E21AA1E59200609D2F /* CustomNotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNotificationTableViewCell.m; sourceTree = "<group>"; };
+		1DCDD3E41AA2CE5E00609D2F /* CustomNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNotification.h; sourceTree = "<group>"; };
+		1DCDD3E51AA2CE5E00609D2F /* CustomNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNotification.m; sourceTree = "<group>"; };
+		1DD087071B2D42CD00B37D2D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		1DD087081B2D42CD00B37D2D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		1DD087101B2D69CB00B37D2D /* SleepNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepNotification.h; sourceTree = "<group>"; };
+		1DD087111B2D69CB00B37D2D /* SleepNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepNotification.m; sourceTree = "<group>"; };
+		1DF063F41A8C59F600F21359 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
+		1DF063F51A8C59F600F21359 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
+		1DF063F71A8C626700F21359 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		63CAB3BE578620210DEAAC9C /* Pods-SleepTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker.release.xcconfig"; sourceTree = "<group>"; };
+		A4CFECD7E8141717536E85BD /* libPods-SleepTracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SleepTracker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D8901C01A4B5119001A69A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D0581BE1BA2996600EA4DF4 /* libFlurry_7.1.0.a in Frameworks */,
+				1DF063F81A8C626700F21359 /* MessageUI.framework in Frameworks */,
+				1DD0870A1B2D42CD00B37D2D /* Crashlytics.framework in Frameworks */,
+				1DD087091B2D42CD00B37D2D /* Fabric.framework in Frameworks */,
+				20CA469D72F9106760CE42DE /* libPods-SleepTracker.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D8901DC1A4B511A001A69A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1D1CB5BC1AA6FF54002186E1 /* shouldGoToSleepTime */ = {
+			isa = PBXGroup;
+			children = (
+				1D1CB5BD1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.h */,
+				1D1CB5BE1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m */,
+				1D995DFF1A7D4D37002F069C /* HopeToGoToSleepViewController.h */,
+				1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */,
+			);
+			name = shouldGoToSleepTime;
+			sourceTree = "<group>";
+		};
+		1D1F91141AAED8AC0029BCD8 /* Tab Bar icon */ = {
+			isa = PBXGroup;
+			children = (
+				1DBCE4AF1AD3A512001DCB80 /* Create New-50@2x.png */,
+				1DBCE4931AD39BC1001DCB80 /* double_bed@2x.png */,
+				1DBCE4AD1AD3A3F2001DCB80 /* Combo Chart-50@2x.png */,
+				1DBCE4AB1AD3A39F001DCB80 /* Tones-50@2x.png */,
+				1DBCE4A91AD3A334001DCB80 /* Settings-50@2x.png */,
+			);
+			name = "Tab Bar icon";
+			sourceTree = "<group>";
+		};
+		1D2DB7FE1A70F31800A72EFA /* Custom Notification */ = {
+			isa = PBXGroup;
+			children = (
+				1D2DB7F81A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.h */,
+				1D2DB7F91A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.m */,
+				1D2DB7FB1A70F30E00A72EFA /* CustomNotificationTwoViewController.h */,
+				1D2DB7FC1A70F30E00A72EFA /* CustomNotificationTwoViewController.m */,
+				1D3BB3881AA1BE2500349F5A /* CNDetailViewController.h */,
+				1D3BB3891AA1BE2500349F5A /* CNDetailViewController.m */,
+				1DCDD3E11AA1E59200609D2F /* CustomNotificationTableViewCell.h */,
+				1DCDD3E21AA1E59200609D2F /* CustomNotificationTableViewCell.m */,
+			);
+			name = "Custom Notification";
+			sourceTree = "<group>";
+		};
+		1D5996C41B6334A800BFDB07 /* App Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				1DB66ED71B6C8D850026AC9C /* InitAnalytics.h */,
+				1DB66ED81B6C8D850026AC9C /* InitAnalytics.m */,
+				1DB8836B1B3FB05500ED945D /* GoogleAnalytics.h */,
+				1DB8836C1B3FB05500ED945D /* GoogleAnalytics.m */,
+				1DB66EDD1B6C9A840026AC9C /* Mixpanel_Model.h */,
+				1DB66EDE1B6C9A840026AC9C /* Mixpanel_Model.m */,
+				1D0581BC1BA2996600EA4DF4 /* libFlurry_7.1.0.a */,
+				1D0581BD1BA2996600EA4DF4 /* Flurry.h */,
+			);
+			name = "App Analytics";
+			sourceTree = "<group>";
+		};
+		1D807BAB1B395CCA009138D8 /* 醒來計時器歸零 */ = {
+			isa = PBXGroup;
+			children = (
+				1DC3EE8A1B43962E00D8E07B /* AwakeTimeTableViewController.h */,
+				1DC3EE8B1B43962E00D8E07B /* AwakeTimeTableViewController.m */,
+			);
+			name = "醒來計時器歸零";
+			sourceTree = "<group>";
+		};
+		1D8901BA1A4B5119001A69A3 = {
+			isa = PBXGroup;
+			children = (
+				1D8901C51A4B5119001A69A3 /* SleepTracker */,
+				1D8901E21A4B511A001A69A3 /* SleepTrackerTests */,
+				1D8901C41A4B5119001A69A3 /* Products */,
+				D0E35EE930C08809DEF0467D /* Pods */,
+				84628276B3D189C096A31A68 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1D8901C41A4B5119001A69A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D8901C31A4B5119001A69A3 /* SleepTracker.app */,
+				1D8901DF1A4B511A001A69A3 /* SleepTrackerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1D8901C51A4B5119001A69A3 /* SleepTracker */ = {
+			isa = PBXGroup;
+			children = (
+				1D8901CA1A4B5119001A69A3 /* AppDelegate.h */,
+				1D8901CB1A4B5119001A69A3 /* AppDelegate.m */,
+				1D5996C41B6334A800BFDB07 /* App Analytics */,
+				1D89020A1A4B52DB001A69A3 /* Model */,
+				1D89020B1A4B52E2001A69A3 /* Record */,
+				1D89020C1A4B52EE001A69A3 /* History */,
+				1D89020E1A4B5302001A69A3 /* Statistic */,
+				1DF063F91A8C75E800F21359 /* Sleep Notificaiton */,
+				1D89020D1A4B52FA001A69A3 /* Setting */,
+				1D8901FD1A4B5199001A69A3 /* Main.storyboard */,
+				1D89020F1A4B5C84001A69A3 /* Images */,
+				1D8901C61A4B5119001A69A3 /* Supporting Files */,
+			);
+			path = SleepTracker;
+			sourceTree = "<group>";
+		};
+		1D8901C61A4B5119001A69A3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1D8901C71A4B5119001A69A3 /* Info.plist */,
+				1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */,
+				1D8901C81A4B5119001A69A3 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1D8901E21A4B511A001A69A3 /* SleepTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				1D8901E51A4B511A001A69A3 /* SleepTrackerTests.m */,
+				1D8901E31A4B511A001A69A3 /* Supporting Files */,
+			);
+			path = SleepTrackerTests;
+			sourceTree = "<group>";
+		};
+		1D8901E31A4B511A001A69A3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1D8901E41A4B511A001A69A3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1D8902091A4B52D0001A69A3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				1D8901CD1A4B5119001A69A3 /* SleepTracker.xcdatamodeld */,
+				1D8902061A4B52C8001A69A3 /* SleepData.h */,
+				1D8902071A4B52C8001A69A3 /* SleepData.m */,
+				1DCDD3E41AA2CE5E00609D2F /* CustomNotification.h */,
+				1DCDD3E51AA2CE5E00609D2F /* CustomNotification.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		1D89020A1A4B52DB001A69A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1D8902091A4B52D0001A69A3 /* CoreData */,
+				1D8901EF1A4B5199001A69A3 /* SleepDataModel.h */,
+				1D8901F01A4B5199001A69A3 /* SleepDataModel.m */,
+				1D2DB7E81A6D677000A72EFA /* Statistic.h */,
+				1D2DB7E91A6D677000A72EFA /* Statistic.m */,
+				1DD0870F1B2D69B500B37D2D /* Sleep Notification */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1D89020B1A4B52E2001A69A3 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				1D2DB7EC1A6DA4B300A72EFA /* SleepRecordViewController.h */,
+				1D2DB7ED1A6DA4B300A72EFA /* SleepRecordViewController.m */,
+				1D8901F51A4B5199001A69A3 /* WakeUpTableViewController.h */,
+				1D8901F61A4B5199001A69A3 /* WakeUpTableViewController.m */,
+				1D7C39091A4C962500A02793 /* WakeUp2ViewController.h */,
+				1D7C390A1A4C962500A02793 /* WakeUp2ViewController.m */,
+			);
+			name = Record;
+			sourceTree = "<group>";
+		};
+		1D89020C1A4B52EE001A69A3 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				1D8901F71A4B5199001A69A3 /* HistoryTableViewController.h */,
+				1D8901F81A4B5199001A69A3 /* HistoryTableViewController.m */,
+				1DBCE5B01A7BA2C0009DDCDC /* Sleepdata Details */,
+				1DBCE5B41A7BA2F6009DDCDC /* Add New Sleepdata */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
+		1D89020D1A4B52FA001A69A3 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				1DF063F41A8C59F600F21359 /* SettingTableViewController.h */,
+				1DF063F51A8C59F600F21359 /* SettingTableViewController.m */,
+				1D1CB5BC1AA6FF54002186E1 /* shouldGoToSleepTime */,
+				1D807BAB1B395CCA009138D8 /* 醒來計時器歸零 */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		1D89020E1A4B5302001A69A3 /* Statistic */ = {
+			isa = PBXGroup;
+			children = (
+				1D7C39061A4C909D00A02793 /* StatisticViewController.h */,
+				1D7C39071A4C909D00A02793 /* StatisticViewController.m */,
+			);
+			name = Statistic;
+			sourceTree = "<group>";
+		};
+		1D89020F1A4B5C84001A69A3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1D1F91141AAED8AC0029BCD8 /* Tab Bar icon */,
+				1D8901D61A4B5119001A69A3 /* Images.xcassets */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		1DBCE5B01A7BA2C0009DDCDC /* Sleepdata Details */ = {
+			isa = PBXGroup;
+			children = (
+				1D2681281A4C070300D510F8 /* History2TableViewController.h */,
+				1D2681291A4C070300D510F8 /* History2TableViewController.m */,
+				1D7C39021A4C811800A02793 /* History3ViewController.h */,
+				1D7C39031A4C811800A02793 /* History3ViewController.m */,
+			);
+			name = "Sleepdata Details";
+			sourceTree = "<group>";
+		};
+		1DBCE5B41A7BA2F6009DDCDC /* Add New Sleepdata */ = {
+			isa = PBXGroup;
+			children = (
+				1DBCE5B11A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.h */,
+				1DBCE5B21A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m */,
+				1DBCE5B51A7BA319009DDCDC /* AddNewSleepdataTwoViewController.h */,
+				1DBCE5B61A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m */,
+			);
+			name = "Add New Sleepdata";
+			sourceTree = "<group>";
+		};
+		1DD0870F1B2D69B500B37D2D /* Sleep Notification */ = {
+			isa = PBXGroup;
+			children = (
+				1DBC7C0D1A70FFBB007B35B8 /* LocalNotification.h */,
+				1DBC7C0E1A70FFBB007B35B8 /* LocalNotification.m */,
+				1DBC7C011A70FD81007B35B8 /* IntelligentNotification.h */,
+				1DBC7C021A70FD81007B35B8 /* IntelligentNotification.m */,
+				1D2C07681AA057A500434EF2 /* CustomNotification-Model.h */,
+				1D2C07691AA057A500434EF2 /* CustomNotification-Model.m */,
+				1DD087101B2D69CB00B37D2D /* SleepNotification.h */,
+				1DD087111B2D69CB00B37D2D /* SleepNotification.m */,
+			);
+			name = "Sleep Notification";
+			sourceTree = "<group>";
+		};
+		1DF063F91A8C75E800F21359 /* Sleep Notificaiton */ = {
+			isa = PBXGroup;
+			children = (
+				1D2DB7F21A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.h */,
+				1D2DB7F31A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m */,
+				1D2DB7FE1A70F31800A72EFA /* Custom Notification */,
+			);
+			name = "Sleep Notificaiton";
+			sourceTree = "<group>";
+		};
+		84628276B3D189C096A31A68 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF063F71A8C626700F21359 /* MessageUI.framework */,
+				1DD087071B2D42CD00B37D2D /* Fabric.framework */,
+				1DD087081B2D42CD00B37D2D /* Crashlytics.framework */,
+				A4CFECD7E8141717536E85BD /* libPods-SleepTracker.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0E35EE930C08809DEF0467D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				13771A9ECBD6E70377BAA514 /* Pods-SleepTracker.debug.xcconfig */,
+				63CAB3BE578620210DEAAC9C /* Pods-SleepTracker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D8901C21A4B5119001A69A3 /* SleepTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D8901E91A4B511A001A69A3 /* Build configuration list for PBXNativeTarget "SleepTracker" */;
+			buildPhases = (
+				B3D2AD793F0FD7F2078D5FAB /* Check Pods Manifest.lock */,
+				1D8901BF1A4B5119001A69A3 /* Sources */,
+				1D8901C01A4B5119001A69A3 /* Frameworks */,
+				1D8901C11A4B5119001A69A3 /* Resources */,
+				1DD087061B2D428D00B37D2D /* ShellScript */,
+				A0BC8CB4CDC00C7C7969AEA8 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SleepTracker;
+			productName = SleepTracker;
+			productReference = 1D8901C31A4B5119001A69A3 /* SleepTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1D8901DE1A4B511A001A69A3 /* SleepTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D8901EC1A4B511A001A69A3 /* Build configuration list for PBXNativeTarget "SleepTrackerTests" */;
+			buildPhases = (
+				1D8901DB1A4B511A001A69A3 /* Sources */,
+				1D8901DC1A4B511A001A69A3 /* Frameworks */,
+				1D8901DD1A4B511A001A69A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1D8901E11A4B511A001A69A3 /* PBXTargetDependency */,
+			);
+			name = SleepTrackerTests;
+			productName = SleepTrackerTests;
+			productReference = 1D8901DF1A4B511A001A69A3 /* SleepTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1D8901BB1A4B5119001A69A3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "蘇健豪";
+				TargetAttributes = {
+					1D8901C21A4B5119001A69A3 = {
+						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = Z2Y87QNVT9;
+					};
+					1D8901DE1A4B511A001A69A3 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 1D8901C21A4B5119001A69A3;
+					};
+				};
+			};
+			buildConfigurationList = 1D8901BE1A4B5119001A69A3 /* Build configuration list for PBXProject "SleepTracker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1D8901BA1A4B5119001A69A3;
+			productRefGroup = 1D8901C41A4B5119001A69A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D8901C21A4B5119001A69A3 /* SleepTracker */,
+				1D8901DE1A4B511A001A69A3 /* SleepTrackerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D8901C11A4B5119001A69A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DBCE4941AD39BC1001DCB80 /* double_bed@2x.png in Resources */,
+				1D9545121B3D6C1300A56456 /* GoogleService-Info.plist in Resources */,
+				1DBCE4B01AD3A512001DCB80 /* Create New-50@2x.png in Resources */,
+				1D8902051A4B5199001A69A3 /* Main.storyboard in Resources */,
+				1DBCE4AA1AD3A334001DCB80 /* Settings-50@2x.png in Resources */,
+				1DBCE4AE1AD3A3F2001DCB80 /* Combo Chart-50@2x.png in Resources */,
+				1DBCE4AC1AD3A39F001DCB80 /* Tones-50@2x.png in Resources */,
+				1D8901D71A4B5119001A69A3 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D8901DD1A4B511A001A69A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1DD087061B2D428D00B37D2D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run fe4e3029cb8b16a4090a639738cd883da14c63c5 ca7e9d93baac38d611e659a233772b2ecaea2649e82eeae23faf48fdc0f18b19";
+		};
+		A0BC8CB4CDC00C7C7969AEA8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3D2AD793F0FD7F2078D5FAB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D8901BF1A4B5119001A69A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DBC7C0F1A70FFBB007B35B8 /* LocalNotification.m in Sources */,
+				1DBC7C031A70FD81007B35B8 /* IntelligentNotification.m in Sources */,
+				1D8902021A4B5199001A69A3 /* HistoryTableViewController.m in Sources */,
+				1D8901CC1A4B5119001A69A3 /* AppDelegate.m in Sources */,
+				1D7C39041A4C811800A02793 /* History3ViewController.m in Sources */,
+				1D2C076A1AA057A500434EF2 /* CustomNotification-Model.m in Sources */,
+				1D2DB7EE1A6DA4B300A72EFA /* SleepRecordViewController.m in Sources */,
+				1D8901CF1A4B5119001A69A3 /* SleepTracker.xcdatamodeld in Sources */,
+				1D8902011A4B5199001A69A3 /* WakeUpTableViewController.m in Sources */,
+				1D2DB7FA1A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.m in Sources */,
+				1DD087121B2D69CB00B37D2D /* SleepNotification.m in Sources */,
+				1D26812A1A4C070300D510F8 /* History2TableViewController.m in Sources */,
+				1DB8836D1B3FB05500ED945D /* GoogleAnalytics.m in Sources */,
+				1D2DB7EA1A6D677000A72EFA /* Statistic.m in Sources */,
+				1D8901FE1A4B5199001A69A3 /* SleepDataModel.m in Sources */,
+				1D7C390B1A4C962500A02793 /* WakeUp2ViewController.m in Sources */,
+				1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */,
+				1DB66EDF1B6C9A840026AC9C /* Mixpanel_Model.m in Sources */,
+				1D2DB7FD1A70F30E00A72EFA /* CustomNotificationTwoViewController.m in Sources */,
+				1DBCE5B71A7BA319009DDCDC /* AddNewSleepdataTwoViewController.m in Sources */,
+				1DF063F61A8C59F600F21359 /* SettingTableViewController.m in Sources */,
+				1D995E011A7D4D37002F069C /* HopeToGoToSleepViewController.m in Sources */,
+				1DB66ED91B6C8D850026AC9C /* InitAnalytics.m in Sources */,
+				1D3BB38A1AA1BE2500349F5A /* CNDetailViewController.m in Sources */,
+				1DBCE5B31A7BA2ED009DDCDC /* AddNewSleepdataTableViewController.m in Sources */,
+				1DC3EE8C1B43962E00D8E07B /* AwakeTimeTableViewController.m in Sources */,
+				1D8901C91A4B5119001A69A3 /* main.m in Sources */,
+				1D1CB5BF1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m in Sources */,
+				1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */,
+				1DCDD3E61AA2CE5E00609D2F /* CustomNotification.m in Sources */,
+				1D2DB7F41A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m in Sources */,
+				1DCDD3E31AA1E59200609D2F /* CustomNotificationTableViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D8901DB1A4B511A001A69A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D8901E61A4B511A001A69A3 /* SleepTrackerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1D8901E11A4B511A001A69A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D8901C21A4B5119001A69A3 /* SleepTracker */;
+			targetProxy = 1D8901E01A4B511A001A69A3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1D8901E71A4B511A001A69A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1D8901E81A4B511A001A69A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1D8901EA1A4B511A001A69A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13771A9ECBD6E70377BAA514 /* Pods-SleepTracker.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = SleepTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SleepTracker",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		1D8901EB1A4B511A001A69A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63CAB3BE578620210DEAAC9C /* Pods-SleepTracker.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = SleepTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SleepTracker",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		1D8901ED1A4B511A001A69A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SleepTrackerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SleepTracker.app/SleepTracker";
+			};
+			name = Debug;
+		};
+		1D8901EE1A4B511A001A69A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SleepTrackerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SleepTracker.app/SleepTracker";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D8901BE1A4B5119001A69A3 /* Build configuration list for PBXProject "SleepTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D8901E71A4B511A001A69A3 /* Debug */,
+				1D8901E81A4B511A001A69A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D8901E91A4B511A001A69A3 /* Build configuration list for PBXNativeTarget "SleepTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D8901EA1A4B511A001A69A3 /* Debug */,
+				1D8901EB1A4B511A001A69A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D8901EC1A4B511A001A69A3 /* Build configuration list for PBXNativeTarget "SleepTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D8901ED1A4B511A001A69A3 /* Debug */,
+				1D8901EE1A4B511A001A69A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1D8901CD1A4B5119001A69A3 /* SleepTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1D8901CE1A4B5119001A69A3 /* SleepTracker.xcdatamodel */,
+			);
+			currentVersion = 1D8901CE1A4B5119001A69A3 /* SleepTracker.xcdatamodel */;
+			path = SleepTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1D8901BB1A4B5119001A69A3 /* Project object */;
+}
