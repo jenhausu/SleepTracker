@@ -115,6 +115,7 @@
 		1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopeToGoToSleepViewController.m; sourceTree = "<group>"; };
 		1DA0A61E1BE1C40300B5B5CC /* libFlurry_7.2.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_7.2.1.a; sourceTree = "<group>"; };
 		1DA0A61F1BE1C40300B5B5CC /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		1DA0A6211BE1C46400B5B5CC /* FlurryWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryWatch.h; sourceTree = "<group>"; };
 		1DB66ED71B6C8D850026AC9C /* InitAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitAnalytics.h; sourceTree = "<group>"; };
 		1DB66ED81B6C8D850026AC9C /* InitAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitAnalytics.m; sourceTree = "<group>"; };
 		1DB66EDD1B6C9A840026AC9C /* Mixpanel_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel_Model.h; sourceTree = "<group>"; };
@@ -223,6 +224,7 @@
 				1DB66EDE1B6C9A840026AC9C /* Mixpanel_Model.m */,
 				1DA0A61E1BE1C40300B5B5CC /* libFlurry_7.2.1.a */,
 				1DA0A61F1BE1C40300B5B5CC /* Flurry.h */,
+				1DA0A6211BE1C46400B5B5CC /* FlurryWatch.h */,
 			);
 			name = "App Analytics";
 			sourceTree = "<group>";
