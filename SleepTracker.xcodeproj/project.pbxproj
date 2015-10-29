@@ -460,6 +460,7 @@
 				1D8901C11A4B5119001A69A3 /* Resources */,
 				1DD087061B2D428D00B37D2D /* ShellScript */,
 				A0BC8CB4CDC00C7C7969AEA8 /* Copy Pods Resources */,
+				9113C9BF28361DE70E6E37BA /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -564,6 +565,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run fe4e3029cb8b16a4090a639738cd883da14c63c5 ca7e9d93baac38d611e659a233772b2ecaea2649e82eeae23faf48fdc0f18b19";
+		};
+		9113C9BF28361DE70E6E37BA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		A0BC8CB4CDC00C7C7969AEA8 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
