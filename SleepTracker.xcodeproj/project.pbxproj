@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D0581BE1BA2996600EA4DF4 /* libFlurry_7.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0581BC1BA2996600EA4DF4 /* libFlurry_7.1.0.a */; };
 		1D1CB5BF1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1CB5BE1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m */; };
 		1D26812A1A4C070300D510F8 /* History2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2681291A4C070300D510F8 /* History2TableViewController.m */; };
 		1D2C076A1AA057A500434EF2 /* CustomNotification-Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2C07691AA057A500434EF2 /* CustomNotification-Model.m */; };
@@ -32,6 +31,7 @@
 		1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902071A4B52C8001A69A3 /* SleepData.m */; };
 		1D9545121B3D6C1300A56456 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */; };
 		1D995E011A7D4D37002F069C /* HopeToGoToSleepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */; };
+		1DA0A6201BE1C40300B5B5CC /* libFlurry_7.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA0A61E1BE1C40300B5B5CC /* libFlurry_7.2.1.a */; };
 		1DB66ED91B6C8D850026AC9C /* InitAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB66ED81B6C8D850026AC9C /* InitAnalytics.m */; };
 		1DB66EDF1B6C9A840026AC9C /* Mixpanel_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB66EDE1B6C9A840026AC9C /* Mixpanel_Model.m */; };
 		1DB8836D1B3FB05500ED945D /* GoogleAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8836C1B3FB05500ED945D /* GoogleAnalytics.m */; };
@@ -67,8 +67,6 @@
 
 /* Begin PBXFileReference section */
 		13771A9ECBD6E70377BAA514 /* Pods-SleepTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker.debug.xcconfig"; sourceTree = "<group>"; };
-		1D0581BC1BA2996600EA4DF4 /* libFlurry_7.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_7.1.0.a; sourceTree = "<group>"; };
-		1D0581BD1BA2996600EA4DF4 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		1D1CB5BD1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShouldGoToSleepTimeTableViewController.h; sourceTree = "<group>"; };
 		1D1CB5BE1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShouldGoToSleepTimeTableViewController.m; sourceTree = "<group>"; };
 		1D2681281A4C070300D510F8 /* History2TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History2TableViewController.h; sourceTree = "<group>"; };
@@ -115,6 +113,9 @@
 		1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1D995DFF1A7D4D37002F069C /* HopeToGoToSleepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopeToGoToSleepViewController.h; sourceTree = "<group>"; };
 		1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopeToGoToSleepViewController.m; sourceTree = "<group>"; };
+		1DA0A61E1BE1C40300B5B5CC /* libFlurry_7.2.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_7.2.1.a; sourceTree = "<group>"; };
+		1DA0A61F1BE1C40300B5B5CC /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		1DA0A6211BE1C46400B5B5CC /* FlurryWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryWatch.h; sourceTree = "<group>"; };
 		1DB66ED71B6C8D850026AC9C /* InitAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitAnalytics.h; sourceTree = "<group>"; };
 		1DB66ED81B6C8D850026AC9C /* InitAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitAnalytics.m; sourceTree = "<group>"; };
 		1DB66EDD1B6C9A840026AC9C /* Mixpanel_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel_Model.h; sourceTree = "<group>"; };
@@ -156,7 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D0581BE1BA2996600EA4DF4 /* libFlurry_7.1.0.a in Frameworks */,
+				1DA0A6201BE1C40300B5B5CC /* libFlurry_7.2.1.a in Frameworks */,
 				1DF063F81A8C626700F21359 /* MessageUI.framework in Frameworks */,
 				1DD0870A1B2D42CD00B37D2D /* Crashlytics.framework in Frameworks */,
 				1DD087091B2D42CD00B37D2D /* Fabric.framework in Frameworks */,
@@ -221,8 +222,9 @@
 				1DB8836C1B3FB05500ED945D /* GoogleAnalytics.m */,
 				1DB66EDD1B6C9A840026AC9C /* Mixpanel_Model.h */,
 				1DB66EDE1B6C9A840026AC9C /* Mixpanel_Model.m */,
-				1D0581BC1BA2996600EA4DF4 /* libFlurry_7.1.0.a */,
-				1D0581BD1BA2996600EA4DF4 /* Flurry.h */,
+				1DA0A61E1BE1C40300B5B5CC /* libFlurry_7.2.1.a */,
+				1DA0A61F1BE1C40300B5B5CC /* Flurry.h */,
+				1DA0A6211BE1C46400B5B5CC /* FlurryWatch.h */,
 			);
 			name = "App Analytics";
 			sourceTree = "<group>";
@@ -460,6 +462,7 @@
 				1D8901C11A4B5119001A69A3 /* Resources */,
 				1DD087061B2D428D00B37D2D /* ShellScript */,
 				A0BC8CB4CDC00C7C7969AEA8 /* Copy Pods Resources */,
+				9113C9BF28361DE70E6E37BA /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -564,6 +567,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run fe4e3029cb8b16a4090a639738cd883da14c63c5 ca7e9d93baac38d611e659a233772b2ecaea2649e82eeae23faf48fdc0f18b19";
+		};
+		9113C9BF28361DE70E6E37BA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		A0BC8CB4CDC00C7C7969AEA8 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
