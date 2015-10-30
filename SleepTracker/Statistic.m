@@ -62,7 +62,7 @@
     
     if (fetchArray.count >= 2 || (fetchArray.count == 1 && self.sleepData.wakeUpTime > 0) )
     {
-        row = ([self.sleepData.sleepTime floatValue] == 0) ? 1 : 0 ;  //如果現在是睡覺狀態，那就跳過第一筆資料，因為第一筆資料還沒有sleepTime的資料
+        row = self.sleepData.wakeUpTime ? 0 : 1 ;  //如果現在是睡覺狀態，那就跳過第一筆資料，因為第一筆資料還沒有sleepTime的資料
         self.sleepData = fetchArray[row];
         NSInteger sleepTime;
         
@@ -189,7 +189,7 @@
         
         if (([fetchArray count] == 1 && ([self.sleepData.sleepTime floatValue] > 0)) || [fetchArray count] >= 2)  //起碼要有一筆完整的資料
         {
-            row = ([self.sleepData.sleepTime floatValue] == 0) ? 1 : 0 ;  //如果現在是睡覺狀態，那就跳過第一筆資料，因為第一筆資料還沒有sleepTime的資料
+            row = self.sleepData.wakeUpTime ? 0 : 1 ;  //如果現在是睡覺狀態，那就跳過第一筆資料，因為第一筆資料還沒有sleepTime的資料
             self.sleepData = fetchArray[row];
             
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -263,7 +263,7 @@
     [self Initailize];
     if (fetchArray.count >= 2 || (fetchArray.count == 1 && self.sleepData.wakeUpTime > 0) )
     {
-        row = ([self.sleepData.sleepTime floatValue] == 0) ? 1 : 0 ;  //如果現在是睡覺狀態，那就跳過第一筆資料，因為第一筆資料還沒有sleepTime的資料
+        row = self.sleepData.wakeUpTime ? 0 : 1 ;  //如果現在是睡覺狀態，那就跳過第一筆資料，因為第一筆資料還沒有sleepTime的資料
         self.sleepData = fetchArray[row];
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
