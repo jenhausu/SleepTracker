@@ -54,7 +54,7 @@
     lastDataDate = dataDate + 1;
 }
 
-- (NSArray *)showSleepTimeDataInTheRecent:(NSInteger)recent
+- (NSArray *)sleepTimeStatisticalDataInTheRecent:(NSInteger)recent;
 {
     [self Initailize];
     
@@ -171,7 +171,7 @@
     return @[[NSNumber numberWithFloat:MIN], [NSNumber numberWithFloat:MAX], [NSNumber numberWithFloat:AVG]];
 }
 
-- (NSArray *)showGoToBedTimeDataInTheRecent:(NSInteger)recent
+- (NSArray *)goToBedTimeStatisticalDataInTheRecent:(NSInteger)recent;
 {
     [self Initailize];
     
@@ -346,7 +346,7 @@
     return @[[NSNumber numberWithFloat:MIN], [NSNumber numberWithFloat:MAX], [NSNumber numberWithFloat:AVG]];
 }
 
-- (NSArray *)showWakeUpTimeDataInTheRecent:(NSInteger)recent
+- (NSArray *)wakeUpTimeStatisticalDataInTheRecent:(NSInteger)recent;
 {
     [self Initailize];
     if (fetchArray.count >= 2 || (fetchArray.count == 1 && self.sleepData.wakeUpTime > 0) )

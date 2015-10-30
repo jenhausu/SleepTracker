@@ -204,7 +204,7 @@
                 [dateComponents setMonth:currentDate.month];
                 [dateComponents setDay:currentDate.day];
                 
-                NSInteger averageWakeUpTimeInSecond = [[[[[Statistic alloc] init] showWakeUpTimeDataInTheRecent:30] objectAtIndex:2] integerValue];
+                NSInteger averageWakeUpTimeInSecond = [[[[[Statistic alloc] init] wakeUpTimeStatisticalDataInTheRecent:30] objectAtIndex:2] integerValue];
                 if (averageWakeUpTimeInSecond) {
                     [dateComponents setHour:averageWakeUpTimeInSecond / 3600];
                     [dateComponents setMinute:((averageWakeUpTimeInSecond / 60) % 60)];
