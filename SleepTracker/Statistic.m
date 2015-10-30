@@ -54,7 +54,7 @@
     lastDataDate = dataDate + 1;
 }
 
-#pragma mark -
+#pragma mark - Calculate MAX, MIN, AVG
 
 - (NSArray *)sleepTimeStatisticalDataInTheRecent:(NSInteger)recent;
 {
@@ -359,7 +359,7 @@
     return @[[NSNumber numberWithInteger:MIN], [NSNumber numberWithInteger:MAX], [NSNumber numberWithInteger:AVG]];
 }
 
-#pragma mark -
+#pragma mark - Calculate Ratio
 
 - (NSString *)calculateGoToBedTooLatePercentage:(NSInteger)recent
 {
@@ -461,7 +461,7 @@
     return [NSString stringWithFormat:@"%d / %d", sleepEarly, (sleepLate + sleepEarly)];
 }
 
-#pragma mark -
+#pragma mark - Internal Method
 
 - (NSString *)stringFromTimeInterval:(NSTimeInterval)interval
 {
