@@ -54,6 +54,8 @@
     lastDataDate = dataDate + 1;
 }
 
+#pragma mark -
+
 - (NSArray *)sleepTimeStatisticalDataInTheRecent:(NSInteger)recent;
 {
     [self Initailize];
@@ -357,7 +359,7 @@
     return @[[NSNumber numberWithInteger:MIN], [NSNumber numberWithInteger:MAX], [NSNumber numberWithInteger:AVG]];
 }
 
-#pragma mark - 
+#pragma mark -
 
 - (NSString *)calculateGoToBedTooLatePercentage:(NSInteger)recent
 {
