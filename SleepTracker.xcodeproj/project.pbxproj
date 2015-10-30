@@ -29,6 +29,7 @@
 		1D8902021A4B5199001A69A3 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901F81A4B5199001A69A3 /* HistoryTableViewController.m */; };
 		1D8902051A4B5199001A69A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8901FD1A4B5199001A69A3 /* Main.storyboard */; };
 		1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902071A4B52C8001A69A3 /* SleepData.m */; };
+		1D8A634D1BE32159009B18BA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8A634C1BE32159009B18BA /* Launch Screen.storyboard */; };
 		1D9545121B3D6C1300A56456 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */; };
 		1D995E011A7D4D37002F069C /* HopeToGoToSleepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */; };
 		1DA0A6201BE1C40300B5B5CC /* libFlurry_7.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA0A61E1BE1C40300B5B5CC /* libFlurry_7.2.1.a */; };
@@ -110,6 +111,7 @@
 		1D8901FD1A4B5199001A69A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1D8902061A4B52C8001A69A3 /* SleepData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepData.h; sourceTree = "<group>"; };
 		1D8902071A4B52C8001A69A3 /* SleepData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepData.m; sourceTree = "<group>"; };
+		1D8A634C1BE32159009B18BA /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1D995DFF1A7D4D37002F069C /* HopeToGoToSleepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopeToGoToSleepViewController.h; sourceTree = "<group>"; };
 		1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopeToGoToSleepViewController.m; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 			children = (
 				1D1F91141AAED8AC0029BCD8 /* Tab Bar icon */,
 				1D8901D61A4B5119001A69A3 /* Images.xcassets */,
+				1D8A634C1BE32159009B18BA /* Launch Screen.storyboard */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				1DBCE4941AD39BC1001DCB80 /* double_bed@2x.png in Resources */,
 				1D9545121B3D6C1300A56456 /* GoogleService-Info.plist in Resources */,
 				1DBCE4B01AD3A512001DCB80 /* Create New-50@2x.png in Resources */,
+				1D8A634D1BE32159009B18BA /* Launch Screen.storyboard in Resources */,
 				1D8902051A4B5199001A69A3 /* Main.storyboard in Resources */,
 				1DBCE4AA1AD3A334001DCB80 /* Settings-50@2x.png in Resources */,
 				1DBCE4AE1AD3A3F2001DCB80 /* Combo Chart-50@2x.png in Resources */,
