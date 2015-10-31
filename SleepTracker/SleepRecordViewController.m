@@ -56,6 +56,9 @@
 {
     [super viewDidLoad];
     
+    self.alreadySleptLabel.font = [UIFont monospacedDigitSystemFontOfSize:17 weight:UIFontWeightLight];
+    self.alreadyAwakeTimeLabel.font = [UIFont monospacedDigitSystemFontOfSize:17 weight:UIFontWeightLight];
+    
     [[[Mixpanel_Model alloc] init] trackEvent:@"查看「紀錄」頁面" key:@"View" value:@"viewDidLoad"];
 }
 
