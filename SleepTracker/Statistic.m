@@ -392,7 +392,7 @@
             }
         }
     }
-    return [NSString stringWithFormat:@"%d / %d", sleepEarly, (sleepLate + sleepEarly)];
+    return [NSString stringWithFormat:@"%d/%d (%.1f%%)", sleepEarly, (sleepLate + sleepEarly), (float)sleepEarly / (sleepEarly + sleepLate) * 100];
 }
 
 - (NSString *)calculateGetUpTooLatePercentage:(NSInteger)recent
@@ -445,7 +445,7 @@
         }
     }
     
-    return [NSString stringWithFormat:@"%d / %d", sleepEarly, (sleepLate + sleepEarly)];
+    return [NSString stringWithFormat:@"%d/%d (%.1f%%)", sleepEarly, (sleepLate + sleepEarly), (float)sleepEarly / (sleepEarly + sleepLate) * 100];
 }
 
 #pragma mark - Internal Method
