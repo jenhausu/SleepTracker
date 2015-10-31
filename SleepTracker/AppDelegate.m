@@ -69,6 +69,7 @@
     if (![userPreferences boolForKey:@"NotFirstLaunch"]) {
         [userPreferences setBool:YES forKey:@"重複發出睡前通知"];
         [userPreferences setBool:YES forKey:@"NotFirstLaunch"];
+        [userPreferences setInteger:0 forKey:@"醒來計時器計算方式"];
         
         [userPreferences setBool:YES forKey:version];   //如果是第一次開啟這個App那就不顯示這次版本更新增新功能的說明了
     } else if (![userPreferences boolForKey:version]) {
@@ -101,6 +102,11 @@
          }  //*/
         
         [alert show];
+        
+        [userPreferences setBool:[userPreferences boolForKey:@"顯示醒了多久"] forKey:@"計算醒了多久"];
+        [userPreferences setBool:[userPreferences boolForKey:@"醒來計時器歸零"] forKey:@"醒來計時器計算方式"];
+
+        
         [userPreferences setBool:YES forKey:version];
     }
 }
