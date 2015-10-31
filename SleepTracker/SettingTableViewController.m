@@ -61,9 +61,6 @@
     }
     
     zero = @[@"照常計算", @"超過 24 小時不再計算", @"減去 24 小時", @"平均起床時間"];
-    
-    
-    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「設定」頁面" key:@"view" value:@"viewDidLoad"];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -73,7 +70,7 @@
     
     
     [[[GoogleAnalytics alloc] init] trackPageView:@"Setting"];
-    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「設定」頁面" key:@"view" value:@"viewWillAppear"];
+    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「設定」頁面"];
 }
 
 #pragma mark - Table view data source
@@ -217,7 +214,7 @@
                                                   otherButtonTitles:nil, nil];
             [alert show];
             [[[GoogleAnalytics alloc] init] trackPageView:@"New Feature Instruction"];
-            [[[Mixpanel_Model alloc] init] trackEvent:@"查看「新功能說明」" key:@"" value:@""];
+            [[[Mixpanel_Model alloc] init] trackEvent:@"查看「新功能說明」"];
         } else if (indexPath.row == [setting[indexPath.section] count] - 1) {
             if ([MFMailComposeViewController canSendMail])
             {
@@ -257,12 +254,13 @@
     if ([alertView.title isEqualToString:@"刪除所有睡眠資料"]) {
         if (buttonIndex == 1) {
             NSArray *fetchData = [self.sleepDataModel fetchSleepDataSortWithAscending:YES];
-            for (NSInteger i = 0 ; i < fetchData.count ; i++ ) {
+            NSInteger i;
+            for (i = 0 ; i < fetchData.count ; i++ ) {
                 [self.sleepDataModel deleteSleepData:fetchData[i]];
             }
             
-            
-            [[[Mixpanel_Model alloc] init] trackEvent:@"刪除所有睡眠資料" key:@"" value:@""];
+            //???: 為什麼這裡i的值是0
+            [[[Mixpanel_Model alloc] init] trackEvent:@"刪除所有睡眠資料" key:@"資料數" value:[NSNumber numberWithInteger:fetchData.count]];
         }
     }
 }

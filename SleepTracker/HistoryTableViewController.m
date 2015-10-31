@@ -45,7 +45,6 @@
     [super viewDidLoad];
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    //[[[Mixpanel_Model alloc] init] trackEvent:@"查看「睡眠足跡」頁面" key:@"view" value:@"viewDidLoad"];
 }
 
 - (void)viewWillAppear:(BOOL)animated

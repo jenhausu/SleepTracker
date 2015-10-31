@@ -56,7 +56,6 @@
 {
     [super viewDidLoad];
     
-    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「紀錄」頁面" key:@"View" value:@"viewDidLoad"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -96,7 +95,7 @@
     
     
     [[[GoogleAnalytics alloc] init] trackPageView:@"Record"];
-    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「紀錄」頁面" key:@"View" value:@"viewWillAppear"];
+    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「紀錄」頁面"];
 }
 
 - (IBAction)buttonPress:(UIButton *)sender {

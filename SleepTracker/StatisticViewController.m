@@ -52,7 +52,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「統計圖表」頁面" key:@"view" value:@"viewDidLoad"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -60,9 +59,6 @@
     [super viewDidAppear:NO];
     
     [self judgeWhichSegmentSelected];
-    
-    
-    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「統計圖表」頁面" key:@"view" value:@"viewDidAppear"];
 }
 
 - (IBAction)segmentChange:(id)sender
