@@ -239,12 +239,13 @@
     if ([alertView.title isEqualToString:@"刪除所有睡眠資料"]) {
         if (buttonIndex == 1) {
             NSArray *fetchData = [self.sleepDataModel fetchSleepDataSortWithAscending:YES];
-            for (NSInteger i = 0 ; i < fetchData.count ; i++ ) {
+            NSInteger i;
+            for (i = 0 ; i < fetchData.count ; i++ ) {
                 [self.sleepDataModel deleteSleepData:fetchData[i]];
             }
             
-            
-            [[[Mixpanel_Model alloc] init] trackEvent:@"刪除所有睡眠資料" key:@"" value:@""];
+            //???: 為什麼這裡i的值是0
+            [[[Mixpanel_Model alloc] init] trackEvent:@"刪除所有睡眠資料" key:@"資料數" value:[NSNumber numberWithInteger:fetchData.count]];
         }
     }
 }
