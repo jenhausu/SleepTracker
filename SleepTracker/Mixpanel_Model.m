@@ -14,8 +14,13 @@
 - (void)trackEvent:(NSString *)event key:(NSString *)key value:(id)value
 {
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    
     [mixpanel track:event properties:@{key: value}];
+}
+
+- (void)trackEvent:(NSString *)event
+{
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:event properties:nil];
 }
 
 @end

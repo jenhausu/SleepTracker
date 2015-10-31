@@ -63,7 +63,7 @@
     
     
     [[[GoogleAnalytics alloc] init] trackPageView:@"Setting"];
-    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「設定」頁面" key:@"view" value:@"viewWillAppear"];
+    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「設定」頁面"];
 }
 
 #pragma mark - Table view data source
@@ -199,7 +199,7 @@
                                                   otherButtonTitles:nil, nil];
             [alert show];
             [[[GoogleAnalytics alloc] init] trackPageView:@"New Feature Instruction"];
-            [[[Mixpanel_Model alloc] init] trackEvent:@"查看「新功能說明」" key:@"" value:@""];
+            [[[Mixpanel_Model alloc] init] trackEvent:@"查看「新功能說明」"];
         } else if (indexPath.row == [setting[indexPath.section] count] - 1) {
             if ([MFMailComposeViewController canSendMail])
             {

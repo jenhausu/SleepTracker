@@ -11,5 +11,6 @@
 @interface Mixpanel_Model : NSObject
 
 - (void)trackEvent:(NSString *)event key:(NSString *)key value:(id)value;
+- (void)trackEvent:(NSString *)event;
 
 @end
