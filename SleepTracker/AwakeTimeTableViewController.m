@@ -30,12 +30,8 @@
     
     userPreferences =  [NSUserDefaults standardUserDefaults];
     
-    
-    selectedRow = [userPreferences integerForKey:@"醒來計時器歸零"];
-    
-    switcher = @[@"計算今天醒了多久"];
-    after24h = @[@"照常計算", @"超過 24 小時便不再計算", @"減去 24 小時繼續計算", @"從「平均起床時間」開始計算"];
-    awakeTime = ([userPreferences boolForKey:@"顯示醒了多久"]) ? @[switcher, after24h] : @[switcher] ;
+    selectedRow = [userPreferences integerForKey:@"醒來計時器計算方式"];
+    awakeTime = @[@"照常計算", @"超過 24 小時便不再計算", @"減去 24 小時繼續計算", @"從「平均起床時間」開始計算"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -48,40 +44,27 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return awakeTime.count;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [awakeTime[section] count];
+    return awakeTime.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    cell.textLabel.text = awakeTime[indexPath.section][indexPath.row];
+    cell.textLabel.text = awakeTime[indexPath.row];
+    cell.accessoryType = (indexPath.row == selectedRow) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     
-    if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(1.0, 1.0, 20.0, 30.0)];
-            cell.accessoryView = switchControl;
-            switchControl.on = [userPreferences boolForKey:@"顯示醒了多久"];
-            [switchControl addTarget:self action:@selector(switchChanged1:) forControlEvents:UIControlEventValueChanged];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
-    } else if (indexPath.section == 1) {
-        if (indexPath.row == selectedRow) {
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        } else {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }
-    }
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 1) {
+    if (indexPath.section == 0) {
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
         
         // 原本選擇的 row
@@ -95,35 +78,8 @@
         
         // 設定新的選擇
         selectedRow = indexPath.row;
-        [userPreferences setInteger:selectedRow forKey:@"醒來計時器歸零"];
+        [userPreferences setInteger:selectedRow forKey:@"醒來計時器計算方式"];
     }
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    if (section == 1) {
-        return @"如果前一天沒有輸入資料";
-    } else {
-        return nil;
-    }
-}
-
-#pragma mark - switchChinaged
-
-- (void)switchChanged1:(id)sender
-{
-    UISwitch *switchControl = sender;
-    [userPreferences setBool:switchControl.on forKey:@"顯示醒了多久"];
-    
-    [self.tableView beginUpdates];
-    if ([userPreferences boolForKey:@"顯示醒了多久"]) {
-        awakeTime = @[switcher, after24h];
-        [self.tableView insertSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
-    } else {
-        awakeTime = @[switcher];
-        [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
-    }
-    [self.tableView endUpdates];
 }
 
 @end

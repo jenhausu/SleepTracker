@@ -46,14 +46,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    setting = @[@[@"希望上床時間"],
-                @[@"計算醒來時間", @"「睡前通知」繼續發出"],
-                @[@"刪除所有睡眠資料"],
-                @[[NSString stringWithFormat:@"%@ 版 新功能說明", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]], @"寫信給開發者"]];
+    userPreferences = [NSUserDefaults standardUserDefaults];
+    
+    if ([userPreferences boolForKey:@"計算醒了多久"]) {
+        setting = @[@[@"希望上床時間", @"計算今天醒了多久"],
+                    @[@"「睡前通知」繼續發出", @"計算醒來時間"],
+                    @[@"刪除所有睡眠資料"],
+                    @[[NSString stringWithFormat:@"%@ 版 新功能說明", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]], @"寫信給開發者"]];
+    } else {
+        setting = @[@[@"希望上床時間", @"計算今天醒了多久"],
+                    @[@"「睡前通知」繼續發出"],
+                    @[@"刪除所有睡眠資料"],
+                    @[[NSString stringWithFormat:@"%@ 版 新功能說明", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]], @"寫信給開發者"]];
+    }
     
     zero = @[@"照常計算", @"超過 24 小時不再計算", @"減去 24 小時", @"平均起床時間"];
-    
-    userPreferences = [NSUserDefaults standardUserDefaults];
     
     
     [[[Mixpanel_Model alloc] init] trackEvent:@"查看「設定」頁面" key:@"view" value:@"viewDidLoad"];
@@ -91,22 +98,30 @@
             
             cell.detailTextLabel.text = [formatter stringFromDate:[[[IntelligentNotification alloc] init] decideShouldGoToBedTime]];
             cell.detailTextLabel.font = [UIFont systemFontOfSize:15];
-        }
-    } else if (indexPath.section == 1) {
-        if (indexPath.row == 0) {
-            cell.detailTextLabel.text = [userPreferences boolForKey:@"顯示醒了多久"] ? zero[[userPreferences integerForKey:@"醒來計時器歸零"]] : @"關閉" ;
-            cell.detailTextLabel.font = [UIFont systemFontOfSize:15];
-            
-            cell.accessoryView = nil;
-            cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         } else if (indexPath.row == 1) {
             cell.detailTextLabel.text = @" ";
             
             UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(1.0, 1.0, 20.0, 30.0)];
             cell.accessoryView = switchControl;
-            switchControl.on = [userPreferences boolForKey:@"重複發出睡前通知"];
+            switchControl.on = [userPreferences boolForKey:@"計算醒了多久"];
             [switchControl addTarget:self action:@selector(switchChanged1:) forControlEvents:UIControlEventValueChanged];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            cell.detailTextLabel.text = @" ";
+            
+            UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(1.0, 1.0, 20.0, 30.0)];
+            cell.accessoryView = switchControl;
+            switchControl.on = [userPreferences boolForKey:@"重複發出睡前通知"];
+            [switchControl addTarget:self action:@selector(switchChanged2:) forControlEvents:UIControlEventValueChanged];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        } else if (indexPath.row == 1) {
+            cell.detailTextLabel.text = zero[[userPreferences integerForKey:@"醒來計時器計算方式"]] ;
+            cell.detailTextLabel.font = [UIFont systemFontOfSize:15];
+            
+            cell.accessoryView = nil;
+            cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         }
     } else if (indexPath.section == 2) {
         cell.detailTextLabel.text = @" ";
@@ -180,7 +195,7 @@
             [self pushViewController:@"ShouldGoToSleepTime" section:indexPath.section row:indexPath.row];
         }
     } else if (indexPath.section == 1) {
-        if (indexPath.row == 0) {
+        if (indexPath.row == 1) {
             [self pushViewController:@"AwakeTime" section:indexPath.section row:indexPath.row];
         }
     } else if (indexPath.section == 2) {
@@ -255,6 +270,28 @@
 #pragma mark - switchChinaged
 
 - (void)switchChanged1:(id)sender
+{
+    UISwitch *switchControl = sender;
+    [userPreferences setBool:switchControl.on forKey:@"計算醒了多久"];
+    
+    [self.tableView beginUpdates];
+    if (switchControl.on) {
+        setting = @[@[@"希望上床時間", @"計算今天醒了多久"],
+                    @[@"「睡前通知」繼續發出", @"計算醒來時間"],
+                    @[@"刪除所有睡眠資料"],
+                    @[[NSString stringWithFormat:@"%@ 版 新功能說明", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]], @"寫信給開發者"]];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+    } else {
+        setting = @[@[@"希望上床時間", @"計算今天醒了多久"],
+                    @[@"「睡前通知」繼續發出"],
+                    @[@"刪除所有睡眠資料"],
+                    @[[NSString stringWithFormat:@"%@ 版 新功能說明", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]], @"寫信給開發者"]];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+    [self.tableView endUpdates];
+}
+
+- (void)switchChanged2:(id)sender
 {
     UISwitch *switchControl = sender;
     [userPreferences setBool:switchControl.on forKey:@"重複發出睡前通知"];
