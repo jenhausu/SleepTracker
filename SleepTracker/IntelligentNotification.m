@@ -50,7 +50,7 @@
     
     switch (shouldGoToSleepTime) {
         case 0: {  //平均起床時間
-            NSInteger averageWakeUpTimeInSecond = [[[self.statistic showWakeUpTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+            NSInteger averageWakeUpTimeInSecond = [[[self.statistic wakeUpTimeStatisticalDataInTheRecent:7] objectAtIndex:2] integerValue];
             if (averageWakeUpTimeInSecond) {
                 dateComponents.hour = (((averageWakeUpTimeInSecond / 3600) - 8) >= 0) ? averageWakeUpTimeInSecond / 3600 - 8 : (averageWakeUpTimeInSecond / 3600) - 8 + 24 ;
                 dateComponents.minute = ((averageWakeUpTimeInSecond / 60) % 60);
@@ -62,7 +62,7 @@
             break;
         }
         case 1: {  //平均上床時間
-            NSInteger averageGoToSleepTimeInSecond = [[[self.statistic showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+            NSInteger averageGoToSleepTimeInSecond = [[[self.statistic goToBedTimeStatisticalDataInTheRecent:7] objectAtIndex:2] integerValue];
             if (averageGoToSleepTimeInSecond) {
                 [dateComponents setHour:averageGoToSleepTimeInSecond / 3600];
                 [dateComponents setMinute:((averageGoToSleepTimeInSecond / 60) % 60)];
@@ -143,7 +143,7 @@
     }
     
     if (fetchDataArray.count >= 2 || (fetchDataArray.count == 1 && sleepData.wakeUpTime > 0) ) {
-        NSInteger averageGoToSleepTimeInSecond = [[[self.statistic showGoToBedTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+        NSInteger averageGoToSleepTimeInSecond = [[[self.statistic goToBedTimeStatisticalDataInTheRecent:7] objectAtIndex:2] integerValue];
         [components setHour:averageGoToSleepTimeInSecond / 3600];
         [components setMinute:((averageGoToSleepTimeInSecond / 60) % 60)];
         NSDate *averageGoToSleepTime = [calendar dateFromComponents:components];
@@ -242,7 +242,7 @@
     [components setMonth:currentDateComponents.month];
     [components setDay:currentDateComponents.day];
     
-    NSInteger averageWakeUpTimeInSecond = [[[[[Statistic alloc] init] showWakeUpTimeDataInTheRecent:7] objectAtIndex:2] integerValue];
+    NSInteger averageWakeUpTimeInSecond = [[[[[Statistic alloc] init] wakeUpTimeStatisticalDataInTheRecent:7] objectAtIndex:2] integerValue];
     if (averageWakeUpTimeInSecond) {
         [components setHour:averageWakeUpTimeInSecond / 3600];
         [components setMinute:((averageWakeUpTimeInSecond / 60) % 60)];
