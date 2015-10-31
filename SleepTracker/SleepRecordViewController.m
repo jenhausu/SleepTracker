@@ -56,6 +56,8 @@
 {
     [super viewDidLoad];
     
+    self.alreadySleptLabel.font = [UIFont monospacedDigitSystemFontOfSize:17 weight:UIFontWeightLight];
+    self.alreadyAwakeTimeLabel.font = [UIFont monospacedDigitSystemFontOfSize:17 weight:UIFontWeightLight];
 }
 
 - (void)viewWillAppear:(BOOL)animated
