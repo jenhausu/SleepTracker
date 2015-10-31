@@ -73,6 +73,7 @@
     [self.tableView reloadData];
     
     [[[GoogleAnalytics alloc] init] trackPageView:@"WakeUp"];
+    [[[Mixpanel_Model alloc] init] trackEvent:@"WakeUp"];
 }
 
 #pragma mark - Table view data source

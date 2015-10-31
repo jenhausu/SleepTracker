@@ -91,9 +91,9 @@
 - (void)mixpanelAnalytics
 {
     if ([DateType isEqualToString:@"goToBedTime"]) {
-        [[[Mixpanel_Model alloc] init] trackEvent:@"起床儲存資料前修改資料" key:@"上床或起床時間" value:@"上床時間"];
+        [[[Mixpanel_Model alloc] init] trackEvent:@"WakeUp2" key:@"上床或起床時間" value:@"上床時間"];
     } else if ([DateType isEqualToString:@"wakeUpTime"]) {
-        [[[Mixpanel_Model alloc] init] trackEvent:@"起床儲存資料前修改資料" key:@"上床或起床時間" value:@"起床時間"];
+        [[[Mixpanel_Model alloc] init] trackEvent:@"WakeUp2" key:@"上床或起床時間" value:@"起床時間"];
     }
 }
 
