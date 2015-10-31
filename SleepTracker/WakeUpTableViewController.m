@@ -64,9 +64,6 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy/M/d EEE"];
     self.title = [dateFormatter stringFromDate:[NSDate date]];
-    
-    
-    [[[Mixpanel_Model alloc] init] trackEvent:@"起床準備儲存資料" key:@"" value:@""];
 }
 
 - (void)viewWillAppear:(BOOL)animated
