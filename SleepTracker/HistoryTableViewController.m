@@ -8,6 +8,8 @@
 
 #import "HistoryTableViewController.h"
 #import "GoogleAnalytics.h"
+#import "Mixpanel_Model.h"
+#import "Mixpanel.h"
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
@@ -56,7 +58,7 @@
     
     
     [[[GoogleAnalytics alloc] init] trackPageView:@"History"];
-    //[[[Mixpanel_Model alloc] init] trackEvent:@"查看「睡眠足跡」頁面" key:@"view" value:@"viewWillAppear"];
+    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「睡眠資料」頁面"];
 }
 
 #pragma mark - Table view data source
