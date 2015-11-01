@@ -465,7 +465,7 @@
 - (NSInteger)dateOrdinal:(NSDate *)date
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyyMMdd"];  // 天數
+    [formatter setDateFormat:@"yyyyDDD"];  // 天數
     
     return [[formatter stringFromDate:date] integerValue];
 }
