@@ -158,13 +158,9 @@
         }
     }
     
-    if (MIN == MIN_Default) {
-        MIN = 0;
-    }
-    
-    if (MAX == MAX_Default) {
-        MAX = 0;
-    }
+    if (MIN == MIN_Default) MIN = 0;
+    if (MAX == MAX_Default) MAX = 0;
+    if (AVG == AVG_Default) AVG = 0;
     
     
     return @[[NSNumber numberWithFloat:MIN], [NSNumber numberWithFloat:MAX], [NSNumber numberWithFloat:AVG]];
@@ -243,6 +239,8 @@
     } else if (MAX < 0) {
         MAX += 86400;
     }
+    
+    if (AVG == AVG_Default) AVG = 0;
     
     
     return @[[NSNumber numberWithFloat:MIN], [NSNumber numberWithFloat:MAX], [NSNumber numberWithFloat:AVG]];
@@ -333,16 +331,11 @@
         }
     }
     
+    if (MIN == MIN_Default) MIN = 0;
+    if (MAX == MAX_Default) MAX = 0;
+    if (AVG == AVG_Default) AVG = 0;
     
-    if (MIN == MIN_Default) {
-        MIN = 0;
-    }
     
-    if (MAX == MAX_Default) {
-        MAX = 0;
-    }
-    
-
     return @[[NSNumber numberWithInteger:MIN], [NSNumber numberWithInteger:MAX], [NSNumber numberWithInteger:AVG]];
 }
 
