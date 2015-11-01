@@ -359,11 +359,8 @@
     {
         self.sleepData = fetchArray[0];
 
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"DDD"];  // 1~366 一年的第幾天
-        
-        today = [[formatter stringFromDate:[NSDate date]] integerValue];
-        dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+        today = [self dateOrdinal:[NSDate date]];
+        dataDate = [self dateOrdinal:self.sleepData.wakeUpTime];
         lastDataDate = dataDate - 1;
         
         NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
@@ -373,7 +370,7 @@
             self.sleepData = fetchArray[i];
 
             if ([self.sleepData.sleepType isEqualToString:@"一般"]) {
-                dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+                dataDate = [self dateOrdinal:self.sleepData.wakeUpTime];
                 
                 if (dataDate != lastDataDate) {
                     if (dataDate > (today - recent)) {
@@ -388,7 +385,7 @@
                     }
                 }
                 
-                lastDataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+                lastDataDate = [self dateOrdinal:self.sleepData.wakeUpTime];
             }
         }
     }
@@ -406,11 +403,8 @@
         row = ([self.sleepData.sleepTime floatValue] == 0) ? 1 : 0 ;  //如果現在是睡覺狀態，那就跳過第一筆資料，因為第一筆資料還沒有sleepTime的資料
         self.sleepData = fetchArray[row];
         
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"DDD"];  // 1~366 一年的第幾天
-        
-        today = [[formatter stringFromDate:[NSDate date]] integerValue];
-        dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+        today = [self dateOrdinal:[NSDate date]];
+        dataDate = [self dateOrdinal:self.sleepData.wakeUpTime];
         lastDataDate = dataDate + 1;
         
         NSDate *wakeUpTime;
@@ -433,12 +427,12 @@
                     }
                 }
                 
-                lastDataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+                lastDataDate = [self dateOrdinal:self.sleepData.wakeUpTime];
             }
             
             if (++row < [fetchArray count]) {
                 self.sleepData = fetchArray[row];
-                dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+                dataDate = [self dateOrdinal:self.sleepData.wakeUpTime];
             } else {
                 break;  //如果總資料比數少於所需要計算的天數，直接跳出
             }
