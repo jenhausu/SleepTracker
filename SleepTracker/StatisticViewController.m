@@ -106,8 +106,8 @@
         self.getUpTooLate.text = [self.statistic calculateGetUpTooLatePercentage:recent];
         self.goToBedTimeTooLate.text = [self.statistic calculateGoToBedTooLatePercentage:recent];
     } else {
-        self.getUpTooLate.text = @"沒有資料";
-        self.goToBedTimeTooLate.text = @"沒有資料";
+        self.getUpTooLate.text = @"0/0 (0%)";
+        self.goToBedTimeTooLate.text = @"0/0 (0%)";
     }
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

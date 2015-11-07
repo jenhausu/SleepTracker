@@ -186,7 +186,6 @@
             lastDataDate = dataDate + 1;
             
             NSInteger goToBedTimeInSecond, avgCount = 0;
-            AVG = -86399;
             
             NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
             NSDateComponents *dateComponents;
