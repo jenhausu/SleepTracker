@@ -15,6 +15,7 @@
 		1D2DB7F41A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB7F31A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m */; };
 		1D2DB7FA1A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB7F91A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.m */; };
 		1D2DB7FD1A70F30E00A72EFA /* CustomNotificationTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB7FC1A70F30E00A72EFA /* CustomNotificationTwoViewController.m */; };
+		1D3166951BEE044400E87456 /* libFlurry_7.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3166921BEE044400E87456 /* libFlurry_7.3.0.a */; };
 		1D3BB38A1AA1BE2500349F5A /* CNDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BB3891AA1BE2500349F5A /* CNDetailViewController.m */; };
 		1D7C39041A4C811800A02793 /* History3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C39031A4C811800A02793 /* History3ViewController.m */; };
 		1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C39071A4C909D00A02793 /* StatisticViewController.m */; };
@@ -32,7 +33,6 @@
 		1D8A634D1BE32159009B18BA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8A634C1BE32159009B18BA /* Launch Screen.storyboard */; };
 		1D9545121B3D6C1300A56456 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */; };
 		1D995E011A7D4D37002F069C /* HopeToGoToSleepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */; };
-		1DA0A6201BE1C40300B5B5CC /* libFlurry_7.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA0A61E1BE1C40300B5B5CC /* libFlurry_7.2.1.a */; };
 		1DB66ED91B6C8D850026AC9C /* InitAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB66ED81B6C8D850026AC9C /* InitAnalytics.m */; };
 		1DB66EDF1B6C9A840026AC9C /* Mixpanel_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB66EDE1B6C9A840026AC9C /* Mixpanel_Model.m */; };
 		1DB8836D1B3FB05500ED945D /* GoogleAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8836C1B3FB05500ED945D /* GoogleAnalytics.m */; };
@@ -84,6 +84,9 @@
 		1D2DB7F91A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomeNotificationOneTableViewController.m; sourceTree = "<group>"; };
 		1D2DB7FB1A70F30E00A72EFA /* CustomNotificationTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNotificationTwoViewController.h; sourceTree = "<group>"; };
 		1D2DB7FC1A70F30E00A72EFA /* CustomNotificationTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNotificationTwoViewController.m; sourceTree = "<group>"; };
+		1D3166921BEE044400E87456 /* libFlurry_7.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_7.3.0.a; sourceTree = "<group>"; };
+		1D3166931BEE044400E87456 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		1D3166941BEE044400E87456 /* FlurryWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryWatch.h; sourceTree = "<group>"; };
 		1D3BB3881AA1BE2500349F5A /* CNDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNDetailViewController.h; sourceTree = "<group>"; };
 		1D3BB3891AA1BE2500349F5A /* CNDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNDetailViewController.m; sourceTree = "<group>"; };
 		1D7C39021A4C811800A02793 /* History3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History3ViewController.h; sourceTree = "<group>"; };
@@ -115,9 +118,6 @@
 		1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1D995DFF1A7D4D37002F069C /* HopeToGoToSleepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopeToGoToSleepViewController.h; sourceTree = "<group>"; };
 		1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopeToGoToSleepViewController.m; sourceTree = "<group>"; };
-		1DA0A61E1BE1C40300B5B5CC /* libFlurry_7.2.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_7.2.1.a; sourceTree = "<group>"; };
-		1DA0A61F1BE1C40300B5B5CC /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		1DA0A6211BE1C46400B5B5CC /* FlurryWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryWatch.h; sourceTree = "<group>"; };
 		1DB66ED71B6C8D850026AC9C /* InitAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitAnalytics.h; sourceTree = "<group>"; };
 		1DB66ED81B6C8D850026AC9C /* InitAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitAnalytics.m; sourceTree = "<group>"; };
 		1DB66EDD1B6C9A840026AC9C /* Mixpanel_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel_Model.h; sourceTree = "<group>"; };
@@ -159,8 +159,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DA0A6201BE1C40300B5B5CC /* libFlurry_7.2.1.a in Frameworks */,
 				1DF063F81A8C626700F21359 /* MessageUI.framework in Frameworks */,
+				1D3166951BEE044400E87456 /* libFlurry_7.3.0.a in Frameworks */,
 				1DD0870A1B2D42CD00B37D2D /* Crashlytics.framework in Frameworks */,
 				1DD087091B2D42CD00B37D2D /* Fabric.framework in Frameworks */,
 				20CA469D72F9106760CE42DE /* libPods-SleepTracker.a in Frameworks */,
@@ -224,9 +224,9 @@
 				1DB8836C1B3FB05500ED945D /* GoogleAnalytics.m */,
 				1DB66EDD1B6C9A840026AC9C /* Mixpanel_Model.h */,
 				1DB66EDE1B6C9A840026AC9C /* Mixpanel_Model.m */,
-				1DA0A61E1BE1C40300B5B5CC /* libFlurry_7.2.1.a */,
-				1DA0A61F1BE1C40300B5B5CC /* Flurry.h */,
-				1DA0A6211BE1C46400B5B5CC /* FlurryWatch.h */,
+				1D3166921BEE044400E87456 /* libFlurry_7.3.0.a */,
+				1D3166931BEE044400E87456 /* Flurry.h */,
+				1D3166941BEE044400E87456 /* FlurryWatch.h */,
 			);
 			name = "App Analytics";
 			sourceTree = "<group>";
