@@ -355,7 +355,7 @@
 2. 優化設定頁面。
 3. 計算早於12點上床、9點起床改成也會顯示百分比。
 4. 修正一些小錯誤。</string>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
