@@ -106,8 +106,8 @@
         self.getUpTooLate.text = [self.statistic calculateGetUpTooLatePercentage:recent];
         self.goToBedTimeTooLate.text = [self.statistic calculateGoToBedTooLatePercentage:recent];
     } else {
-        self.getUpTooLate.text = @"0/0 (0%)";
-        self.goToBedTimeTooLate.text = @"0/0 (0%)";
+        self.getUpTooLate.text = @"早於九點起床：0/0 (0%)";
+        self.goToBedTimeTooLate.text = @"早於十二點上床：0/0 (0%)";
     }
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
