@@ -206,13 +206,8 @@
             }
     } else if (indexPath.section == (setting.count - 1)) {
         if (indexPath.row == 0) {
-            NSString *title = [NSString stringWithFormat:@"%@ 版 新功能", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-                                                            message:@"1. 改成計算早於十二點上床及早於九點起床，並且改成計算次數而不是百分比\n2. 增加「一鍵刪除所有睡眠資料」的功能"
-                                                           delegate:self
-                                                  cancelButtonTitle:@"確定"
-                                                  otherButtonTitles:nil, nil];
-            [alert show];
+            [self pushViewController:@"Instruction" section:indexPath.section row:indexPath.row];
+            
             [[[GoogleAnalytics alloc] init] trackPageView:@"New Feature Instruction"];
             [[[Mixpanel_Model alloc] init] trackEvent:@"查看「新功能說明」"];
         } else if (indexPath.row == [setting[indexPath.section] count] - 1) {

@@ -74,7 +74,7 @@
         [userPreferences setBool:YES forKey:version];   //如果是第一次開啟這個App那就不顯示這次版本更新增新功能的說明了
     } else if (![userPreferences boolForKey:version]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@ 版 新功能", version]
-                                                        message:@"1. 改成計算早於十二點上床及早於九點起床，並且改成計算次數而不是百分比\n2. 增加「一鍵刪除所有睡眠資料」的功能"
+                                                        message:@"1. 針對iOS9作優化，使計時器的數字不會跳來跳去。\n2. 優化設定頁面。\n3. 計算早於12點上床、9點起床改成也會顯示百分比。\n4. 修正一些小錯誤。"
                                                        delegate:self
                                               cancelButtonTitle:@"確定"
                                               otherButtonTitles:nil, nil];

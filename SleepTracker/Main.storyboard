@@ -335,6 +335,44 @@
             </objects>
             <point key="canvasLocation" x="2336" y="3574"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="a2u-zH-kp2">
+            <objects>
+                <viewController storyboardIdentifier="Instruction" id="FLP-ji-iVY" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aXP-Hr-UpJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="pt5-tw-Ic2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R5M-Ep-0qT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzP-DD-OVP">
+                                <rect key="frame" x="20" y="20" width="560" height="580"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.1960784314" green="0.37254901959999998" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">1. 針對iOS9作優化，使計時器的數字不會跳來跳去。
+2. 優化設定頁面。
+3. 計算早於12點上床、9點起床改成也會顯示百分比。
+4. 修正一些小錯誤。</string>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.1960784314" green="0.37254901959999998" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="kzP-DD-OVP" firstAttribute="top" secondItem="aXP-Hr-UpJ" secondAttribute="bottom" id="5fl-Pd-04w"/>
+                            <constraint firstItem="pt5-tw-Ic2" firstAttribute="top" secondItem="kzP-DD-OVP" secondAttribute="bottom" id="GPr-XL-2j4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kzP-DD-OVP" secondAttribute="trailing" id="U1V-F2-eTN"/>
+                            <constraint firstItem="kzP-DD-OVP" firstAttribute="leading" secondItem="R5M-Ep-0qT" secondAttribute="leadingMargin" id="aKQ-sf-xSO"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MfN-dq-ySG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2336" y="4283"/>
+        </scene>
         <!--設定-->
         <scene sceneID="9S0-Jj-ac1">
             <objects>

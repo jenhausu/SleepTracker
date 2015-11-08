@@ -7,7 +7,7 @@
 //
 
 #import "InitAnalytics.h"
-#import <Google/Analytics.h>
+//#import <Google/Analytics.h>
 #import "Mixpanel.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
@@ -25,6 +25,7 @@
 
 - (void)initGoogleAnalytics
 {
+    /*
     // Configure tracker from GoogleService-Info.plist.
     NSError *configureError;
     [[GGLContext sharedInstance] configureWithError:&configureError];
@@ -33,7 +34,7 @@
     // Optional: configure GAI options.
     GAI *gai = [GAI sharedInstance];
     gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
-    gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
+    gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release */
 }
 
 - (void)initMixpanel

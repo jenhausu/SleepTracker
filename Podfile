@@ -3,7 +3,7 @@
 
 target 'SleepTracker' do
 
-pod 'Google/Analytics', '~> 1.0.0'
+# pod 'Google/Analytics', '~> 1.0.0'  //暫時不用 Google Analytics，一方面是用途不大一方面是他沒有包含 BitCode
 pod 'Mixpanel'
 
 end
