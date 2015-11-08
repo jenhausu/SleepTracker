@@ -931,34 +931,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="早於十二點上床：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1n-HH-24R">
-                                <rect key="frame" x="197" y="459" width="136" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="早於九點起床：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftx-mB-ftg">
-                                <rect key="frame" x="206" y="490" width="119" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="沒有資料" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wyo-I5-qIn">
-                                <rect key="frame" x="333" y="490" width="68" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="沒有資料" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZ9-sp-4VI">
-                                <rect key="frame" x="333" y="459" width="68" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwx-uT-T1v">
                                 <rect key="frame" x="285" y="76" width="31" height="29"/>
                                 <animations/>
@@ -966,15 +938,27 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="早於十二點上床：1/2 (50.0%)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZ9-sp-4VI">
+                                <rect key="frame" x="189" y="461" width="222" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="早於九點起床：1/2 (50.0%)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wyo-I5-qIn">
+                                <rect key="frame" x="198" y="490" width="205" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.1960784314" green="0.37254901959999998" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Ftx-mB-ftg" firstAttribute="top" secondItem="L1n-HH-24R" secondAttribute="bottom" constant="10" id="0PO-5h-FPE"/>
                             <constraint firstItem="p2N-If-JDR" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="1L2-2g-ooj"/>
                             <constraint firstItem="IHQ-YI-n6D" firstAttribute="centerX" secondItem="KwV-9e-RfR" secondAttribute="centerX" id="1bg-tE-bOr"/>
                             <constraint firstItem="BAw-cq-YSv" firstAttribute="leading" secondItem="1RV-so-zh0" secondAttribute="leading" id="2KQ-ik-gPY"/>
-                            <constraint firstItem="gZ9-sp-4VI" firstAttribute="centerY" secondItem="L1n-HH-24R" secondAttribute="centerY" id="5Tj-sQ-YdW"/>
                             <constraint firstItem="IHQ-YI-n6D" firstAttribute="top" secondItem="7Fa-iN-Jh0" secondAttribute="bottom" constant="8" id="BfI-W1-PZP"/>
                             <constraint firstItem="60r-lU-3vc" firstAttribute="top" secondItem="Iwx-uT-T1v" secondAttribute="bottom" constant="24" id="CYv-LD-Ska"/>
                             <constraint firstItem="60r-lU-3vc" firstAttribute="centerY" secondItem="fze-Hy-i1c" secondAttribute="centerY" id="D9h-nC-aw6"/>
@@ -985,35 +969,33 @@
                             <constraint firstItem="FN5-qR-Jcq" firstAttribute="top" secondItem="kJf-5f-avt" secondAttribute="bottom" constant="8" id="Hes-Wv-Hst"/>
                             <constraint firstItem="p2N-If-JDR" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="JbW-Xy-1Pc"/>
                             <constraint firstItem="fze-Hy-i1c" firstAttribute="centerX" secondItem="JNt-ca-Zda" secondAttribute="centerX" id="Jx5-GQ-kiQ"/>
+                            <constraint firstItem="gZ9-sp-4VI" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="Jyp-mt-0gi"/>
                             <constraint firstItem="BAw-cq-YSv" firstAttribute="leading" secondItem="ZMg-zl-JTl" secondAttribute="leading" id="Lo3-g9-u34"/>
                             <constraint firstItem="f7K-F0-Jt3" firstAttribute="centerX" secondItem="EIs-GS-Izr" secondAttribute="centerX" id="PW9-xp-31L"/>
                             <constraint firstItem="BAw-cq-YSv" firstAttribute="top" secondItem="1RV-so-zh0" secondAttribute="bottom" constant="26" id="QZT-jS-waE"/>
                             <constraint firstItem="fze-Hy-i1c" firstAttribute="centerX" secondItem="FN5-qR-Jcq" secondAttribute="centerX" id="SLn-1P-gVb"/>
-                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="Ftx-mB-ftg" secondAttribute="bottom" constant="40" id="WIb-um-wMb"/>
                             <constraint firstItem="f7K-F0-Jt3" firstAttribute="centerY" secondItem="ZMg-zl-JTl" secondAttribute="centerY" id="XTY-nn-Dy3"/>
-                            <constraint firstItem="gZ9-sp-4VI" firstAttribute="centerX" secondItem="Wyo-I5-qIn" secondAttribute="centerX" id="YpB-hU-2PC"/>
+                            <constraint firstItem="Wyo-I5-qIn" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="ZyS-um-WvL"/>
                             <constraint firstItem="60r-lU-3vc" firstAttribute="centerY" secondItem="KwV-9e-RfR" secondAttribute="centerY" id="b86-7p-6tu"/>
                             <constraint firstItem="1RV-so-zh0" firstAttribute="top" secondItem="ZMg-zl-JTl" secondAttribute="bottom" constant="8" id="cT7-sK-Idb"/>
                             <constraint firstItem="f7K-F0-Jt3" firstAttribute="centerX" secondItem="i5C-ka-1AZ" secondAttribute="centerX" id="cyB-jb-Ax2"/>
                             <constraint firstItem="Iwx-uT-T1v" firstAttribute="top" secondItem="p2N-If-JDR" secondAttribute="bottom" constant="8" symbolic="YES" id="e5j-jh-p3y"/>
+                            <constraint firstItem="Wyo-I5-qIn" firstAttribute="top" secondItem="gZ9-sp-4VI" secondAttribute="bottom" constant="8" id="efm-2a-ngh"/>
                             <constraint firstItem="60r-lU-3vc" firstAttribute="top" secondItem="p2N-If-JDR" secondAttribute="bottom" constant="61" id="iEv-fx-Hgn"/>
                             <constraint firstItem="fze-Hy-i1c" firstAttribute="centerX" secondItem="kJf-5f-avt" secondAttribute="centerX" id="iHq-HD-G17"/>
-                            <constraint firstAttribute="centerX" secondItem="Ftx-mB-ftg" secondAttribute="centerX" constant="35" id="iX2-GR-7KP"/>
                             <constraint firstItem="Iwx-uT-T1v" firstAttribute="centerX" secondItem="p2N-If-JDR" secondAttribute="centerX" id="nq9-gu-ijJ"/>
                             <constraint firstItem="EIs-GS-Izr" firstAttribute="top" secondItem="i5C-ka-1AZ" secondAttribute="bottom" constant="26" id="qz7-L0-sjZ"/>
                             <constraint firstItem="aoW-JH-oZl" firstAttribute="top" secondItem="IHQ-YI-n6D" secondAttribute="bottom" constant="26" id="rBX-JI-HQC"/>
                             <constraint firstItem="7Fa-iN-Jh0" firstAttribute="top" secondItem="KwV-9e-RfR" secondAttribute="bottom" constant="15" id="sCp-Vo-qJ9"/>
                             <constraint firstAttribute="centerX" secondItem="fze-Hy-i1c" secondAttribute="centerX" constant="-105" id="scf-OB-FLR"/>
-                            <constraint firstItem="gZ9-sp-4VI" firstAttribute="leading" secondItem="L1n-HH-24R" secondAttribute="trailing" id="sgi-tJ-WuX"/>
                             <constraint firstItem="JNt-ca-Zda" firstAttribute="top" secondItem="FN5-qR-Jcq" secondAttribute="bottom" constant="26" id="tEu-Lx-30m"/>
                             <constraint firstItem="f7K-F0-Jt3" firstAttribute="top" secondItem="60r-lU-3vc" secondAttribute="bottom" constant="15" id="tY2-2A-k9y"/>
-                            <constraint firstItem="Ftx-mB-ftg" firstAttribute="centerY" secondItem="Wyo-I5-qIn" secondAttribute="centerY" id="ucF-Ex-sCi"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="Wyo-I5-qIn" secondAttribute="bottom" constant="40" id="uNu-gj-kWc"/>
                             <constraint firstItem="i5C-ka-1AZ" firstAttribute="top" secondItem="f7K-F0-Jt3" secondAttribute="bottom" constant="8" id="vJV-OY-kHn"/>
                             <constraint firstAttribute="centerX" secondItem="60r-lU-3vc" secondAttribute="centerX" constant="30" id="vn6-34-lBv"/>
                             <constraint firstItem="IHQ-YI-n6D" firstAttribute="centerX" secondItem="aoW-JH-oZl" secondAttribute="centerX" id="w8v-65-VSP"/>
                             <constraint firstItem="kJf-5f-avt" firstAttribute="top" secondItem="fze-Hy-i1c" secondAttribute="bottom" constant="15" id="yHJ-nv-PyT"/>
                             <constraint firstItem="f7K-F0-Jt3" firstAttribute="leading" secondItem="ZMg-zl-JTl" secondAttribute="trailing" constant="17" id="yh7-kV-YgM"/>
-                            <constraint firstItem="L1n-HH-24R" firstAttribute="centerX" secondItem="Ftx-mB-ftg" secondAttribute="centerX" id="z9j-S0-5OU"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="統計圖表" image="Combo Chart-50.png" id="cPa-gy-q4n"/>
@@ -1064,7 +1046,7 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="heightClass=regular">
-                                                <fontDescription key="fontDescription" type="system" pointSize="11.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             </variation>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hSt-Wm-uxl">
