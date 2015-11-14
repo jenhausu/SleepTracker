@@ -21,11 +21,14 @@
 @property (nonatomic, strong) NSArray *fetchDataArray;
 @property (nonatomic, strong) SleepData *sleepData;
 
+@property (nonatomic) CGFloat textFontSize;
+@property (nonatomic) CGFloat detailTextFontSize;
+
 @end
 
 @implementation HistoryTableViewController
 
-@synthesize fetchDataArray;
+@synthesize fetchDataArray, textFontSize, detailTextFontSize;
 
 #pragma mark - lazy initialization
 
@@ -43,6 +46,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    NSInteger screenHeight = screenRect.size.height;
+    switch (screenHeight) {
+        case 480:  // 3.5吋：iPhone 4s 之前, iPad
+            textFontSize = 11;
+            detailTextFontSize = 8;
+            break;
+        case 568:  // 4吋：iPhone 5, 5s, 5c
+            textFontSize = 11;
+            detailTextFontSize = 8;
+            break;
+        case 667:  // 4.7吋：iPhone 6, 6s
+            textFontSize = 12;
+            detailTextFontSize = 8;
+            break;
+        case 736:  // 5.5吋：iPhone 6+, 6s+
+            textFontSize = 13;
+            detailTextFontSize = 8;
+            break;
+        default:  //  Others
+            textFontSize = 13;
+            detailTextFontSize = 8;
+            break;
+    }
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
@@ -72,6 +100,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    cell.textLabel.font = [UIFont systemFontOfSize:textFontSize];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:detailTextFontSize];
     
     self.sleepData = fetchDataArray[indexPath.row];
     
