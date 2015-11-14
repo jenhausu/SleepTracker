@@ -32,7 +32,7 @@
     return @"ui_control";
 }
 
-+ (MPEventBinding *)bindngWithJSONObject:(NSDictionary *)object
++ (MPEventBinding *)bindingWithJSONObject:(NSDictionary *)object
 {
     NSString *path = object[@"path"];
     if (![path isKindOfClass:[NSString class]] || [path length] < 1) {
@@ -57,6 +57,14 @@
                               withControlEvent:[object[@"control_event"] unsignedIntegerValue]
                                           andVerifyEvent:verifyEvent];
 }
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
++ (MPEventBinding *)bindngWithJSONObject:(NSDictionary *)object
+{
+    return [self bindingWithJSONObject:object];
+}
+#pragma clang diagnostic pop
 
 - (instancetype)initWithEventName:(NSString *)eventName
                  onPath:(NSString *)path

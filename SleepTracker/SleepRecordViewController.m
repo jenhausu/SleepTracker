@@ -56,7 +56,8 @@
 {
     [super viewDidLoad];
     
-    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「紀錄」頁面" key:@"View" value:@"viewDidLoad"];
+    self.alreadySleptLabel.font = [UIFont monospacedDigitSystemFontOfSize:17 weight:UIFontWeightLight];
+    self.alreadyAwakeTimeLabel.font = [UIFont monospacedDigitSystemFontOfSize:17 weight:UIFontWeightLight];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -66,7 +67,7 @@
     userPreferences = [NSUserDefaults standardUserDefaults];
     [self stopTimer];
     
-    if ([userPreferences boolForKey:@"顯示醒了多久"]) {
+    if ([userPreferences boolForKey:@"計算醒了多久"]) {
         self.alreadyAwakeTextLabel.text = @"已經醒了多久：";
         if (!self.alreadyAwakeTimeLabel.text) {  // 如果上次顯示頁面時就有要顯示醒了多久，就不要再把alreadyAwakeTimeLabel設為00:00:00，因為這樣會有幾秒的延遲
             self.alreadyAwakeTimeLabel.text = @"00:00:00";
@@ -83,7 +84,7 @@
             [self.button setTitle:@"上床" forState:UIControlStateNormal];
             self.alreadySleptLabel.text = @"00:00:00";
 
-            if ([userPreferences boolForKey:@"顯示醒了多久"]) [self startCountingAwakeTime];
+            if ([userPreferences boolForKey:@"計算醒了多久"]) [self startCountingAwakeTime];
         } else  {  //sleep state
             [self startCountingSleepTime];
             [self.button setTitle:@"起床" forState:UIControlStateNormal];
@@ -96,14 +97,14 @@
     
     
     [[[GoogleAnalytics alloc] init] trackPageView:@"Record"];
-    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「紀錄」頁面" key:@"View" value:@"viewWillAppear"];
+    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「紀錄」頁面"];
 }
 
 - (IBAction)buttonPress:(UIButton *)sender {
     if ([sender.titleLabel.text isEqualToString:@"上床"])  //按下上床，進入睡眠狀態
     {
         [self.button setTitle:@"起床" forState:UIControlStateNormal];
-        if ([userPreferences boolForKey:@"顯示醒了多久"]) {
+        if ([userPreferences boolForKey:@"計算醒了多久"]) {
             self.alreadyAwakeTextLabel.text = @"已經醒了多久：";
             self.alreadyAwakeTimeLabel.text = @"00:00:00";
         }
@@ -137,7 +138,7 @@
     self.alreadySleptLabel.text = @"00:00:00";
     
     [self stopTimer];
-    if ([userPreferences boolForKey:@"顯示醒了多久"]) [self startCountingAwakeTime];
+    if ([userPreferences boolForKey:@"計算醒了多久"]) [self startCountingAwakeTime];
     
     [userPreferences setValue:@"清醒" forKey:@"睡眠狀態"];
     
@@ -177,21 +178,21 @@
     if ([timer.userInfo isEqualToString:@"Go To Bed"]) {
         self.alreadySleptLabel.text = [self stringFromTimeInterval:-[self.sleepData.goToBedTime timeIntervalSinceNow]];  //即時顯示已經睡了多久時間
     }else {
-        if ([userPreferences integerForKey:@"醒來計時器歸零"] == 0) {  //照常計算
+        if ([userPreferences integerForKey:@"醒來計時器計算方式"] == 0) {  //照常計算
             self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:-[self.sleepData.wakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
-        } else if ([userPreferences integerForKey:@"醒來計時器歸零"] == 1) {  //超過二十四小時便不再計算
+        } else if ([userPreferences integerForKey:@"醒來計時器計算方式"] == 1) {  //超過二十四小時便不再計算
             if ((-[self.sleepData.wakeUpTime timeIntervalSinceNow]) / (60 * 60) <= 23) {
                 self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:-[self.sleepData.wakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
             } else {
                 self.alreadyAwakeTimeLabel.text = @"00:00:00";
             }
-        } else if ([userPreferences integerForKey:@"醒來計時器歸零"] == 2) {  //減去二十四小時繼續計算
+        } else if ([userPreferences integerForKey:@"醒來計時器計算方式"] == 2) {  //減去二十四小時繼續計算
             NSInteger awakeTime = -[self.sleepData.wakeUpTime timeIntervalSinceNow];
             while ((awakeTime / (60 * 60)) >= 24 ) {
                 awakeTime = awakeTime - 86400;
             }
             self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:awakeTime];  //看上一筆資料離現在差幾天，就扣掉幾個24小時
-        } else if ([userPreferences integerForKey:@"醒來計時器歸零"] == 3) {
+        } else if ([userPreferences integerForKey:@"醒來計時器計算方式"] == 3) {
             //從平均起床時間開始計算
             if ((-[self.sleepData.wakeUpTime timeIntervalSinceNow]) / (60 * 60) <= 23) {
                 self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:-[self.sleepData.wakeUpTime timeIntervalSinceNow]];  //即時顯示已經醒了多久
@@ -204,7 +205,7 @@
                 [dateComponents setMonth:currentDate.month];
                 [dateComponents setDay:currentDate.day];
                 
-                NSInteger averageWakeUpTimeInSecond = [[[[[Statistic alloc] init] showWakeUpTimeDataInTheRecent:30] objectAtIndex:2] integerValue];
+                NSInteger averageWakeUpTimeInSecond = [[[[[Statistic alloc] init] wakeUpTimeStatisticalDataInTheRecent:30] objectAtIndex:2] integerValue];
                 if (averageWakeUpTimeInSecond) {
                     [dateComponents setHour:averageWakeUpTimeInSecond / 3600];
                     [dateComponents setMinute:((averageWakeUpTimeInSecond / 60) % 60)];

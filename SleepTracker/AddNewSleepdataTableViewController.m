@@ -8,6 +8,8 @@
 
 #import "AddNewSleepdataTableViewController.h"
 #import "GoogleAnalytics.h"
+#import "Mixpanel_Model.h"
+#import "Mixpanel.h"
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
@@ -56,6 +58,7 @@
     
     
     [[[GoogleAnalytics alloc] init] trackPageView:@"Add New SleepData"];
+    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「新增睡眠資料」頁面"];
 }
 
 #pragma mark - Table view data source
@@ -150,6 +153,12 @@
                                                           sleepType:sleepType];
     
     [[[IntelligentNotification alloc] init] rescheduleIntelligentNotification];
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"新增睡眠資料" properties:@{@"上床時間": goToBedTime,
+                                           @"起床時間": wakeUpTime,
+                                           @"睡眠時間": sleepTime,
+                                           @"睡眠型態": sleepType}];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D0581BE1BA2996600EA4DF4 /* libFlurry_7.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0581BC1BA2996600EA4DF4 /* libFlurry_7.1.0.a */; };
 		1D1CB5BF1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1CB5BE1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m */; };
 		1D26812A1A4C070300D510F8 /* History2TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2681291A4C070300D510F8 /* History2TableViewController.m */; };
 		1D2C076A1AA057A500434EF2 /* CustomNotification-Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2C07691AA057A500434EF2 /* CustomNotification-Model.m */; };
@@ -16,6 +15,7 @@
 		1D2DB7F41A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB7F31A6DAAAF00A72EFA /* IntelligentNotificationTableViewController.m */; };
 		1D2DB7FA1A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB7F91A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.m */; };
 		1D2DB7FD1A70F30E00A72EFA /* CustomNotificationTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB7FC1A70F30E00A72EFA /* CustomNotificationTwoViewController.m */; };
+		1D3166951BEE044400E87456 /* libFlurry_7.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3166921BEE044400E87456 /* libFlurry_7.3.0.a */; };
 		1D3BB38A1AA1BE2500349F5A /* CNDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BB3891AA1BE2500349F5A /* CNDetailViewController.m */; };
 		1D7C39041A4C811800A02793 /* History3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C39031A4C811800A02793 /* History3ViewController.m */; };
 		1D7C39081A4C909D00A02793 /* StatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7C39071A4C909D00A02793 /* StatisticViewController.m */; };
@@ -30,6 +30,7 @@
 		1D8902021A4B5199001A69A3 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8901F81A4B5199001A69A3 /* HistoryTableViewController.m */; };
 		1D8902051A4B5199001A69A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8901FD1A4B5199001A69A3 /* Main.storyboard */; };
 		1D8902081A4B52C8001A69A3 /* SleepData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8902071A4B52C8001A69A3 /* SleepData.m */; };
+		1D8A634D1BE32159009B18BA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8A634C1BE32159009B18BA /* Launch Screen.storyboard */; };
 		1D9545121B3D6C1300A56456 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */; };
 		1D995E011A7D4D37002F069C /* HopeToGoToSleepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */; };
 		1DB66ED91B6C8D850026AC9C /* InitAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB66ED81B6C8D850026AC9C /* InitAnalytics.m */; };
@@ -67,8 +68,6 @@
 
 /* Begin PBXFileReference section */
 		13771A9ECBD6E70377BAA514 /* Pods-SleepTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker.debug.xcconfig"; sourceTree = "<group>"; };
-		1D0581BC1BA2996600EA4DF4 /* libFlurry_7.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_7.1.0.a; sourceTree = "<group>"; };
-		1D0581BD1BA2996600EA4DF4 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		1D1CB5BD1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShouldGoToSleepTimeTableViewController.h; sourceTree = "<group>"; };
 		1D1CB5BE1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShouldGoToSleepTimeTableViewController.m; sourceTree = "<group>"; };
 		1D2681281A4C070300D510F8 /* History2TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History2TableViewController.h; sourceTree = "<group>"; };
@@ -85,6 +84,9 @@
 		1D2DB7F91A70F2AB00A72EFA /* CustomeNotificationOneTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomeNotificationOneTableViewController.m; sourceTree = "<group>"; };
 		1D2DB7FB1A70F30E00A72EFA /* CustomNotificationTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNotificationTwoViewController.h; sourceTree = "<group>"; };
 		1D2DB7FC1A70F30E00A72EFA /* CustomNotificationTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNotificationTwoViewController.m; sourceTree = "<group>"; };
+		1D3166921BEE044400E87456 /* libFlurry_7.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_7.3.0.a; sourceTree = "<group>"; };
+		1D3166931BEE044400E87456 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		1D3166941BEE044400E87456 /* FlurryWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryWatch.h; sourceTree = "<group>"; };
 		1D3BB3881AA1BE2500349F5A /* CNDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNDetailViewController.h; sourceTree = "<group>"; };
 		1D3BB3891AA1BE2500349F5A /* CNDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNDetailViewController.m; sourceTree = "<group>"; };
 		1D7C39021A4C811800A02793 /* History3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History3ViewController.h; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		1D8901FD1A4B5199001A69A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1D8902061A4B52C8001A69A3 /* SleepData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepData.h; sourceTree = "<group>"; };
 		1D8902071A4B52C8001A69A3 /* SleepData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepData.m; sourceTree = "<group>"; };
+		1D8A634C1BE32159009B18BA /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1D9545111B3D6C1300A56456 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1D995DFF1A7D4D37002F069C /* HopeToGoToSleepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopeToGoToSleepViewController.h; sourceTree = "<group>"; };
 		1D995E001A7D4D37002F069C /* HopeToGoToSleepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopeToGoToSleepViewController.m; sourceTree = "<group>"; };
@@ -156,8 +159,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D0581BE1BA2996600EA4DF4 /* libFlurry_7.1.0.a in Frameworks */,
 				1DF063F81A8C626700F21359 /* MessageUI.framework in Frameworks */,
+				1D3166951BEE044400E87456 /* libFlurry_7.3.0.a in Frameworks */,
 				1DD0870A1B2D42CD00B37D2D /* Crashlytics.framework in Frameworks */,
 				1DD087091B2D42CD00B37D2D /* Fabric.framework in Frameworks */,
 				20CA469D72F9106760CE42DE /* libPods-SleepTracker.a in Frameworks */,
@@ -221,8 +224,9 @@
 				1DB8836C1B3FB05500ED945D /* GoogleAnalytics.m */,
 				1DB66EDD1B6C9A840026AC9C /* Mixpanel_Model.h */,
 				1DB66EDE1B6C9A840026AC9C /* Mixpanel_Model.m */,
-				1D0581BC1BA2996600EA4DF4 /* libFlurry_7.1.0.a */,
-				1D0581BD1BA2996600EA4DF4 /* Flurry.h */,
+				1D3166921BEE044400E87456 /* libFlurry_7.3.0.a */,
+				1D3166931BEE044400E87456 /* Flurry.h */,
+				1D3166941BEE044400E87456 /* FlurryWatch.h */,
 			);
 			name = "App Analytics";
 			sourceTree = "<group>";
@@ -376,6 +380,7 @@
 			children = (
 				1D1F91141AAED8AC0029BCD8 /* Tab Bar icon */,
 				1D8901D61A4B5119001A69A3 /* Images.xcassets */,
+				1D8A634C1BE32159009B18BA /* Launch Screen.storyboard */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -460,6 +465,7 @@
 				1D8901C11A4B5119001A69A3 /* Resources */,
 				1DD087061B2D428D00B37D2D /* ShellScript */,
 				A0BC8CB4CDC00C7C7969AEA8 /* Copy Pods Resources */,
+				9113C9BF28361DE70E6E37BA /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -494,7 +500,7 @@
 		1D8901BB1A4B5119001A69A3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "蘇健豪";
 				TargetAttributes = {
 					1D8901C21A4B5119001A69A3 = {
@@ -534,6 +540,7 @@
 				1DBCE4941AD39BC1001DCB80 /* double_bed@2x.png in Resources */,
 				1D9545121B3D6C1300A56456 /* GoogleService-Info.plist in Resources */,
 				1DBCE4B01AD3A512001DCB80 /* Create New-50@2x.png in Resources */,
+				1D8A634D1BE32159009B18BA /* Launch Screen.storyboard in Resources */,
 				1D8902051A4B5199001A69A3 /* Main.storyboard in Resources */,
 				1DBCE4AA1AD3A334001DCB80 /* Settings-50@2x.png in Resources */,
 				1DBCE4AE1AD3A3F2001DCB80 /* Combo Chart-50@2x.png in Resources */,
@@ -564,6 +571,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run fe4e3029cb8b16a4090a639738cd883da14c63c5 ca7e9d93baac38d611e659a233772b2ecaea2649e82eeae23faf48fdc0f18b19";
+		};
+		9113C9BF28361DE70E6E37BA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		A0BC8CB4CDC00C7C7969AEA8 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -676,6 +698,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -751,6 +774,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SleepTracker",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = Su.SleepEarlier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -775,6 +799,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SleepTracker",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = Su.SleepEarlier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -794,6 +819,7 @@
 				);
 				INFOPLIST_FILE = SleepTrackerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Su.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SleepTracker.app/SleepTracker";
 			};
@@ -809,6 +835,7 @@
 				);
 				INFOPLIST_FILE = SleepTrackerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Su.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SleepTracker.app/SleepTracker";
 			};

@@ -8,6 +8,8 @@
 
 #import "History2TableViewController.h"
 #import "GoogleAnalytics.h"
+#import "Mixpanel_Model.h"
+#import "Mixpanel.h"
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
@@ -78,6 +80,7 @@
     
     
     [[[GoogleAnalytics alloc] init] trackPageView:@"History Detail"];
+    [[[Mixpanel_Model alloc] init] trackEvent:@"History2"];
 }
 
 #pragma mark - Table view data source
@@ -152,6 +155,7 @@
 #pragma mark - Custom Method
 
 - (IBAction)update:(id)sender {
+    // 更新睡眠資料
     switch (selectedSleepType) {
         case 0:
             sleepType = @"一般";
@@ -160,7 +164,6 @@
             sleepType = @"小睡";
             break;
     }
-    
     NSNumber *sleepTime = [NSNumber numberWithDouble:[wakeUpTime timeIntervalSinceDate:goToBedTime]];
     [self.sleepDataModel updateAllSleepdataInRow:[selectedRow integerValue]
                                      goToBedTime:goToBedTime
@@ -169,9 +172,21 @@
                                        sleepType:sleepType];
     
     NSUserDefaults *userPreferences = userPreferences = [NSUserDefaults standardUserDefaults];
+    
+    // 設定睡眠狀態
     [userPreferences setValue:@"清醒" forKey:@"睡眠狀態"];
+    
+    // 重新設定睡前通知
     [[[SleepNotification alloc] init] resetSleepNotification];
     
+    // 追蹤更新事件
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"刪除歷史資料" properties:@{@"上床時間": goToBedTime,
+                                           @"起床時間": wakeUpTime,
+                                           @"睡眠時間": sleepTime,
+                                           @"睡眠型態": sleepType}];
+    
+    // Alert
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"修改資料"
                                                     message:@"成功！"
                                                    delegate:self

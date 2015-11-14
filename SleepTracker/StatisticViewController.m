@@ -52,7 +52,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「統計圖表」頁面" key:@"view" value:@"viewDidLoad"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -60,9 +59,6 @@
     [super viewDidAppear:NO];
     
     [self judgeWhichSegmentSelected];
-    
-    
-    [[[Mixpanel_Model alloc] init] trackEvent:@"查看「統計圖表」頁面" key:@"view" value:@"viewDidAppear"];
 }
 
 - (IBAction)segmentChange:(id)sender
@@ -92,9 +88,9 @@
 {
     NSArray *goToBedTimeData, *wakeUpTimeData, *sleepTimeData;
 
-    goToBedTimeData = [self.statistic showGoToBedTimeDataInTheRecent:recent];
-    wakeUpTimeData = [self.statistic showWakeUpTimeDataInTheRecent:recent];
-    sleepTimeData = [self.statistic showSleepTimeDataInTheRecent:recent];
+    goToBedTimeData = [self.statistic goToBedTimeStatisticalDataInTheRecent:recent];
+    wakeUpTimeData = [self.statistic wakeUpTimeStatisticalDataInTheRecent:recent];
+    sleepTimeData = [self.statistic sleepTimeStatisticalDataInTheRecent:recent];
     
     self.goToBedTimeMinLabel.text = [self stringFromTimeInterval:[goToBedTimeData[0] floatValue]];
     self.goToBedTimeMaxLabel.text = [self stringFromTimeInterval:[goToBedTimeData[1] floatValue]];
@@ -110,8 +106,8 @@
         self.getUpTooLate.text = [self.statistic calculateGetUpTooLatePercentage:recent];
         self.goToBedTimeTooLate.text = [self.statistic calculateGoToBedTooLatePercentage:recent];
     } else {
-        self.getUpTooLate.text = @"沒有資料";
-        self.goToBedTimeTooLate.text = @"沒有資料";
+        self.getUpTooLate.text = @"早於九點起床：0/0 (0%)";
+        self.goToBedTimeTooLate.text = @"早於十二點上床：0/0 (0%)";
     }
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
