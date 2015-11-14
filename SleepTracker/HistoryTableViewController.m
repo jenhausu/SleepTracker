@@ -8,6 +8,8 @@
 
 #import "HistoryTableViewController.h"
 #import "GoogleAnalytics.h"
+#import "Mixpanel_Model.h"
+#import "Mixpanel.h"
 
 #import "SleepDataModel.h"
 #import "SleepData.h"
@@ -21,11 +23,14 @@
 @property (nonatomic, strong) NSArray *fetchDataArray;
 @property (nonatomic, strong) SleepData *sleepData;
 
+@property (nonatomic) CGFloat textFontSize;
+@property (nonatomic) CGFloat detailTextFontSize;
+
 @end
 
 @implementation HistoryTableViewController
 
-@synthesize fetchDataArray;
+@synthesize fetchDataArray, textFontSize, detailTextFontSize;
 
 #pragma mark - lazy initialization
 
@@ -44,6 +49,31 @@
 {
     [super viewDidLoad];
     
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    NSInteger screenHeight = screenRect.size.height;
+    switch (screenHeight) {
+        case 480:  // 3.5吋：iPhone 4s 之前, iPad
+            textFontSize = 11;
+            detailTextFontSize = 8;
+            break;
+        case 568:  // 4吋：iPhone 5, 5s, 5c
+            textFontSize = 11;
+            detailTextFontSize = 8;
+            break;
+        case 667:  // 4.7吋：iPhone 6, 6s
+            textFontSize = 12;
+            detailTextFontSize = 8;
+            break;
+        case 736:  // 5.5吋：iPhone 6+, 6s+
+            textFontSize = 13;
+            detailTextFontSize = 8;
+            break;
+        default:  //  Others
+            textFontSize = 13;
+            detailTextFontSize = 8;
+            break;
+    }
+    
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
@@ -56,7 +86,7 @@
     
     
     [[[GoogleAnalytics alloc] init] trackPageView:@"History"];
-    //[[[Mixpanel_Model alloc] init] trackEvent:@"查看「睡眠足跡」頁面" key:@"view" value:@"viewWillAppear"];
+    [[[Mixpanel_Model alloc] init] trackEvent:@"History"];
 }
 
 #pragma mark - Table view data source
@@ -72,6 +102,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    cell.textLabel.font = [UIFont systemFontOfSize:textFontSize];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:detailTextFontSize];
     
     self.sleepData = fetchDataArray[indexPath.row];
     
@@ -101,9 +133,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        /*//追蹤刪除事件
+        //追蹤刪除事件
         self.sleepData = fetchDataArray[indexPath.row];
-        NSDate *wakeuptime = self.sleepData.wakeUpTime;
         
         Mixpanel *mixpanel = [Mixpanel sharedInstance];
         if (self.sleepData.wakeUpTime) {
@@ -113,7 +144,7 @@
                                                    @"睡眠型態": self.sleepData.sleepType}];
         } else {
             [mixpanel track:@"刪除歷史資料" properties:@{@"上床時間": self.sleepData.goToBedTime}];
-        }  //*/
+        }
         
         //刪除資料
         [self.sleepDataModel deleteSleepData:fetchDataArray[indexPath.row]];

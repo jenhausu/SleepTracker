@@ -8,6 +8,7 @@
 
 #import "History3ViewController.h"
 #import "GoogleAnalytics.h"
+#import "Mixpanel_Model.h"
 
 #import "History2TableViewController.h"
 
@@ -79,6 +80,7 @@
     [super viewWillAppear:animated];
     
     [self trackPageView];
+    [self mixpanelAnalytics];
 }
 
 - (void)trackPageView
@@ -87,6 +89,15 @@
         [[[GoogleAnalytics alloc] init] trackPageView:@"History ChangeValue GoToBedTime"];
     } else if ([DateType isEqualToString:@"wakeUpTime"]) {
         [[[GoogleAnalytics alloc] init] trackPageView:@"History ChangeValue WakeUpTime"];
+    }
+}
+
+- (void)mixpanelAnalytics
+{
+    if ([DateType isEqualToString:@"goToBedTime"]) {
+        [[[Mixpanel_Model alloc] init] trackEvent:@"History3" key:@"上床或起床時間" value:@"上床時間"];
+    } else if ([DateType isEqualToString:@"wakeUpTime"]) {
+        [[[Mixpanel_Model alloc] init] trackEvent:@"History3" key:@"上床或起床時間" value:@"起床時間"];
     }
 }
 
