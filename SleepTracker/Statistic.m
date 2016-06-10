@@ -56,7 +56,7 @@
 
 #pragma mark - Calculate MAX, MIN, AVG
 
-- (NSArray *)sleepTimeStatisticalDataInTheRecent:(NSInteger)recent;
+- (NSArray *)sleepTimeInTheRecent:(NSInteger)recent;
 {
     [self Initailize];
     
@@ -166,7 +166,7 @@
     return @[[NSNumber numberWithFloat:MIN], [NSNumber numberWithFloat:MAX], [NSNumber numberWithFloat:AVG]];
 }
 
-- (NSArray *)goToBedTimeStatisticalDataInTheRecent:(NSInteger)recent;
+- (NSArray *)goToBedTimeInTheRecent:(NSInteger)recent;
 {
     MAX = MAX_Default;
     MIN = MIN_Default;
@@ -245,7 +245,7 @@
     return @[[NSNumber numberWithFloat:MIN], [NSNumber numberWithFloat:MAX], [NSNumber numberWithFloat:AVG]];
 }
 
-- (NSArray *)wakeUpTimeStatisticalDataInTheRecent:(NSInteger)recent;
+- (NSArray *)wakeUpTimeInTheRecent:(NSInteger)recent;
 {
     [self Initailize];
     if (fetchArray.count >= 2 || (fetchArray.count == 1 && self.sleepData.wakeUpTime > 0) )

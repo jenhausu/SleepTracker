@@ -10,9 +10,9 @@
 
 @interface Statistic : NSObject
 
-- (NSArray *)sleepTimeStatisticalDataInTheRecent:(NSInteger)recent;
-- (NSArray *)goToBedTimeStatisticalDataInTheRecent:(NSInteger)recent;
-- (NSArray *)wakeUpTimeStatisticalDataInTheRecent:(NSInteger)recent;
+- (NSArray *)sleepTimeInTheRecent:(NSInteger)recent;
+- (NSArray *)goToBedTimeInTheRecent:(NSInteger)recent;
+- (NSArray *)wakeUpTimeInTheRecent:(NSInteger)recent;
 
 - (NSString *)calculateGetUpTooLatePercentage:(NSInteger)recent;
 - (NSString *)calculateGoToBedTooLatePercentage:(NSInteger)recent;
