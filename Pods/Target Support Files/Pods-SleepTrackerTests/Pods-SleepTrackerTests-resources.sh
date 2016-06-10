@@ -79,44 +79,6 @@ EOM
       ;;
   esac
 }
-if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "Mixpanel/Mixpanel/Images/MPArrowLeft.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPArrowLeft@2x.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPArrowRight.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPArrowRight@2x.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPCheckmark.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPCheckmark@2x.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPCloseButton.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPCloseButton@2x.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPCloseButton@3x.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPDismissKeyboard.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPDismissKeyboard@2x.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPLogo.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPLogo@2x.png"
-  install_resource "Mixpanel/Mixpanel/MPNotification~ipad.storyboard"
-  install_resource "Mixpanel/Mixpanel/MPNotification~iphonelandscape.storyboard"
-  install_resource "Mixpanel/Mixpanel/MPNotification~iphoneportrait.storyboard"
-  install_resource "Mixpanel/Mixpanel/MPSurvey.storyboard"
-fi
-if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "Mixpanel/Mixpanel/Images/MPArrowLeft.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPArrowLeft@2x.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPArrowRight.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPArrowRight@2x.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPCheckmark.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPCheckmark@2x.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPCloseButton.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPCloseButton@2x.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPCloseButton@3x.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPDismissKeyboard.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPDismissKeyboard@2x.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPLogo.png"
-  install_resource "Mixpanel/Mixpanel/Images/MPLogo@2x.png"
-  install_resource "Mixpanel/Mixpanel/MPNotification~ipad.storyboard"
-  install_resource "Mixpanel/Mixpanel/MPNotification~iphonelandscape.storyboard"
-  install_resource "Mixpanel/Mixpanel/MPNotification~iphoneportrait.storyboard"
-  install_resource "Mixpanel/Mixpanel/MPSurvey.storyboard"
-fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

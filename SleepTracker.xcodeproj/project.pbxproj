@@ -53,7 +53,8 @@
 		1DD087121B2D69CB00B37D2D /* SleepNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD087111B2D69CB00B37D2D /* SleepNotification.m */; };
 		1DF063F61A8C59F600F21359 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF063F51A8C59F600F21359 /* SettingTableViewController.m */; };
 		1DF063F81A8C626700F21359 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF063F71A8C626700F21359 /* MessageUI.framework */; };
-		20CA469D72F9106760CE42DE /* libPods-SleepTracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4CFECD7E8141717536E85BD /* libPods-SleepTracker.a */; };
+		AF37BCC7347E24F4FDF60404 /* libPods-SleepTracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0A96CB0A69692050871F3A4 /* libPods-SleepTracker.a */; };
+		B9F45FA594A6E5C2A68F9106 /* libPods-SleepTrackerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 916570937A37B2B6663436D2 /* libPods-SleepTrackerTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		13771A9ECBD6E70377BAA514 /* Pods-SleepTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		1C5C0F3265DCBE43AF1EAD80 /* Pods-SleepTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepTrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SleepTrackerTests/Pods-SleepTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1D1CB5BD1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShouldGoToSleepTimeTableViewController.h; sourceTree = "<group>"; };
 		1D1CB5BE1AA6FF7E002186E1 /* ShouldGoToSleepTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShouldGoToSleepTimeTableViewController.m; sourceTree = "<group>"; };
 		1D2681281A4C070300D510F8 /* History2TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History2TableViewController.h; sourceTree = "<group>"; };
@@ -150,8 +151,11 @@
 		1DF063F41A8C59F600F21359 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		1DF063F51A8C59F600F21359 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		1DF063F71A8C626700F21359 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		63CAB3BE578620210DEAAC9C /* Pods-SleepTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker.release.xcconfig"; sourceTree = "<group>"; };
-		A4CFECD7E8141717536E85BD /* libPods-SleepTracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SleepTracker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		30DE4EF287069B0CF55F55A7 /* Pods-SleepTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker.release.xcconfig"; sourceTree = "<group>"; };
+		6E8BBBE1A9074F061348BDF5 /* Pods-SleepTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		916570937A37B2B6663436D2 /* libPods-SleepTrackerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SleepTrackerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDB3A8A248EC5F8867F76A7E /* Pods-SleepTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SleepTrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SleepTrackerTests/Pods-SleepTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		E0A96CB0A69692050871F3A4 /* libPods-SleepTracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SleepTracker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +167,7 @@
 				1D3166951BEE044400E87456 /* libFlurry_7.3.0.a in Frameworks */,
 				1DD0870A1B2D42CD00B37D2D /* Crashlytics.framework in Frameworks */,
 				1DD087091B2D42CD00B37D2D /* Fabric.framework in Frameworks */,
-				20CA469D72F9106760CE42DE /* libPods-SleepTracker.a in Frameworks */,
+				AF37BCC7347E24F4FDF60404 /* libPods-SleepTracker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9F45FA594A6E5C2A68F9106 /* libPods-SleepTrackerTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,8 +251,8 @@
 				1D8901C51A4B5119001A69A3 /* SleepTracker */,
 				1D8901E21A4B511A001A69A3 /* SleepTrackerTests */,
 				1D8901C41A4B5119001A69A3 /* Products */,
-				D0E35EE930C08809DEF0467D /* Pods */,
 				84628276B3D189C096A31A68 /* Frameworks */,
+				690EEF2E20A042EEF8AA0675 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -432,24 +437,27 @@
 			name = "Sleep Notificaiton";
 			sourceTree = "<group>";
 		};
+		690EEF2E20A042EEF8AA0675 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6E8BBBE1A9074F061348BDF5 /* Pods-SleepTracker.debug.xcconfig */,
+				30DE4EF287069B0CF55F55A7 /* Pods-SleepTracker.release.xcconfig */,
+				1C5C0F3265DCBE43AF1EAD80 /* Pods-SleepTrackerTests.debug.xcconfig */,
+				CDB3A8A248EC5F8867F76A7E /* Pods-SleepTrackerTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		84628276B3D189C096A31A68 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				1DF063F71A8C626700F21359 /* MessageUI.framework */,
 				1DD087071B2D42CD00B37D2D /* Fabric.framework */,
 				1DD087081B2D42CD00B37D2D /* Crashlytics.framework */,
-				A4CFECD7E8141717536E85BD /* libPods-SleepTracker.a */,
+				E0A96CB0A69692050871F3A4 /* libPods-SleepTracker.a */,
+				916570937A37B2B6663436D2 /* libPods-SleepTrackerTests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D0E35EE930C08809DEF0467D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				13771A9ECBD6E70377BAA514 /* Pods-SleepTracker.debug.xcconfig */,
-				63CAB3BE578620210DEAAC9C /* Pods-SleepTracker.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -459,13 +467,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D8901E91A4B511A001A69A3 /* Build configuration list for PBXNativeTarget "SleepTracker" */;
 			buildPhases = (
-				B3D2AD793F0FD7F2078D5FAB /* Check Pods Manifest.lock */,
+				C9B6D475820BB7578ED04C51 /* [CP] Check Pods Manifest.lock */,
 				1D8901BF1A4B5119001A69A3 /* Sources */,
 				1D8901C01A4B5119001A69A3 /* Frameworks */,
 				1D8901C11A4B5119001A69A3 /* Resources */,
 				1DD087061B2D428D00B37D2D /* ShellScript */,
-				A0BC8CB4CDC00C7C7969AEA8 /* Copy Pods Resources */,
-				9113C9BF28361DE70E6E37BA /* Embed Pods Frameworks */,
+				4A7AC18100FEC31DB1F4F214 /* [CP] Embed Pods Frameworks */,
+				22E4A2787247D6645C3D1236 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -480,9 +488,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D8901EC1A4B511A001A69A3 /* Build configuration list for PBXNativeTarget "SleepTrackerTests" */;
 			buildPhases = (
+				C646F359C9E9DC5DD7E8EE46 /* [CP] Check Pods Manifest.lock */,
 				1D8901DB1A4B511A001A69A3 /* Sources */,
 				1D8901DC1A4B511A001A69A3 /* Frameworks */,
 				1D8901DD1A4B511A001A69A3 /* Resources */,
+				48F6FABFF81D7F252810498B /* [CP] Embed Pods Frameworks */,
+				639D6515DCBDA4071FF36A20 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -572,29 +583,14 @@
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run fe4e3029cb8b16a4090a639738cd883da14c63c5 ca7e9d93baac38d611e659a233772b2ecaea2649e82eeae23faf48fdc0f18b19";
 		};
-		9113C9BF28361DE70E6E37BA /* Embed Pods Frameworks */ = {
+		22E4A2787247D6645C3D1236 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A0BC8CB4CDC00C7C7969AEA8 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,14 +598,74 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B3D2AD793F0FD7F2078D5FAB /* Check Pods Manifest.lock */ = {
+		48F6FABFF81D7F252810498B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SleepTrackerTests/Pods-SleepTrackerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A7AC18100FEC31DB1F4F214 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SleepTracker/Pods-SleepTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		639D6515DCBDA4071FF36A20 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SleepTrackerTests/Pods-SleepTrackerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C646F359C9E9DC5DD7E8EE46 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C9B6D475820BB7578ED04C51 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -757,7 +813,7 @@
 		};
 		1D8901EA1A4B511A001A69A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13771A9ECBD6E70377BAA514 /* Pods-SleepTracker.debug.xcconfig */;
+			baseConfigurationReference = 6E8BBBE1A9074F061348BDF5 /* Pods-SleepTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -782,7 +838,7 @@
 		};
 		1D8901EB1A4B511A001A69A3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 63CAB3BE578620210DEAAC9C /* Pods-SleepTracker.release.xcconfig */;
+			baseConfigurationReference = 30DE4EF287069B0CF55F55A7 /* Pods-SleepTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -807,6 +863,7 @@
 		};
 		1D8901ED1A4B511A001A69A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C5C0F3265DCBE43AF1EAD80 /* Pods-SleepTrackerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -827,6 +884,7 @@
 		};
 		1D8901EE1A4B511A001A69A3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDB3A8A248EC5F8867F76A7E /* Pods-SleepTrackerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
