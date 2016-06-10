@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/mixpanel/mixpanel-iphone.svg?branch=yolo-travis-ci)](https://travis-ci.org/mixpanel/mixpanel-iphone)
-[![Cocoapods Version](http://img.shields.io/cocoapods/v/Mixpanel.svg?style=flat)](https://mixpanel.com)
+[![CocoaPods Version](http://img.shields.io/cocoapods/v/Mixpanel.svg?style=flat)](https://mixpanel.com)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Apache License](http://img.shields.io/cocoapods/l/Mixpanel.svg?style=flat)](https://mixpanel.com)
 
@@ -9,8 +9,10 @@ The Mixpanel library for iOS is an open source project, and we'd love to see you
 
 # Painless Installation (CocoaPods)
 
-Mixpanel supports `Cocoapods` for easy installation.
+Mixpanel supports `CocoaPods` for easy installation.
 To Install, see our **[full documentation »](https://mixpanel.com/help/reference/ios)**
+
+`pod 'Mixpanel'`
 
 # Carthage
 
@@ -33,11 +35,11 @@ If you don't have git installed, get it [here](http://git-scm.com/downloads).
 
 ##Step 2: Add the SDK to your app!
 
-Add the "Mixpanel" folder from the "mixpanel-iphone" to your XCode project's folder:
+Add the "Mixpanel" folder from the "mixpanel-iphone" to your Xcode project's folder:
 
 ![alt text](http://images.mxpnl.com/blog/2014-09-24%2000:56:07.905215-SprityBird_and_mixpanel-iphone.png)
 
-And drag and drop the Mixpanel folder into your XCode Project Workspace:
+And drag and drop the Mixpanel folder into your Xcode Project Workspace:
 
 ![alt text](http://images.mxpnl.com/blog/2014-09-24%2001:08:51.474250-AppDelegate_m_and_SprityBird.png)
 
