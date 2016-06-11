@@ -238,10 +238,10 @@
         NSInteger awakeTime = -([wakeUpTime timeIntervalSinceNow] + nap);
 
         if ([userPreferences integerForKey:@"醒來計時器計算方式"] == 0) {  //照常計算
-            self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:awakeTime];  //即時顯示已經醒了多久
+            self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:awakeTime];
         } else if ([userPreferences integerForKey:@"醒來計時器計算方式"] == 1) {  //超過二十四小時便不再計算
             if (awakeTime / (60 * 60) <= 23) {
-                self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:awakeTime];  //即時顯示已經醒了多久
+                self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:awakeTime];
             } else {
                 self.alreadyAwakeTimeLabel.text = @"00:00:00";
             }
