@@ -182,7 +182,7 @@
             
             today = [self dateOrdinal:[NSDate date]];
             dataDate = [self dateOrdinal:self.sleepData.wakeUpTime];
-            lastDataDate = dataDate + 1;
+            lastDataDate = dataDate - 1;
             
             NSInteger goToBedTimeInSecond, avgCount = 0;
             
