@@ -49,8 +49,7 @@
         self.sleepData = fetchArray[0];
     }
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+    dataDate = [[[[NSDateFormatter alloc] init] stringFromDate:self.sleepData.wakeUpTime] integerValue];
     lastDataDate = dataDate + 1;
 }
 
