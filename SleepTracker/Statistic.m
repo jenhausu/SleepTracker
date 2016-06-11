@@ -238,7 +238,11 @@
         MAX += 86400;
     }
     
-    if (AVG == AVG_Default) AVG = 0;
+    if (AVG == MAX_Default) {
+        AVG = 0;
+    } else if (AVG < 0) {
+        AVG += 86400;
+    }
     
     
     return @[[NSNumber numberWithFloat:MIN], [NSNumber numberWithFloat:MAX], [NSNumber numberWithFloat:AVG]];
