@@ -105,32 +105,26 @@
                     MAX = todaySleepTimeSum;
                 }
                 
-                if (minDate == dataDate) {  //處理最小值
-                    if (minStack.count >= 2) {   //堆疊數量超過一個
-                        if (todaySleepTimeSum < [minStack[minStack.count - 2] integerValue]) {
-                            MIN = todaySleepTimeSum;
-                            [minStack removeLastObject];
-                            [minStack addObject:[NSNumber numberWithInteger:todaySleepTimeSum]];
-                            
-                            minDate = dataDate;
-                            [minDateStack removeLastObject];
-                            [minDateStack addObject:[NSNumber numberWithInteger:minDate]];
-                        } else {
-                            if (dataDate == [minDateStack[minDateStack.count - 1] integerValue]) {
-                                MIN = [minStack[minStack.count - 2] integerValue];
-                                [minStack removeLastObject];
-                                
-                                minDate = [minDateStack[minDateStack.count - 2] integerValue];
-                                [minDateStack removeLastObject];
-                            }
-                        }
+                // 處理最小值
+                
+                if (minDate == dataDate) {
+                    // 還原最小值為上一筆資料
+                    [minStack removeLastObject];
+                    [minDateStack removeLastObject];
+                    if (minStack.count >= 1) {
+                        MIN = [minStack[minStack.count - 1] integerValue];
+                        minDate = [minDateStack[minDateStack.count - 1] integerValue];
                     } else {
+                        MIN = MIN_Default;
+                        minDate = dataDate + 1;
+                    }
+                    
+                    //重新比較出最小值
+                    if (todaySleepTimeSum < MIN) {
                         MIN = todaySleepTimeSum;
-                        [minStack removeLastObject];
-                        [minStack addObject:[NSNumber numberWithInteger:todaySleepTimeSum]];
+                        [minStack addObject:[NSNumber numberWithFloat:todaySleepTimeSum]];
                         
                         minDate = dataDate;
-                        [minDateStack removeLastObject];
                         [minDateStack addObject:[NSNumber numberWithInteger:minDate]];
                     }
                 }
