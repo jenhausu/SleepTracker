@@ -67,6 +67,7 @@
     userPreferences = [NSUserDefaults standardUserDefaults];
     [self stopTimer];
     
+    // 決定要不要顯示計算醒得喔久
     if ([userPreferences boolForKey:@"計算醒了多久"]) {
         self.alreadyAwakeTextLabel.text = @"已經醒了多久：";
         if (!self.alreadyAwakeTimeLabel.text) {  // 如果上次顯示頁面時就有要顯示醒了多久，就不要再把alreadyAwakeTimeLabel設為00:00:00，因為這樣會有幾秒的延遲
@@ -77,6 +78,7 @@
         self.alreadyAwakeTimeLabel.text = nil;
     }
     
+    // 決定按鈕要顯示什麼，還有根據睡眠狀態決定要計時什麼
     fetchDataArray = [self.sleepDataModel fetchSleepDataSortWithAscending:NO];
     if ([fetchDataArray count]) {  //避免一開始完全沒有任何資
         self.sleepData = fetchDataArray[0];
