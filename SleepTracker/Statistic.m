@@ -49,14 +49,13 @@
         self.sleepData = fetchArray[0];
     }
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    dataDate = [[formatter stringFromDate:self.sleepData.wakeUpTime] integerValue];
+    dataDate = [[[[NSDateFormatter alloc] init] stringFromDate:self.sleepData.wakeUpTime] integerValue];
     lastDataDate = dataDate + 1;
 }
 
 #pragma mark - Calculate MAX, MIN, AVG
 
-- (NSArray *)sleepTimeStatisticalDataInTheRecent:(NSInteger)recent;
+- (NSArray *)sleepTimeInTheRecent:(NSInteger)recent;
 {
     [self Initailize];
     
@@ -102,36 +101,30 @@
                 todaySleepTimeSum = sleepTime + lastDataSleepTime;  //今天的資料加上上一筆資料（因為兩筆資料同一天），翻成人話就是sleepTimeSumTem儲存了同一天睡覺時間的總和
                 lastDataSleepTime = todaySleepTimeSum;
                 
-                if (todaySleepTimeSum > MAX) {  //處理最大值
+                if (todaySleepTimeSum > MAX) {  //處理最大值 8,7+2
                     MAX = todaySleepTimeSum;
                 }
                 
-                if (minDate == dataDate) {  //處理最小值
-                    if (minStack.count >= 2) {   //堆疊數量超過一個
-                        if (todaySleepTimeSum < [minStack[minStack.count - 2] integerValue]) {
-                            MIN = todaySleepTimeSum;
-                            [minStack removeLastObject];
-                            [minStack addObject:[NSNumber numberWithInteger:todaySleepTimeSum]];
-                            
-                            minDate = dataDate;
-                            [minDateStack removeLastObject];
-                            [minDateStack addObject:[NSNumber numberWithInteger:minDate]];
-                        } else {
-                            if (dataDate == [minDateStack[minDateStack.count - 1] integerValue]) {
-                                MIN = [minStack[minStack.count - 2] integerValue];
-                                [minStack removeLastObject];
-                                
-                                minDate = [minDateStack[minDateStack.count - 2] integerValue];
-                                [minDateStack removeLastObject];
-                            }
-                        }
+                // 處理最小值
+                
+                if (minDate == dataDate) {
+                    // 還原最小值為上一筆資料
+                    [minStack removeLastObject];
+                    [minDateStack removeLastObject];
+                    if (minStack.count >= 1) {
+                        MIN = [minStack[minStack.count - 1] integerValue];
+                        minDate = [minDateStack[minDateStack.count - 1] integerValue];
                     } else {
+                        MIN = MIN_Default;
+                        minDate = dataDate + 1;
+                    }
+                    
+                    //重新比較出最小值
+                    if (todaySleepTimeSum < MIN) {
                         MIN = todaySleepTimeSum;
-                        [minStack removeLastObject];
-                        [minStack addObject:[NSNumber numberWithInteger:todaySleepTimeSum]];
+                        [minStack addObject:[NSNumber numberWithFloat:todaySleepTimeSum]];
                         
                         minDate = dataDate;
-                        [minDateStack removeLastObject];
                         [minDateStack addObject:[NSNumber numberWithInteger:minDate]];
                     }
                 }
@@ -166,7 +159,7 @@
     return @[[NSNumber numberWithFloat:MIN], [NSNumber numberWithFloat:MAX], [NSNumber numberWithFloat:AVG]];
 }
 
-- (NSArray *)goToBedTimeStatisticalDataInTheRecent:(NSInteger)recent;
+- (NSArray *)goToBedTimeInTheRecent:(NSInteger)recent;
 {
     MAX = MAX_Default;
     MIN = MIN_Default;
@@ -183,9 +176,10 @@
             
             today = [self dateOrdinal:[NSDate date]];
             dataDate = [self dateOrdinal:self.sleepData.wakeUpTime];
-            lastDataDate = dataDate + 1;
+            lastDataDate = dataDate - 1;
             
             NSInteger goToBedTimeInSecond, avgCount = 0;
+            NSMutableArray *avgStack = [[NSMutableArray alloc] init];
             
             NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
             NSDateComponents *dateComponents;
@@ -212,17 +206,22 @@
                             
                             // 計算平均值
                             avgCount++;
-                            if (AVG == AVG_Default) {
-                                AVG = goToBedTimeInSecond;
-                            } else {
-                                AVG = (AVG * (avgCount - 1) + goToBedTimeInSecond) / avgCount;
-                            }
+                            [avgStack addObject:[NSNumber numberWithInteger:goToBedTimeInSecond]];
                             
                             // 儲存現在這筆資料的天數為lastDataDate
                             lastDataDate = dataDate;
                         }
                     }
                 }
+            }
+            
+            if (avgCount > 0) {
+                AVG = 0;
+                
+                for (NSInteger i = 0 ; i < avgStack.count ; i++ )
+                    AVG += [avgStack[i] integerValue];
+                    
+                AVG = AVG / avgCount;
             }
         }
     }
@@ -239,13 +238,17 @@
         MAX += 86400;
     }
     
-    if (AVG == AVG_Default) AVG = 0;
+    if (AVG == MAX_Default) {
+        AVG = 0;
+    } else if (AVG < 0) {
+        AVG += 86400;
+    }
     
     
     return @[[NSNumber numberWithFloat:MIN], [NSNumber numberWithFloat:MAX], [NSNumber numberWithFloat:AVG]];
 }
 
-- (NSArray *)wakeUpTimeStatisticalDataInTheRecent:(NSInteger)recent;
+- (NSArray *)wakeUpTimeInTheRecent:(NSInteger)recent;
 {
     [self Initailize];
     if (fetchArray.count >= 2 || (fetchArray.count == 1 && self.sleepData.wakeUpTime > 0) )

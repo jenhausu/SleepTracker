@@ -88,9 +88,9 @@
 {
     NSArray *goToBedTimeData, *wakeUpTimeData, *sleepTimeData;
 
-    goToBedTimeData = [self.statistic goToBedTimeStatisticalDataInTheRecent:recent];
-    wakeUpTimeData = [self.statistic wakeUpTimeStatisticalDataInTheRecent:recent];
-    sleepTimeData = [self.statistic sleepTimeStatisticalDataInTheRecent:recent];
+    goToBedTimeData = [self.statistic goToBedTimeInTheRecent:recent];
+    wakeUpTimeData = [self.statistic wakeUpTimeInTheRecent:recent];
+    sleepTimeData = [self.statistic sleepTimeInTheRecent:recent];
     
     self.goToBedTimeMinLabel.text = [self stringFromTimeInterval:[goToBedTimeData[0] floatValue]];
     self.goToBedTimeMaxLabel.text = [self stringFromTimeInterval:[goToBedTimeData[1] floatValue]];
