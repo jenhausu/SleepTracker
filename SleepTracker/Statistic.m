@@ -185,6 +185,7 @@
             lastDataDate = dataDate - 1;
             
             NSInteger goToBedTimeInSecond, avgCount = 0;
+            NSMutableArray *avgStack = [[NSMutableArray alloc] init];
             
             NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
             NSDateComponents *dateComponents;
@@ -211,17 +212,22 @@
                             
                             // 計算平均值
                             avgCount++;
-                            if (AVG == AVG_Default) {
-                                AVG = goToBedTimeInSecond;
-                            } else {
-                                AVG = (AVG * (avgCount - 1) + goToBedTimeInSecond) / avgCount;
-                            }
+                            [avgStack addObject:[NSNumber numberWithInteger:goToBedTimeInSecond]];
                             
                             // 儲存現在這筆資料的天數為lastDataDate
                             lastDataDate = dataDate;
                         }
                     }
                 }
+            }
+            
+            if (avgCount > 0) {
+                AVG = 0;
+                
+                for (NSInteger i = 0 ; i < avgStack.count ; i++ )
+                    AVG += [avgStack[i] integerValue];
+                    
+                AVG = AVG / avgCount;
             }
         }
     }
