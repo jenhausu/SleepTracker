@@ -101,7 +101,7 @@
                 todaySleepTimeSum = sleepTime + lastDataSleepTime;  //今天的資料加上上一筆資料（因為兩筆資料同一天），翻成人話就是sleepTimeSumTem儲存了同一天睡覺時間的總和
                 lastDataSleepTime = todaySleepTimeSum;
                 
-                if (todaySleepTimeSum > MAX) {  //處理最大值
+                if (todaySleepTimeSum > MAX) {  //處理最大值 8,7+2
                     MAX = todaySleepTimeSum;
                 }
                 
