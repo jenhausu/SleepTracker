@@ -236,26 +236,29 @@
         self.alreadySleptLabel.text = [self stringFromTimeInterval:-[self.sleepData.goToBedTime timeIntervalSinceNow]];  //即時顯示已經睡了多久時間
     }else {
         NSInteger awakeTime = -([wakeUpTime timeIntervalSinceNow] + nap);
-
-        if ([userPreferences integerForKey:@"醒來計時器計算方式"] == 0) {  //照常計算
+        if (awakeTime / (60 * 60) <= 23) {  // 一天以內正常計算醒來時間
             self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:awakeTime];
-        } else if ([userPreferences integerForKey:@"醒來計時器計算方式"] == 1) {  //超過二十四小時便不再計算
-            if (awakeTime / (60 * 60) <= 23) {
-                self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:awakeTime];
-            } else {
-                self.alreadyAwakeTimeLabel.text = @"00:00:00";
-            }
-        } else if ([userPreferences integerForKey:@"醒來計時器計算方式"] == 2) {  //減去二十四小時繼續計算
-            while ((awakeTime / (60 * 60)) >= 24 ) {
-                awakeTime = awakeTime - 86400;
-            }
-            self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:awakeTime];  //看上一筆資料離現在差幾天，就扣掉幾個24小時
-        } else if ([userPreferences integerForKey:@"醒來計時器計算方式"] == 3) {  //從平均起床時間開始計算
-            if (awakeTime / (60 * 60) <= 23) {  // 一天以內正常計算醒來時間
-                self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:awakeTime];
-            } else {
-                awakeTime = -([averageWakeUpTime timeIntervalSinceNow] + nap);
-                self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:awakeTime];
+        } else {
+            switch ([userPreferences integerForKey:@"醒來計時器計算方式"]) {
+                case 0:  //照常計算
+                    self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:awakeTime];
+                    break;
+                case 1:  //超過二十四小時便不再計算
+                    self.alreadyAwakeTimeLabel.text = @"00:00:00";
+                    break;
+                case 2:  //減去二十四小時繼續計算
+                    while ((awakeTime / (60 * 60)) >= 24 ) {
+                        awakeTime -= 86400;
+                    }
+                    self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:awakeTime];  //看上一筆資料離現在差幾天，就扣掉幾個24小時
+
+                    break;
+                case 3:  //從平均起床時間開始計算
+                    awakeTime = -([averageWakeUpTime timeIntervalSinceNow] + nap);
+                    self.alreadyAwakeTimeLabel.text = [self stringFromTimeInterval:awakeTime];
+                    break;
+                default:
+                    break;
             }
         }
     }
