@@ -102,7 +102,7 @@
     self.sleepTimeMaxLabel.text = [self stringFromTimeInterval:[sleepTimeData[1] floatValue]];
     self.sleepTimeAvgLabel.text = [self stringFromTimeInterval:[sleepTimeData[2] floatValue]];
     
-    if (![self.goToBedTimeAvgLabel.text isEqualToString:@"00:00"]) {
+    if (![self.sleepTimeAvgLabel.text isEqualToString:@"00:00"]) {  // 判斷有沒有資料
         self.getUpTooLate.text = [self.statistic calculateGetUpTooLatePercentage:recent];
         self.goToBedTimeTooLate.text = [self.statistic calculateGoToBedTooLatePercentage:recent];
     } else {
